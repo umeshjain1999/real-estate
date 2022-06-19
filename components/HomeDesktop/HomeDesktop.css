@@ -2,7 +2,6 @@
   align-items: flex-end;
   background-color: var(--black-haze);
   display: flex;
-  flex:1;
   flex-direction: column;
   height: 4681px;
   overflow: hidden;

@@ -1,0 +1,23 @@
+:root { 
+  --alto: #d9d9d9;
+  --black: #000000;
+  --black-haze: #f6f6f6;
+  --caribbean-green: #19e09c;
+  --electric-violet: #9c19e0;
+  --grey-outline: #e7e7e7;
+  --placeholder: #b8b8b8;
+  /* --white: #ffffff80; */
+  --white: #ffffff;
+ 
+  --font-size-l: 16px;
+  --font-size-m: 14px;
+  --font-size-s: 13px;
+  --font-size-xxl2: 24px;
+  --font-size-xxxl2: 40px;
+  --font-size-xxxxl: 64px;
+ 
+  --font-family-circular_std-bold: "Circular Std-Bold", Helvetica;
+  --font-family-circular_std-book: "Circular Std-Book", Helvetica;
+  --font-family-circular_std-medium: "Circular Std-Medium", Helvetica;
+  --font-family-circular_std-regular: "Circular Std-Regular", Helvetica;
+}
