@@ -1,0 +1,10 @@
+.common-input {
+  border-bottom: 1px solid $placeholder;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  &::placeholder {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: $placeholder;
+  }
+}

@@ -24,8 +24,20 @@
       }
       display: flex;
       align-items: flex-start;
+      @include responsive($ipad) {
+        justify-content: center;
+        width: 100%;
+      }
       .footer__nav__wrap {
         margin-right: 12rem;
+        @include responsive($tablet) {
+          margin-right: 5rem;
+        }
+        @include responsive($mob) {
+          margin-right: 0;
+          text-align: center;
+          width: 48%;
+        }
         .nav__wrapper  {
           display: flex;
           flex-direction: column;
@@ -33,6 +45,14 @@
           .nav__link:not(:last-child) {
             margin-bottom: 1rem;
           }
+          @include responsive($mob) {
+            align-items: center;
+          }
+        }
+      }
+      .footer__nav__address {
+        @include responsive($mob) {
+          display: none;
         }
       }
     }

@@ -16,7 +16,7 @@ function Footer() {
               <span className="footer__wrapper__title">{footerNavigation2.title}</span>
               <Navigation navigation = {footerNavigation2.links} navChildClassName={'link-text'}/>
             </div>
-            <div>
+            <div className="footer__nav__address">
               <span className="footer__wrapper__title">{contactInfo.title}</span>
               <address>
                 <div className="normal-text">
