@@ -52,13 +52,7 @@
   &__locations {
     &__title {
       margin: 5rem 0;
-      font-size: 4rem;
-      line-height: 5rem;
-      color: $text-clr-primary;
-      font-weight: 700;
       @include responsive($tablet) {
-        font-size: 3rem;
-        line-height: 4rem;
         margin: 3rem 0;
       }
     }
@@ -101,7 +95,7 @@
 
   &__feat {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     margin-left: calc((100% - 120rem)/2);
     padding-left: 1.5rem;
@@ -122,8 +116,140 @@
     }
     &__left {
       width: calc(100% - 400px - 10rem);
+      margin-top: 8rem;
       @include responsive($ipad-pro) {
         width: 100%;
+        margin-top: 0;
+      }
+      .feat__title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .feat__icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .feat__icon__wrap {
+          margin-bottom: 3rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 1rem;
+          width: 200px;
+          @include responsive($ipad) {
+            width: 48%;
+            margin-right: 0;
+          }
+          .feat__icon {
+            margin-bottom: 1rem;
+            @include responsive($tablet) {
+              width: 100px;
+              height: 100px;
+            }
+            @include responsive($mob) {
+              width: 70px;
+              height: 70px;
+            }
+          }
+          .feat__icon__title {
+            font-size: 2.4rem;
+            line-height: 3.2rem;
+            color: $text-clr-primary;
+            font-weight: 500;
+            @include responsive($mob) {
+              font-size: 1.6rem;
+              line-height: 2.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__join {
+    background-color: #F7F7F7;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+    @include responsive($ipad-pro) {
+      padding: 2rem 1.5rem 2rem 0;
+    }
+    @include responsive(680) {
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+    &__left {
+      margin-right: 2rem;
+      width: calc(100% - 260px - 455px - 4rem);
+      @include responsive($ipad-pro) {
+        width: calc(100% - 455px - 2rem);
+      }
+      @include responsive($tablet) {
+        width: calc(100% - 385px - 2rem);
+      }
+      @include responsive(680) {
+        display: none;
+      }
+    }
+    &__right {
+      margin-top: auto;
+      margin-left: 2rem;
+      width: 260px;
+      height: auto;
+      @include responsive($ipad-pro) {
+        display: none;
+      }
+    }
+    &__middle {
+      width: 455px;
+      @include responsive($tablet) {
+        width: 385px;
+      }
+      @include responsive(680) {
+        width: 100%;
+      }
+    }
+    &__title {
+      margin-bottom: 5rem;
+      @include responsive($tablet) {
+        margin-bottom: 3rem;
+      }
+    }
+    .common-card {
+      .card-content {
+        padding: 3rem 5rem;
+        @include responsive(680) {
+          padding: 2rem;
+        }
+      }
+    }
+    &__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .partners__form__input {
+        width: 100%;
+        border-bottom: 1px solid $placeholder;
+        margin-bottom: 5rem;
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+        &::placeholder {
+          font-size: 1.4rem;
+          line-height: 1.8rem;
+          color: $placeholder;
+        }
+        @include responsive(680) {
+          margin-bottom: 4rem;
+        }
+      }
+    }
+    &__button {
+      width: 100%;
+      span {
+        font-size: 1.6rem;
+        line-height: 2rem;
       }
     }
   }

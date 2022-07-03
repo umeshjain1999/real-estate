@@ -106,6 +106,17 @@
 	}
 }
 
+.sub-title {
+	font-size: 4rem;
+	line-height: 5rem;
+	font-weight: 700;
+	color: $text-clr-primary;
+	@include responsive($tablet) {
+		font-size: 3rem;
+		line-height: 4rem;
+	}
+}
+
 /* slick slider */
 /* Slider */
 .slick-slider {

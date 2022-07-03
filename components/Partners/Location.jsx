@@ -4,7 +4,7 @@ function Location() {
   return (
     <div className="container">
       <div className='partners__locations'>
-        <div className='partners__locations__title'>{locationInfo.title}</div>
+        <div className='partners__locations__title sub-title'>{locationInfo.title}</div>
         <div className="partners__locations__cards">
           {locationInfo.arr.map((data,index) => {
             return (
