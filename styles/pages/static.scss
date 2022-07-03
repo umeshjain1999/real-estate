@@ -1,0 +1,10 @@
+.static {
+  margin-bottom: 2rem;
+  &__title {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    color: $text-clr-primary;
+    margin: 2rem 0;
+    font-weight: 700;
+  } 
+}

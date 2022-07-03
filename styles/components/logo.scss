@@ -1,0 +1,20 @@
+.logo_v1 {
+  height: 40px;
+  .logo_icon {
+    margin-right: 1.5rem;
+  }
+}
+.logo_v2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  .logo_icon {
+    margin-bottom: 1.5rem;
+    width: 60px;
+    height: 60px;
+  }
+  .logo_name {
+    width: 230px;
+    height: 50px;
+  }
+}

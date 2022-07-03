@@ -1,44 +1,27 @@
-import React from "react";
-import styled from "styled-components";
-import { CircularstdBookNormalWhite16px, ValignTextMiddle } from "../../styledMixins";
-
+import Icon from "../Icon";
 
 function Button(props) {
-  const { icons, search } = props;
+  const { 
+    icon,
+    iconPosition = 'left',
+    text = 'button',
+    variant = 'primary',
+    buttonClassName = '',
+  } = props;
+  let updatedClassName = 'common-btn';
+  updatedClassName = buttonClassName && updatedClassName + ` ${buttonClassName}` ;
+  if (variant === 'secondary') {
+    updatedClassName =  updatedClassName + ' secondary-btn'
+  }
 
   return (
-    <Button1>
-      <IconCall src={icons} />
-      <Search>{search}</Search>
-    </Button1>
-  );
+    <button className={updatedClassName}>
+      {icon && iconPosition === 'left' && <Icon icon = {icon} iconClassName = "btn-icon-left"/>}
+      <span>{text}</span>
+      {icon && iconPosition === 'right' && <Icon icon = {icon} iconClassName = "btn-icon-right"/>}
+    </button>
+  )
 }
 
-const Button1 = styled.div`
-  margin-top: 10px;
-  width: 144px;
-  height: 40px;
-  margin-left: 10px;
-  display: flex;
-  background-color: var(--black);
-  border-radius: 12px;
-`;
-
-const IconCall = styled.img`
-  margin-top: 10px;
-  width: 20px;
-  height: 20px;
-  margin-left: 20px;
-`;
-
-const Search = styled.div`
-  ${ValignTextMiddle}
-  ${CircularstdBookNormalWhite16px}
-            margin-top: 10px;
-  width: 82px;
-  height: 20px;
-  margin-left: 2px;
-  letter-spacing: 0.16px;
-`;
 
 export default Button;

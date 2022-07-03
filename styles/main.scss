@@ -1,0 +1,16 @@
+/*comment common */
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/mixins';
+@import 'base/base';
+
+/* components */
+@import 'components/logo';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/button';
+@import 'components/team';
+
+/* pages */
+@import 'pages/partners';
+@import 'pages/static';

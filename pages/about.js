@@ -1,39 +1,22 @@
-
-import styled from "styled-components";
-
-
-function About({ name, date }) {
+import Footer from "@components/Footer";
+import Header from "@components/Header";
+function About() {
   return (
-    <div>
-      <Menus>About us</Menus>
-      <div>{name}</div>
-      <div>{date}</div>
-    </div>
+    <>
+    <Header/>
+    <main className="main-wrapper static">
+      <div className="container">
+        <div className="static__title">{title}</div>
+        <div className="static__desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus. Vitae morbi ac proin blandit nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus. “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus. Vitae morbi ac proin blandit nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus. “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus. Vitae morbi ac proin blandit nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus. Vitae morbi ac proin blandit nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus. “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus. Vitae morbi ac proin blandit nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus. “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus. Vitae morbi ac proin blandit nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida pharetra felis elit id erat phasellus.
+        </div>
+      </div>
+    </main>
+    <Footer></Footer>
+    </>
   );
 }
 
-// const Puppy = dynamic(() => import("../components/Puppy"), {
-//   loading: () => <p>Loading...</p>,
-//   ssr: false,
-// });
-
-export async function getStaticProps(context) {
-    console.log('[about.js]:getStaticProps:')
-  return {
-    props: {
-      name: "kiran",
-      date:Date.now()
-    }, // will be passed to the page component as props
-    revalidate:10
-  };
-}
-
-
-
-
-const Menus = styled.div`
-  background-color: red;
-  height: 200 px;
-`;
-
+const title = 'About Us'
 export default About;

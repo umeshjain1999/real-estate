@@ -1,0 +1,90 @@
+/* utility mixin */
+@mixin vendor($property, $value) {
+	-webkit-#{$property}: $value;
+	-moz-#{$property}: $value;
+	-ms-#{$property}: $value;
+	-o-#{$property}: $value;
+	#{$property}: $value;
+}
+
+@mixin keyframes($animation-name) {
+	@-webkit-keyframes #{$animation-name} {
+		@content;
+	}
+	@-moz-keyframes #{$animation-name} {
+		@content;
+	}
+	@-ms-keyframes #{$animation-name} {
+		@content;
+	}
+	@-o-keyframes #{$animation-name} {
+		@content;
+	}
+	@keyframes #{$animation-name} {
+		@content;
+	}
+}
+
+@mixin animation($animation) {
+	-webkit-animation: $animation;
+	-moz-animation:$animation;
+	-ms-animation:$animation;
+	animation:$animation;
+}
+
+@mixin clearfix {
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin add-transition($property, $duration) {
+	-webkit-transition: $property $duration cubic-bezier(0.25, 0.1, 0.25, 1);
+	-o-transition: $property $duration cubic-bezier(0.25, 0.1, 0.25, 1);
+	transition: $property $duration cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@mixin text-attributes($noOfLine, $fontSize, $color, $fontWeight, $lineHeight) {
+	@if ($color == null) {
+		color: $text-clr;
+	} @else {
+		color: $color;
+	}
+	font-size: $fontSize;
+	@if ($fontWeight == null) {
+		font-weight: 400;
+	} @else {
+		font-weight: $fontWeight;
+	}
+	@if ($lineHeight == null) {
+		line-height: $fontSize + 0.6rem;
+		max-height: ($fontSize + 0.6rem) * $noOfLine;
+	} @else {
+		line-height: $fontSize + $lineHeight;
+		max-height: ($fontSize + $lineHeight) * $noOfLine;
+	}
+	-webkit-line-clamp: $noOfLine;
+}
+
+// Responsive mixin
+@mixin responsive($width) {
+	@media screen and (max-width: $width + "px"){ @content; }
+}
+
+@mixin min-responsiveheight($height) {
+	@media screen and (min-height: $height+"px") { @content; }
+}
+
+@mixin min-responsive($width) {
+	@media screen and (min-width: $width + "px"){ @content; }
+}
+
+@mixin orientation-responsive($orient,$width) {
+	@media screen and (orientation: $orient) and (max-width: $width + "px") { @content; }
+}
+
+@mixin deviceWidth($width) {
+	@media screen and (min-device-width: $width + "px") { @content; }
+}

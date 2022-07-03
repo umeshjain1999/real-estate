@@ -1,0 +1,94 @@
+.team {
+  background-image: url(/assets/images/team_bg.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: -1;
+  padding: 5rem 0;
+  &::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(106.81deg, #9C19E0 11.03%, rgba(156, 25, 224, 0) 127.02%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+  &__wrapper {
+    position: relative;
+    z-index: 2;
+    &__title {
+      text-align: center;
+      color: $text-clr-sec;
+      font-size: 4rem;
+      line-height: 5rem;
+      font-weight: 700;
+      margin-bottom: 5rem;
+    }
+    &__inner__wrap {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      .team__left {
+        width: calc(100% - 400px - 10rem);
+        display: flex;
+        @include responsive($ipad) {
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+        }
+        @include responsive($mob) {
+          flex-direction: column;
+        }
+        .team__member {
+          @include responsive($ipad) {
+            margin-bottom: 3rem;
+          }
+          &:first-child {
+            margin-right: 5rem;
+            @include responsive($mob) {
+              margin-right: 0;
+            }
+          }
+          img {
+            border-radius: 12px;
+          }
+          .team__info {
+            &__name,&__position {
+              text-align: center;
+              color: $text-clr-sec;
+              font-size: 2.4rem;
+              line-height: 3.2rem;
+              text-transform: capitalize;
+              @include responsive($mob) {
+                font-size: 2rem;
+                line-height: 2.6rem;
+              }
+            }
+            &__name {
+              font-weight: 500;
+              margin-bottom: 1rem;
+              margin-top: 1rem;
+            }
+            &__position {
+              font-weight: 400;
+            }
+          }
+        }
+      }
+      .team__right {
+        width: 400px;
+        margin-left: 10rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        color: $text-clr-sec;
+        @include responsive($ipad) {
+          width: 100%;
+          text-align: center;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
