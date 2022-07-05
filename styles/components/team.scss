@@ -8,7 +8,7 @@
   &::after {
     content: '';
     position: absolute;
-    background: linear-gradient(106.81deg, #9C19E0 11.03%, rgba(156, 25, 224, 0) 127.02%);
+    background: linear-gradient(106.81deg, $accent-clr-1 11.03%, rgba(156, 25, 224, 0) 127.02%);
     top: 0;
     left: 0;
     right: 0;

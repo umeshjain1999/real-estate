@@ -1,0 +1,27 @@
+.projects {
+  background: $grey-shade-2;
+  &__title {
+    margin-bottom: 3rem;
+  }
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    .project-res {
+      width: calc(33.33% - 3rem);
+      margin: 0 1.5rem 3rem 1.5rem;
+      @include responsive($ipad) {
+        width: calc(50% - 3rem);
+      }
+      @include responsive(580) {
+        width: 100%;
+        margin: 0 0 3rem;
+      }
+    }
+    margin-right: -1.5rem;
+    margin-left: -1.5rem;
+    @include responsive(580) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}

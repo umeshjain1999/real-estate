@@ -41,6 +41,10 @@
 .d-block {
 	display: block;
 }
+.horizontal-center {
+	display: flex;
+	align-items: center;
+}
 /* responsive images */
 .img-wrap {
 	overflow: hidden;
