@@ -102,7 +102,7 @@
     border-top-left-radius: 12px;
     &:hover {      
       ~ .project-card {
-        @include vendor(box-shadow,rgba(0, 0, 0, 0.16) 0px 1px 4px);
+        @include vendor(box-shadow,$box-shadow);
         svg:not(.project-address svg) path {
           fill: $accent-clr-2;
           fill-opacity: 0.7;

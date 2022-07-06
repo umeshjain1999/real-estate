@@ -12,7 +12,7 @@ function Header() {
           <div className='header__wrapper__nav'>
             <Navigation navigation = {headerNavigation} navChildClassName={'link-text'}/>
             <Button text="Login/Register" icon = 'loginUser' iconPosition = 'right' buttonClassName = 'header__login'/>
-            <Button text="contact us" icon = 'call' buttonClassName = 'header__btn'/>
+            <Button text="contact us" icon = 'call' buttonClassName = 'header__btn' link = {true} href = {contactInfo} />
           </div>
         </div>
       </div>
@@ -25,5 +25,7 @@ const headerNavigation = [
   {name:'projects',link:'/projects'},
   {name:'partners',link:'/partners'},
 ]
+
+const contactInfo = 'tel:+91 9326518230'
 
 export default Header

@@ -9,8 +9,12 @@ function ProjectDetail() {
   return (
     <>
     <Header/>
-    <Breadcrumb linkArr={breadcrumb}/>
-    <main className="main-wrapper">ProjectDetail {projectId}</main>
+    <main className="main-wrapper">
+      <div className="container">
+        <Breadcrumb linkArr={breadcrumb}/>
+        <div>ProjectDetail {projectId}</div>
+      </div>
+    </main>
     <Footer/>
     </>
   )

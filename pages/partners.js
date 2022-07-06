@@ -1,9 +1,8 @@
-import Header from "@components/Header";
-import Footer from "@components/Footer";
-import {Banner,Feature,PartnerForm,Location} from '@components/Partners';
-import Team from "@components/Team";
 import Breadcrumb from "@components/Breadcrumb";
-
+import Footer from "@components/Footer";
+import Header from "@components/Header";
+import { Banner, Feature, Location, PartnerForm } from '@components/Partners';
+import Team from "@components/Team";
 function Partners() {
   return (
     <>
