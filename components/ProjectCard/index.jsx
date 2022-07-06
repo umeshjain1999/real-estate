@@ -8,7 +8,7 @@ function ProjectCard(props) {
     id : projectInfo?.id || '1',
     name : projectInfo?.name || 'none',
     price: projectInfo?.price || 'none',
-    picturePath: projectInfo?.picturePath || '/assets/images/sample.png',
+    picturePath: projectInfo?.picturePath || '/assets/images/image-loader.svg',
     provider: projectInfo?.provider || 'sqfthomes',
     address: projectInfo?.address || 'none',
     rooms : projectInfo?.rooms || false,

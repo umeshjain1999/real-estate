@@ -24,4 +24,30 @@
       margin-right: 0;
     }
   }
+  &__filter {
+    margin-bottom: 4rem;
+    margin-right: -1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @include responsive($mob-min) {
+      margin-right: 0;
+    }
+    .select-res {
+      width: calc(20% - 1.5rem);
+      margin-right: 1.5rem;
+      margin-bottom: 1.5rem;
+      @include responsive($ipad) {
+        width: calc(33.33% - 1.5rem);
+      }
+      @include responsive(580) {
+        width: calc(50% - 1.5rem);
+      }
+      @include responsive($mob-min) {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+  }
 }

@@ -1,4 +1,15 @@
 .partners {
+  position: relative;
+  .breadcrumb-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    .breadcrumb {
+      color: $white-clr;
+    }
+  }
   &__banner {
     background-image: url(/assets/images/partner_hero_banner.png);
     background-size: cover;
