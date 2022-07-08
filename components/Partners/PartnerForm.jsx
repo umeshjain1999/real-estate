@@ -37,7 +37,7 @@ function PartnerForm() {
             <Input required inputClassName='partners__form__input' type="text" id="name" name="fullName" placeholder='Name' />
             <Input required inputClassName='partners__form__input' type="email" id="email" name="email" placeholder='Email ID'/>
             <Input required inputClassName='partners__form__input' type="tel" id="tel" name="tel" placeholder='Phone Number' />
-            <Button text='submit' variant='secondary' type='submit' buttonClassName='partners__join__button'/>
+            <Button text='submit' variant='secondary' type='submit' className='partners__join__button'/>
           </form>
         </Card>
       </div>

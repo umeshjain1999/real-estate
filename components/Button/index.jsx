@@ -6,13 +6,13 @@ function Button(props) {
     iconPosition = 'left',
     text = 'button',
     variant = 'primary',
-    buttonClassName = '',
+    className = '',
     link = false,
     href = '',
     ...remainingProps
   } = props;
   let updatedClassName = 'common-btn';
-  updatedClassName = buttonClassName ? updatedClassName + ` ${buttonClassName}` : updatedClassName ;
+  updatedClassName = className ? updatedClassName + ` ${className}` : updatedClassName ;
   if (variant === 'secondary') {
     updatedClassName =  updatedClassName + ' secondary-btn'
   }
@@ -21,17 +21,17 @@ function Button(props) {
   if(link) {
     return (
       <a className={updatedClassName} {...remainingProps} href = {href}>
-        {icon && iconPosition === 'left' && <Icon icon = {icon} iconClassName = "btn-icon-left"/>}
+        {icon && iconPosition === 'left' && <Icon icon = {icon} className = "btn-icon-left"/>}
         <span>{text}</span>
-        {icon && iconPosition === 'right' && <Icon icon = {icon} iconClassName = "btn-icon-right"/>}
+        {icon && iconPosition === 'right' && <Icon icon = {icon} className = "btn-icon-right"/>}
       </a>
     )
   } else {
     return (
       <button className={updatedClassName} {...remainingProps}>
-        {icon && iconPosition === 'left' && <Icon icon = {icon} iconClassName = "btn-icon-left"/>}
+        {icon && iconPosition === 'left' && <Icon icon = {icon} className = "btn-icon-left"/>}
         <span>{text}</span>
-        {icon && iconPosition === 'right' && <Icon icon = {icon} iconClassName = "btn-icon-right"/>}
+        {icon && iconPosition === 'right' && <Icon icon = {icon} className = "btn-icon-right"/>}
       </button>
     )
   }

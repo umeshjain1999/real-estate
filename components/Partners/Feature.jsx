@@ -11,7 +11,7 @@ function Feature() {
           {featureInfo && featureInfo.arr.map((data,index) => {
             return(
               <div className="feat__icon__wrap" key={index}>
-                <Icon icon = {data.icon} iconClassName = {'feat__icon'} />
+                <Icon icon = {data.icon} className = {'feat__icon'} />
                 <span className="feat__icon__title">{data.title}</span>
               </div>              
             )

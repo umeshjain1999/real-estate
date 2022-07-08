@@ -73,6 +73,8 @@
   }
   .project-save {
     word-break: normal;
+    position: relative;
+    z-index: 5;
     &.saved {
       svg {
         path {
@@ -124,8 +126,6 @@
     right: 0;
     top: 0;
     bottom: 0;
-    // border-top-right-radius: 12px;
-    // border-top-left-radius: 12px;
     &:hover {      
       ~ .project-card {
         @include vendor(box-shadow,$box-shadow);
