@@ -1,7 +1,7 @@
 Need to Fix :
  - Proper fonts - 400, 500, 600, 700
  - Project Card Save feature
- - Hamburger menu for mobile
  - common padding for container
  - don't render element if prop is empty
  - common divider (to manage gap)
+ - common transition timing

@@ -2,7 +2,7 @@
   background-color: $white-clr;
   box-shadow: 0px 4px 4px rgba($color: $black-clr, $alpha: 0.25);
   position: relative;
-  z-index: 2;
+  z-index: 100;
   &__wrapper {
     display: flex;
     align-items: center;
@@ -12,14 +12,40 @@
       display: flex;
       align-items: center;
       @include responsive($ipad) {
-        /* //! temporary */
-        display: none;
+        visibility: hidden;
+        opacity: 0;
+        @include add-transition(all,0.3s);
+        position: absolute;
+        background: #fff;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        top: 80px;
+        padding: 3rem;
+        border: 1px solid #e6e6e6;
+        z-index: 99;
+        box-shadow: 0px 4px 4px rgba($color: $black-clr, $alpha: 0.25);
+        &.active {
+          visibility: visible;
+          opacity: 1;
+        }
       }
       .nav__wrapper {
         display: flex;
         align-items: center;
+        @include responsive($ipad) {
+          flex-direction: column;
+        }
         .nav__link {
           margin-right: 6rem;
+          @include responsive($ipad) {
+            margin-right: 0;
+            margin-bottom: 3rem;
+            font-size: 2.4rem;
+            line-height: 3rem;
+          }
         }
       }
     }
@@ -29,8 +55,14 @@
       padding: 0;
       color:$text-clr-primary;
       margin-right: 6rem;
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 1.4rem;
+      line-height: 2rem;
+      @include responsive($ipad) {
+        margin-right: 0;
+        font-size: 2.4rem;
+        line-height: 3rem;
+        margin-bottom: 3rem;
+      }
       &:hover {
         background: transparent;
         color: $accent-clr-1;
@@ -38,6 +70,20 @@
           fill: $accent-clr-1;
         }
       }
+    }
+  }
+  &__hamburger-wrap {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+  }
+  &__hamburger {
+    display: none;
+    @include responsive($ipad) {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
     }
   }
 }

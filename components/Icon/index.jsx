@@ -40,6 +40,12 @@ function Icon(props) {
       break;
     case 'projectDirection':
       svgEelement = <svg className={className} width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12.208c1.333-1.083 2.347-2.139 3.042-3.166.694-1.028 1.041-1.986 1.041-2.875 0-.778-.139-1.438-.416-1.979-.278-.542-.622-.98-1.032-1.313a4.063 4.063 0 0 0-1.323-.729A4.284 4.284 0 0 0 6 1.917c-.389 0-.823.076-1.302.229-.48.153-.924.396-1.333.729-.41.333-.754.771-1.032 1.313-.277.541-.416 1.201-.416 1.979 0 .889.347 1.847 1.041 2.875.695 1.027 1.709 2.083 3.042 3.166Zm0 2.209c-1.972-1.459-3.437-2.868-4.396-4.229C.646 8.827.167 7.486.167 6.167c0-.986.174-1.854.521-2.605a5.63 5.63 0 0 1 1.364-1.874A5.907 5.907 0 0 1 3.938.552 5.914 5.914 0 0 1 6 .167c.695 0 1.386.128 2.073.385a5.937 5.937 0 0 1 1.875 1.136 5.63 5.63 0 0 1 1.364 1.874c.347.75.521 1.619.521 2.605 0 1.32-.479 2.66-1.437 4.021-.959 1.36-2.424 2.77-4.396 4.229ZM6 7.75c.472 0 .875-.167 1.208-.5.333-.333.5-.736.5-1.208 0-.473-.167-.876-.5-1.209A1.646 1.646 0 0 0 6 4.333c-.472 0-.875.167-1.208.5-.333.333-.5.736-.5 1.209 0 .472.167.875.5 1.208.333.333.736.5 1.208.5ZM.167 16.833v-1.75h11.666v1.75H.167Z" fill="#B9B9B9"/></svg>
+      break;
+    case 'hamburger':
+      svgEelement = <svg className={className} width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="hamburgerIconTitle" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" color="#000"><path d="M6 7h12M6 12h12M6 17h12"/></svg>
+      break;
+    case 'close':
+      svgEelement = <svg className={className} width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"><path d="m15.5 15.5-10-10zm0-10-10 10" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
       break;     
     default:
       svgEelement = <svg></svg>
