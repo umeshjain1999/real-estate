@@ -12,7 +12,7 @@ function Header() {
           <div className='header__wrapper__nav'>
             <Navigation navigation = {headerNavigation} navChildClassName={'link-text'}/>
             <Button text="Login/Register" icon = 'loginUser' iconPosition = 'right' buttonClassName = 'header__login'/>
-            <Button text="contact us" icon = 'call' buttonClassName = 'header__btn' link = {true} href = {contactInfo} />
+            <Button text="contact us" icon = 'call' buttonClassName = 'header__btn animation-wobble' link = {true} href = {contactInfo} />
           </div>
         </div>
       </div>

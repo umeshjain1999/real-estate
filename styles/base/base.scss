@@ -119,16 +119,6 @@
 	a {
 		margin-top: 2rem;
 		font-size: 1.6rem;
-		@include animation(flash .75s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate both);
-		@include keyframes(flash){
-			0% {
-					opacity: 1
-			}
-			100% {
-					opacity: 0.8;
-			}
-		}
-
 	}
 }
 

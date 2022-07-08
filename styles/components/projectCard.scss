@@ -19,7 +19,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      @include responsive(580) {
+      @include responsive($mob-max) {
         flex-wrap: wrap;
       }
       .project-name,.project-price{
@@ -27,7 +27,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         max-width: 49%;
-        @include responsive(580) {
+        @include responsive($mob-max) {
           max-width: 100%;
         }
       }
@@ -90,6 +90,32 @@
   @include add-transition(all,0.3s)
 }
 
+.project-card {
+  &.project-horizontal {
+      display: flex;
+      border-radius: 0;
+      border-bottom-left-radius: 12px;
+      border-top-left-radius: 12px;
+      .project-img {
+        width: 20rem;
+        height: auto;
+        border-radius: 0;
+        border-bottom-left-radius: 12px;
+        border-top-left-radius: 12px;
+      }
+      .project-wrap {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        border: 1px solid #E8E8E8;
+        .project-content {
+          flex: 1;
+          padding: 2rem 1rem;
+        }
+      }
+  }
+}
+
 .project-res {
   position: relative;
   .project-overlay {
@@ -98,8 +124,8 @@
     right: 0;
     top: 0;
     bottom: 0;
-    border-top-right-radius: 12px;
-    border-top-left-radius: 12px;
+    // border-top-right-radius: 12px;
+    // border-top-left-radius: 12px;
     &:hover {      
       ~ .project-card {
         @include vendor(box-shadow,$box-shadow);

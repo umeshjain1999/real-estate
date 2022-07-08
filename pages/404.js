@@ -12,7 +12,7 @@ export default function NotFound() {
             <div>Oops! You are in the wrong <span className='error-404'>area.</span></div>
             <div className='error-small'>(<span className='error-404'>404,</span> Page Not Found.)</div>
             <Link href='/projects' >
-              <a className='common-btn'>
+              <a className='common-btn animation-dum-dum'>
                 looking for property   ?
               </a>
             </Link>

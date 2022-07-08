@@ -12,14 +12,14 @@
       @include responsive($ipad) {
         width: calc(50% - 3rem);
       }
-      @include responsive(580) {
+      @include responsive($mob-max) {
         width: 100%;
         margin: 0 0 3rem;
       }
     }
     margin-right: -1.5rem;
     margin-left: -1.5rem;
-    @include responsive(580) {
+    @include responsive($mob-max) {
       margin-left: 0;
       margin-right: 0;
     }
@@ -41,7 +41,7 @@
       @include responsive($ipad) {
         width: calc(33.33% - 1.5rem);
       }
-      @include responsive(580) {
+      @include responsive($mob-max) {
         width: calc(50% - 1.5rem);
       }
       @include responsive($mob-min) {
