@@ -59,8 +59,8 @@ const footerNavigation2 = {
 
 const contactInfo = {
   title: 'Contact Us',
-  mail : 'abc@xyz.com',
-  tel: '+91 10000 50002',
+  mail : 'contact@sqfthome.in',
+  tel: '+91 9326518230',
   address: 'Fort, Mumbai'
 }
 

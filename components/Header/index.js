@@ -18,7 +18,7 @@ function Header() {
           <div className={`header__wrapper__nav ${open ? 'active' : ''}`}>
             <Navigation navigation = {headerNavigation} navChildClassName={'link-text'}/>
             <Button text="Login/Register" icon = 'loginUser' iconPosition = 'right' className = 'header__login'/>
-            <Button text="contact us" icon = 'call' className = 'header__btn animation-wobble' link = {true} href = {contactInfo} />
+            <Button text="+91 9326518230" icon = 'call' className = 'header__btn animation-wobble' link = {true} href = {contactInfo} />
           </div>
         </div>
       </div>

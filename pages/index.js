@@ -108,7 +108,7 @@ const brandInfo = {
 
 const reviewInfo = {
   title : 'What people say',
-  subTitle : 'We are committed to making our clients happy with our services',
+  subTitle : 'We are committed to making our customers happy with our 12+ years of experience in the industry',
   user_1 : {
     name : 'Karan Jain',
     company : 'Zoro Steels & Co',
