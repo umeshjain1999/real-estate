@@ -9,7 +9,7 @@
 	text-transform: capitalize;
 	cursor: pointer;
 	@include add-transition(all,0.3s);
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	.btn-icon-left {

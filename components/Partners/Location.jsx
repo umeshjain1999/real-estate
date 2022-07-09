@@ -2,9 +2,10 @@ import React from 'react'
 
 function Location() {
   return (
-    <div className="container">
-      <div className='partners__locations'>
-        <div className='partners__locations__title sub-title'>{locationInfo.title}</div>
+    <div className='partners__locations divider-lg'>
+      <div className="container">
+      <div className='partners__locations_wrap'>
+        <div className='partners__locations__title sub-title divider'>{locationInfo.title}</div>
         <div className="partners__locations__cards">
           {locationInfo.arr.map((data,index) => {
             return (
@@ -18,6 +19,7 @@ function Location() {
           })}
         </div>
       </div>
+    </div>
     </div>
   )
 }

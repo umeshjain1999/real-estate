@@ -21,7 +21,7 @@ function PartnerForm() {
     }
   }
   return (
-    <div className='partners__join'>
+    <div className='partners__join divider-lg'>
       <div className="partners__join__left">
         <Image
             src={'/assets/images/form_left.png'}

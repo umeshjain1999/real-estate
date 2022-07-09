@@ -5,7 +5,7 @@ function Brand({
   desc = ''
 }) {
   return (
-    <div className='home__brand'>
+    <div className='home__brand divider-lg'>
       <div className="container">
         <div className="home__brand__wrap">
           <div className="home__brand__left">

@@ -4,7 +4,7 @@
     background-size: cover;
     background-position: center;
     height: 550px;
-    padding: 1.5rem;
+    padding: $container-padding;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,12 +55,11 @@
     align-items: center;
     flex-wrap: wrap;
     background: $grey-shade-2;
-    margin-bottom: 5rem;
     &__middle {
       flex: 1;
       padding: 2rem;
       @include responsive($tablet) {
-        padding: 2rem 1.5rem;
+        padding: 2rem $container-padding
       }
     }
 
@@ -126,7 +125,6 @@
   }
 
   &__brand {
-    margin-bottom: 5rem;
     &__wrap {
       display: flex;
       align-items: center;
@@ -201,7 +199,16 @@
   }
 
   &__near {
-    &__wrap {
+    &__sub-title {
+      font-size: 2.4rem;
+      line-height: 3.2rem;
+      color: $accent-clr-2;
+      @include responsive($mob-max) {
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+      }
+    }
+    &__card-wrap {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -230,5 +237,111 @@
       }
     }
 
+  }
+
+  &__review {
+    background-color: $accent-clr-1;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+    &-title,&-sub-title {
+      color: $white-clr;
+      position: relative;
+      z-index: 2;
+    }
+    &-sub-title {
+      font-size: 2.4rem;
+      line-height: 3.2rem;
+    }
+    &-users-wrap {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      .review-user {
+        width: 30%;
+        color: $white-clr;
+        margin-right: 10rem;
+        text-align: left;
+        @include responsive($ipad-pro) {
+          width: calc(50% - 3rem);
+          margin-right: 3rem;
+        }
+        @include responsive($mob-max) {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 3rem;
+        }
+      }
+      .review-text {
+        margin-bottom: 1.5rem;
+        color: $white-clr;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid $white-clr;
+      }
+      .user__profile {
+        display: flex;
+        align-items: center;
+        &-img {
+          background-image: url(/assets/icons/profile.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-color: $accent-clr-1-light;
+          width: 62px;
+          height: 62px;
+          border-radius: 50%;
+          margin-right: 1.5rem;
+        }
+        &-name,&-company {
+          display: block;
+          color: $white-clr;
+        }
+        &-name {
+          font-size: 1.6rem;
+          line-height: 2.2rem;
+        }
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(/assets/icons/review-quote.svg);
+      background-repeat: no-repeat;
+      z-index: 0;
+      width: 200px;
+      height: 150px;
+      top: 15px;
+      left: 30px;
+      @include responsive($tablet) {
+        transform: scale(0.5);
+        top: 0;
+        left: 0;
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url(/assets/icons/review-bg.svg);
+      background-repeat: no-repeat;
+      z-index: 0;
+      width: 465px;
+      height: 465px;
+      bottom: -20px;
+      right: 30px;
+      opacity: 0.7;
+      @include responsive($ipad-pro) {
+        opacity: 0.3;
+        transform: scale(0.5);
+        right: 0;
+        bottom: 0;
+      }
+      @include responsive($tablet) {
+        display: none;
+      }
+    }
+    
   }
 }

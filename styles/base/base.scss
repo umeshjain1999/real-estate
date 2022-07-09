@@ -1,6 +1,6 @@
 .container {
 	max-width: $container-width;
-	padding: 0 1.5rem;
+	padding: 0 $container-padding;
 	margin: 0 auto;
 }
 
@@ -100,7 +100,7 @@
 	flex-direction: column;
 	font-size: 3rem;
 	margin: 2rem 0;
-	padding: 0 1.5rem;
+	padding: 0 $container-padding;
 	@include responsive($mob) {
 		font-size: 2.2rem;
 	}
@@ -169,6 +169,16 @@
 		margin: 0 1rem;
 		display: inline-block;
 	}
+}
+
+.divider-lg {
+	margin-bottom: 5rem;
+}
+.divider {
+	margin-bottom: 3rem;
+}
+.divider-sm {
+	margin-bottom: 1.5rem;
 }
 
 /* slick slider */

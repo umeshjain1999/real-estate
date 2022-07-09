@@ -11,8 +11,8 @@ function Projects() {
     <main className="main-wrapper projects">
       <div className="container">
         <Breadcrumb linkArr={breadcrumb}/>
-        <div className="sub-title projects__title">Projects</div>
-        <div className="projects__filter">
+        <div className="sub-title projects__title divider">Projects</div>
+        <div className="projects__filter divider">
           <Select selectOptions={category?.arr} title={category?.title} />
           <Select selectOptions={beds?.arr} title={beds?.title} />
           <Select selectOptions={pricing?.arr} title={pricing?.title} />
@@ -20,7 +20,7 @@ function Projects() {
         <div className="projects__wrapper">
           {projects && projects.map((data,index) => {
             return(
-              <ProjectCard projectInfo = {data} key={index} />
+              <ProjectCard projectInfo = {data} key={data.id} />
             )
           })}
         </div>

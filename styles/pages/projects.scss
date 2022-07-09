@@ -1,8 +1,5 @@
 .projects {
   background: $grey-shade-2;
-  &__title {
-    margin-bottom: 3rem;
-  }
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +22,6 @@
     }
   }
   &__filter {
-    margin-bottom: 4rem;
     margin-right: -1.5rem;
     display: flex;
     flex-wrap: wrap;

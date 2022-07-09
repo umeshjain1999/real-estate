@@ -1,7 +1,5 @@
 Need to Fix :
  - Proper fonts - 400, 500, 600, 700
- - Project Card Save feature
- - common padding for container
+ - Project Card Save feature (z-index level managed functionality pending )
  - don't render element if prop is empty
- - common divider (to manage gap)
  - common transition timing

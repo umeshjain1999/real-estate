@@ -15,7 +15,7 @@
     background-size: cover;
     background-position: center;
     height: 550px;
-    padding: 1.5rem;
+    padding: $container-padding;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,9 +62,9 @@
 
   &__locations {
     &__title {
-      margin: 5rem 0;
+      // margin-bottom: 5rem;
       @include responsive($tablet) {
-        margin: 3rem 0;
+        // margin: 3rem 0;
       }
     }
     &__cards {
@@ -116,7 +116,7 @@
     }
     @include responsive($ipad-pro) {
       padding: 0 1.5rem;
-      margin: 2rem 0;
+      margin: 3rem 0;
     }
     &__right {
       width: 400px;
@@ -185,11 +185,11 @@
     justify-content: space-between;
     padding: 2rem 0;
     @include responsive($ipad-pro) {
-      padding: 2rem 1.5rem 2rem 0;
+      padding: 2rem $container-padding 2rem 0;
     }
     @include responsive(680) {
       justify-content: center;
-      padding: 2rem 1.5rem;
+      padding: 2rem $container-padding
     }
     &__left {
       margin-right: 2rem;

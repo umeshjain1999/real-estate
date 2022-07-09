@@ -9,7 +9,7 @@ function Intro({
   rentDesc = ''
 }) {
   return (
-    <div className='home__intro'>
+    <div className='home__intro divider-lg'>
       <div className="home__intro__left">
         <Image
             src={'/assets/images/home/home_left.png'}

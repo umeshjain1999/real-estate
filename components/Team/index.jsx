@@ -5,7 +5,7 @@ function Team() {
     <div className='team'>
       <div className="container">
         <div className="team__wrapper">
-          <div className="team__wrapper__title">Our Team</div>
+          <div className="team__wrapper__title divider-lg">Our Team</div>
           <div className="team__wrapper__inner__wrap">
             <div className="team__left">
               <div className="team__member">
