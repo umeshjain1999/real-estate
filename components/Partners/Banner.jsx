@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Banner({largeTxt= '',smallTxt=''}) {
+function Banner({largeTxt = false,smallTxt = false}) {
   return (
     <div className="partners__banner">
-        <span className="partners__banner__lg_txt">{largeTxt}</span>
-        <span className="partners__banner__sm_txt">{smallTxt}</span>
+        {largeTxt && <span className="partners__banner__lg_txt">{largeTxt}</span>}
+        {smallTxt && <span className="partners__banner__sm_txt">{smallTxt}</span>}
     </div>
   )
 }
