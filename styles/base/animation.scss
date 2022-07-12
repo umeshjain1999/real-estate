@@ -19,11 +19,10 @@
 }
 
 .animation-jello {
-        animation: myAnim 2s ease 0.5s 1 normal forwards;
+        animation: jello 2s ease 0.5s 1 normal forwards;
 }
 
-
-@keyframes myAnim {
+@keyframes jello {
 	0% {
 		transform: scale3d(1, 1, 1);
 	}

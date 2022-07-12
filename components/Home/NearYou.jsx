@@ -37,7 +37,7 @@ const data =   {
   id: 1,
   name : 'Shree Complex',
   price : '20000',
-  picturePath: '/assets/images/sample.png',
+  picturePath: '/assets/images/garbage/sample.png',
   provider: 'By Kamdhenu Builders',
   address: 'Sector 3, Kharghar, Navi Mumbai 410210',
   rooms : '5',

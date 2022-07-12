@@ -1,8 +1,11 @@
 .project__detail {
-  &-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  background: $grey-shade-2;
+  &-bottom {
+    &-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
   &-left-section {
     width: calc(100% - 400px - 3rem) ;
@@ -67,7 +70,7 @@
       }
     }
     .project-wrap {
-      border: 1px solid #E8E8E8;
+      // border: 1px solid #E8E8E8;
     }
   }
   &-banner {
@@ -169,5 +172,9 @@
         }
       }
     }
+  }
+  &-top {
+    background: $white-clr;
+    box-shadow: 0px 4px 4px rgba($color: $black-clr, $alpha: 0.25);
   }
 }

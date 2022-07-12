@@ -1,10 +1,10 @@
 import Breadcrumb from "@components/Breadcrumb";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
-import { LeftSection, RightSection } from "@components/ProjectDetail";
+import { LeftSection, Project, ProjectTab, RightSection } from "@components/ProjectDetail";
 import { useRouter } from "next/router";
 import { stringToHtml } from "utility/functions";
-import Link from "next/link";
+import ScrollUp from "@components/ScrollUp";
 function ProjectDetail() {
   const router = useRouter()
   const projectId = router.query.projectId; 
@@ -13,24 +13,32 @@ function ProjectDetail() {
     <>
     <Header/>
     <main className="main-wrapper project__detail" id="top">
-      <div className="container">
-        <Breadcrumb linkArr={breadcrumb}/>
-        <div className="project__detail-section divider-lg">
-          <LeftSection
-            overview = {overview}
-            aboutProject = {aboutProject}
-            aboutDevelopers = {aboutDevelopers}
-            hightLights = {hightLights}
-            amenities = {hightLights}
-            floorPlanAndPrice = {floorPlanAndPrice}
-            localityMap = {true}
-          />
-          <RightSection featuredProperties = {featuredProperties}/>
+        <div className="project__detail-top divider-lg">
+          <div className="container">
+            <div className="project__detail-top-wrap">
+              <Breadcrumb linkArr={breadcrumb}/>
+              <Project/>
+              <ProjectTab/>
+            </div>
+          </div>
         </div>
-        <Link href={'#top'}>
-          <a className = "divider to-the-top" title="To the top">&#8682;</a>
-        </Link>
-      </div>
+        <div className="project__detail-bottom">
+          <div className="container">
+            <div className="project__detail-bottom-wrap divider-lg">
+              <LeftSection
+                overview = {overview}
+                aboutProject = {aboutProject}
+                aboutDevelopers = {aboutDevelopers}
+                hightLights = {hightLights}
+                amenities = {hightLights}
+                floorPlanAndPrice = {floorPlanAndPrice}
+                localityMap = {true}
+              />
+              <RightSection featuredProperties = {featuredProperties}/>
+            </div>
+            <ScrollUp/>
+          </div>
+        </div>
     </main>
     <Footer/>
     </>
@@ -56,7 +64,7 @@ const featuredProperties = [
     id: 1,
     name : 'Shree Complex',
     price : '20000',
-    picturePath: '/assets/images/sample.png',
+    picturePath: '/assets/images/garbage/sample.png',
     provider: 'By Kamdhenu Builders',
     address: 'Sector 3, Kharghar, Navi Mumbai 410210',
     rooms : '5',
@@ -69,7 +77,7 @@ const featuredProperties = [
     id: 2,
     name : 'Shree Complex',
     price : '20000',
-    picturePath: '/assets/images/sample.png',
+    picturePath: '/assets/images/garbage/sample.png',
     provider: 'By Kamdhenu Builders',
     address: 'Sector 3, Kharghar, Navi Mumbai 410210',
     rooms : '5',
@@ -82,7 +90,7 @@ const featuredProperties = [
     id: 3,
     name : 'Shree Complex',
     price : '20000',
-    picturePath: '/assets/images/sample.png',
+    picturePath: '/assets/images/garbage/sample.png',
     provider: 'By Kamdhenu Builders',
     address: 'Sector 3, Kharghar, Navi Mumbai 410210',
     rooms : '5',
