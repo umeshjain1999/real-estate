@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import ProjectCard from '@components/ProjectCard';
 import Image from 'next/image';
 import Card from '@components/Card';
-import Button from '@components/Button';
 import Input from '@components/Input';
+import Button from '@components/Button';
 
-function PartnerForm() {
+function RightSection({featuredProperties = []}) {
   const formSubmission = (e) => {
     e.preventDefault()
     if( e.target.fullName && e.target.fullName.value 
@@ -21,18 +22,9 @@ function PartnerForm() {
     }
   }
   return (
-    <div className='partners__join divider-lg'>
-      <div className="partners__join__left">
-        <Image
-            src={'/assets/images/form_left.png'}
-            alt="Buildings"
-            width={500}
-            height={670}
-          />
-      </div>
-      <div className="partners__join__middle">
-        <div className='partners__join__title sub-title'>Join the Sqfthome family</div>
-        <Card title={'Fill the Form to Be a Partner'} >
+    <div className="project__detail-right-section">
+      <div className="project__detail-form divider">
+        <Card title={'Contact Our Real Estate experts'} >
           <form onSubmit={formSubmission} className='common-form' >
             <Input required inputClassName='common-form-input' type="text" id="name" name="fullName" placeholder='Name' />
             <Input required inputClassName='common-form-input' type="email" id="email" name="email" placeholder='Email ID'/>
@@ -41,16 +33,29 @@ function PartnerForm() {
           </form>
         </Card>
       </div>
-      <div className="partners__join__right">
+      <div className="project__detail-banner divider">
         <Image
-            src={'/assets/images/form_right.png'}
-            alt="Buildings"
-            width={265}
-            height={460}
-          />
+          src={'/assets/images/banner.png'}
+          alt="Zero Brokerage"
+          width={460}
+          height={195}
+        />
+      </div>
+      <div className="project__detail-featured-wrap">
+        <div className="sub-title-sm divider">Featured Properties</div>
+        <div className="project__detail-featured">
+          {featuredProperties && featuredProperties.map((data) => {
+            return (
+              <ProjectCard
+                projectInfo = {data}
+                key = {data?.id}
+              />
+            )
+          }) }
+        </div>
       </div>
     </div>
   )
 }
 
-export default PartnerForm;
+export default RightSection

@@ -17,4 +17,15 @@
     width: 230px;
     height: 50px;
   }
+  @include responsive($mob) {
+    .logo_icon {
+      margin-bottom: 1rem;
+      width: 30px;
+      height: 30px;
+    }
+    .logo_name {
+      width: 110px;
+      height: 30px;
+    }
+  }
 }

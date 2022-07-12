@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from '@components/Icon';
 import Link from 'next/link';
 function ProjectCard(props) {
-  const {projectInfo = {},horizontal = false} = props
+  const {projectInfo = {},horizontal = false,...remainingProps} = props
 
   const filterData = {
     id : projectInfo?.id || '1',
@@ -20,7 +20,7 @@ function ProjectCard(props) {
 
 
   return (
-    <div className="project-res">
+    <div className="project-res" {...remainingProps}>
       <Link href={`/projects/${filterData.id}`}>
         <a className="project-overlay"></a>
       </Link>
@@ -42,7 +42,7 @@ function ProjectCard(props) {
               {filterData.parking && <span className='project-feat-icon horizontal-center'><Icon icon='projectCar'/> {filterData.parking}</span>}
               {filterData.area && <span className='project-feat-icon horizontal-center'><Icon icon='projectArea'/> {filterData.area} Sqft</span>}
             </div>
-            <span className={`horizontal-center project-save ${filterData.saved && 'saved'}`}><Icon icon='projectFav'/> {filterData.saved ? 'Saved!' : 'Save'}</span>
+            <span className={`horizontal-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`}/> {filterData.saved ? '' : 'Save'}</span>
           </div>
         </div>
       </div>

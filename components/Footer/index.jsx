@@ -19,13 +19,13 @@ function Footer() {
             <div className="footer__nav__address">
               <span className="footer__wrapper__title">{contactInfo.title}</span>
               <address>
-                <div className="normal-text">
+                <div className="footer__addr-txt normal-text">
                   {contactInfo.mail}
                 </div>
-                <div className="normal-text">
+                <div className="footer__addr-txt normal-text">
                   {contactInfo.tel}
                 </div>
-                <div className="normal-text">
+                <div className="footer__addr-txt normal-text">
                   {contactInfo.address}
                 </div>
               </address>

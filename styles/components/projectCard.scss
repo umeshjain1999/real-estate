@@ -76,14 +76,6 @@
     word-break: normal;
     position: relative;
     z-index: 5;
-    &.saved {
-      svg {
-        path {
-          fill: rgb(247, 31, 31);
-          fill-opacity: 1;
-        }
-      }
-    }
   }
   svg {
     margin-right: .7rem;

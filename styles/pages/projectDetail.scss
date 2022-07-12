@@ -1,0 +1,173 @@
+.project__detail {
+  &-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &-left-section {
+    width: calc(100% - 400px - 3rem) ;
+    @include responsive($ipad-pro) {
+      width: 100%;
+    }
+  }
+  &-right-section {
+    width: 400px;
+    margin-left: 3rem;
+    @include responsive($ipad-pro) {
+      width: 100%;
+      margin-left: 0;
+    } 
+  }
+  .common-card {
+    @include vendor(box-shadow,$box-shadow);
+    .card-content {
+      ul {
+        li {
+          margin-bottom: 1rem;
+          position: relative;
+          padding-left: 1.5rem;
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: $black-clr;
+          }
+        }
+      }
+      h1,h2,h3,h4,h5,h6 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-bottom: 1rem;
+        color: $text-clr-primary;
+      }
+    }
+  }
+  &-featured {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .project-res {
+      margin-bottom: 2rem;
+      width: 100%;
+      @include responsive($ipad-pro) {
+        width: calc(50% - 1rem);
+      }
+      @include responsive($mob-max) {
+        width: 100%;
+      }
+    }
+    .project-wrap {
+      border: 1px solid #E8E8E8;
+    }
+  }
+  &-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      @include vendor(box-shadow,$box-shadow)
+    }
+  }
+  &-highlights,&-amenities {
+    .card-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .horizontal__profile {
+      width: calc(50% - 2rem);
+      margin-bottom: 2rem;
+      margin-right: 1rem;
+      margin-left: 1rem;
+      @include responsive($mob) {
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+      }
+      &-name,&-feature {
+        display: block;
+        color: $text-clr-primary;
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+      }
+    }
+
+  }
+  &-amenities {
+    .horizontal__profile {
+      width: calc(33.33% - 2rem);
+      @include responsive($tablet) {
+        width: calc(50% - 2rem);
+      }
+      @include responsive($mob) {
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+  }
+  &-plan-price {
+    text-align: center;
+    .top-plan-price {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      @include responsive($mob) {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    .price-plan-price {
+      font-size: 2.4rem;
+      line-height: 3.2rem;
+      color: $text-clr-primary;
+      font-weight: 600;
+    }
+    .tabs-plan-price {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      .tabs-wrap-plan-price {
+        margin-right: 1rem;
+        .structure-plan-price {
+          margin-bottom: 2rem;
+          background-color: $white-clr;
+          border: 1px solid $accent-clr-2;
+          color: $accent-clr-2;
+          &:hover {
+            background-color: $accent-clr-2;
+            color: $white-clr;
+          }
+        }
+        .area-plan-price {
+          font-size: 1.6rem;
+          line-height: 2.2rem;
+          color: $placeholder;
+        }
+      }
+    }
+    .active {
+      &.tabs-wrap-plan-price {
+        .structure-plan-price {
+          background-color: $accent-clr-2;
+          color: $white-clr;
+          pointer-events: none;
+        }
+        .area-plan-price {
+          color: $text-clr-primary;
+          border-bottom: 1px solid $accent-clr-2;
+        }
+      }
+    }
+  }
+}

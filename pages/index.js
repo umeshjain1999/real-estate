@@ -111,13 +111,13 @@ const reviewInfo = {
   subTitle : 'We are committed to making our customers happy with our 12+ years of experience in the industry',
   user_1 : {
     name : 'Karan Jain',
-    company : 'Zoro Steels & Co',
+    feature : 'Zoro Steels & Co',
     review : 'SqftHome have helped me in a good knowledge for buying property, made me feel comfortable in their work environment, helped me deal with my property financial goals and a lotmore which otherwise I wouldn’t have gained.',
     // profileImagePath : '/'
   },
   user_2 : {
     name : 'Dr. A.K. Singh',
-    company : 'Doctor',
+    feature : 'Doctor',
     review : 'I visited the shortlisted project site 2 days before the lockdown and was really impressed with the customer service and transparent details. I booked my home even during the lockdown as I didn’t want to waste time to make the best decision of my life.',
     // profileImagePath : '/'
   }

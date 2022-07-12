@@ -14,9 +14,12 @@
 @import 'components/card';
 @import 'components/projectCard';
 @import 'components/team';
+@import 'components/horizontalProfile';
+
 
 /* pages */
 @import 'pages/home';
 @import 'pages/partners';
 @import 'pages/static';
-@import 'pages/projects'
+@import 'pages/projects';
+@import 'pages/projectDetail';
