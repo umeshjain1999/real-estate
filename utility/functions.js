@@ -3,6 +3,9 @@ const stringToHtml = (stringValue) => {
          </div>;
 }
 
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
+
 export {
-  stringToHtml
+  stringToHtml,
+  scrollToRef
 }

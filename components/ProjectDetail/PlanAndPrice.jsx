@@ -18,7 +18,7 @@ function PlanAndPrice({floorPlanAndPrice = []}) {
           {
             floorPlanAndPrice && floorPlanAndPrice.map((data) => {
               return (
-                <div className={`tabs-wrap-plan-price ${data?.id === currentPlan?.id ? 'active' : ''}`}>
+                <div key={data?.id} className={`tabs-wrap-plan-price ${data?.id === currentPlan?.id ? 'active' : ''}`}>
                     <Button onClick={() => setPlan(data)} text= {data?.structure} className = 'structure-plan-price'/>
                     <div className='area-plan-price'>{data?.area}</div>
                 </div>

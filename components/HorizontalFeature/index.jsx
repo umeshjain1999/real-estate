@@ -1,6 +1,6 @@
 import React from 'react'
 import Icon from '@components/Icon'
-function Profile({
+function HorizontalFeature({
   profileImagePath = false,
   name = '',
   feature = false,
@@ -28,4 +28,4 @@ function Profile({
   )
 }
 
-export default Profile
+export default HorizontalFeature

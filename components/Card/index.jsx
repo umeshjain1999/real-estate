@@ -1,9 +1,9 @@
 import React from 'react'
 
 function Card(props) {
-  const {title = "",className = ''} = props
+  const {title = "",className = '',...remainingProps} = props
   return (
-    <div className={`common-card ${className}`}>
+    <div className={`common-card ${className}`} {...remainingProps}>
         {title && <div className="card-title">{title}</div>}
         <div className="card-content">{props.children}</div>
     </div>

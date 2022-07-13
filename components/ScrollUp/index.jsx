@@ -1,10 +1,6 @@
-import React from 'react'
-import Link from 'next/link'
-function ScrollUp() {
+function ScrollUp(props) {
   return (
-    <Link href={'#top'}>
-        <a className = "divider to-the-top" title="To the top">&#8682;</a>
-    </Link>
+      <div className = "divider to-the-top" title="To the top" {...props}>&#8682;</div>
   )
 }
 

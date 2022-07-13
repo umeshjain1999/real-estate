@@ -6,3 +6,5 @@ Need to Fix :
  - image loader
  - Unhandled Runtime Error
     TypeError: Cannot read properties of undefined (reading 'includes') (partners pages)
+ - can improve project tab with useRef (project detail)
+ - Build Icon System

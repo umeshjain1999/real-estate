@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from '@components/Card';
-import Profile from '@components/Home/Profile';
 import PlanAndPrice from './PlanAndPrice';
 import LocalMap from './LocalMap';
+import HorizontalFeature from '@components/HorizontalFeature';
 function LeftSection(props) {
   const {
     overview = false,
@@ -13,41 +13,42 @@ function LeftSection(props) {
     floorPlanAndPrice = false,
     localityMap = false
   } = props
+
   return (
     <div className="project__detail-left-section">
-      {overview && <Card title={'Overview'} className = "divider" >{overview}</Card>}
-      {hightLights && <Card title = {'Highlights'} className='divider project__detail-highlights'>
+      {overview && <Card id="project-overview" title={'Overview'} className = "divider" >{overview}</Card>}
+      {hightLights && <Card id="project-highlights" title = {'Highlights'} className='divider project__detail-highlights'>
         {hightLights && hightLights.map((data) => {
           return (
-            <Profile
+            <HorizontalFeature
               key={data?.id}
               name = {data?.name}
-              company = {data?.feature}
+              feature = {data?.feature}
               icon = {data?.icon}
             />
           )
         })}
       </Card>}
-      {aboutProject && <Card title={'About Project'} className = "divider">{aboutProject}</Card>}
-      {floorPlanAndPrice && <Card title={'Floor Plan & Price'} className = "divider">
+      {aboutProject && <Card id="project-about" title={'About Project'} className = "divider">{aboutProject}</Card>}
+      {floorPlanAndPrice && <Card id="project-plan-price" title={'Floor Plan & Price'} className = "divider">
         <PlanAndPrice floorPlanAndPrice = {floorPlanAndPrice}/>
       </Card>}
-      {amenities && <Card title = {'Amenities'} className='divider project__detail-amenities'>
+      {amenities && <Card id="project-amenities" title = {'Amenities'} className='divider project__detail-amenities'>
         {amenities && amenities.map((data) => {
           return (
-            <Profile
+            <HorizontalFeature
               key={data?.id}
               name = {data?.name}
-              company = {data?.feature}
+              feature = {data?.feature}
               icon = {data?.icon}
             />
           )
         })}
       </Card>}
-      {localityMap && <Card title={'Locality'} className='divider project_detail-locality' >
+      {localityMap && <Card id="project-locality" title={'Locality'} className='divider project_detail-locality' >
         <LocalMap/>
       </Card>}
-      {aboutDevelopers && <Card title={'About Developers'} className = "divider">{aboutDevelopers}</Card>}
+      {aboutDevelopers && <Card id="project-developers" title={'About Developers'} className = "divider">{aboutDevelopers}</Card>}
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import Profile from './Profile';
+import HorizontalFeature from '@components/HorizontalFeature';
 function Review({
   title = '',
   subTitle = '',
@@ -17,13 +17,13 @@ function Review({
               <div className="review-text normal-text">
                 {user_1?.review}
               </div>
-              <Profile {...user_1}/>
+              <HorizontalFeature {...user_1}/>
             </div>
             <div className="review-user">
               <div className="review-text normal-text">
                 {user_2?.review}
               </div>
-              <Profile {...user_2}/>
+              <HorizontalFeature {...user_2}/>
             </div>
           </div>
         </div>

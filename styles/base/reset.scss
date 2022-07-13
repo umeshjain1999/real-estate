@@ -216,6 +216,7 @@ html {
 	scrollbar-color: $accent-clr-1 $grey;
 	scrollbar-width: thin;
 	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 body {
 	position: relative;

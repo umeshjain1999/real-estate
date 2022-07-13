@@ -1,6 +1,6 @@
 .header {
   background-color: $white-clr;
-  box-shadow: 0px 4px 4px rgba($color: $black-clr, $alpha: 0.25);
+  @include vendor(box-shadow,$box-shadow-2);
   position: relative;
   z-index: 100;
   &__wrapper {
@@ -26,7 +26,7 @@
         padding: 3rem;
         border: 1px solid #e6e6e6;
         z-index: 99;
-        box-shadow: 0px 4px 4px rgba($color: $black-clr, $alpha: 0.25);
+        @include vendor(box-shadow,$box-shadow-2);
         &.active {
           visibility: visible;
           opacity: 1;
