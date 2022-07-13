@@ -36,9 +36,9 @@ function Project({
         </div>}
         {price && <div className="content-price-range divider-sm">{currency} {price}</div>}
         <div className="content-tags">
-          {tags && tags.map((data) => {
+          {tags && tags.map((data,index) => {
             return (
-              <div className='content-tags-name'>{data}</div>
+              <div className='content-tags-name' key={index}>{data}</div>
             )
           })}
         </div>

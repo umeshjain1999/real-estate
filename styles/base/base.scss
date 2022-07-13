@@ -17,9 +17,6 @@
 	flex-grow: 1;
 	overflow: auto;
 }
-.text-center {
-	text-align: center;
-}
 .paragraph {
 	font-size: 1.6rem;
 }
@@ -43,6 +40,20 @@
 }
 .horizontal-center {
 	display: flex;
+	align-items: center;
+}
+.pos-rel {
+	position: relative;
+}
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.center-flex {
+	display: flex;
+	justify-content: center;
 	align-items: center;
 }
 /* responsive images */

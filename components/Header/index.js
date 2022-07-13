@@ -3,9 +3,13 @@ import Logo from '@components/Logo';
 import Button from '@components/Button';
 import Navigation from '@components/Navigation';
 import Icon from '@components/Icon';
-
+import Login from '@components/Login';
 function Header() {
   const [open,setOpen] = useState(false)
+  const [modal,setModal] = useState(false)
+
+  const handleOpen = () => setModal(true)
+  const handleClose = () => setModal(false)
   return (
     <header className='header'>
       <div className='container'>
@@ -17,7 +21,11 @@ function Header() {
           </span>
           <div className={`header__wrapper__nav ${open ? 'active' : ''}`}>
             <Navigation navigation = {headerNavigation} navChildClassName={'link-text'}/>
-            <Button text="Login/Register" icon = 'loginUser' iconPosition = 'right' className = 'header__login'/>
+            <Button onClick={() => handleOpen()} text="Login/Register" icon = 'loginUser' iconPosition = 'right' className = 'header__login'/>
+            <Login
+              open = {modal}
+              onClose = {handleClose}
+            />
             <Button text="+91 9326518230" icon = 'call' className = 'header__btn animation-wobble' link = {true} href = {contactInfo} />
           </div>
         </div>
