@@ -231,14 +231,43 @@
         .content-feature-wrap {
           .horizontal__profile {
             margin-bottom: 2rem;
+            &-icon {
+              border: 1.5px solid $accent-clr-2;
+              width: 64px;
+              height: 64px;
+              @include vendor(box-shadow,$box-shadow-2);
+              svg {
+                width: 40px;
+                height: 40px;
+              }
+            }
             &-name,&-feature {
               color: $text-clr-primary;
+            }
+            &-name {
+              font-weight: 700;
             }
           }
         }
         .content-button {
           width: 100%;
           @include vendor(box-shadow,$box-shadow-2);
+        }
+        .content-tags {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: center;
+          &-name {
+            margin-right: 2rem;
+            margin-bottom: 2rem;
+            background-color: $white-clr;
+            border: 1px solid $accent-clr-2;
+            color: $accent-clr-2;
+            @include vendor(box-shadow,$box-shadow-2);
+            padding: .8rem 1.5rem;
+            border-radius: 12px;
+          }
         }
       }
     }

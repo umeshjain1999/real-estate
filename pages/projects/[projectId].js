@@ -23,7 +23,7 @@ function ProjectDetail() {
           <div className="container">
             <div className="project__detail-top-wrap">
               <Breadcrumb linkArr={breadcrumb}/>
-              <Project/>
+              <Project projectDetail = {projectDetail}/>
               <ProjectTab/>
             </div>
           </div>
@@ -51,6 +51,15 @@ function ProjectDetail() {
   )
 }
 
+const projectDetail = {
+  name : 'White Forest',
+  provider : 'by Kamdhenu Builers',
+  address : 'Sector 3, Kharghar, Navi Mumbai 410210',
+  price : '2.5 Cr to 2.7 Cr',
+  tags : ['New Project','10 Properties on Sale']
+}
+
+
 const breadcrumb = [
   {
     name : 'Home',
@@ -61,7 +70,7 @@ const breadcrumb = [
     link :'/projects'
   },
   {
-    name : 'Shree Complex',
+    name : projectDetail?.name,
   },
 ]
 

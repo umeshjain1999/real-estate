@@ -4,7 +4,7 @@ import Button from '@components/Button';
 import HorizontalFeature from '@components/HorizontalFeature';
 import Icon from '@components/Icon';
 import {currency} from '@constants/constant'
-function Project() {
+function Project({projectDetail}) {
   return (
     <div className="detail__wrap divider">
       <div className="detail__wrap-image">
@@ -16,13 +16,20 @@ function Project() {
         />
       </div>
       <div className="detail__wrap-content divider">
-        <div className="content-title divider-sm">White Forest</div>
-        <div className="content-provider divider-sm">by Kamdhenu Builers</div>
+        <div className="content-title divider-sm">{projectDetail?.name}</div>
+        <div className="content-provider divider-sm">{projectDetail?.provider}</div>
         <div className="content-address divider-sm">
           <Icon icon='projectDirection'/>
-          <span>Sector 3, Kharghar, Navi Mumbai 410210</span>
+          <span>{projectDetail?.address}</span>
         </div>
-        <div className="content-price-range divider-sm">{currency} 2.5 Cr to 2.7 Cr</div>
+        <div className="content-price-range divider-sm">{currency} {projectDetail?.price}</div>
+        <div className="content-tags">
+          {projectDetail?.tags && projectDetail?.tags.map((data) => {
+            return (
+              <div className='content-tags-name'>{data}</div>
+            )
+          })}
+        </div>
         <div className="content-feature-wrap divider">
           <HorizontalFeature
             name = {'Configuration'}
