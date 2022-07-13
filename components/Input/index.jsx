@@ -7,7 +7,7 @@ function Input(props) {
   } = props
   return (
     <>
-      <input className={`common-input ${inputClassName}`} {...remainingProps}/>
+      <input {...remainingProps} className={`common-input ${inputClassName}`}/>
     </>
   )
 }

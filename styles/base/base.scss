@@ -227,11 +227,27 @@
 	justify-content: center;
 	width: 40px;
 	height: 40px;
-	border: 2px solid $accent-clr-1;
+	border: 2px solid $text-clr-primary;
 	border-radius: 50%;
-	color: $accent-clr-1;
+	color: $text-clr-primary;
 	font-size: 2rem;
 	margin-left: auto;
+	position: relative;
+	@include add-transition(all,0.3s);
+	&:hover {
+		background-color: $accent-clr-2;
+		border: 2px solid transparent;
+		color: $white-clr;
+		svg,path {
+			fill: $white-clr;
+		}
+	}
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
 }
 /* slick slider */
 /* Slider */

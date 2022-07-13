@@ -3,7 +3,7 @@ import React from "react"
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Team from '@components/Team';
-import { Banner,Intro, Brand, NearYou, Review } from '@components/Home';
+import { Banner,Intro, Brand, NewlyProjects, Review } from '@components/Home';
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
         <Intro {...introInfo}/>
         <Brand {...brandInfo}/>
         <Review {...reviewInfo}/>
-        <NearYou {...nearYouInfo}/>
+        <NewlyProjects {...newlyProjects}/>
         <Team/>
       </main>
       <Footer/>
@@ -27,7 +27,7 @@ export default function Home() {
   );
 }
 
-const nearYouInfo = {
+const newlyProjects = {
   title : 'Newly added Resale property',
   subTitle : 'Find the hot spot resale properties',
   projectsArr : [

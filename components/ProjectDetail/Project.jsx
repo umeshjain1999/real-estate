@@ -4,48 +4,62 @@ import Button from '@components/Button';
 import HorizontalFeature from '@components/HorizontalFeature';
 import Icon from '@components/Icon';
 import {currency} from '@constants/constant'
-function Project({projectDetail}) {
+
+function Project({
+  name = false,
+  provider = false,
+  address = false,
+  price = false,
+  imageArr = [],
+  specsArr = [],
+  tags = []
+}) {
+
+  const firstImage = imageArr && imageArr[0] ? imageArr[0] : '/assets/images/image-loader.svg';
+  
   return (
     <div className="detail__wrap divider">
       <div className="detail__wrap-image">
         <Image
-          src = {'/assets/images/garbage/sample-2.png'}
-          alt = {'Project Details'}
+          src = {firstImage}
+          alt = {'Property Image'}
           width = {700}
           height = {440}
         />
       </div>
       <div className="detail__wrap-content divider">
-        <div className="content-title divider-sm">{projectDetail?.name}</div>
-        <div className="content-provider divider-sm">{projectDetail?.provider}</div>
-        <div className="content-address divider-sm">
+        {name && <div className="content-title divider-sm">{name}</div>}
+        {provider && <div className="content-provider divider-sm">{provider}</div>}
+        {address && <div className="content-address divider-sm">
           <Icon icon='projectDirection'/>
-          <span>{projectDetail?.address}</span>
-        </div>
-        <div className="content-price-range divider-sm">{currency} {projectDetail?.price}</div>
+          <span>{address}</span>
+        </div>}
+        {price && <div className="content-price-range divider-sm">{currency} {price}</div>}
         <div className="content-tags">
-          {projectDetail?.tags && projectDetail?.tags.map((data) => {
+          {tags && tags.map((data) => {
             return (
               <div className='content-tags-name'>{data}</div>
             )
           })}
         </div>
         <div className="content-feature-wrap divider">
-          <HorizontalFeature
-            name = {'Configuration'}
-            feature = {'1,2BHK Aparments'}
-            icon = {'amenitiesRooms'}
-          />
-          <HorizontalFeature
-            name = {'Sizes'}
-            feature = {'443.00 sq.ft. - 655.00 sq.ft. (Carpet Area)'}
-            icon = {'amenitiesRooms'}
-          />
+          {specsArr && specsArr.map((data,index) => {
+            return (
+              <HorizontalFeature
+                name = {data?.name}
+                feature = {data?.desc}
+                icon = {data?.icon}
+                key = {index}
+              />
+            )
+          })}
         </div>
-        <Button className = 'content-button' text = 'Request a Call Back' icon = 'call' variant='secondary' />
+        <Button className = 'content-button' text = {buttonTitle} icon = 'call' variant='secondary' />
       </div>
     </div>
   )
 }
+
+const buttonTitle = 'Request a Call Back'
 
 export default Project

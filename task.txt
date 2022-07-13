@@ -3,6 +3,10 @@ Need to Fix :
  - Project Card Save feature (z-index level managed functionality pending )
  - don't render element if prop is empty
  - common transition timing
+ 
+ 
+ 
+Can Take time
  - image loader
  - Unhandled Runtime Error
     TypeError: Cannot read properties of undefined (reading 'includes') (partners pages)

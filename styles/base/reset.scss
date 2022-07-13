@@ -183,7 +183,7 @@ table {
 /*scroll bar css*/
 ::-webkit-scrollbar,
 ::-webkit-scrollbar:horizontal {
-	background: $grey;
+	background: rgba($color: $accent-clr-1, $alpha: 0.4);
 	width: 1rem;
 	height: 0.6rem;
 }
@@ -213,7 +213,7 @@ table {
 }
 html {
 	-webkit-text-size-adjust: 100%;
-	scrollbar-color: $accent-clr-1 $grey;
+	scrollbar-color: $accent-clr-1 rgba($color: $accent-clr-1, $alpha: 0.4);
 	scrollbar-width: thin;
 	font-size: 62.5%;
 	scroll-behavior: smooth;

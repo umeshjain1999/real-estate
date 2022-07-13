@@ -20,7 +20,7 @@ function Button(props) {
 
   if(link) {
     return (
-      <a className={updatedClassName} {...remainingProps} href = {href}>
+      <a {...remainingProps} className={updatedClassName} href = {href}>
         {icon && iconPosition === 'left' && <Icon icon = {icon} className = "btn-icon-left"/>}
         <span>{text}</span>
         {icon && iconPosition === 'right' && <Icon icon = {icon} className = "btn-icon-right"/>}
@@ -28,7 +28,7 @@ function Button(props) {
     )
   } else {
     return (
-      <button className={updatedClassName} {...remainingProps}>
+      <button {...remainingProps} className={updatedClassName}>
         {icon && iconPosition === 'left' && <Icon icon = {icon} className = "btn-icon-left"/>}
         <span>{text}</span>
         {icon && iconPosition === 'right' && <Icon icon = {icon} className = "btn-icon-right"/>}
