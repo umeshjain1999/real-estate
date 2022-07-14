@@ -5,7 +5,7 @@ const Input = forwardRef((props,ref) => {
     className = '',
     ...remainingProps
   } = props
-  let pattern = ''
+  let pattern = '.*'
   if(props?.type === 'tel') {
     pattern = phoneValidationPattern
   }
