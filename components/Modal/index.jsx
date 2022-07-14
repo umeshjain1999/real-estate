@@ -9,7 +9,9 @@ function CustomModal(props) {
     open = {open}
     onClose = {onClose}
     >
-      {props.children}
+      <div>
+        {props.children}
+      </div>
     </Modal>
   )
 }

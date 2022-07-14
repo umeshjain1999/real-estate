@@ -39,9 +39,9 @@ function PartnerForm({
         {title && <div className='partners__join__title sub-title'>{title}</div>}
         <Card title={formTitle} >
           <form onSubmit={formSubmission} className='common-form' >
-            <Input required inputClassName='common-form-input' type="text" id="name" name="fullName" placeholder='Name' />
-            <Input required inputClassName='common-form-input' type="email" id="email" name="email" placeholder='Email ID'/>
-            <Input required inputClassName='common-form-input' type="tel" id="tel" name="tel" placeholder='Phone Number' />
+            <Input required className='common-form-input' type="text" id="name" name="fullName" placeholder='Name' />
+            <Input required className='common-form-input' type="email" id="email" name="email" placeholder='Email ID'/>
+            <Input required className='common-form-input' type="tel" id="tel" name="tel" placeholder='Phone Number' />
             <Button text='submit' variant='secondary' type='submit' className='common-form-button'/>
           </form>
         </Card>

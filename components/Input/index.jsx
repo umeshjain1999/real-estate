@@ -1,15 +1,17 @@
-import React from 'react'
-
-function Input(props) {
+import { forwardRef } from "react";
+import { phoneValidationPattern } from '@utility/functions';
+const Input = forwardRef((props,ref) => {
   const {
-    inputClassName = '',
+    className = '',
     ...remainingProps
   } = props
+  let pattern = ''
+  if(props?.type === 'tel') {
+    pattern = phoneValidationPattern
+  }
   return (
-    <>
-      <input {...remainingProps} className={`common-input ${inputClassName}`}/>
-    </>
+    <input pattern= {pattern} {...remainingProps} className={`common-input ${className}`} ref = {ref}/>
   )
-}
+});
 
-export default Input
+export default Input;

@@ -1,0 +1,47 @@
+.login__modal {
+  &-text {
+    font-size: 1.4rem;
+    color: $text-clr-primary;
+    line-height: 1.7rem;
+    margin-bottom: 2rem;
+    @include responsive($mob) {
+      font-size: 1.3rem;
+    }
+  }
+  &-input-wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    input {
+      width: 300px;
+      border-bottom: 1px solid $grey-shade-2;
+      font-size: 1.4rem;
+      &::placeholder {
+        font-size: 1.4rem;
+      }
+      @include responsive($mob) {
+        width: 210px;
+      }
+    }
+  }
+  &-prefix {
+    font-size: 1.4rem;
+    margin-right: 2rem;
+    color: $placeholder;
+    padding-bottom: 1rem;
+    word-break: normal;
+  }
+  &-button {
+    width: 100%;
+    @include responsive($mob) {
+      padding: 0.6rem;
+    }
+  }
+
+  @include responsive($mob) {
+    .card-content {
+      padding: 1.2rem;
+    }
+  }
+
+}

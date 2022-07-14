@@ -32,6 +32,11 @@ button::-moz-focus-inner {
 	border-style: none;
 	padding: 0;
 }
+button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
 button,
 input,
 optgroup,

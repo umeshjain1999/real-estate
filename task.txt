@@ -3,8 +3,7 @@ Need to Fix :
  - Project Card Save feature (z-index level managed functionality pending )
  - don't render element if prop is empty
  - common transition timing
- 
- 
+ - input form validation
  
 Can Take time
  - image loader
