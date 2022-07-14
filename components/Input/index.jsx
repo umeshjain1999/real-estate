@@ -6,11 +6,13 @@ const Input = forwardRef((props,ref) => {
     ...remainingProps
   } = props
   let pattern = '.*'
+  let title = ''
   if(props?.type === 'tel') {
     pattern = phoneValidationPattern
+    title = "Phone number must be 10 digit"
   }
   return (
-    <input pattern= {pattern} {...remainingProps} className={`common-input ${className}`} ref = {ref}/>
+    <input pattern= {pattern} title = {title} {...remainingProps} className={`common-input ${className}`} ref = {ref}/>
   )
 });
 
