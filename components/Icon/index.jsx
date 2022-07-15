@@ -59,7 +59,10 @@ function Icon(props) {
     case 'location' :
       svgEelement = <svg className={className} width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m14.358.753-5.844 12.75a.531.531 0 0 1-1.012-.177l-.494-5.927-5.927-.494a.531.531 0 0 1-.177-1.013L13.654.048a.531.531 0 0 1 .704.705Z" fill="#9C19E0"/></svg>
       break;
-      default:
+    case 'downChevron' :
+      svgEelement = <svg  className={className} width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m18.221 2.505-8.05 8.074a.834.834 0 0 1-.311.203c-.112.04-.232.06-.36.06a1.06 1.06 0 0 1-.359-.06.834.834 0 0 1-.311-.203L.756 2.505a1.138 1.138 0 0 1-.336-.838c0-.336.12-.623.36-.863s.519-.36.838-.36c.32 0 .599.12.839.36L9.5 7.848 16.544.804c.224-.223.5-.335.826-.335.328 0 .612.12.851.36.24.239.36.518.36.838 0 .32-.12.599-.36.838Z" fill="#9C19E0"/></svg>
+      break;
+    default:
       svgEelement = <svg></svg>
       break;
   }

@@ -4,11 +4,45 @@
   font-weight: 400;
   padding-bottom: 1rem;
   padding-right: 1rem;
+  &[type=radio] {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    width: 8px;
+    height: 8px;
+    outline: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    left: 0;
+    z-index: 1;
+    border-radius: 10px;
+    box-shadow: 0 0 0px 1px $white-clr, 0 0 0 2px $placeholder;
+  }
+  &[type=radio]:checked {
+    width: 8px;
+    height: 8px;
+    background: $accent-clr-1;
+    box-shadow: 0 0 0px 2px #f8f8f8, 0 0 0 3px $accent-clr-1;
+    ~ span.common-input-radio-text {
+      color: $accent-clr-1;
+    }
+  }
   &::placeholder {
     font-weight: 400;
     font-size: 1.4rem;
     color: $placeholder;
   }
+}
+.common-input-radio {
+  display: inline-block;
+  position: relative;
+}
+.common-input-radio-text {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-left: 1.6rem;
 }
 .common-input-error-wrap {
   display: flex;

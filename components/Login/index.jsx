@@ -3,11 +3,11 @@ import CustomModal from '@components/Modal';
 import Card from '@components/Card';
 import Input from '@components/Input';
 import Button from '@components/Button';
+import { phoneValidationPattern } from '@utility/functions';
 function Login({
   open,
   onClose
 }) {
-
   
   const [pNumber,setPNumber] = React.useState('')
   const [buttonDisable,setButtonDisable] = React.useState(true)
@@ -49,7 +49,16 @@ function Login({
         <form onSubmit={formSubmission} className = 'login__modal-form'>
             <div className='login__modal-input-wrap'>
               <div className='login__modal-prefix'>+91</div>
-              <Input onChange = {handleChange} title="Phone number must be 10 digits" required type="tel" name="tel" placeholder='XXXXXXXX' autoFocus = {true}/>
+              <Input
+                onChange = {handleChange}
+                title="Phone number must be of 10 digits"
+                pattern = {phoneValidationPattern}
+                required
+                type="tel"
+                name="tel"
+                placeholder='XXXXXXXX'
+                autoFocus = {true}
+              />
             </div>
             <Button text='submit' variant='secondary' type='submit' className = 'login__modal-button' disabled = {buttonDisable}/>
         </form>
