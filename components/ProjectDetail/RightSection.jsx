@@ -6,6 +6,7 @@ import Input from '@components/Input';
 import Button from '@components/Button';
 
 function RightSection({featuredProperties = []}) {
+
   const formSubmission = (e) => {
     e.preventDefault()
     if( e.target.fullName && e.target.fullName.value 
@@ -21,14 +22,15 @@ function RightSection({featuredProperties = []}) {
       alert('Sorry,Something went wrong.')
     }
   }
+
   return (
     <div className="project__detail-right-section">
       <div className="project__detail-form divider">
-        <Card title={'Contact Our Real Estate experts'} >
+        <Card title={contactFormTitle} >
           <form onSubmit={formSubmission} className='common-form' >
-            <Input required inputClassName='common-form-input' type="text" id="name" name="fullName" placeholder='Name' />
-            <Input required inputClassName='common-form-input' type="email" id="email" name="email" placeholder='Email ID'/>
-            <Input required inputClassName='common-form-input' type="tel" id="tel" name="tel" placeholder='Phone Number' />
+            <Input required className='common-form-input' type="text" id="name" name="fullName" placeholder='Name' />
+            <Input required className='common-form-input' type="email" id="email" name="email" placeholder='Email ID'/>
+            <Input required className='common-form-input' type="tel" id="tel" name="tel" placeholder='Phone Number' />
             <Button text='submit' variant='secondary' type='submit' className='common-form-button'/>
           </form>
         </Card>
@@ -42,7 +44,7 @@ function RightSection({featuredProperties = []}) {
         />
       </div>
       <div className="project__detail-featured-wrap">
-        <div className="sub-title-sm divider">Featured Properties</div>
+        <div className="sub-title-sm divider">{featuredTitle}</div>
         <div className="project__detail-featured">
           {featuredProperties && featuredProperties.map((data) => {
             return (
@@ -57,5 +59,9 @@ function RightSection({featuredProperties = []}) {
     </div>
   )
 }
+
+const featuredTitle = 'Featured Properties'
+
+const contactFormTitle = 'Contact Our Real Estate experts'
 
 export default RightSection

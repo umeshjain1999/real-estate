@@ -1,4 +1,72 @@
 .home {
+  &__search {
+    &-wrap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 $container-padding;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 20px;
+      padding: 4rem;
+      background-color: $white-clr;
+      z-index: 10;
+      @include responsive($ipad){
+        padding: 3rem
+      }
+      @include responsive($mob){
+        padding: 2rem;
+      }
+      @include vendor(box-shadow,rgba(0, 0, 0, 0.08) 0px 4px 12px);
+      .search-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include responsive($ipad) {
+          flex-direction: column;
+        }
+        .search-input-wrap {
+          display: flex;
+          align-items: center;
+          border-radius: 12px;
+          border: 1px solid $grey-shade-2;
+          padding: 1rem;
+          margin-right: 2rem;
+          @include responsive($ipad){
+            margin-right: 0;
+            margin-bottom: 2rem;
+            width: 500px;
+          }
+          @include responsive($tablet){
+            width: 100%;
+          }
+          svg {
+            margin-right: 1rem;
+          }
+          input {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            width: 100%;
+          }
+          .search-area-input {
+            width: 300px;
+            @include responsive($ipad){
+              width: 100%;
+            }
+          }
+        }
+        .search-button {
+          @include responsive($ipad){
+            width: 500px;
+          }
+          @include responsive($tablet){
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
   &__banner {
     background-image: url(/assets/images/home/home_hero.png);
     background-size: cover;

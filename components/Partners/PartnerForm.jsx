@@ -4,11 +4,15 @@ import Card from '@components/Card';
 import Button from '@components/Button';
 import Input from '@components/Input';
 
-function PartnerForm() {
+function PartnerForm({
+  title = false,
+  formTitle = false
+}) {
+
   const formSubmission = (e) => {
     e.preventDefault()
-    if( e.target.fullName && e.target.fullName.value 
-      && e.target.email && e.target.email.value 
+    if( e.target.fullName && e.target.fullName.value
+      && e.target.email && e.target.email.value
       && e.target.tel && e.target.tel.value) {
       const data = {
         name : e.target.fullName.value,
@@ -20,6 +24,7 @@ function PartnerForm() {
       alert('Sorry,Something went wrong.')
     }
   }
+
   return (
     <div className='partners__join divider-lg'>
       <div className="partners__join__left">
@@ -31,12 +36,12 @@ function PartnerForm() {
           />
       </div>
       <div className="partners__join__middle">
-        <div className='partners__join__title sub-title'>Join the Sqfthome family</div>
-        <Card title={'Fill the Form to Be a Partner'} >
+        {title && <div className='partners__join__title sub-title'>{title}</div>}
+        <Card title={formTitle} >
           <form onSubmit={formSubmission} className='common-form' >
-            <Input required inputClassName='common-form-input' type="text" id="name" name="fullName" placeholder='Name' />
-            <Input required inputClassName='common-form-input' type="email" id="email" name="email" placeholder='Email ID'/>
-            <Input required inputClassName='common-form-input' type="tel" id="tel" name="tel" placeholder='Phone Number' />
+            <Input required className='common-form-input' type="text" id="name" name="fullName" placeholder='Name' />
+            <Input required className='common-form-input' type="email" id="email" name="email" placeholder='Email ID'/>
+            <Input required className='common-form-input' type="tel" id="tel" name="tel" placeholder='Phone Number' />
             <Button text='submit' variant='secondary' type='submit' className='common-form-button'/>
           </form>
         </Card>

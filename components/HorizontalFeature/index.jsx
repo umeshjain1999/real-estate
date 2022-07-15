@@ -1,16 +1,20 @@
 import React from 'react'
 import Icon from '@components/Icon'
-function HorizontalFeature({
-  profileImagePath = false,
-  name = '',
-  feature = false,
-  icon = false
-}) {
+function HorizontalFeature(props) {
+  const {
+    profileImagePath = false,
+    name = '',
+    feature = false,
+    icon = false,
+    ...remainingProps
+  } = props
 
   const imgStyle = profileImagePath ? {
     backgroundImage : `url(${profileImagePath})`
   } : {}
+
   let userProfile = ''
+  
   if(icon) {
     userProfile = <div className='horizontal__profile-icon'><Icon icon = {icon}/></div>
   } else {
@@ -18,7 +22,7 @@ function HorizontalFeature({
   }
 
   return (
-    <div className='horizontal__profile'>
+    <div {...remainingProps} className='horizontal__profile'>
       {userProfile}
       <div className="horizontal__profile-desc">
         <span className="horizontal__profile-name">{name}</span>

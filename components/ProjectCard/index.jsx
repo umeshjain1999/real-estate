@@ -20,7 +20,7 @@ function ProjectCard(props) {
 
 
   return (
-    <div className="project-res" {...remainingProps}>
+    <div {...remainingProps} className="project-res">
       <Link href={`/projects/${filterData.id}`}>
         <a className="project-overlay"></a>
       </Link>

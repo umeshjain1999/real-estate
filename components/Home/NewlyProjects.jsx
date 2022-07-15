@@ -2,7 +2,7 @@ import React from 'react'
 import ProjectCard from '@components/ProjectCard'
 import Button from '@components/Button';
 
-function NearYou({
+function NewlyProjects({
   title = '',
   subTitle = '',
   projectsArr = [],
@@ -33,18 +33,4 @@ function NearYou({
   )
 }
 
-const data =   {
-  id: 1,
-  name : 'Shree Complex',
-  price : '20000',
-  picturePath: '/assets/images/garbage/sample.png',
-  provider: 'By Kamdhenu Builders',
-  address: 'Sector 3, Kharghar, Navi Mumbai 410210',
-  rooms : '5',
-  bathrooms : '3',
-  parking : '3',
-  area : '1000',
-  saved : true,
-}
-
-export default NearYou
+export default NewlyProjects

@@ -40,6 +40,7 @@ const breadcrumb = [
     name : 'Projects',
   },
 ]
+
 const category = {
   title : 'Category',
   arr : [
@@ -70,7 +71,6 @@ const pricing = {
     { name: "40000 and more", value: '40tomore'},
   ],
 }
-
 
 const projects = [
   {
