@@ -56,6 +56,10 @@
 	justify-content: center;
 	align-items: center;
 }
+
+.full-width {
+	width: 100%;
+}
 /* responsive images */
 .img-wrap {
 	overflow: hidden;
@@ -246,7 +250,7 @@
 	position: relative;
 	@include add-transition(all,0.3s);
 	&:hover {
-		background-color: $accent-clr-2;
+		background-color: $accent-clr-1;
 		border: 2px solid transparent;
 		color: $white-clr;
 		svg,path {

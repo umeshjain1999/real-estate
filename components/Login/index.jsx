@@ -1,67 +1,47 @@
-import React from 'react'
+import React from 'react';
 import CustomModal from '@components/Modal';
+import LoginForm from './LoginForm';
+import OTPForm from './OTPForm';
 import Card from '@components/Card';
-import Input from '@components/Input';
-import Button from '@components/Button';
-import { phoneValidationPattern } from '@utility/functions';
+import RegisterForm from './RegisterForm';
 function Login({
   open,
   onClose
 }) {
+  const initialTitle = 'Sign in to continue'
+  const [OTP,setOTP] = React.useState(false);
+  const [Register,setRegister] = React.useState(false)
+  const [title,setTitle] = React.useState(initialTitle)
   
-  const [pNumber,setPNumber] = React.useState('')
-  const [buttonDisable,setButtonDisable] = React.useState(true)
-
-  const resetState = () => {
-    setPNumber('')
-    setButtonDisable(true)
-    onClose()
-  }
-  const handleChange = (e) => {
-    if(e.target.value) {
-      setPNumber(e.target.value)
-    }
-    setButtonDisable(true)
-  }
-
   React.useEffect(() => {
-    if(pNumber.match(/^\d{10}$/)) {
-      setButtonDisable(false)
-      //! Auto Submit
-    }
-  },[pNumber])
-
-  const formSubmission = (e) => {
-    e.preventDefault()
-    if(e.target.tel && e.target.tel.value) {
-      let tel = e.target.tel.value
-      alert(`Hey! Your Phone Number is ${tel}`)
-      resetState();
+    if(OTP) {
+      setTitle('Confirm OTP to continue')
+    } else if(Register) {
+      setTitle('Register')
     } else {
-      // alert('Sorry,Something went wrong.')
+      setTitle(initialTitle)
     }
+  },[OTP,Register])
+  const handleOTP = () => {
+    setOTP(!OTP)
+  }
+  
+  const handleRegister = () => {
+    setRegister(!Register)
+  }
+
+  const resetAllState = () => {
+    setOTP(false)
+    setRegister(false)
+    onClose()
   }
 
   return (
-    <CustomModal open = {open} onClose = {onClose}>
-      <Card title = {'Sign in to continue'} className='login__modal center' >
-        <div className="login__modal-text">Please Enter Mobile Number to Continue</div>
-        <form onSubmit={formSubmission} className = 'login__modal-form'>
-            <div className='login__modal-input-wrap'>
-              <div className='login__modal-prefix'>+91</div>
-              <Input
-                onChange = {handleChange}
-                title="Phone number must be of 10 digits"
-                pattern = {phoneValidationPattern}
-                required
-                type="tel"
-                name="tel"
-                placeholder='XXXXXXXX'
-                autoFocus = {true}
-              />
-            </div>
-            <Button text='submit' variant='secondary' type='submit' className = 'login__modal-button' disabled = {buttonDisable}/>
-        </form>
+    <CustomModal open = {open} onClose = {resetAllState}>
+      <Card title = {title} className='login__modal center'>
+        {!OTP && !Register && <LoginForm handleOTP = {handleOTP} handleRegister = {handleRegister} />}
+        {OTP && <OTPForm/>}
+        {Register && <RegisterForm handleRegister = {handleRegister}/>}
       </Card>
     </CustomModal>
   )

@@ -1,5 +1,11 @@
 .login__modal {
-  &-text {
+  &-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &-text,&-register {
     font-size: 1.4rem;
     color: $text-clr-primary;
     line-height: 1.7rem;
@@ -8,19 +14,32 @@
       font-size: 1.3rem;
     }
   }
+  &-text {
+    width: calc(100% - 75px);
+  }
+  &-register {
+    width: 60px;
+    cursor: pointer;
+    color: $accent-clr-2;
+    @include add-transition(all,0.3s);
+    &:hover {
+      color: $accent-clr-1;
+    }
+  }
   &-input-wrap {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
     input {
-      width: 300px;
+      width: 310px;
       border-bottom: 1px solid $grey-shade-2;
       font-size: 1.4rem;
+      letter-spacing: 0.2rem;
       &::placeholder {
         font-size: 1.4rem;
       }
-      @include responsive($mob) {
-        width: 210px;
+      @include responsive($mob-max) {
+        width: 200px;
       }
     }
   }
@@ -37,10 +56,50 @@
       padding: 0.6rem;
     }
   }
-
-  @include responsive($mob) {
-    .card-content {
-      padding: 1.2rem;
+  .register__form {
+    &-text {
+      width: 100%;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    &-wrap {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    &-radio {
+      &:first-child {
+        margin-right: 1rem;
+      }
+      .common-input-radio-text {
+        font-size: 1.3rem;
+      }
+    }
+    .common-form-input {
+      width: 360px;
+      @include responsive($mob){
+        width: 300px;
+      }
+      @include responsive($mob-min){
+        width: 250px;
+      }
+    }
+    &-login {
+      font-size: 1.3rem;
+      text-align: center;
+      margin: 1rem 0;
+      color: $accent-clr-2;
+    }
+  }
+  .card-content{
+    padding: 4rem;
+    @include responsive($mob-max){
+      padding: 3rem;
+    }
+    @include responsive($mob){
+      padding: 2rem;
     }
   }
 
