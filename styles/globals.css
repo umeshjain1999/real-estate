@@ -24,28 +24,3 @@
   font-weight: 700;
   src: url("https://fonts.animaapp.com/CircularStd-Bold") format("opentype");
 }
-
-.screen {
-  flex:1
-}
-.screen a {
-  display: contents;
-  text-decoration: none;
-}
-
-.container-center-horizontal {
-  display: flex;
-  flex-direction: row;
-  justify-content: stretch;
-  pointer-events: none;
-  width: 100%;
-}
-
-.container-center-horizontal > * {
-  flex-shrink: 0;
-  pointer-events: auto;
-}
-
-* {
-  box-sizing: border-box;
-}
