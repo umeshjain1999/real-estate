@@ -62,6 +62,12 @@ function Icon(props) {
     case 'downChevron' :
       svgEelement = <svg  className={className} width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m18.221 2.505-8.05 8.074a.834.834 0 0 1-.311.203c-.112.04-.232.06-.36.06a1.06 1.06 0 0 1-.359-.06.834.834 0 0 1-.311-.203L.756 2.505a1.138 1.138 0 0 1-.336-.838c0-.336.12-.623.36-.863s.519-.36.838-.36c.32 0 .599.12.839.36L9.5 7.848 16.544.804c.224-.223.5-.335.826-.335.328 0 .612.12.851.36.24.239.36.518.36.838 0 .32-.12.599-.36.838Z" fill="#9C19E0"/></svg>
       break;
+    case 'rightArrow' :
+      svgEelement = <svg className={className} width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m10.5 11.5-1.062-1.062 3.687-3.688H0v-1.5h13.125L9.438 1.562 10.5.5 16 6l-5.5 5.5Z" fill="#000"/></svg>
+      break;
+    case 'leftArrow' :
+      svgEelement = <svg className={className} width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m5.5 11.5 1.062-1.062L2.875 6.75H16v-1.5H2.875l3.687-3.688L5.5.5 0 6l5.5 5.5Z" fill="#000"/></svg>
+      break;
     default:
       svgEelement = <svg></svg>
       break;
