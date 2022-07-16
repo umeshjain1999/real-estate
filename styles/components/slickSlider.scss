@@ -120,6 +120,8 @@
 	}
 	&.slick-disabled{
 		opacity: 0;
+		z-index: 0;
+		pointer-events: none;
 	}
 	svg {
 		position: absolute;
