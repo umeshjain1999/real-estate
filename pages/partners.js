@@ -1,12 +1,8 @@
 import Breadcrumb from "@components/Breadcrumb";
-import Footer from "@components/Footer";
-import Header from "@components/Header";
 import { Banner, Feature, Location, PartnerForm } from '@components/Partners';
 import Team from "@components/Team";
 function Partners() {
   return (
-    <>
-    <Header/>
     <main className="main-wrapper partners">
       <div className="breadcrumb-wrap">
         <div className="container">
@@ -19,8 +15,6 @@ function Partners() {
       <Location {...locationInfo}/>
       <Team/>
     </main>
-    <Footer></Footer>
-    </>
   );
 }
 

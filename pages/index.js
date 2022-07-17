@@ -1,10 +1,7 @@
-import Head from 'next/head'
-import React from "react"
-import Header from '@components/Header';
-import Footer from '@components/Footer';
-import Team from '@components/Team';
-import { Banner,Intro, Brand, NewlyProjects, Review,Search } from '@components/Home';
+import { Banner, Brand, Intro, NewlyProjects, Review, Search } from '@components/Home';
 import NearYou from '@components/Home/NearYou';
+import Team from '@components/Team';
+import Head from 'next/head';
 
 export default function Home() {
   return (
@@ -14,7 +11,6 @@ export default function Home() {
         <meta name="Sqfthomes.in" content="Find A Perfect Home To Live With Your Family" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header/>
       <main className='main-wrapper home'>
         <Banner {...bannerInfo}/>
         <Search/>
@@ -25,7 +21,6 @@ export default function Home() {
         <NewlyProjects {...newlyProjects}/>
         <Team/>
       </main>
-      <Footer/>
     </>
   );
 }

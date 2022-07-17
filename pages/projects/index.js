@@ -1,14 +1,10 @@
-import Footer from "@components/Footer";
-import Header from "@components/Header";
-import ProjectCard from "@components/ProjectCard";
-import Select from "@components/Select";
 import Breadcrumb from "@components/Breadcrumb";
+import ProjectCard from "@components/ProjectCard";
 import { RecommendedProjects } from "@components/Projects";
+import Select from "@components/Select";
 
 function Projects() {
   return (
-    <>
-    <Header/>
     <main className="main-wrapper projects">
       <div className="container">
         <Breadcrumb linkArr={breadcrumb}/>
@@ -28,8 +24,6 @@ function Projects() {
       </div>
       <RecommendedProjects {...recommendedProjects} />
     </main>
-    <Footer></Footer>
-    </>
   );
 }
 
