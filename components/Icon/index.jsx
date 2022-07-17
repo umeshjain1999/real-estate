@@ -68,6 +68,12 @@ function Icon(props) {
     case 'leftArrow' :
       svgEelement = <svg className={className} width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m5.5 11.5 1.062-1.062L2.875 6.75H16v-1.5H2.875l3.687-3.688L5.5.5 0 6l5.5 5.5Z" fill="#000"/></svg>
       break;
+    case 'logout' :
+      svgEelement = <svg className={className} width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14h2v-4c0-.833.292-1.542.875-2.125A2.893 2.893 0 0 1 5 7h9.2l-3.6 3.6L12 12l6-6-6-6-1.4 1.4L14.2 5H5c-1.383 0-2.562.487-3.537 1.462C.488 7.437 0 8.617 0 10v4Z" fill="#000"/></svg>
+      break;
+    case 'myListings' :
+      svgEelement = <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h8v-.55c0-.733-.367-1.325-1.1-1.775C12.167 9.225 11.2 9 10 9s-2.167.225-2.9.675c-.733.45-1.1 1.042-1.1 1.775V12Zm4-4c.55 0 1.021-.196 1.413-.588C11.804 7.021 12 6.55 12 6c0-.55-.196-1.02-.587-1.412A1.927 1.927 0 0 0 10 4c-.55 0-1.02.196-1.412.588A1.923 1.923 0 0 0 8 6c0 .55.196 1.02.588 1.412C8.979 7.804 9.45 8 10 8ZM0 20V2C0 1.45.196.979.588.587A1.925 1.925 0 0 1 2 0h16c.55 0 1.021.196 1.413.587C19.804.979 20 1.45 20 2v12a1.93 1.93 0 0 1-.587 1.413A1.928 1.928 0 0 1 18 16H4l-4 4Zm2-4.825L3.175 14H18V2H2v13.175Z" fill="#000"/></svg>
+      break;
     default:
       svgEelement = <svg></svg>
       break;

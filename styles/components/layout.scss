@@ -1,0 +1,28 @@
+.common-layout{
+  background: $grey-shade-2;
+}
+.layout{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  &__left{
+    width: 280px;
+    margin-right: 1.5rem;
+    @include responsive($ipad-pro){
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 2rem;
+    }
+  }
+  &__right{
+    padding: 2rem;
+    border-radius: 12px;
+    width: calc(100% - 280px - 1.5rem);
+    background: $white-clr;
+    @include responsive($ipad-pro){
+      width: 100%;
+    }
+  }
+}

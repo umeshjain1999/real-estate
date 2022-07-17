@@ -1,0 +1,64 @@
+.sidebar{
+  background: $white-clr;
+  border-radius: 12px;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  @include responsive($ipad-pro){
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @include responsive($mob){
+    .sidebar-text{
+      display: none;
+    }
+  }
+  &__link{
+    margin-bottom: 2rem;
+    @include responsive($ipad-pro){
+      margin-bottom: 0;
+      margin-right: 3rem;
+    }
+    &-child{
+      display: flex;
+      align-items: center;
+      svg{
+        margin-right: 1rem;
+      }
+    }
+    &-last{
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      svg{
+        margin-right: 1rem;
+      }
+    }
+    &-child,&-last{
+      @include add-transition(all,0.3s);
+      color: $text-clr-primary;
+      svg{
+        width: 20px;
+        height: 20px
+      }
+      svg,path{
+        @include add-transition(all,0.3s);
+      }
+      &:hover,&:active{
+        color: $accent-clr-1;
+        svg,path{
+          fill: $accent-clr-1;
+        }
+      }
+    }
+    &.active{
+      .sidebar__link-child{
+        color: $accent-clr-1;
+        svg,path{
+          fill: $accent-clr-1;
+        }
+      }
+    }
+  }
+}
