@@ -214,20 +214,14 @@
       }
       &-image-sm{
         cursor: pointer;
-        margin-right: 1rem;
-        width: calc(100% - 1rem);
-        height: 150px;
+        margin: 0 0.8rem;
+        width: calc(100% - 1.6rem);
+        height: 118px;
         border-radius: 12px;
         opacity: 0.6;
         @include add-transition(all,0.3s);
         &.active,&:hover{
           opacity: 1;
-        }
-        @include responsive($mob-max){
-          height: 100px;
-        }
-        @include responsive($mob-min){
-          height: 80px;
         }
       }
       &-content {
