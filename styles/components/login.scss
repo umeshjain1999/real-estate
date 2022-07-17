@@ -15,15 +15,24 @@
     }
   }
   &-text {
-    width: calc(100% - 75px);
+    width: calc(100% - 60px - 1rem);
   }
   &-register {
     width: 60px;
+    margin-left: 1rem;
+  }
+  &-highlight {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    display: inline-block;
     cursor: pointer;
     color: $accent-clr-2;
     @include add-transition(all,0.3s);
-    &:hover {
+    &:hover{
       color: $accent-clr-1;
+    }
+    @include responsive($mob){
+      font-size: 1.3rem;
     }
   }
   &-input-wrap {
@@ -86,11 +95,66 @@
         width: 250px;
       }
     }
-    &-login {
-      font-size: 1.3rem;
+    &-highlight {
+      display: block;
       text-align: center;
       margin: 1rem 0;
-      color: $accent-clr-2;
+    }
+  }
+  .otp__modal {
+    &-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-width: 350px;
+      margin-bottom: 2rem;
+      @include responsive($mob){
+        min-width: 230px;
+      }
+    }
+    &-input-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    &-input {
+      width: 20px;
+      padding: 0;
+      padding-left: 0.5rem;
+      padding-bottom: 0.5rem;
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+    &-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      .otp__modal-text-wrap{
+        width: calc(100% - 50px - 1rem);
+      }
+      .otp__modal-highlight{
+        width: 50px;
+      }
+    }
+    &-top,&-bottom{
+      font-size: 1.4rem;
+      color: $text-clr-primary;
+      line-height: 1.7rem;
+      @include responsive($mob){
+        font-size: 1.3rem;
+      }
+    }
+    &-highlight {
+      margin-left: 1rem;
+    }
+    &-number{
+      display: inline-block;
+      color: $accent-clr-1;
     }
   }
   .card-content{

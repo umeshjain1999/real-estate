@@ -30,7 +30,7 @@ function RightSection({featuredProperties = []}) {
           <form onSubmit={formSubmission} className='common-form' >
             <Input required className='common-form-input' type="text" id="name" name="fullName" placeholder='Name' />
             <Input required className='common-form-input' type="email" id="email" name="email" placeholder='Email ID'/>
-            <Input required className='common-form-input' type="tel" id="tel" name="tel" placeholder='Phone Number' />
+            <Input required className='common-form-input' type="tel" id="tel" name="tel" placeholder='Phone Number'/>
             <Button text='submit' variant='secondary' type='submit' className='common-form-button'/>
           </form>
         </Card>

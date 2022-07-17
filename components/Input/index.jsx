@@ -4,9 +4,17 @@ const Input = forwardRef((props,ref) => {
     className = '',
     ...remainingProps
   } = props
+  let updatedProps = remainingProps
+  if(remainingProps?.type === 'tel'){
+    updatedProps = {
+      maxLength : "10",
+      placeholder :'XXXXXXXX',
+      ...updatedProps,
+    }
+  }
 
   return (
-    <input {...remainingProps} className={`common-input ${className}`} ref = {ref}/>
+    <input {...updatedProps} className={`common-input ${className}`} ref = {ref}/>
   )
 });
 

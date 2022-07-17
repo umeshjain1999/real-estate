@@ -1,11 +1,11 @@
+import React from 'react';
 import Button from '@components/Button';
 import Input from '@components/Input';
-import { phoneValidationPattern } from '@utility/functions';
-import React from 'react';
-
+import { isNormalNumber } from '@utility/functions';
 function LoginForm({
   handleOTP,
-  handleRegister
+  handleRegister,
+  updatePhoneNumber
 }) {
 
   const [pNumber,setPNumber] = React.useState('')
@@ -21,27 +21,28 @@ function LoginForm({
     handleOTP()
   }
   const handleChange = (e) => {
-    if(e.target.value) {
-      setPNumber(e.target.value)
-    }
-    setButtonDisable(true)
+    const ele = e.target
+    if(!isNormalNumber(ele.value)) return false
+    setPNumber(ele.value)
   }
 
   React.useEffect(() => {
-    if(pNumber.match(/^\d{10}$/)) {
+    if(pNumber.length === 10) {
       setButtonDisable(false)
       //! Auto Submit
+    } else{
+      setButtonDisable(true)
     }
   },[pNumber])
 
   const formSubmission = (e) => {
     e.preventDefault()
-    if(e.target.tel && e.target.tel.value) {
-      let tel = e.target.tel.value
-      alert(`Hey! Your Phone Number is ${tel}`)
+    if(pNumber) {
+      updatePhoneNumber(pNumber)
       resetState();
+      alert(`Hey! Your Phone Number is ${pNumber}`)
     } else {
-      // alert('Sorry,Something went wrong.')
+      alert('Sorry,Something went wrong.')
     }
   }
 
@@ -50,20 +51,18 @@ function LoginForm({
     <>
       <div className='login__modal-top'>
         <div className="login__modal-text">Please Enter Mobile Number to Continue</div>
-        <div className='login__modal-register' onClick={callRegister}>Register</div>
+        <div className='login__modal-register login__modal-highlight' onClick={callRegister}>Register</div>
       </div>
       <form onSubmit={formSubmission} className = 'login__modal-form'>
           <div className='login__modal-input-wrap'>
             <div className='login__modal-prefix'>+91</div>
             <Input
-              onChange = {handleChange}
-              title="Phone number must be of 10 digits"
-              pattern = {phoneValidationPattern}
               required
               type="tel"
               name="tel"
-              placeholder='XXXXXXXX'
               autoFocus
+              onChange = {handleChange}
+              value = {pNumber}
             />
           </div>
           <Button text='submit' variant='secondary' type='submit' className = 'login__modal-button' disabled = {buttonDisable}/>
