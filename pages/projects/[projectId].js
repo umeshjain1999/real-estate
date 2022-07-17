@@ -57,7 +57,11 @@ const projectDetail = {
   address : 'Sector 3, Kharghar, Navi Mumbai 410210',
   price : '2.5 Cr to 2.7 Cr',
   imageArr : [
-    '/assets/images/garbage/sample-2.png'
+    '/assets/images/garbage/sample-2.png',
+    '/assets/images/garbage/sample.png',
+    '/assets/images/garbage/sample-3.png',
+    '/assets/images/garbage/sample-4.png',
+    '/assets/images/garbage/sample-2.png',
   ],
   specsArr : [
     {
