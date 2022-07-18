@@ -12,9 +12,9 @@ function Sidebar({
       link:'/profile'
     },
     {
-      icon:'myListings',
-      title:'My Listings',
-      link:'/my-listings'
+      icon:'activity',
+      title:'My Activity',
+      link:'/activity'
     },
   ]
   return (

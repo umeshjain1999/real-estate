@@ -1,7 +1,8 @@
+//! Secure Page
 import Header from '@components/Header'
 import Layout from '@components/Layout'
 import { useRouter } from 'next/router'
-function MyListings() {
+function MyActivity() {
   const router = useRouter()
   const {pathname} = router
   
@@ -9,16 +10,16 @@ function MyListings() {
     <main className='main-wrapper interaction common-layout'>
       <div className='container'>
         <Layout currentMenu = {pathname}>
-          <section className='profile__layout-right'>MyListings</section>
+          <section className='profile__layout-right'>MyActivity</section>
         </Layout>
       </div>
     </main>
   )
 }
 
-export default MyListings
+export default MyActivity
 
-MyListings.getLayout = function PageLayout(page){
+MyActivity.getLayout = function PageLayout(page){
   return(
     <>
       <Header/>

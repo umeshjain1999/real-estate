@@ -10,9 +10,7 @@
     justify-content: space-between;
   }
   @include responsive($mob){
-    .sidebar-text{
-      display: none;
-    }
+    padding: 2rem;
   }
   &__link{
     margin-bottom: 2rem;
@@ -20,30 +18,32 @@
       margin-bottom: 0;
       margin-right: 3rem;
     }
-    &-child{
-      display: flex;
-      align-items: center;
-      svg{
-        margin-right: 1rem;
-      }
-    }
     &-last{
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      svg{
-        margin-right: 1rem;
-      }
     }
     &-child,&-last{
+      display: flex;
+      align-items: center;
+      text-transform: capitalize;
       @include add-transition(all,0.3s);
       color: $text-clr-primary;
       svg{
+        margin-right: 1rem;
         width: 20px;
         height: 20px
       }
       svg,path{
         @include add-transition(all,0.3s);
+      }
+      @include responsive($mob){
+        flex-direction: column;
+        font-size: 1.4rem;
+        svg{
+          width: 15px;
+          height: 15px;
+          margin-right: 0;
+          margin-bottom: .5rem;
+        }
       }
       &:hover,&:active{
         color: $accent-clr-1;
