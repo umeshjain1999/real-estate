@@ -1,10 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 import Icon from '@components/Icon'
+import { useRouter } from 'next/router';
 function Sidebar({
-  className = '',
-  currentMenu = ''
+  className = ''
 }) {
+  const router = useRouter()
+  const {pathname} = router
   const sidebarLinks = [
     {
       icon:'loginUser',
@@ -21,7 +23,7 @@ function Sidebar({
     <aside className={`sidebar ${className}`}>
       {sidebarLinks && sidebarLinks.map((data,index) => {
         return(
-          <div className={`sidebar__link ${data.link === currentMenu ? 'active':''}`} key={index}>
+          <div className={`sidebar__link ${data.link === pathname ? 'active' : ''}`} key={index}>
             <Link href={data?.link}>
               <a className='sidebar__link-child' title={data?.title}>
                 <Icon icon={data?.icon}/>

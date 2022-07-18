@@ -1,15 +1,11 @@
 //! Secure Page
 import Header from '@components/Header'
 import Layout from '@components/Layout'
-import { useRouter } from 'next/router'
 function MyActivity() {
-  const router = useRouter()
-  const {pathname} = router
-  
   return (
     <main className='main-wrapper interaction common-layout'>
       <div className='container'>
-        <Layout currentMenu = {pathname}>
+        <Layout>
           <section className='profile__layout-right'>MyActivity</section>
         </Layout>
       </div>
