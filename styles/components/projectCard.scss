@@ -20,6 +20,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 1rem;
       @include responsive($mob-max) {
         flex-wrap: wrap;
       }
@@ -38,7 +39,6 @@
       .project-price {
         color: $accent-clr-1;
       }
-      margin-bottom: 1rem;
     }
     .project-provider {
       @include text-attributes(1,1.6rem,$placeholder,400,0.6rem);
@@ -102,6 +102,7 @@
         display: flex;
         flex-direction: column;
         flex: 1;
+        overflow: hidden;
         border: 1px solid #E8E8E8;
         .project-content {
           flex: 1;
@@ -119,14 +120,14 @@
     right: 0;
     top: 0;
     bottom: 0;
-    &:hover {      
+    &:hover {
       ~ .project-card {
         @include vendor(box-shadow,$box-shadow);
-        svg:not(.project-address svg) path {
+        svg:not(.project-address svg):not(.project-save svg) path {
           fill: $accent-clr-2;
           fill-opacity: 0.7;
         }
       }
-    } 
+    }
   }
 }

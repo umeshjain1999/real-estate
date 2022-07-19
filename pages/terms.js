@@ -1,9 +1,5 @@
-import Footer from "@components/Footer";
-import Header from "@components/Header";
 function Terms() {
   return (
-    <>
-    <Header/>
     <main className="main-wrapper static">
       <div className="container">
         <div className="static__title">{title}</div>
@@ -29,8 +25,6 @@ If we change our privacy policy, we will prominently post a link to those change
         </div>
       </div>
     </main>
-    <Footer></Footer>
-    </>
   );
 }
 

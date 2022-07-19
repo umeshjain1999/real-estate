@@ -1,9 +1,9 @@
-import React from 'react';
-import Image from 'next/image';
 import Button from '@components/Button';
 import HorizontalFeature from '@components/HorizontalFeature';
 import Icon from '@components/Icon';
-import {currency} from '@constants/constant'
+import { CustomSlider } from '@components/Slider';
+import { currency } from '@constants/constant';
+import React from 'react';
 
 function Project({
   name = false,
@@ -14,18 +14,53 @@ function Project({
   specsArr = [],
   tags = []
 }) {
-
   const firstImage = imageArr && imageArr[0] ? imageArr[0] : '/assets/images/image-loader.svg';
-  
+  const [currentImage,setImage] = React.useState(firstImage)
+  const settings = {
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    draggable: true,
+    responsive : [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+    ]
+  }
+  const updateImage = (idx) => setImage(imageArr[idx])
   return (
     <div className="detail__wrap divider">
-      <div className="detail__wrap-image">
-        <Image
-          src = {firstImage}
-          alt = {'Property Image'}
-          width = {700}
-          height = {440}
-        />
+      <div className="detail__wrap-image-wrap">
+        <div
+          className="detail__wrap-image-big"
+          style={{
+            backgroundImage : `url(${currentImage})`
+          }}
+        ></div>
+        
+        <div className="detail__wrap-image-slider">
+          <CustomSlider settings={settings}>
+            {
+              imageArr && imageArr.map((data,index) => {
+                return(
+                  <div key={index}>
+                    <div
+                      className={`detail__wrap-image-sm ${data === currentImage ? 'active' : ''}`}
+                      style={{
+                        backgroundImage : `url(${data})`,
+                      }}
+                      onClick = {() => updateImage(index)}
+                    >
+                    </div>
+                  </div>
+                )
+              })
+            }
+          </CustomSlider>
+        </div>
       </div>
       <div className="detail__wrap-content divider">
         {name && <div className="content-title divider-sm">{name}</div>}

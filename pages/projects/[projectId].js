@@ -1,11 +1,9 @@
-import React from 'react';
 import Breadcrumb from "@components/Breadcrumb";
-import Footer from "@components/Footer";
-import Header from "@components/Header";
 import { LeftSection, Project, ProjectTab, RightSection } from "@components/ProjectDetail";
-import { useRouter } from "next/router";
-import { stringToHtml,scrollToRef } from "@utility/functions";
 import ScrollUp from "@components/ScrollUp";
+import { scrollToRef, stringToHtml } from "@utility/functions";
+import { useRouter } from "next/router";
+import React from 'react';
 
 function ProjectDetail() {
   const projectDetailRef = React.useRef(null);
@@ -16,8 +14,6 @@ function ProjectDetail() {
 
   const executeScroll = () => scrollToRef(projectDetailRef);
   return (
-    <>
-    <Header/>
     <main className="main-wrapper project__detail" ref = {projectDetailRef}>
         <div className="project__detail-top divider-lg">
           <div className="container">
@@ -46,8 +42,6 @@ function ProjectDetail() {
           </div>
         </div>
     </main>
-    <Footer/>
-    </>
   )
 }
 
@@ -57,7 +51,11 @@ const projectDetail = {
   address : 'Sector 3, Kharghar, Navi Mumbai 410210',
   price : '2.5 Cr to 2.7 Cr',
   imageArr : [
-    '/assets/images/garbage/sample-2.png'
+    '/assets/images/garbage/sample-2.png',
+    '/assets/images/garbage/sample.png',
+    '/assets/images/garbage/sample-3.png',
+    '/assets/images/garbage/sample-4.png',
+    '/assets/images/garbage/sample-2.png',
   ],
   specsArr : [
     {

@@ -59,7 +59,25 @@ function Icon(props) {
     case 'location' :
       svgEelement = <svg className={className} width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m14.358.753-5.844 12.75a.531.531 0 0 1-1.012-.177l-.494-5.927-5.927-.494a.531.531 0 0 1-.177-1.013L13.654.048a.531.531 0 0 1 .704.705Z" fill="#9C19E0"/></svg>
       break;
-      default:
+    case 'downChevron' :
+      svgEelement = <svg  className={className} width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m18.221 2.505-8.05 8.074a.834.834 0 0 1-.311.203c-.112.04-.232.06-.36.06a1.06 1.06 0 0 1-.359-.06.834.834 0 0 1-.311-.203L.756 2.505a1.138 1.138 0 0 1-.336-.838c0-.336.12-.623.36-.863s.519-.36.838-.36c.32 0 .599.12.839.36L9.5 7.848 16.544.804c.224-.223.5-.335.826-.335.328 0 .612.12.851.36.24.239.36.518.36.838 0 .32-.12.599-.36.838Z" fill="#9C19E0"/></svg>
+      break;
+    case 'rightArrow' :
+      svgEelement = <svg className={className} width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m10.5 11.5-1.062-1.062 3.687-3.688H0v-1.5h13.125L9.438 1.562 10.5.5 16 6l-5.5 5.5Z" fill="#000"/></svg>
+      break;
+    case 'leftArrow' :
+      svgEelement = <svg className={className} width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m5.5 11.5 1.062-1.062L2.875 6.75H16v-1.5H2.875l3.687-3.688L5.5.5 0 6l5.5 5.5Z" fill="#000"/></svg>
+      break;
+    case 'logout' :
+      svgEelement = <svg className={className} width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 14h2v-4c0-.833.292-1.542.875-2.125A2.893 2.893 0 0 1 5 7h9.2l-3.6 3.6L12 12l6-6-6-6-1.4 1.4L14.2 5H5c-1.383 0-2.562.487-3.537 1.462C.488 7.437 0 8.617 0 10v4Z" fill="#000"/></svg>
+      break;
+    case 'myListings' :
+      svgEelement = <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h8v-.55c0-.733-.367-1.325-1.1-1.775C12.167 9.225 11.2 9 10 9s-2.167.225-2.9.675c-.733.45-1.1 1.042-1.1 1.775V12Zm4-4c.55 0 1.021-.196 1.413-.588C11.804 7.021 12 6.55 12 6c0-.55-.196-1.02-.587-1.412A1.927 1.927 0 0 0 10 4c-.55 0-1.02.196-1.412.588A1.923 1.923 0 0 0 8 6c0 .55.196 1.02.588 1.412C8.979 7.804 9.45 8 10 8ZM0 20V2C0 1.45.196.979.588.587A1.925 1.925 0 0 1 2 0h16c.55 0 1.021.196 1.413.587C19.804.979 20 1.45 20 2v12a1.93 1.93 0 0 1-.587 1.413A1.928 1.928 0 0 1 18 16H4l-4 4Zm2-4.825L3.175 14H18V2H2v13.175Z" fill="#000"/></svg>
+      break;
+    case 'activity' :
+      svgEelement = <svg className={className} width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.8 13.2 8 9.4V4h2v4.6l3.2 3.2-1.4 1.4ZM9 18c-2.3 0-4.304-.763-6.012-2.288C1.279 14.187.3 12.283.05 10H2.1c.233 1.733 1.004 3.167 2.312 4.3C5.721 15.433 7.25 16 9 16c1.95 0 3.604-.68 4.962-2.038C15.321 12.604 16 10.95 16 9c0-1.95-.68-3.604-2.038-4.963C12.604 2.679 10.95 2 9 2a6.75 6.75 0 0 0-3.225.8A7.431 7.431 0 0 0 3.25 5H6v2H0V1h2v2.35A8.73 8.73 0 0 1 5.113.875 8.928 8.928 0 0 1 9 0a8.71 8.71 0 0 1 3.513.712 9.168 9.168 0 0 1 2.85 1.925 9.167 9.167 0 0 1 1.925 2.85A8.715 8.715 0 0 1 18 9c0 1.25-.237 2.42-.712 3.512a9.151 9.151 0 0 1-1.925 2.85 9.158 9.158 0 0 1-2.85 1.926A8.715 8.715 0 0 1 9 18Z" fill="#000"/></svg>
+      break;
+    default:
       svgEelement = <svg></svg>
       break;
   }

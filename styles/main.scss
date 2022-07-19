@@ -6,6 +6,7 @@
 @import 'base/animation';
 
 /* components */
+@import 'components/slickSlider';
 @import 'components/logo';
 @import 'components/header';
 @import 'components/footer';
@@ -16,6 +17,11 @@
 @import 'components/team';
 @import 'components/horizontalProfile';
 @import 'components/login';
+@import 'components/layout';
+@import 'components/sidebar';
+@import 'components/profile';
+@import 'components/activity';
+
 
 /* pages */
 @import 'pages/home';

@@ -1,9 +1,7 @@
-import Head from 'next/head'
-import React from "react"
-import Header from '@components/Header';
-import Footer from '@components/Footer';
+import { Banner, Brand, Intro, NewlyProjects, Review, Search } from '@components/Home';
+import NearYou from '@components/Home/NearYou';
 import Team from '@components/Team';
-import { Banner,Intro, Brand, NewlyProjects, Review,Search } from '@components/Home';
+import Head from 'next/head';
 
 export default function Home() {
   return (
@@ -13,24 +11,23 @@ export default function Home() {
         <meta name="Sqfthomes.in" content="Find A Perfect Home To Live With Your Family" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header/>
       <main className='main-wrapper home'>
         <Banner {...bannerInfo}/>
         <Search/>
         <Intro {...introInfo}/>
         <Brand {...brandInfo}/>
+        <NearYou {...nearByProjects}/>
         <Review {...reviewInfo}/>
         <NewlyProjects {...newlyProjects}/>
         <Team/>
       </main>
-      <Footer/>
     </>
   );
 }
 
-const newlyProjects = {
-  title : 'Newly added Resale property',
-  subTitle : 'Find the hot spot resale properties',
+const nearByProjects = {
+  title : 'Homes for Sale Near you',
+  subTitle : 'Check out some of our latest properties',
   projectsArr : [
     {
       id: 1,
@@ -63,6 +60,78 @@ const newlyProjects = {
       name : 'Shree Complex',
       price : '20000',
       picturePath: '/assets/images/garbage/sample.png',
+      provider: 'By Kamdhenu Builders',
+      address: 'Sector 3, Kharghar, Navi Mumbai 410210',
+      rooms : '5',
+      bathrooms : '3',
+      parking : '3',
+      area : '1000',
+      saved : true,
+    },
+    {
+      id: 4,
+      name : 'Shree Complex',
+      price : '20000',
+      picturePath: '/assets/images/garbage/sample.png',
+      provider: 'By Kamdhenu Builders',
+      address: 'Sector 3, Kharghar, Navi Mumbai 410210',
+      rooms : '5',
+      bathrooms : '3',
+      parking : '3',
+      area : '1000',
+      saved : true,
+    },
+    {
+      id: 5,
+      name : 'Shree Complex',
+      price : '20000',
+      picturePath: '/assets/images/garbage/sample.png',
+      provider: 'By Kamdhenu Builders',
+      address: 'Sector 3, Kharghar, Navi Mumbai 410210',
+      rooms : '5',
+      bathrooms : '3',
+      parking : '3',
+      area : '1000',
+      saved : true,
+    },
+  ],
+}
+
+const newlyProjects = {
+  title : 'Newly added Resale property',
+  subTitle : 'Find the hot spot resale properties',
+  projectsArr : [
+    {
+      id: 1,
+      name : 'Shree Complex',
+      price : '20000',
+      picturePath: '/assets/images/garbage/sample-2.png',
+      provider: 'By Kamdhenu Builders',
+      address: 'Sector 3, Kharghar, Navi Mumbai 410210',
+      rooms : '5',
+      bathrooms : '3',
+      parking : '3',
+      area : '1000',
+      saved : true,
+    },
+    {
+      id: 2,
+      name : 'Shree Complex',
+      price : '20000',
+      picturePath: '/assets/images/garbage/sample-3.png',
+      provider: 'By Kamdhenu Builders',
+      address: 'Sector 3, Kharghar, Navi Mumbai 410210',
+      rooms : '5',
+      bathrooms : '3',
+      parking : '3',
+      area : '1000',
+      saved : true,
+    },
+    {
+      id: 3,
+      name : 'Shree Complex',
+      price : '20000',
+      picturePath: '/assets/images/garbage/sample-2.png',
       provider: 'By Kamdhenu Builders',
       address: 'Sector 3, Kharghar, Navi Mumbai 410210',
       rooms : '5',

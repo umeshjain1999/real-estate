@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from '@components/Icon';
 import Link from 'next/link';
 function ProjectCard(props) {
-  const {projectInfo = {},horizontal = false,...remainingProps} = props
+  const {projectInfo = {},horizontal = false,feature = true,provider = true,address = true,...remainingProps} = props
 
   const filterData = {
     id : projectInfo?.id || '1',
@@ -32,10 +32,10 @@ function ProjectCard(props) {
               <div className="project-name">{filterData.name}</div>
               <div className="project-price">&#8377; {filterData.price}</div>
             </div>
-            <div className="project-provider">{filterData.provider}</div>
-            <div className="project-address horizontal-center"><Icon icon='projectDirection'/><span className='project-text'>{filterData.address}</span></div>
+            {provider && <div className="project-provider">{filterData.provider}</div>}
+            {address && <div className="project-address horizontal-center"><Icon icon='projectDirection'/><span className='project-text'>{filterData.address}</span></div>}
           </div>
-          <div className="project-feat">
+          {feature && <div className="project-feat">
             <div className='project-feat-left'>
               {filterData.rooms && <span className='project-feat-icon horizontal-center'><Icon icon='projectBed'/> {filterData.rooms}</span>}
               {filterData.bathrooms && <span className='project-feat-icon horizontal-center'><Icon icon='projectShower'/> {filterData.bathrooms}</span>}
@@ -43,7 +43,7 @@ function ProjectCard(props) {
               {filterData.area && <span className='project-feat-icon horizontal-center'><Icon icon='projectArea'/> {filterData.area} Sqft</span>}
             </div>
             <span className={`horizontal-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`}/> {filterData.saved ? '' : 'Save'}</span>
-          </div>
+          </div>}
         </div>
       </div>
   </div>

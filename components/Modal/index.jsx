@@ -8,6 +8,7 @@ function CustomModal(props) {
     {...remainingProps}
     open = {open}
     onClose = {onClose}
+    disableEscapeKeyDown = {true}
     >
       <div>
         {props.children}

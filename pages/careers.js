@@ -1,10 +1,5 @@
-import Footer from "@components/Footer";
-import Header from "@components/Header";
-import { height } from "@mui/system";
 function Careers() {
   return (
-    <>
-    <Header/>
     <main className="main-wrapper static">
       <div className="container">
         <div className="static__title">{title}</div>
@@ -79,8 +74,6 @@ function Careers() {
         </div>
       </div>
     </main>
-    <Footer></Footer>
-    </>
   );
 }
 

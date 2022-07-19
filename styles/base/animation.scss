@@ -22,6 +22,42 @@
         animation: jello 2s ease 0.5s 1 normal forwards;
 }
 
+.animation-fade-in-top {
+        -webkit-animation: fade-in-top 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: fade-in-top 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+/**
+ * ----------------------------------------
+ * animation fade-in-top
+ * ----------------------------------------
+ */
+ @-webkit-keyframes fade-in-top {
+        0% {
+          -webkit-transform: translateY(-20px);
+                  transform: translateY(-20px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes fade-in-top {
+        0% {
+          -webkit-transform: translateY(-20px);
+                  transform: translateY(-20px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+
+
 @keyframes jello {
 	0% {
 		transform: scale3d(1, 1, 1);

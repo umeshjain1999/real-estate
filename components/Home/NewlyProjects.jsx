@@ -9,11 +9,11 @@ function NewlyProjects({
   bottomButtonLink = '/projects'
 }) {
   return (
-    <div className="home__near divider-lg text-center">
+    <div className="home__newly divider-lg text-center">
       <div className="container">
-        <div className="sub-title home__near__title divider-sm">{title}</div>
-        <div className="home__near__sub-title divider-lg">{subTitle}</div>
-        <div className="home__near__card-wrap">
+        <div className="sub-title home__newly__title divider-sm">{title}</div>
+        <div className="home__newly__sub-title divider-lg">{subTitle}</div>
+        <div className="home__newly__card-wrap">
           {
             projectsArr && projectsArr.map((data) => {
               return (
@@ -26,7 +26,7 @@ function NewlyProjects({
             })
           }
         </div>
-        <Button text="see more" className = 'home__near_btn animation-wobble' link = {true} href = {bottomButtonLink} />
+        <Button text="see more" className = 'home__newly_btn animation-wobble' link = {true} href = {bottomButtonLink} />
           
       </div>
     </div>

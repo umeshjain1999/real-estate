@@ -1,13 +1,10 @@
-import Footer from "@components/Footer";
-import Header from "@components/Header";
-import ProjectCard from "@components/ProjectCard";
-import Select from "@components/Select";
 import Breadcrumb from "@components/Breadcrumb";
+import ProjectCard from "@components/ProjectCard";
+import { RecommendedProjects } from "@components/Projects";
+import Select from "@components/Select";
 
 function Projects() {
   return (
-    <>
-    <Header/>
     <main className="main-wrapper projects">
       <div className="container">
         <Breadcrumb linkArr={breadcrumb}/>
@@ -18,16 +15,15 @@ function Projects() {
           <Select selectOptions={pricing?.arr} title={pricing?.title} />
         </div>
         <div className="projects__wrapper">
-          {projects && projects.map((data,index) => {
+          {projects && projects.map((data) => {
             return(
               <ProjectCard projectInfo = {data} key={data.id} />
             )
           })}
         </div>
       </div>
+      <RecommendedProjects {...recommendedProjects} />
     </main>
-    <Footer></Footer>
-    </>
   );
 }
 
@@ -75,9 +71,9 @@ const pricing = {
 const projects = [
   {
     id: 1,
-    name : 'Shree Complex',
+    name : 'Cosmos',
     price : '20000',
-    picturePath: '/assets/images/garbage/sample.png',
+    picturePath: '/assets/images/garbage/sample-2.png',
     provider: 'By Kamdhenu Builders',
     address: 'Sector 3, Kharghar, Navi Mumbai 410210',
     rooms : '5',
@@ -88,9 +84,9 @@ const projects = [
   },
   {
     id: 2,
-    name : 'Shree Complex',
+    name : 'Milky Way',
     price : '20000',
-    picturePath: '',
+    picturePath: '/assets/images/garbage/sample-3.png',
     provider: 'By Kamdhenu Builders',
     address: 'Sector 3, Kharghar, Navi Mumbai 410210',
     rooms : '5',
@@ -101,7 +97,7 @@ const projects = [
   },
   {
     id: 3,
-    name : 'Shree Complex',
+    name : 'Black Eye',
     price : '20000',
     picturePath: '/assets/images/garbage/sample.png',
     provider: 'By Kamdhenu Builders',
@@ -114,9 +110,9 @@ const projects = [
   },
   {
     id: 4,
-    name : 'Shree Complex',
+    name : 'Sculptor Galaxy',
     price : '20000',
-    picturePath: '/assets/images/garbage/sample.png',
+    picturePath: '',
     provider: 'By Kamdhenu Builders',
     address: 'Sector 3, Kharghar, Navi Mumbai 410210',
     rooms : '5',
@@ -152,5 +148,10 @@ const projects = [
     saved : true,
   },
 ]
+
+const recommendedProjects = {
+  title : "Recommended Properties",
+  projectsArr : projects.slice(0,6)
+}
 
 export default Projects;
