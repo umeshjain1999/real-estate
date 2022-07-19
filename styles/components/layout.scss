@@ -17,11 +17,12 @@
     }
   }
   &__right{
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 12px;
     width: calc(100% - 280px - 1.5rem);
     background: $white-clr;
     @include responsive($ipad-pro){
+      padding: 2rem;
       width: 100%;
     }
   }

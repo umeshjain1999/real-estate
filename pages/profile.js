@@ -6,7 +6,11 @@ function Profile() {
     <main className='main-wrapper profile common-layout'>
       <div className='container'>
         <Layout>
-          <section className='profile__layout-right'>Profile</section>
+          <div className='profile__wrap animation-fade-in-top'>
+            <div className='sub-title'>
+              {title}
+            </div>
+          </div>
         </Layout>
       </div>
     </main>
@@ -14,6 +18,8 @@ function Profile() {
 }
 
 export default Profile
+
+const title = 'My Profile'
 
 Profile.getLayout = function PageLayout(page){
   return(

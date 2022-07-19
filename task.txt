@@ -3,7 +3,6 @@ Need to Fix :
  - Project Card Save feature (z-index level managed functionality pending )
  - don't render element if prop is empty
  - common transition timing
- - input form validation
  - common radio button
  
 Can Take time
@@ -12,3 +11,4 @@ Can Take time
     TypeError: Cannot read properties of undefined (reading 'includes') (partners pages)
  - can improve project tab with useRef (project detail)
  - Build Icon System
+ - input form validation
