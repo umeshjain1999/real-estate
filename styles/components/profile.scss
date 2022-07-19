@@ -1,0 +1,89 @@
+.profile{
+  .horizontal__profile{
+    margin-bottom: 2rem;
+    &-img{
+      width: 100px;
+      height: 100px;
+      margin-right: 3rem;
+      @include responsive($mob){
+        width: 60px;
+        height: 60px;
+        margin-right: 2rem;
+      }
+    }
+    &-name{
+      color: $text-clr-primary;
+      font-size: 2.4rem;
+      line-height: 3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      @include responsive($mob){
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+    &-feature{
+      color: $placeholder;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      font-weight: 400;
+      @include responsive($mob){
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+      }
+    }
+  }
+  &__form{
+    &-inner-wrap{
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin: 0 -1rem 1rem;
+      @include responsive($mob-max){
+        margin: 0 0 1rem;
+      }
+    }
+    input{
+      width: 100%;
+      font-size: 1.4rem;
+      color: $text-clr-primary;
+      &:disabled{
+        background: $white-clr;
+        border-bottom: 0;
+      }
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px $white-clr inset;
+    }
+    }
+    &-input-wrap{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: calc(50% - 2rem);
+      margin: 0 1rem 2rem;
+      @include responsive($mob-max){
+        margin: 0 0 2rem;
+        width: 100%;
+      }
+      label{
+        font-size: 1.4rem;
+        color: $placeholder;
+        margin-bottom: 0.6rem;
+      }
+    }
+    &-cancel-button{
+      background-color: $grey;
+      color: $text-clr-primary;
+      margin-right: 2rem;
+      &:hover{
+        background-color: rgba($color:$grey, $alpha: 0.5);
+      }
+    }
+    &-edit-button{
+      svg,path{
+        fill: $white-clr;
+      }
+    }
+  }
+}

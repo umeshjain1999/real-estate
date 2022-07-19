@@ -12,9 +12,23 @@ const isNormalNumber = (str) => {
   return true
 }
 
+const convertTime = (time) => {
+  //*@param time data type should be date otherwise it will give you Invalid Date
+  return new Date(time).toLocaleDateString('en-CA')
+}
+
+const convertStringToDate = (str,separation = '-') => {
+  //Date format should be DD/MM/YYYY where separation could be anything as mentioned in parameter
+  const [day, month, year] = str.split(separation);
+  const date = new Date(+year, +month - 1, +day);
+  return date
+}
+
 export {
   stringToHtml,
   scrollToRef,
   phoneValidationPattern,
   isNormalNumber,
+  convertTime,
+  convertStringToDate,
 }
