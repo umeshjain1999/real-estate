@@ -2,8 +2,44 @@ import Breadcrumb from "@components/Breadcrumb";
 import ProjectCard from "@components/ProjectCard";
 import { RecommendedProjects } from "@components/Projects";
 import Select from "@components/Select";
+import Pagination from '@mui/material/Pagination';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
-function Projects() {
+function Projects({
+  projects,
+  info
+}) {
+
+  const [projectsState,setProjectsState] = useState(projects)
+
+  const router = useRouter()
+  const [page,setPage] = useState(1)
+
+  const handleApiCall = async (page)  =>  {
+    let apiUrl =   `https://rickandmortyapi.com/api/character?page=${page}`
+    const res = await fetch(apiUrl)
+    const projects = await res.json()
+    setProjectsState(projects?.results)
+  }
+
+  useEffect(() => {
+    if(router.query.page){
+      setPage(parseInt(router.query.page))
+      const currentPage = router.query.page
+      handleApiCall(currentPage);
+    }
+  },[router.query.page])
+
+  function handlePaginationChange(e, value) {
+    setPage(value);
+    router.push({
+      query : {
+        page: value
+      }
+    })
+  }
+
   return (
     <main className="main-wrapper projects">
       <div className="container">
@@ -15,16 +51,36 @@ function Projects() {
           <Select selectOptions={pricing?.arr} title={pricing?.title} />
         </div>
         <div className="projects__wrapper">
-          {projects && projects.map((data) => {
+          {projectsState && projectsState.map((data) => {
             return(
               <ProjectCard projectInfo = {data} key={data.id} />
             )
           })}
         </div>
+        <div className="projects__pagination divider center-flex">
+          <Pagination
+            count={info?.pages}
+            className='pagination'
+            page={page}
+            onChange={handlePaginationChange}
+          />
+        </div>
       </div>
       <RecommendedProjects {...recommendedProjects} />
     </main>
   );
+}
+
+export async function getStaticProps(context) {
+  let apiUrl = 'https://rickandmortyapi.com/api/character'
+  const res = await fetch(apiUrl)
+  const finalData = await res.json()
+  return {
+    props: {
+      projects:finalData?.results,
+      info:finalData?.info
+    },
+  }
 }
 
 const breadcrumb = [
