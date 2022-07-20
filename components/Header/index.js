@@ -8,8 +8,9 @@ function Header() {
   const [open,setOpen] = useState(false)
   const [modal,setModal] = useState(false)
 
-  const handleOpen = () => setModal(true)
-  const handleClose = () => setModal(false)
+  const toggleModal = () => {
+    setModal(!modal)
+  }
   return (
     <header className='header'>
       <div className='container'>
@@ -21,10 +22,10 @@ function Header() {
           </span>
           <div className={`header__wrapper__nav ${open ? 'active' : ''}`}>
             <Navigation navigation = {headerNavigation} navChildClassName={'link-text'}/>
-            <Button onClick={() => handleOpen()} text="Login/Register" icon = 'loginUser' iconPosition = 'right' className = 'header__login'/>
+            <Button onClick={toggleModal} text="Login/Register" icon = 'loginUser' iconPosition = 'right' className = 'header__login'/>
             <Login
               open = {modal}
-              onClose = {handleClose}
+              onClose = {toggleModal}
             />
             <Button text="+91 9326518230" icon = 'call' className = 'header__btn animation-wobble' link = {true} href = {contactInfo} />
           </div>

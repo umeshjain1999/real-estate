@@ -64,3 +64,23 @@
     }
   }
 }
+
+.logout__modal{
+  min-width: 270px;
+  &-text{
+    margin-bottom: 2rem;
+  }
+  &-cancel-button,&-button{
+    padding: 0.6rem 2rem;
+    font-size: 1.4rem;
+  }
+  &-cancel-button{
+    background-color: $grey;
+    color: $text-clr-primary;
+    margin-right: 2rem;
+    &:hover{
+      background-color: rgba($color:$grey, $alpha: 0.5);
+    }
+  }
+
+}

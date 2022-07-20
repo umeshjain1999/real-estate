@@ -66,7 +66,7 @@ function ProfileForm() {
           </div>
           <div className="profile__form-input-wrap">
             <label htmlFor="pincode">Pincode</label>
-            <Input value = {user?.pincode} onChange = {handleChange} disabled = {disable} required className='profile__form-input' type="text" name="pincode" placeholder='400018' maxLength = '6'/>
+            <Input value = {user?.pincode} onChange = {handleChange} disabled = {disable} required className='profile__form-input' type="number" name="pincode" placeholder='400018' maxLength = '6'/>
           </div>
         </div>
         <div className='profile__form-button-wrap'>
