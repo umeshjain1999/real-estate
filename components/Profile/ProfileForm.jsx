@@ -1,14 +1,14 @@
-import React from 'react'
-import { isNormalNumber,convertStringToDate,convertTime} from '@utility/functions'
-import Input from '@components/Input'
 import Button from '@components/Button'
+import Input from '@components/Input'
+import { convertTime, isNormalNumber } from '@utility/functions'
+import React from 'react'
 function ProfileForm() {
 
   const initialState = {
     name : 'Umesh Jain',
     phoneNumber : '8048214888',
     email : 'support@sqfthome.in',
-    dob : convertTime(convertStringToDate('22-01-1987')),
+    dob : convertTime(-723706200000,'inputDateDefault'),
     city : 'Navi Mumbai',
     pincode : '410210',
   }
