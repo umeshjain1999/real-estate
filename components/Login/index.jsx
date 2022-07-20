@@ -43,7 +43,7 @@ function Login({
   }
 
   return (
-    <CustomModal open = {open} onClose = {resetAllState}>
+    <CustomModal open = {open} onClose = {resetAllState} type = {OTP ? "OTP" : ''}>
       <Card title = {title} className='login__modal center'>
         {!OTP && !Register && <LoginForm handleOTP = {handleOTP} handleRegister = {handleRegister} updatePhoneNumber = {updatePhoneNumber} />}
         {OTP && <OTPForm phoneNumber = {phoneNumber} handleOTP = {handleOTP} closeModal = {resetAllState}/>}
