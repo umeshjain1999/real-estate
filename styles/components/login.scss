@@ -27,7 +27,7 @@
     display: inline-block;
     cursor: pointer;
     color: $accent-clr-2;
-    @include add-transition(all,0.3s);
+    @include add-transition(all,$transition-timing);
     &:hover{
       color: $accent-clr-1;
     }

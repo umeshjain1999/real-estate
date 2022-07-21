@@ -75,7 +75,7 @@
 		height: 100%;
 		background: rgba($black-clr, 0.5);
 		opacity: 0;
-		@include add-transition(opacity, 0.3s);
+		@include add-transition(opacity, $transition-timing);
 	}
 
 	img {
@@ -147,7 +147,7 @@
 	line-height: 2rem;
 	color: $text-clr-primary;
 	text-transform: capitalize;
-	@include add-transition(all,0.3s);
+	@include add-transition(all,$transition-timing);
 	&:hover {
 		color: $accent-clr-1;
 		text-decoration: underline;
@@ -182,7 +182,7 @@
 	line-height: 1.8rem;
 	color: $placeholder;
 	a {
-		@include add-transition(all,0.3s);
+		@include add-transition(all,$transition-timing);
 		&:hover {
 			text-decoration: underline;
 		}
@@ -248,7 +248,7 @@
 	font-size: 2rem;
 	margin-left: auto;
 	position: relative;
-	@include add-transition(all,0.3s);
+	@include add-transition(all,$transition-timing);
 	&:hover {
 		background-color: $accent-clr-1;
 		border: 2px solid transparent;

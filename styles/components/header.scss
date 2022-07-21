@@ -14,7 +14,7 @@
       @include responsive($ipad) {
         visibility: hidden;
         opacity: 0;
-        @include add-transition(all,0.3s);
+        @include add-transition(all,$transition-timing);
         position: absolute;
         background: #fff;
         left: 0;

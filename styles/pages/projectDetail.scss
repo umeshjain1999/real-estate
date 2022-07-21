@@ -216,7 +216,7 @@
         height: 118px;
         border-radius: 12px;
         opacity: 0.6;
-        @include add-transition(all,0.3s);
+        @include add-transition(all,$transition-timing);
         &.active,&:hover{
           opacity: 1;
         }
@@ -313,7 +313,7 @@
         padding: 1rem 2rem;
         text-transform: capitalize;
         cursor: pointer;
-        @include add-transition(all,0.3s);
+        @include add-transition(all,$transition-timing);
         display: inline-flex;
         align-items: center;
         justify-content: center;

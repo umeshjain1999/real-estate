@@ -2,9 +2,7 @@ Need to Fix :
  - Proper fonts - 400, 500, 600, 700
  - Project Card Save feature (z-index level managed functionality pending )
  - don't render element if prop is empty
- - common transition timing
  - common radio button
- - horizontal card color changes
  - change no. of lines for limiting text
  
 Can Take time

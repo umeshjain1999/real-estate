@@ -82,7 +82,7 @@
     width: 20px;
     height: 20px;
   }
-  @include add-transition(all,0.3s)
+  @include add-transition(all,$transition-timing)
 }
 
 .project-card {

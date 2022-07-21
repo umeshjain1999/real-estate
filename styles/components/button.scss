@@ -8,7 +8,7 @@
 	color: $text-clr-sec;
 	text-transform: capitalize;
 	cursor: pointer;
-	@include add-transition(all,0.3s);
+	@include add-transition(all,$transition-timing);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
