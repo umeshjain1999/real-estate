@@ -1,11 +1,11 @@
 Need to Fix :
- - Proper fonts - 400, 500, 600, 700
  - Project Card Save feature (z-index level managed functionality pending )
  - don't render element if prop is empty
  - common radio button
  - change no. of lines for limiting text
  
 Can Take time
+ - Proper fonts - 400, 500, 600, 700
  - image loader
  - Unhandled Runtime Error
     TypeError: Cannot read properties of undefined (reading 'includes') (partners pages)

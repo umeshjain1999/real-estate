@@ -1,44 +1,58 @@
+import Pagination from "@mui/material/Pagination";
+import { useRouter } from "next/router";
+import {useState,useEffect} from 'react'
+import Select from "@components/Select";
 import Breadcrumb from "@components/Breadcrumb";
+import Loader from "@components/Loader";
 import ProjectCard from "@components/ProjectCard";
 import { RecommendedProjects } from "@components/Projects";
-import Select from "@components/Select";
-import Pagination from "@mui/material/Pagination";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
-function Projects({ projects, info }) {
-  const [projectsState, setProjectsState] = useState(projects);
+function Projects({ projects, info, currentPage }) {
+
+  const [isLoading,setLoading] = useState(false)
+  const startLoading = () => setLoading(true);
+  const stopLoading = () => setLoading(false);
 
   const router = useRouter();
-  const [page, setPage] = useState(1);
-
-  const handleApiCall = async (page) => {
-    let apiUrl = `https://rickandmortyapi.com/api/character?page=${page}`;
-    const res = await fetch(apiUrl);
-    const projects = await res.json();
-    setProjectsState(projects?.results);
-  };
 
   useEffect(() => {
-    if (router.query.page) {
-      setPage(parseInt(router.query.page));
-      const currentPage = router.query.page;
-      handleApiCall(currentPage);
+    router.events.on('routeChangeStart', startLoading);
+    router.events.on('routeChangeComplete', stopLoading);
+    router.events.on('routeChangeError', stopLoading)
+
+    return () => {
+        router.events.off('routeChangeStart', startLoading);
+        router.events.off('routeChangeComplete', stopLoading);
+        router.events.on('routeChangeError', stopLoading)
     }
-  }, [router.query.page]);
+}, [])
 
   function handlePaginationChange(e, value) {
-    setPage(value);
     router.push({
       query: {
         page: value,
       },
     });
   }
+  
+  let CONTENT
+
+  if(isLoading){
+    CONTENT = (
+      <><Loader/></>
+    )
+  } else {
+    CONTENT = (
+      projects && projects.map((data) => {
+        return <ProjectCard projectInfo={data} key={data.id} />;
+      })
+    )
+  }
 
   const recommendedProjects = {
     title: "Recommended Properties",
-    projectsArr: projectsState.slice(0, 6),
+    //! later this will be change
+    projectsArr: projects.slice(0, 6),
   };
   return (
     <main className="main-wrapper projects">
@@ -51,16 +65,13 @@ function Projects({ projects, info }) {
           <Select selectOptions={pricing?.arr} title={pricing?.title} />
         </div>
         <div className="projects__wrapper">
-          {projectsState &&
-            projectsState.map((data) => {
-              return <ProjectCard projectInfo={data} key={data.id} />;
-            })}
+          {CONTENT}
         </div>
         <div className="projects__pagination divider center-flex">
           <Pagination
             count={info?.pages}
             className="pagination"
-            page={page}
+            page={currentPage}
             onChange={handlePaginationChange}
           />
         </div>
@@ -70,16 +81,21 @@ function Projects({ projects, info }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps({query}) {
+  const {page} = query
   let apiUrl = "https://rickandmortyapi.com/api/character";
+  if(page){
+    apiUrl = `https://rickandmortyapi.com/api/character?page=${page}`
+  }
   const res = await fetch(apiUrl);
   const finalData = await res.json();
   return {
     props: {
       projects: finalData?.results,
       info: finalData?.info,
+      currentPage: parseInt(page) || 1
     },
-  };
+  }
 }
 
 const breadcrumb = [
