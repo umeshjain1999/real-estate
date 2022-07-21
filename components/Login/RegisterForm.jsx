@@ -34,8 +34,8 @@ function RegisterForm({
   return (
     <div className='register__form'>
       <form onSubmit={formSubmission} className='common-form' >
-      <div className='register__form-text'>I am am</div>
-      <div className="register__form-wrap">
+        <div className='register__form-text'>I am am</div>
+        <div className="register__form-wrap">
           <div className='register__form-radio common-input-radio'>
               <Input type="radio" name="type" value = "individual" defaultChecked/>
                 <span className='common-input-radio-text'>Individual (3 Free Listings)</span>

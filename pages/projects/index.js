@@ -2,40 +2,44 @@ import Breadcrumb from "@components/Breadcrumb";
 import ProjectCard from "@components/ProjectCard";
 import { RecommendedProjects } from "@components/Projects";
 import Select from "@components/Select";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import Pagination from "@mui/material/Pagination";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
-const getData = async (tData) => {
-  try {
-    const {} = tData;
-    const resp = await axios.get("/projects", {});
-    console.log(
-      "[index.js]:resp.data:",
-      typeof resp.data,
-      JSON.stringify(resp.data)
-    );
-    return resp.data;
-  } catch (error) {
-    console.error("error at function getData :", error);
-    return false;
-  }
-};
+function Projects({ projects, info }) {
+  const [projectsState, setProjectsState] = useState(projects);
 
-function Projects() {
-  const [projectsData, setProjectsData] = useState([]);
+  const router = useRouter();
+  const [page, setPage] = useState(1);
+
+  const handleApiCall = async (page) => {
+    let apiUrl = `https://rickandmortyapi.com/api/character?page=${page}`;
+    const res = await fetch(apiUrl);
+    const projects = await res.json();
+    setProjectsState(projects?.results);
+  };
 
   useEffect(() => {
-    getData().then((data) => {
-      console.log("[index.js]:data:", typeof data, JSON.stringify(data));
-      setProjectsData(data);
+    if (router.query.page) {
+      setPage(parseInt(router.query.page));
+      const currentPage = router.query.page;
+      handleApiCall(currentPage);
+    }
+  }, [router.query.page]);
+
+  function handlePaginationChange(e, value) {
+    setPage(value);
+    router.push({
+      query: {
+        page: value,
+      },
     });
-  }, []);
+  }
 
   const recommendedProjects = {
     title: "Recommended Properties",
-    projectsArr: projectsData.slice(0, 6),
+    projectsArr: projectsState.slice(0, 6),
   };
-
   return (
     <main className="main-wrapper projects">
       <div className="container">
@@ -47,15 +51,35 @@ function Projects() {
           <Select selectOptions={pricing?.arr} title={pricing?.title} />
         </div>
         <div className="projects__wrapper">
-          {projectsData &&
-            projectsData.map((data) => {
+          {projectsState &&
+            projectsState.map((data) => {
               return <ProjectCard projectInfo={data} key={data.id} />;
             })}
+        </div>
+        <div className="projects__pagination divider center-flex">
+          <Pagination
+            count={info?.pages}
+            className="pagination"
+            page={page}
+            onChange={handlePaginationChange}
+          />
         </div>
       </div>
       <RecommendedProjects {...recommendedProjects} />
     </main>
   );
+}
+
+export async function getStaticProps(context) {
+  let apiUrl = "https://rickandmortyapi.com/api/character";
+  const res = await fetch(apiUrl);
+  const finalData = await res.json();
+  return {
+    props: {
+      projects: finalData?.results,
+      info: finalData?.info,
+    },
+  };
 }
 
 const breadcrumb = [

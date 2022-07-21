@@ -4,6 +4,9 @@ Need to Fix :
  - don't render element if prop is empty
  - common transition timing
  - common radio button
+ - horizontal card color changes
+ - change no. of lines for limiting text
+ - rename horizontal-center to vertical-center
  
 Can Take time
  - image loader
@@ -12,3 +15,4 @@ Can Take time
  - can improve project tab with useRef (project detail)
  - Build Icon System
  - input form validation
+ - maybe post-css for autoprefix

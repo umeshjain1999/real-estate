@@ -46,6 +46,19 @@
       }
     }
   }
+  &__pagination{
+    background-color: $white-clr;
+    border-radius: 12px;
+    padding: 1.5rem;
+    *{
+      font-size: 2.4rem;
+      line-height: 2.8rem;
+      @include responsive($mob-max){
+        font-size: 1.6rem;
+        line-height: 2rem;
+      }
+    }
+  }
   &__recommended {
     .project-res {
       margin: 0 1.5rem 1.5rem;
