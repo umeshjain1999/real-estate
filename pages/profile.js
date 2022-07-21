@@ -15,9 +15,9 @@ function Profile() {
             <div>
               <HorizontalFeature
                 name = {userInfo?.name}
-                feature = {userInfo?.location}
+                feature = {userInfo?.city}
               />
-              <ProfileForm/>
+              <ProfileForm {...userInfo}/>
             </div>
           </div>
         </Layout>
@@ -32,9 +32,21 @@ const title = 'My Profile'
 
 const userInfo = {
   name : 'Umesh Jain',
-  location : 'Mumbai,India',
-  profilePath : '',
+  city : 'Navi Mumbai',
+  imagePath : '',
+  pincode : '410210',
+  phoneNumber : '8048214888',
+  email : 'support@sqfthome.in',
+  dob : -723706200000,
+}
 
+export const getServerSideProps = async (ctx) => {
+  //? API fetch user info
+  return {
+    props:{
+      data:null
+    }
+  }
 }
 
 Profile.getLayout = function PageLayout(page){

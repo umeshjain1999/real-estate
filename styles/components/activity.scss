@@ -1,5 +1,5 @@
 .activity{
-  &__saved{
+  &__listings{
     .project-res{
       margin-bottom: 3rem;
       max-width: 60%;
@@ -49,6 +49,28 @@
           border-top-right-radius: 20px;
         }
       }
+    }
+  }
+  &__tab{
+    &-wrap{
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      &-btn{
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+        @include responsive($mob-max){
+          font-size: 1.3rem;
+          padding: 0.7rem 1rem;
+          border-radius: 10px;
+          margin-right: 1.4rem;
+        }
+      }
+      &-btn:not(.active){
+        background: $grey-shade-2;
+        color: $text-clr-primary;
+      }
+
     }
   }
 }

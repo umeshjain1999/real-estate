@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from '@components/Icon';
 import Link from 'next/link';
 function ProjectCard(props) {
-  const {projectInfo = {},horizontal = false,feature = true,provider = true,address = true,...remainingProps} = props
+  const {projectInfo = {},horizontal = false,feature = true,provider = true,address = true,className='',...remainingProps} = props
 
   const filterData = {
     id : projectInfo?.id || '1',
@@ -20,7 +20,7 @@ function ProjectCard(props) {
 
 
   return (
-    <div {...remainingProps} className="project-res">
+    <div {...remainingProps} className={`project-res ${className}`}>
       <Link href={`/projects/${filterData.id}`}>
         <a className="project-overlay"></a>
       </Link>

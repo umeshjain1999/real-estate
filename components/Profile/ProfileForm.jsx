@@ -2,15 +2,22 @@ import Button from '@components/Button'
 import Input from '@components/Input'
 import { convertTime, isNormalNumber } from '@utility/functions'
 import React from 'react'
-function ProfileForm() {
+function ProfileForm({
+  name = '',
+  phoneNumber = '',
+  email = '',
+  dob = '',
+  city = '',
+  pincode = ''
+}) {
 
   const initialState = {
-    name : 'Umesh Jain',
-    phoneNumber : '8048214888',
-    email : 'support@sqfthome.in',
-    dob : convertTime(-723706200000,'inputDateDefault'),
-    city : 'Navi Mumbai',
-    pincode : '410210',
+    name : name,
+    phoneNumber : phoneNumber,
+    email : email,
+    dob : convertTime(dob,'inputDateDefault'),
+    city : city,
+    pincode : pincode,
   }
 
   const [user, setUser] = React.useState(initialState)
