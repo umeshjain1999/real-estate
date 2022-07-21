@@ -98,8 +98,6 @@
         margin-left: 0;
       }
       &-name,&-feature {
-        display: block;
-        color: $text-clr-primary;
         font-size: 1.3rem;
         line-height: 1.9rem;
       }
@@ -176,7 +174,6 @@
   &-top {
     background: $white-clr;
     @include vendor(box-shadow,$box-shadow-2);
-    // padding-bottom: 2rem;
     .detail__wrap {
       display: flex;
       align-items: flex-start;
@@ -274,9 +271,6 @@
                 width: 40px;
                 height: 40px;
               }
-            }
-            &-name,&-feature {
-              color: $text-clr-primary;
             }
             &-name {
               font-weight: 700;
