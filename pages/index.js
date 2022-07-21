@@ -68,15 +68,6 @@ export async function getServerSideProps() {
       },
     },
   };
-  // .then((data) => {
-  //   console.log("[index.js]:data:", typeof data, JSON.stringify(data));
-  //   return {
-  //     props: {
-  //       posts: data,
-  //     },
-  //   };
-  //   // setPosts(data);
-  // });
 }
 
 // const nearByProjects = {

@@ -6,7 +6,6 @@ Need to Fix :
  - common radio button
  - horizontal card color changes
  - change no. of lines for limiting text
- - rename horizontal-center to vertical-center
  
 Can Take time
  - image loader
