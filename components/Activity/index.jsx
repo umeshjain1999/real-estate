@@ -4,8 +4,11 @@ import Button from '@components/Button'
 import ProjectCard from '@components/ProjectCard'
 function Activity({
   listings = {},
-  tabArr = ['saved','enquired','searches']
 }) {
+  let tabArr = []
+  if(listings){
+    tabArr = Object.keys(listings)
+  }
   const initialState = tabArr[0]
   const [currentTab,setTab] = useState(initialState)
   return (

@@ -27,35 +27,6 @@ export default MyActivity
 
 const title = 'My Activity'
 
-const savedListings = [
-  {
-    id: 1,
-    name : 'White Spurs',
-    price : '20000',
-    picturePath: '/assets/images/garbage/sample-2.png',
-    provider: 'By Kamdhenu Builders',
-    address: 'Sector 3, Kharghar, Navi Mumbai 410210',
-    rooms : '5',
-    bathrooms : '3',
-    parking : '3',
-    area : '1000',
-    saved : true,
-  },
-  {
-    id: 2,
-    name : 'Old Lady',
-    price : '20000',
-    picturePath: '/assets/images/garbage/sample-3.png',
-    provider: 'By Kamdhenu Builders',
-    address: 'Sector 3, Kharghar, Navi Mumbai 410210',
-    rooms : '5',
-    bathrooms : '3',
-    parking : '3',
-    area : '1000',
-    saved : true,
-  },
-]
-
 const userSpecificListings = {
   saved : [
     {

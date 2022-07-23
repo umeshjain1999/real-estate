@@ -58,7 +58,14 @@ function Projects({ projects, info, currentPage }) {
     <main className="main-wrapper projects">
       <div className="container">
         <Breadcrumb linkArr={breadcrumb} />
-        <div className="sub-title projects__title divider">Projects</div>
+        <div className="projects__title divider">
+          <div className="sub-title projects__title-left">Projects</div>
+          <div className="projects__title-right">
+            <div className="projects__title-search-count">
+              {info?.count ? `${info?.count} Matches` : '' }
+            </div>
+          </div>
+        </div>
         <div className="projects__filter divider">
           <Select selectOptions={category?.arr} title={category?.title} />
           <Select selectOptions={beds?.arr} title={beds?.title} />
