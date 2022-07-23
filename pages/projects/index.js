@@ -10,23 +10,7 @@ import { GetAPI } from "@utility/apiCall";
 
 function Projects({ projects, info, currentPage }) {
 
-  const [isLoading,setLoading] = useState(false)
-  const startLoading = () => setLoading(true);
-  const stopLoading = () => setLoading(false);
-
   const router = useRouter();
-
-  useEffect(() => {
-    router.events.on('routeChangeStart', startLoading);
-    router.events.on('routeChangeComplete', stopLoading);
-    router.events.on('routeChangeError', stopLoading)
-
-    return () => {
-        router.events.off('routeChangeStart', startLoading);
-        router.events.off('routeChangeComplete', stopLoading);
-        router.events.on('routeChangeError', stopLoading)
-    }
-}, [])
 
   function handlePaginationChange(e, value) {
     router.push({
@@ -38,17 +22,11 @@ function Projects({ projects, info, currentPage }) {
   
   let CONTENT
 
-  if(isLoading){
-    CONTENT = (
-      <><Loader/></>
-    )
-  } else {
-    CONTENT = (
-      projects && projects.map((data) => {
-        return <ProjectCard projectInfo={data} key={data.id} />;
-      })
-    )
-  }
+  CONTENT = (
+    projects && projects.map((data) => {
+      return <ProjectCard projectInfo={data} key={data.id} />;
+    })
+  )
 
   const recommendedProjects = {
     title: "Recommended Properties",
