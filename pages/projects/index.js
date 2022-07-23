@@ -88,18 +88,30 @@ function Projects({ projects, info, currentPage }) {
   );
 }
 
+const apiCall = async (query) => {
+  try {
+    let apiUrl = "https://rickandmortyapi.com/api/character";
+    if(query){
+      apiUrl = `https://rickandmortyapi.com/api/character?page=${query}`
+    }
+    const res = await fetch(apiUrl);
+    const finalData = await res.json();
+
+    return finalData
+    
+  } catch(error) {
+    console.error('funcation apiCall',error)
+    return false
+  }
+}
+
 export async function getServerSideProps({query}) {
   const {page} = query
-  let apiUrl = "https://rickandmortyapi.com/api/character";
-  if(page){
-    apiUrl = `https://rickandmortyapi.com/api/character?page=${page}`
-  }
-  const res = await fetch(apiUrl);
-  const finalData = await res.json();
+  const data = await apiCall(page)
   return {
     props: {
-      projects: finalData?.results,
-      info: finalData?.info,
+      projects: data?.results,
+      info: data?.info,
       currentPage: parseInt(page) || 1
     },
   }

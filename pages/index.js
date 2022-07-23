@@ -10,26 +10,7 @@ import NearYou from "@components/Home/NearYou";
 import Team from "@components/Team";
 import Head from "next/head";
 
-const getDataProjects = async (tData = {}) => {
-  try {
-    const {} = tData;
-    const resp = await axios.get("/projects", {
-      // contactId,
-      // userId,
-    });
-    console.log(
-      "[index.js]:resp.data:",
-      typeof resp.data,
-      JSON.stringify(resp.data)
-    );
-    return resp.data;
-  } catch (error) {
-    console.error("error at function getData :", error);
-    return false;
-  }
-};
-
-export default function Home({ projects, nearByProjects }) {
+export default function Home({ projects, nearByProjects,newlyProjects}) {
   return (
     <>
       <Head>
@@ -54,153 +35,40 @@ export default function Home({ projects, nearByProjects }) {
   );
 }
 
+const apiCall = async (query) => {
+  try {
+    let apiUrl = "https://rickandmortyapi.com/api/character";
+    
+    const res = await fetch(apiUrl);
+    const finalData = await res.json();
+
+    return finalData
+    
+  } catch(error) {
+    console.error('funcation apiCall',error)
+    return false
+  }
+}
+
 // server side rendering
 export async function getServerSideProps() {
-  const data = await getDataProjects();
-  console.log("[index.js]:data:", typeof data, JSON.stringify(data));
+  const data = await apiCall()
   return {
     props: {
       projects: data,
       nearByProjects: {
         title: "Homes for Sale Near you",
         subTitle: "Check out some of our latest properties",
-        projectsArr: data,
+        projectsArr: data?.results.slice(0,6),
       },
+      newlyProjects: {
+        title: "Newly added Resale property",
+        subTitle: "Find the hot spot resale properties",
+        projectsArr: data?.results.slice(7,11),
+      }
     },
   };
 }
-
-// const nearByProjects = {
-//   title: "Homes for Sale Near you",
-//   subTitle: "Check out some of our latest properties",
-//   projectsArr: [
-//     {
-//       id: 1,
-//       name: "Shree Complex",
-//       price: "20000",
-//       picturePath: "/assets/images/garbage/sample.png",
-//       provider: "By Kamdhenu Builders",
-//       address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//       rooms: "5",
-//       bathrooms: "3",
-//       parking: "3",
-//       area: "1000",
-//       saved: true,
-//     },
-//     {
-//       id: 2,
-//       name: "Shree Complex",
-//       price: "20000",
-//       picturePath: "/assets/images/garbage/sample.png",
-//       provider: "By Kamdhenu Builders",
-//       address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//       rooms: "5",
-//       bathrooms: "3",
-//       parking: "3",
-//       area: "1000",
-//       saved: true,
-//     },
-//     {
-//       id: 3,
-//       name: "Shree Complex",
-//       price: "20000",
-//       picturePath: "/assets/images/garbage/sample.png",
-//       provider: "By Kamdhenu Builders",
-//       address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//       rooms: "5",
-//       bathrooms: "3",
-//       parking: "3",
-//       area: "1000",
-//       saved: true,
-//     },
-//     {
-//       id: 4,
-//       name: "Shree Complex",
-//       price: "20000",
-//       picturePath: "/assets/images/garbage/sample.png",
-//       provider: "By Kamdhenu Builders",
-//       address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//       rooms: "5",
-//       bathrooms: "3",
-//       parking: "3",
-//       area: "1000",
-//       saved: true,
-//     },
-//     {
-//       id: 5,
-//       name: "Shree Complex",
-//       price: "20000",
-//       picturePath: "/assets/images/garbage/sample.png",
-//       provider: "By Kamdhenu Builders",
-//       address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//       rooms: "5",
-//       bathrooms: "3",
-//       parking: "3",
-//       area: "1000",
-//       saved: true,
-//     },
-//   ],
-// };
-
-const newlyProjects = {
-  title: "Newly added Resale property",
-  subTitle: "Find the hot spot resale properties",
-  projectsArr: [
-    {
-      id: 1,
-      name: "Shree Complex",
-      price: "20000",
-      picturePath: "/assets/images/garbage/sample-2.png",
-      provider: "By Kamdhenu Builders",
-      address: "Sector 3, Kharghar, Navi Mumbai 410210",
-      rooms: "5",
-      bathrooms: "3",
-      parking: "3",
-      area: "1000",
-      saved: true,
-    },
-    {
-      id: 2,
-      name: "Shree Complex",
-      price: "20000",
-      picturePath: "/assets/images/garbage/sample-3.png",
-      provider: "By Kamdhenu Builders",
-      address: "Sector 3, Kharghar, Navi Mumbai 410210",
-      rooms: "5",
-      bathrooms: "3",
-      parking: "3",
-      area: "1000",
-      saved: true,
-    },
-    {
-      id: 3,
-      name: "Shree Complex",
-      price: "20000",
-      picturePath: "/assets/images/garbage/sample-2.png",
-      provider: "By Kamdhenu Builders",
-      address: "Sector 3, Kharghar, Navi Mumbai 410210",
-      rooms: "5",
-      bathrooms: "3",
-      parking: "3",
-      area: "1000",
-      saved: true,
-    },
-    {
-      id: 4,
-      name: "Shree Complex",
-      price: "20000",
-      picturePath: "/assets/images/garbage/sample.png",
-      provider: "By Kamdhenu Builders",
-      address: "Sector 3, Kharghar, Navi Mumbai 410210",
-      rooms: "5",
-      bathrooms: "3",
-      parking: "3",
-      area: "1000",
-      saved: true,
-    },
-  ],
-  bottomButtonLink: "/projects",
-};
 
 const bannerInfo = {
   largeTxt: "Find your dream home",
