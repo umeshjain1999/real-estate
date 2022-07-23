@@ -6,6 +6,7 @@ import Breadcrumb from "@components/Breadcrumb";
 import Loader from "@components/Loader";
 import ProjectCard from "@components/ProjectCard";
 import { RecommendedProjects } from "@components/Projects";
+import { GetAPI } from "@utility/apiCall";
 
 function Projects({ projects, info, currentPage }) {
 
@@ -88,26 +89,16 @@ function Projects({ projects, info, currentPage }) {
   );
 }
 
-const apiCall = async (query) => {
-  try {
-    let apiUrl = "https://rickandmortyapi.com/api/character";
-    if(query){
-      apiUrl = `https://rickandmortyapi.com/api/character?page=${query}`
-    }
-    const res = await fetch(apiUrl);
-    const finalData = await res.json();
-
-    return finalData
-    
-  } catch(error) {
-    console.error('funcation apiCall',error)
-    return false
-  }
-}
-
 export async function getServerSideProps({query}) {
   const {page} = query
-  const data = await apiCall(page)
+  let data = {}
+  
+  if  (page)  {
+    data = await GetAPI(`character?page=${page}`)
+  } else {
+    data = await GetAPI('character')
+  }
+
   return {
     props: {
       projects: data?.results,
@@ -157,91 +148,5 @@ const pricing = {
     { name: "40000 and more", value: "40tomore" },
   ],
 };
-
-// const projects = [
-//   {
-//     id: 1,
-//     name: "Cosmos",
-//     price: "20000",
-//     picturePath: "/assets/images/garbage/sample-2.png",
-//     provider: "By Kamdhenu Builders",
-//     address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//     rooms: "5",
-//     bathrooms: "3",
-//     parking: "3",
-//     area: "1000",
-//     saved: true,
-//   },
-//   {
-//     id: 2,
-//     name: "Milky Way",
-//     price: "20000",
-//     picturePath: "/assets/images/garbage/sample-3.png",
-//     provider: "By Kamdhenu Builders",
-//     address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//     rooms: "5",
-//     bathrooms: "3",
-//     parking: "3",
-//     area: "1000",
-//     saved: false,
-//   },
-//   {
-//     id: 3,
-//     name: "Black Eye",
-//     price: "20000",
-//     picturePath: "/assets/images/garbage/sample.png",
-//     provider: "By Kamdhenu Builders",
-//     address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//     rooms: "5",
-//     bathrooms: "3",
-//     parking: "3",
-//     area: "1000",
-//     saved: false,
-//   },
-//   {
-//     id: 4,
-//     name: "Sculptor Galaxy",
-//     price: "20000",
-//     picturePath: "",
-//     provider: "By Kamdhenu Builders",
-//     address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//     rooms: "5",
-//     bathrooms: "3",
-//     parking: "3",
-//     area: "1000",
-//     saved: false,
-//   },
-//   {
-//     id: 5,
-//     name: "Shree Complex",
-//     price: "20000",
-//     picturePath: "/assets/images/garbage/sample.png",
-//     provider: "By Kamdhenu Builders",
-//     address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//     rooms: "5",
-//     bathrooms: "3",
-//     parking: "3",
-//     area: "1000",
-//     saved: false,
-//   },
-//   {
-//     id: 6,
-//     name: "Shree Complex",
-//     price: "20000",
-//     picturePath: "/assets/images/garbage/sample.png",
-//     provider: "By Kamdhenu Builders",
-//     address: "Sector 3, Kharghar, Navi Mumbai 410210",
-//     rooms: "5",
-//     bathrooms: "3",
-//     parking: "3",
-//     area: "1000",
-//     saved: true,
-//   },
-// ];
-
-// const recommendedProjects = {
-//   title: "Recommended Properties",
-//   projectsArr: projects.slice(0, 6),
-// };
 
 export default Projects;

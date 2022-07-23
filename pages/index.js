@@ -9,6 +9,7 @@ import {
 import NearYou from "@components/Home/NearYou";
 import Team from "@components/Team";
 import Head from "next/head";
+import { GetAPI } from "@utility/apiCall";
 
 export default function Home({ projects, nearByProjects,newlyProjects}) {
   return (
@@ -35,36 +36,27 @@ export default function Home({ projects, nearByProjects,newlyProjects}) {
   );
 }
 
-const apiCall = async (query) => {
-  try {
-    let apiUrl = "https://rickandmortyapi.com/api/character";
-    
-    const res = await fetch(apiUrl);
-    const finalData = await res.json();
-
-    return finalData
-    
-  } catch(error) {
-    console.error('funcation apiCall',error)
-    return false
-  }
-}
-
 // server side rendering
 export async function getServerSideProps() {
-  const data = await apiCall()
+  const data = await GetAPI('character')
+  
+  let projectsArr = []
+  if(data && data?.results){
+    projectsArr = data.results
+  }
+  
   return {
     props: {
       projects: data,
       nearByProjects: {
         title: "Homes for Sale Near you",
         subTitle: "Check out some of our latest properties",
-        projectsArr: data?.results.slice(0,6),
+        projectsArr: projectsArr?.slice(0,6),
       },
       newlyProjects: {
         title: "Newly added Resale property",
         subTitle: "Find the hot spot resale properties",
-        projectsArr: data?.results.slice(7,11),
+        projectsArr: projectsArr?.slice(7,11),
       }
     },
   };
