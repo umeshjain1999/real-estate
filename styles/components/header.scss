@@ -1,7 +1,6 @@
 .header {
   background-color: $white-clr;
   @include vendor(box-shadow,$box-shadow-2);
-  position: relative;
   z-index: 100;
   &__wrapper {
     display: flex;
@@ -17,12 +16,13 @@
         @include add-transition(all,$transition-timing);
         position: absolute;
         background: #fff;
-        left: 0;
         right: 0;
+        top: 0;
+        bottom: 0;
+        min-width: 270px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        top: 80px;
+        align-items: flex-end;
         padding: 3rem;
         border: 1px solid #e6e6e6;
         z-index: 99;
@@ -32,19 +32,29 @@
           opacity: 1;
         }
       }
+      &-inner{
+        display: flex;
+        align-items: center;
+        @include responsive($ipad){
+          flex-direction: column;
+          align-items: flex-end;
+        }
+
+      }
       .nav__wrapper {
         display: flex;
         align-items: center;
         @include responsive($ipad) {
           flex-direction: column;
+          align-items: flex-end;
         }
         .nav__link {
           margin-right: 6rem;
           @include responsive($ipad) {
             margin-right: 0;
             margin-bottom: 3rem;
-            font-size: 2.4rem;
-            line-height: 3rem;
+            font-size: 1.6rem;
+            line-height: 2.2rem;
           }
         }
       }
@@ -59,8 +69,8 @@
       line-height: 2rem;
       @include responsive($ipad) {
         margin-right: 0;
-        font-size: 2.4rem;
-        line-height: 3rem;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
         margin-bottom: 3rem;
       }
       &:hover {
@@ -74,16 +84,55 @@
   }
   &__hamburger-wrap {
     display: inline-block;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
   }
   &__hamburger {
     display: none;
     @include responsive($ipad) {
       display: inline-block;
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       cursor: pointer;
+    }
+  }
+  &__close{
+    display: none;
+    @include responsive($ipad){
+      display: inline-block;
+      text-align: left;
+      margin-bottom: 3rem;
+      height: 20px;
+      svg {
+        display: inline-block;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  &__btn.common-btn{
+    @include responsive($ipad){
+      background: transparent;
+      padding: 0;
+      color: $text-clr-primary;
+      &:hover{
+        background: transparent;
+        color: $accent-clr-1;
+      }
+    }
+  }
+  &__overlay{
+    display: none;
+    @include responsive($ipad){
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: rgba($color: $black-clr, $alpha: 0.5);
+      z-index: 95;
     }
   }
 }

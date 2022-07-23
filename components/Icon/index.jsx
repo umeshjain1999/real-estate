@@ -45,10 +45,7 @@ function Icon(props) {
       svgEelement = <svg className={className} width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12.208c1.333-1.083 2.347-2.139 3.042-3.166.694-1.028 1.041-1.986 1.041-2.875 0-.778-.139-1.438-.416-1.979-.278-.542-.622-.98-1.032-1.313a4.063 4.063 0 0 0-1.323-.729A4.284 4.284 0 0 0 6 1.917c-.389 0-.823.076-1.302.229-.48.153-.924.396-1.333.729-.41.333-.754.771-1.032 1.313-.277.541-.416 1.201-.416 1.979 0 .889.347 1.847 1.041 2.875.695 1.027 1.709 2.083 3.042 3.166Zm0 2.209c-1.972-1.459-3.437-2.868-4.396-4.229C.646 8.827.167 7.486.167 6.167c0-.986.174-1.854.521-2.605a5.63 5.63 0 0 1 1.364-1.874A5.907 5.907 0 0 1 3.938.552 5.914 5.914 0 0 1 6 .167c.695 0 1.386.128 2.073.385a5.937 5.937 0 0 1 1.875 1.136 5.63 5.63 0 0 1 1.364 1.874c.347.75.521 1.619.521 2.605 0 1.32-.479 2.66-1.437 4.021-.959 1.36-2.424 2.77-4.396 4.229ZM6 7.75c.472 0 .875-.167 1.208-.5.333-.333.5-.736.5-1.208 0-.473-.167-.876-.5-1.209A1.646 1.646 0 0 0 6 4.333c-.472 0-.875.167-1.208.5-.333.333-.5.736-.5 1.209 0 .472.167.875.5 1.208.333.333.736.5 1.208.5ZM.167 16.833v-1.75h11.666v1.75H.167Z" fill="#B9B9B9"/></svg>
       break;
     case 'hamburger':
-      svgEelement = <svg className={className} width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="hamburgerIconTitle" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" color="#000"><path d="M6 7h12M6 12h12M6 17h12"/></svg>
-      break;
-    case 'close':
-      svgEelement = <svg className={className} width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"><path d="m15.5 15.5-10-10zm0-10-10 10" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      svgEelement = <svg className={className} width="16" height="6" viewBox="0 0 16 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 2a.968.968 0 0 1-.713-.288A.967.967 0 0 1 0 1 .97.97 0 0 1 .287.287.97.97 0 0 1 1 0h14a.97.97 0 0 1 .712.287c.192.192.288.43.288.713s-.096.52-.288.712A.965.965 0 0 1 15 2H1Zm0 4a.968.968 0 0 1-.713-.288A.967.967 0 0 1 0 5a.97.97 0 0 1 .287-.713A.97.97 0 0 1 1 4h14a.97.97 0 0 1 .712.287c.192.192.288.43.288.713s-.096.52-.288.712A.965.965 0 0 1 15 6H1Z" fill="#000"/></svg>
       break;
     case 'amenitiesRooms':
       svgEelement = <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="a" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#a)"><path d="M17.225 8.775h1.55v-1.55h-1.55v1.55Zm0 4h1.55v-1.55h-1.55v1.55Zm0 4h1.55v-1.55h-1.55v1.55ZM16 20v-1h5V5h-9.625v2.2l-1-.725V4H22v16h-6ZM2 20v-8.5l6-4.275 6 4.275V20H9.275v-4.5h-2.55V20H2Zm1-1h2.725v-4.5h4.55V19H13v-7L8 8.5 3 12v7Z" fill="#19E09C"/></g></svg>
@@ -79,6 +76,9 @@ function Icon(props) {
       break;
     case 'check' :
       svgEelement = <svg className={className} width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm0 2C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10ZM8 10l-2 2 5 5 7-7-2-2-5 5-3-3Z"/></svg>
+      break;
+    case 'close' :
+      svgEelement = <svg className={className} width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 14 0 12.6 5.6 7 0 1.4 1.4 0 7 5.6 12.6 0 14 1.4 8.4 7l5.6 5.6-1.4 1.4L7 8.4 1.4 14Z" fill="#D5AF34"/></svg>
       break;
     default:
       svgEelement = <svg></svg>
