@@ -8,6 +8,9 @@ const nextConfig = {
   env: {
     REACT_APP_MOCK_API: process.env.REACT_APP_MOCK_API,
   },
+  images: {
+    domains: ['rickandmortyapi.com'],
+  },
 };
 
 module.exports = nextConfig;

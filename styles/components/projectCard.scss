@@ -5,13 +5,14 @@
   .project-img {
     height: 200px;
     width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
     background-color: $placeholder;
     overflow: hidden;
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
+    position: relative;
+    img{
+      object-fit: cover;
+    }
   }
   .project-content {
     padding: 1rem;
@@ -120,6 +121,7 @@
     right: 0;
     top: 0;
     bottom: 0;
+    z-index: 5;
     &:hover {
       ~ .project-card {
         @include vendor(box-shadow,$box-shadow);

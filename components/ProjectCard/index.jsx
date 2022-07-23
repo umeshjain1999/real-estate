@@ -1,6 +1,8 @@
 import React from 'react'
 import Icon from '@components/Icon';
 import Link from 'next/link';
+import Image from 'next/image';
+
 function ProjectCard(props) {
   const {projectInfo = {},horizontal = false,feature = true,provider = true,address = true,className='',...remainingProps} = props
 
@@ -25,7 +27,16 @@ function ProjectCard(props) {
         <a className="project-overlay"></a>
       </Link>
       <div className={`project-card ${horizontal ? 'project-horizontal' : ''}`}>
-        <div className="project-img" style={{backgroundImage : `url(${filterData.picturePath})`}}></div>
+        <div className="project-img">
+          <Image
+            src={filterData?.picturePath}
+            alt={'Property'}
+            layout="fill"
+            sizes='50vw'
+            placeholder='blur'
+            blurDataURL='/assets/images/image-loader.svg'
+          />
+        </div>
         <div className='project-wrap'>
           <div className="project-content">
             <div className="project-name-wrap">
