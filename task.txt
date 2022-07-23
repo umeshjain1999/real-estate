@@ -6,7 +6,6 @@ Need to Fix :
  
 Can Take time
  - Proper fonts - 400, 500, 600, 700
- - image loader
  - Unhandled Runtime Error
     TypeError: Cannot read properties of undefined (reading 'includes') (partners pages)
  - can improve project tab with useRef (project detail)
