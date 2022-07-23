@@ -1,23 +1,39 @@
-import Pagination from "@mui/material/Pagination";
-import { useRouter } from "next/router";
-import {useState,useEffect} from 'react'
-import Select from "@components/Select";
 import Breadcrumb from "@components/Breadcrumb";
-import Loader from "@components/Loader";
 import ProjectCard from "@components/ProjectCard";
 import { RecommendedProjects } from "@components/Projects";
+import Select from "@components/Select";
+import Pagination from "@mui/material/Pagination";
 import { GetAPI } from "@utility/apiCall";
+import { useRouter } from "next/router";
 
 function Projects({ projects, info, currentPage }) {
 
   const router = useRouter();
 
-  function handlePaginationChange(e, value) {
+  const handlePaginationChange = (e, value) => {
+
+    const currentQuery = router.query
+
     router.push({
       query: {
+        ...currentQuery,
         page: value,
       },
     });
+  }
+
+  const handleSelectDropdown = (type,obj) => {
+    
+    const currentQuery = router.query
+    
+    if(type && obj?.value){
+      router.push({
+        query: {
+          ...currentQuery,
+          [type] : obj?.value
+        }
+      })
+    }
   }
   
   let CONTENT
@@ -33,6 +49,8 @@ function Projects({ projects, info, currentPage }) {
     //! later this will be change
     projectsArr: projects.slice(0, 6),
   };
+
+
   return (
     <main className="main-wrapper projects">
       <div className="container">
@@ -46,9 +64,9 @@ function Projects({ projects, info, currentPage }) {
           </div>
         </div>
         <div className="projects__filter divider">
-          <Select selectOptions={category?.arr} title={category?.title} />
-          <Select selectOptions={beds?.arr} title={beds?.title} />
-          <Select selectOptions={pricing?.arr} title={pricing?.title} />
+          <Select selectOptions={category?.arr} title={category?.title} onChange = {handleSelectDropdown}/>
+          <Select selectOptions={beds?.arr} title={beds?.title} onChange = {handleSelectDropdown}/>
+          <Select selectOptions={pricing?.arr} title={pricing?.title} onChange = {handleSelectDropdown}/>
         </div>
         <div className="projects__wrapper">
           {CONTENT}

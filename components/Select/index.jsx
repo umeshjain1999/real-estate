@@ -118,10 +118,13 @@ function CustomSelect(props) {
   return <SelectUnstyled {...props} components={components} />;
 }
 
-export default function Select({selectOptions = [],title='none'}) {
+export default function Select({selectOptions = [],title='none',onChange}) {
   const [character, setCharacter] = React.useState('');
   const onOptionSelected = (selected) => {
     setCharacter(selected);
+    if(onChange){
+      onChange(title,selected)
+    }
   }
   return (
     <div className="select-res" style={{position: 'relative'}}>
