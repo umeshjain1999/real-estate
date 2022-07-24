@@ -3,6 +3,9 @@ import Image from 'next/image'
 import React from 'react'
 
 function LocalMap() {
+  const handleMapFunction = () => {
+    alert('Local Map Operation')
+  }
   return (
     <div className='text-center'>
         <div className='divider-sm locality-map-wrap'>
@@ -14,7 +17,7 @@ function LocalMap() {
             className = 'locality-map'
           />
         </div>
-        <Button text="Explore on Maps" icon = 'search' className = 'locality-button animation-wobble' link = {true} href = {'/'} />
+        <Button text="Explore on Maps" icon = 'search' className = 'locality-button animation-wobble' onClick={handleMapFunction}/>
     </div>
   )
 }
