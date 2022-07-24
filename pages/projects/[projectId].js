@@ -1,16 +1,34 @@
 import Breadcrumb from "@components/Breadcrumb";
 import { LeftSection, Project, ProjectTab, RightSection } from "@components/ProjectDetail";
 import ScrollUp from "@components/ScrollUp";
+import { GetAPI } from "@utility/apiCall";
 import { scrollToRef, stringToHtml } from "@utility/functions";
-import { useRouter } from "next/router";
 import React from 'react';
 
-function ProjectDetail() {
-  const projectDetailRef = React.useRef(null);
+function ProjectDetail({projectDetail = {},breadcrumb,featuredProperties=[]}) {
 
-  const router = useRouter()
-  const projectId = router.query.projectId; 
-  //* projectId of project from url
+  let formattedProjectDetail = {
+    name : projectDetail?.name || 'none',
+    provider: projectDetail?.origin?.name || 'sqfthomes',
+    address: projectDetail?.location?.name || 'none',
+    price: projectDetail?.species || 'none',
+    imageArr: [projectDetail?.image],
+    tags: [projectDetail?.status],
+    specsArr : [
+      {
+        name : 'Configuration',
+        desc : '1,2BHK Aparments',
+        icon : 'amenitiesRooms'
+      },
+      {
+        name : 'Sizes',
+        desc : '443.00 sq.ft. - 655.00 sq.ft. (Carpet Area)',
+        icon : 'amenitiesRooms'
+      },
+    ],
+  }
+
+  const projectDetailRef = React.useRef(null);
 
   const executeScroll = () => scrollToRef(projectDetailRef);
   return (
@@ -19,7 +37,7 @@ function ProjectDetail() {
           <div className="container">
             <div className="project__detail-top-wrap">
               <Breadcrumb linkArr={breadcrumb}/>
-              <Project {...projectDetail}/>
+              <Project {...formattedProjectDetail}/>
               <ProjectTab projectTabs = {projectTabs}/>
             </div>
           </div>
@@ -45,46 +63,36 @@ function ProjectDetail() {
   )
 }
 
-const projectDetail = {
-  name : 'White Forest',
-  provider : 'by Kamdhenu Builers',
-  address : 'Sector 3, Kharghar, Navi Mumbai 410210',
-  price : '2.5 Cr to 2.7 Cr',
-  imageArr : [
-    '/assets/images/garbage/sample-2.png',
-    '/assets/images/garbage/sample.png',
-    '/assets/images/garbage/sample-3.png',
-    '/assets/images/garbage/sample-4.png',
-    '/assets/images/garbage/sample-2.png',
-  ],
-  specsArr : [
-    {
-      name : 'Configuration',
-      desc : '1,2BHK Aparments',
-      icon : 'amenitiesRooms'
-    },
-    {
-      name : 'Sizes',
-      desc : '443.00 sq.ft. - 655.00 sq.ft. (Carpet Area)',
-      icon : 'amenitiesRooms'
-    },
-  ],
-  tags : ['New Project','10 Properties on Sale']
-}
+export const getServerSideProps = async (ctx) => {
 
-const breadcrumb = [
-  {
-    name : 'Home',
-    link : '/'
-  },
-  {
-    name : 'Projects',
-    link :'/projects'
-  },
-  {
-    name : projectDetail?.name,
-  },
-]
+  const {query} = ctx
+  const {projectId} = query
+
+  const data = await GetAPI(`character/${projectId}`)
+  const featuredProperties = await GetAPI('character')
+
+  const breadcrumb = [
+    {
+      name : 'Home',
+      link : '/'
+    },
+    {
+      name : 'Projects',
+      link :'/projects'
+    },
+    {
+      name : data?.name || 'none',
+    },
+  ]
+
+  return {
+    props:{
+      projectDetail:data,
+      breadcrumb: breadcrumb,
+      featuredProperties : featuredProperties?.results?.slice(0,3)
+    }
+  }
+}
 
 const projectTabs = [
   {
@@ -114,48 +122,6 @@ const projectTabs = [
   {
     title : "About Developers",
     link : "#project-developers"
-  },
-]
-
-const featuredProperties = [
-  {
-    id: 1,
-    name : 'Shree Complex',
-    price : '20000',
-    picturePath: '/assets/images/garbage/sample.png',
-    provider: 'By Kamdhenu Builders',
-    address: 'Sector 3, Kharghar, Navi Mumbai 410210',
-    rooms : '5',
-    bathrooms : '3',
-    parking : '3',
-    area : '1000',
-    saved : false,
-  },
-  {
-    id: 2,
-    name : 'Shree Complex',
-    price : '20000',
-    picturePath: '/assets/images/garbage/sample.png',
-    provider: 'By Kamdhenu Builders',
-    address: 'Sector 3, Kharghar, Navi Mumbai 410210',
-    rooms : '5',
-    bathrooms : '3',
-    parking : '3',
-    area : '1000',
-    saved : false,
-  },
-  {
-    id: 3,
-    name : 'Shree Complex',
-    price : '20000',
-    picturePath: '/assets/images/garbage/sample.png',
-    provider: 'By Kamdhenu Builders',
-    address: 'Sector 3, Kharghar, Navi Mumbai 410210',
-    rooms : '5',
-    bathrooms : '3',
-    parking : '3',
-    area : '1000',
-    saved : false,
   },
 ]
 

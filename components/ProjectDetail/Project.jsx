@@ -15,7 +15,13 @@ function Project({
   tags = []
 }) {
   const firstImage = imageArr && imageArr[0] ? imageArr[0] : '/assets/images/image-loader.svg';
+  
   const [currentImage,setImage] = React.useState(firstImage)
+
+  React.useEffect(() => {
+    setImage(firstImage)
+  })
+  
   const settings = {
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -30,7 +36,9 @@ function Project({
       },
     ]
   }
+  
   const updateImage = (idx) => setImage(imageArr[idx])
+  
   return (
     <div className="detail__wrap divider">
       <div className="detail__wrap-image-wrap">
