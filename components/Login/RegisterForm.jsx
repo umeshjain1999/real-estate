@@ -14,13 +14,13 @@ function RegisterForm({
   }
   const formSubmission = (e) => {
     e.preventDefault()
-    let arr = ['fullName','email','city']
+    let arr = ['fullName','email','city','tel']
     let registerObj = {}
     for (let index = 0; index < arr.length; index++) {
       let element = arr[index];
       registerObj[element] = e.target[element].value
     }
-    alert(JSON.stringify({...registerObj,'tel': pNumber}))
+    alert(JSON.stringify({...registerObj}))
     closeModal()
   }
 

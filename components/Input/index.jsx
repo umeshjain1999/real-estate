@@ -8,6 +8,7 @@ const Input = forwardRef((props,ref) => {
   if(remainingProps?.type === 'tel'){
     updatedProps = {
       maxLength : "10",
+      minLength : "10",
       placeholder :'XXXXXXXX',
       ...updatedProps,
     }
