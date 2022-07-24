@@ -4,7 +4,7 @@ import Icon from '@components/Icon';
 import { CustomSlider } from '@components/Slider';
 import { currency } from '@constants/constant';
 import React from 'react';
-
+import Image from 'next/image';
 function Project({
   name = false,
   provider = false,
@@ -21,6 +21,10 @@ function Project({
   React.useEffect(() => {
     setImage(firstImage)
   })
+
+  const handleActionButton = () => {
+    alert('Request Callback Operation!')
+  }
   
   const settings = {
     slidesToShow: 4,
@@ -42,12 +46,16 @@ function Project({
   return (
     <div className="detail__wrap divider">
       <div className="detail__wrap-image-wrap">
-        <div
-          className="detail__wrap-image-big"
-          style={{
-            backgroundImage : `url(${currentImage})`
-          }}
-        ></div>
+        <div className="detail__wrap-image-big">
+          <Image
+            src={currentImage}
+            alt={'Property'}
+            layout="fill"
+            sizes='50vw'
+            placeholder='blur'
+            blurDataURL='/assets/images/image-loader.svg'
+          />
+        </div>
         
         <div className="detail__wrap-image-slider">
           <CustomSlider settings={settings}>
@@ -57,11 +65,16 @@ function Project({
                   <div key={index}>
                     <div
                       className={`detail__wrap-image-sm ${data === currentImage ? 'active' : ''}`}
-                      style={{
-                        backgroundImage : `url(${data})`,
-                      }}
                       onClick = {() => updateImage(index)}
                     >
+                      <Image
+                        src={data}
+                        alt={'Property'}
+                        layout="fill"
+                        sizes='50vw'
+                        placeholder='blur'
+                        blurDataURL='/assets/images/image-loader.svg'
+                      />
                     </div>
                   </div>
                 )
@@ -97,7 +110,7 @@ function Project({
             )
           })}
         </div>
-        <Button className = 'content-button' text = {buttonTitle} icon = 'call' variant='secondary' />
+        <Button onClick={handleActionButton} className = 'content-button' text = {buttonTitle} icon = 'call' variant='secondary' />
       </div>
     </div>
   )
