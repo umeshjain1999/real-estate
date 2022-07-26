@@ -4,32 +4,47 @@ import Button from '@components/Button';
 import Navigation from '@components/Navigation';
 import Icon from '@components/Icon';
 import Login from '@components/Login';
+import { useRouter } from 'next/router';
+
 function Header() {
-  const [open,setOpen] = useState(false)
+  const router = useRouter()
+  const [menuStatus,setMenuStatus] = useState(false)
   const [modal,setModal] = useState(false)
 
   const toggleModal = () => {
     setModal(!modal)
   }
   useEffect(() => {
-    if(open){
+    if(menuStatus){
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
-  },[open])
+  },[menuStatus])
+
+  useEffect(() => {
+    const toggleMenu = () => {
+      setMenuStatus(false)
+    }
+    router.events.on('routeChangeComplete', toggleMenu)
+
+    return () => {
+      router.events.off('routeChangeComplete', toggleMenu)
+    }
+  }, [router])
+
   return (
     <header className='header'>
       <div className='container'>
         <div className='header__wrapper'>
           <Logo/>
-          <span onClick={() => setOpen(true)} className = 'header__hamburger-wrap'>
-            {!open && <Icon className='header__hamburger' icon='hamburger' />}
+          <span onClick={() => setMenuStatus(true)} className = 'header__hamburger-wrap'>
+            {!menuStatus && <Icon className='header__hamburger' icon='hamburger' />}
           </span>
-          <div className={`header__wrapper__nav ${open ? 'active animation-entrance' : ''}`}>
-            {open && <div className='header__close'  onClick={() => setOpen(false)}>
+          <div className={`header__wrapper__nav ${menuStatus ? 'active' : ''}`}>
+            <div className='header__close'  onClick={() => setMenuStatus(false)}>
               <Icon className='header__close' icon='close' />
-            </div>}
+            </div>
             <div className='header__wrapper__nav-inner'>
               <Navigation navigation = {headerNavigation} navChildClassName={'link-text'}/>
               <Button onClick={toggleModal} text="Login/Register" icon = 'loginUser' iconPosition = 'right' className = 'header__login'/>
@@ -40,7 +55,7 @@ function Header() {
               <Button text="+91 9326518230" icon = 'call' className = 'header__btn animation-wobble' link = {true} href = {contactInfo} />
             </div>
           </div>
-          {open && <div className='header__overlay animation-entrance' onClick={() => setOpen(false)}></div>}
+          {menuStatus && <div className='header__overlay' onClick={() => setMenuStatus(false)}></div>}
         </div>
       </div>
     </header>

@@ -53,12 +53,14 @@ function ProjectCard(props) {
               {filterData.parking && <span className='project-feat-icon vertical-center'><Icon icon='projectCar'/> {filterData.parking}</span>}
               {filterData.area && <span className='project-feat-icon vertical-center'><Icon icon='projectArea'/> {filterData.area} Sqft</span>}
             </div>
-            <span className={`vertical-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`}/> {filterData.saved ? '' : 'Save'}</span>
+            {enableSaveFeature && <span className={`vertical-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`}/> {filterData.saved ? '' : 'Save'}</span>}
           </div>}
         </div>
       </div>
   </div>
   )
 }
+
+const enableSaveFeature = true
 
 export default ProjectCard

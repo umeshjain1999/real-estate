@@ -14,12 +14,12 @@
         visibility: hidden;
         opacity: 0;
         @include add-transition(all,$transition-timing);
+        min-width: 270px;
         position: absolute;
         background: #fff;
         right: 0;
         top: 0;
         bottom: 0;
-        min-width: 270px;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
