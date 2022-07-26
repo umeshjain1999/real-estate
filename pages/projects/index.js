@@ -1,7 +1,7 @@
 import Breadcrumb from "@components/Breadcrumb";
 import ProjectCard from "@components/ProjectCard";
 import { RecommendedProjects } from "@components/Projects";
-import Select from "@components/Select";
+import { CustomMultiSelect,CustomSelect } from "@components/Select";
 import Pagination from "@mui/material/Pagination";
 import { GetAPI } from "@utility/apiCall";
 import { useRouter } from "next/router";
@@ -24,16 +24,16 @@ function Projects({ projects, info, currentPage }) {
 
   const handleSelectDropdown = (type,obj) => {
     
-    const currentQuery = router.query
-    
-    if(type && obj?.value){
-      router.push({
-        query: {
-          ...currentQuery,
-          [type] : obj?.value
-        }
-      })
-    }
+    console.log(type,'--->',obj);
+    // const currentQuery = router.query
+    // if(type && obj?.value){
+    //   router.push({
+    //     query: {
+    //       ...currentQuery,
+    //       [type] : obj?.value
+    //     }
+    //   })
+    // }
   }
   
   let CONTENT
@@ -64,9 +64,9 @@ function Projects({ projects, info, currentPage }) {
           </div>
         </div>
         <div className="projects__filter divider">
-          <Select selectOptions={category?.arr} title={category?.title} onChange = {handleSelectDropdown}/>
-          <Select selectOptions={beds?.arr} title={beds?.title} onChange = {handleSelectDropdown}/>
-          <Select selectOptions={pricing?.arr} title={pricing?.title} onChange = {handleSelectDropdown}/>
+          <CustomMultiSelect selectOptions={category?.arr} title={category?.title} onChange = {handleSelectDropdown}/>
+          <CustomMultiSelect selectOptions={beds?.arr} title={beds?.title} onChange = {handleSelectDropdown}/>
+          <CustomSelect selectOptions={pricing?.arr} title={pricing?.title} onChange = {handleSelectDropdown}/>
         </div>
         <div className="projects__wrapper">
           {CONTENT}
@@ -117,31 +117,31 @@ const breadcrumb = [
 const category = {
   title: "Category",
   arr: [
-    { name: "Frodo", value: "Hobbit" },
-    { name: "Sam", value: "Hobbit" },
-    { name: "Merry", value: "Hobbit" },
-    { name: "Gandalf", value: "Maia" },
-    { name: "Gimli", value: "Dwarf" },
+    { label: "Frodo", value: "Hobbit" },
+    { label: "Sam", value: "Jos" },
+    { label: "Merry", value: "Dan" },
+    { label: "Gandalf", value: "Maia" },
+    { label: "Gimli", value: "Dwarf" },
   ],
 };
 
 const beds = {
-  title: "Beds",
+  title: "Rooms",
   arr: [
-    { name: "1", value: 1 },
-    { name: "2", value: 2 },
-    { name: "3", value: 3 },
-    { name: "4", value: 4 },
+    { label: "1BHK", value: 1 },
+    { label: "2BHK", value: 2 },
+    { label: "3BHK", value: 3 },
+    { label: "4BHK", value: 4 },
   ],
 };
 
 const pricing = {
   title: "Price",
   arr: [
-    { name: "10000 - 20000", value: "10to20" },
-    { name: "20000 - 30000", value: "20to30" },
-    { name: "30000 - 40000", value: "30to40" },
-    { name: "40000 and more", value: "40tomore" },
+    { label: "10000 - 20000", value: "10to20" },
+    { label: "20000 - 30000", value: "20to30" },
+    { label: "30000 - 40000", value: "30to40" },
+    { label: "40000 and more", value: "40tomore" },
   ],
 };
 

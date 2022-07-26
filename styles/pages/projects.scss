@@ -22,13 +22,14 @@
     }
   }
   &__filter {
-    margin-right: -1.5rem;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
-    @include responsive($mob-min) {
-      margin-right: 0;
+    margin: 0 -1.5rem 2.5rem;
+    .dropdown-res{
+      margin: 0 1.5rem 1.5rem;
+      width: 200px;
     }
     .select-res {
       width: calc(20% - 1.5rem);
