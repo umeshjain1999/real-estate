@@ -23,17 +23,19 @@ function Projects({ projects, info, currentPage }) {
   }
 
   const handleSelectDropdown = (type,obj) => {
+    console.log(type,'--->',obj.join(','));
+
+    let typeValue = obj.join(',');
     
-    console.log(type,'--->',obj);
-    // const currentQuery = router.query
-    // if(type && obj?.value){
-    //   router.push({
-    //     query: {
-    //       ...currentQuery,
-    //       [type] : obj?.value
-    //     }
-    //   })
-    // }
+    const currentQuery = router.query
+    if(type && typeValue && typeValue?.length){
+      router.push({
+        query: {
+          ...currentQuery,
+          [type] : typeValue
+        }
+      })
+    }
   }
   
   let CONTENT
@@ -47,7 +49,7 @@ function Projects({ projects, info, currentPage }) {
   const recommendedProjects = {
     title: "Recommended Properties",
     //! later this will be change
-    projectsArr: projects.slice(0, 6),
+    projectsArr: projects && projects.slice(0, 6),
   };
 
 

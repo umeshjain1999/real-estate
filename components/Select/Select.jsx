@@ -1,7 +1,6 @@
-import * as React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import Checkbox from "@mui/material/Checkbox";
+import * as React from "react";
 
 const ITEM_HEIGHT = 56;
 const ITEM_PADDING_TOP = 8;
@@ -19,30 +18,28 @@ export default function CustomSelect({
   title = 'none',
   onChange
 }) {
-  const [personName, setPersonName] = React.useState([]);
+  const [personName, setPersonName] = React.useState('');
 
-  const handleOnClose = () => {
-    if(personName && onChange && typeof onChange === 'function'){
+  const handleChange = (event) => {
+    const {
+      target: { value }
+    } = event;
+    
+    setPersonName(value);
 
+    if(value && onChange && typeof onChange === 'function'){
+
+      console.log('handleChange',value);
       let arr = []
 
       selectOptions.map((data) => {
-        if(personName.includes(data?.label)){
-          arr.push(data)
+        if(value === data?.label){
+          arr.push(data?.value)
         }
       })
 
       onChange(title,arr)
     }
-  }
-  const handleChange = (event) => {
-    const {
-      target: { value }
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
   };
 
   return (
@@ -51,14 +48,6 @@ export default function CustomSelect({
         displayEmpty
         value={personName}
         onChange={handleChange}
-        onClose = {handleOnClose}
-        renderValue={(selected) => {
-          if (selected.length === 0) {
-            return <em>{title}</em>;
-          }
-
-          return selected.join(", ");
-        }}
         MenuProps={MenuProps}
         inputProps={{ "aria-label": title }}
         variant="filled"

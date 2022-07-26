@@ -28,7 +28,7 @@ export default function CustomMultiSelect({
 
       selectOptions.map((data) => {
         if(personName.includes(data?.label)){
-          arr.push(data)
+          arr.push(data?.value)
         }
       })
 
