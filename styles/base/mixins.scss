@@ -41,9 +41,9 @@
 }
 
 @mixin add-transition($property, $duration) {
-	-webkit-transition: $property $duration cubic-bezier(0.25, 0.1, 0.25, 1);
-	-o-transition: $property $duration cubic-bezier(0.25, 0.1, 0.25, 1);
-	transition: $property $duration cubic-bezier(0.25, 0.1, 0.25, 1);
+	-webkit-transition: $property $duration ease-in-out;
+	-o-transition: $property $duration ease-in-out;
+	transition: $property $duration ease-in-out;
 }
 
 @mixin text-attributes($noOfLine, $fontSize, $color, $fontWeight, $lineHeight) {
