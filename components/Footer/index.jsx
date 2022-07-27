@@ -1,6 +1,6 @@
 import Logo from "@components/Logo";
 import Navigation from '@components/Navigation';
-
+import { mobileNumber,email } from '@constants/constant';
 function Footer() {
   return (
     <footer className="footer">
@@ -59,8 +59,8 @@ const footerNavigation2 = {
 
 const contactInfo = {
   title: 'Contact Us',
-  mail : 'contact@sqfthome.in',
-  tel: '+91 9326518230',
+  mail : email,
+  tel: mobileNumber,
   address: 'Fort, Mumbai'
 }
 

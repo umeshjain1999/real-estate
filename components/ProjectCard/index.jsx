@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from '@components/Icon';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import { currency } from '@constants/constant';
 function ProjectCard(props) {
   const {projectInfo = {},horizontal = false,feature = true,provider = true,address = true,className='',...remainingProps} = props
 
@@ -41,7 +41,7 @@ function ProjectCard(props) {
           <div className="project-content">
             <div className="project-name-wrap">
               <div className="project-name">{filterData.name}</div>
-              <div className="project-price">&#8377; {filterData.price}</div>
+              <div className="project-price">{currency} {filterData.price}</div>
             </div>
             {provider && <div className="project-provider">{filterData.provider}</div>}
             {address && <div className="project-address vertical-center"><Icon icon='projectDirection'/><span className='project-text'>{filterData.address}</span></div>}

@@ -5,7 +5,7 @@ import Navigation from '@components/Navigation';
 import Icon from '@components/Icon';
 import Login from '@components/Login';
 import { useRouter } from 'next/router';
-
+import { mobileNumber } from '@constants/constant';
 function Header() {
   const router = useRouter()
   const [menuStatus,setMenuStatus] = useState(false)
@@ -68,6 +68,6 @@ const headerNavigation = [
   {name:'partners',link:'/partners'},
 ]
 
-const contactInfo = 'tel:+91 9326518230'
+const contactInfo = `tel:${mobileNumber}`
 
 export default Header
