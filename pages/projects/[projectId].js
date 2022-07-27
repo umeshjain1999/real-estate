@@ -14,18 +14,7 @@ function ProjectDetail({projectDetail = {},breadcrumb,featuredProperties=[]}) {
     price: projectDetail?.species || 'none',
     imageArr: [projectDetail?.image],
     tags: [projectDetail?.status],
-    specsArr : [
-      {
-        name : 'Configuration',
-        desc : '1,2BHK Aparments',
-        icon : 'amenitiesRooms'
-      },
-      {
-        name : 'Sizes',
-        desc : '443.00 sq.ft. - 655.00 sq.ft. (Carpet Area)',
-        icon : 'amenitiesRooms'
-      },
-    ],
+    amenities : hightLights ? hightLights.slice(0,2) : [],
   }
 
   const projectDetailRef = React.useRef(null);
@@ -132,7 +121,6 @@ const floorPlanAndPrice = [
     imagePath : '/assets/images/rooms/1BHK.png',
     price : '1.3Cr',
     area : '443.00 Sqft',
-    active : true
   },
   {
     id : 2,
@@ -140,26 +128,25 @@ const floorPlanAndPrice = [
     imagePath : '/assets/images/rooms/2BHK.png',
     price : '1.9Cr',
     area : '550.00 Sqft',
-    active : false
   }
 ]
 const hightLights = [
   {
     id : 1,
     name : "Configurations",
-    feature : "1,2 BHk Apartments",
+    desc : "1,2 BHk Apartments",
     icon : "amenitiesRooms"
   },
   {
     id : 2,
-    name : "Configurations",
-    feature : "1,2 BHk Apartments",
-    icon : "amenitiesRooms"
+    name : 'Sizes',
+    desc : '443.00 sq.ft. - 655.00 sq.ft. (Carpet Area)',
+    icon : 'amenitiesRooms'
   },
   {
     id : 3,
     name : "Configurations",
-    feature : "1,2 BHk Apartments",
+    desc : "1,2 BHk Apartments",
     icon : "amenitiesRooms"
   },
 ]

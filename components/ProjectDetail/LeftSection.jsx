@@ -23,7 +23,7 @@ function LeftSection(props) {
             <HorizontalFeature
               key={data?.id}
               name = {data?.name}
-              feature = {data?.feature}
+              feature = {data?.desc}
               icon = {data?.icon}
             />
           )
@@ -39,7 +39,7 @@ function LeftSection(props) {
             <HorizontalFeature
               key={data?.id}
               name = {data?.name}
-              feature = {data?.feature}
+              feature = {data?.desc}
               icon = {data?.icon}
             />
           )

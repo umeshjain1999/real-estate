@@ -11,7 +11,7 @@ function Project({
   address = false,
   price = false,
   imageArr = [],
-  specsArr = [],
+  amenities = [],
   tags = []
 }) {
   const firstImage = imageArr && imageArr[0] ? imageArr[0] : '/assets/images/image-loader.svg';
@@ -99,7 +99,7 @@ function Project({
           })}
         </div>
         <div className="content-feature-wrap divider">
-          {specsArr && specsArr.map((data,index) => {
+          {amenities && amenities.map((data,index) => {
             return (
               <HorizontalFeature
                 name = {data?.name}
