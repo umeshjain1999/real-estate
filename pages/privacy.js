@@ -7,7 +7,7 @@ function Privacy() {
           sqfthomes.in the website is owned and operated by Sqfthomes Property
           Solutions Pvt Ltd Sqfthomes Property Solutions Pvt Ltd has created
           this privacy statement in order to demonstrate our commitment to our
-          user's privacy We may use an IP address to help diagnose problems with
+          users privacy We may use an IP address to help diagnose problems with
           our server and to administer our Web site. Your IP address may be also
           used to gather broad demographic information Neat layout without
           clutter and unnecessary advertisements Sqfthomesl.com contains links
