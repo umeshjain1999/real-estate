@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from '@components/Input'
+import RadioButton from '@components/Input/RadioButton'
 import Button from '@components/Button'
 import { isNormalNumber } from '@utility/functions'
 function RegisterForm({
@@ -14,7 +15,7 @@ function RegisterForm({
   }
   const formSubmission = (e) => {
     e.preventDefault()
-    let arr = ['fullName','email','city','tel']
+    let arr = ['type','fullName','email','city','tel']
     let registerObj = {}
     for (let index = 0; index < arr.length; index++) {
       let element = arr[index];
@@ -36,16 +37,25 @@ function RegisterForm({
       <form onSubmit={formSubmission} className='common-form' >
         <div className='register__form-text'>I am am</div>
         <div className="register__form-wrap">
-          <div className='register__form-radio common-input-radio'>
-              <Input type="radio" name="type" value = "individual" id="individual" defaultChecked/>
-                <label htmlFor='individual' className='common-input-radio-text'>Individual (3 Free Listings)</label>
-          </div>
-          <div className='register__form-radio common-input-radio'>
-              <Input type="radio" name="type" value = "agent" id="agent" />
-              <label htmlFor="agent" className='common-input-radio-text'>Agent (Unlimited Listings)</label>
-          </div>
+          <RadioButton
+            containerClassName = "register__form-radio common-input-radio"
+            labelClassName = "common-input-radio-text"
+            label="Individual (3 Free Listings)"
+            name="type"
+            value="individual"
+            id="individual"
+            defaultChecked
+          />
+          <RadioButton
+            containerClassName = "register__form-radio common-input-radio"
+            labelClassName = "common-input-radio-text"
+            label="Agent (Unlimited Listings)"
+            name="type"
+            value="agent"
+            id="agent"
+          />
         </div>
-        <Input required className='common-form-input' type="text" name="fullName" placeholder='Name' />
+        <Input required className='common-form-input' type="text" name="fullName" placeholder='Name' autoFocus/>
         <Input required className='common-form-input' type="email" name="email" placeholder='Email ID'/>
         <Input required className='common-form-input' onChange = {handleChange} value = {pNumber} type="tel" name="tel" placeholder='Phone Number'/>
         <Input required className='common-form-input' type="text" name="city" placeholder='City' />

@@ -2,6 +2,8 @@ import React from 'react'
 import Input from '@components/Input';
 import Button from '@components/Button';
 import Icon from '@components/Icon';
+import RadioButton from '@components/Input/RadioButton';
+
 import { useRouter } from 'next/router';
 function Search() {
 
@@ -39,14 +41,23 @@ function Search() {
         <div className="home__search-wrap">
           <form onSubmit={formSubmission} className='search-form' >
               <div className="search-radio-wrap">
-                <div className='search-radio common-input-radio'>
-                    <Input type="radio" name="type" value = "buy" id="buy" defaultChecked/>
-                      <label htmlFor='buy' className='common-input-radio-text'>Buy</label>
-                </div>
-                <div className='search-radio common-input-radio'>
-                    <Input type="radio" name="type" value = "rent" id="rent"/>
-                    <label htmlFor='rent' className='common-input-radio-text'>Rent</label>
-                </div>
+                <RadioButton
+                  containerClassName = "search-radio common-input-radio"
+                  labelClassName = "common-input-radio-text"
+                  label="Buy"
+                  name="type"
+                  value="buy"
+                  id="buy"
+                  defaultChecked
+                />
+                <RadioButton
+                  containerClassName = "search-radio common-input-radio"
+                  labelClassName = "common-input-radio-text"
+                  label="Rent"
+                  name="type"
+                  value="rent"
+                  id="rent"
+                />
               </div>
               <div className='search-input-wrap'>
                 <Icon icon = 'location' />
