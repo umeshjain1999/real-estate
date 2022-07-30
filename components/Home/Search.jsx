@@ -40,12 +40,12 @@ function Search() {
           <form onSubmit={formSubmission} className='search-form' >
               <div className="search-radio-wrap">
                 <div className='search-radio common-input-radio'>
-                    <Input type="radio" name="type" value = "buy" defaultChecked/>
-                      <span className='common-input-radio-text'>Buy</span>
+                    <Input type="radio" name="type" value = "buy" id="buy" defaultChecked/>
+                      <label htmlFor='buy' className='common-input-radio-text'>Buy</label>
                 </div>
                 <div className='search-radio common-input-radio'>
-                    <Input type="radio" name="type" value = "rent" />
-                    <span className='common-input-radio-text'>Rent</span>
+                    <Input type="radio" name="type" value = "rent" id="rent"/>
+                    <label htmlFor='rent' className='common-input-radio-text'>Rent</label>
                 </div>
               </div>
               <div className='search-input-wrap'>

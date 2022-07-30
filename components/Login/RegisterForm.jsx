@@ -37,12 +37,12 @@ function RegisterForm({
         <div className='register__form-text'>I am am</div>
         <div className="register__form-wrap">
           <div className='register__form-radio common-input-radio'>
-              <Input type="radio" name="type" value = "individual" defaultChecked/>
-                <span className='common-input-radio-text'>Individual (3 Free Listings)</span>
+              <Input type="radio" name="type" value = "individual" id="individual" defaultChecked/>
+                <label htmlFor='individual' className='common-input-radio-text'>Individual (3 Free Listings)</label>
           </div>
           <div className='register__form-radio common-input-radio'>
-              <Input type="radio" name="type" value = "agent" />
-              <span className='common-input-radio-text'>Agent (Unlimited Listings)</span>
+              <Input type="radio" name="type" value = "agent" id="agent" />
+              <label htmlFor="agent" className='common-input-radio-text'>Agent (Unlimited Listings)</label>
           </div>
         </div>
         <Input required className='common-form-input' type="text" name="fullName" placeholder='Name' />
