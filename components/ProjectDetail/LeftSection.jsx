@@ -8,7 +8,7 @@ function LeftSection(props) {
     overview = false,
     aboutProject = false,
     aboutDevelopers = false,
-    hightLights = false,
+    highlights = false,
     amenities = false,
     floorPlanAndPrice = false,
     localityMap = false
@@ -17,16 +17,18 @@ function LeftSection(props) {
   return (
     <div className="project__detail-left-section">
       {overview && <Card id="project-overview" title={'Overview'} className = "divider" >{overview}</Card>}
-      {hightLights && <Card id="project-highlights" title = {'Highlights'} className='divider project__detail-highlights'>
-        {hightLights && hightLights.map((data) => {
-          return (
-            <HorizontalFeature
-              key={data?.id}
-              name = {data?.name}
-              feature = {data?.desc}
-              icon = {data?.icon}
-            />
-          )
+      {highlights && <Card id="project-highlights" title = {'Highlights'} className='divider project__detail-highlights'>
+        {highlights && Array.isArray(highlights) && highlights.map((data) => {
+          if(data && data.length){
+            return (
+              <HorizontalFeature
+                key={data}
+                name = {data}
+                // feature = {data}
+                icon = {'amenitiesShield'}
+              />
+            )
+          }
         })}
       </Card>}
       {aboutProject && <Card id="project-about" title={'About Project'} className = "divider">{aboutProject}</Card>}
@@ -34,15 +36,17 @@ function LeftSection(props) {
         <PlanAndPrice floorPlanAndPrice = {floorPlanAndPrice}/>
       </Card>}
       {amenities && <Card id="project-amenities" title = {'Amenities'} className='divider project__detail-amenities'>
-        {amenities && amenities.map((data) => {
-          return (
-            <HorizontalFeature
-              key={data?.id}
-              name = {data?.name}
-              feature = {data?.desc}
-              icon = {data?.icon}
-            />
-          )
+        {amenities && Array.isArray(amenities) && amenities.map((data) => {
+          if(data && data.length){
+            return (
+              <HorizontalFeature
+                key={data}
+                name = {data}
+                // feature = {data}
+                icon = {'amenitiesRooms'}
+              />
+            )
+          }
         })}
       </Card>}
       {localityMap && <Card id="project-locality" title={'Locality'} className='divider project_detail-locality' >

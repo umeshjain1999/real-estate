@@ -9,10 +9,10 @@ function ProjectCard(props) {
   const filterData = {
     id : projectInfo?.id || '1',
     name : projectInfo?.name || 'none',
-    price: projectInfo?.species || 'none',
+    price: projectInfo?.price || 'none',
     picturePath: projectInfo?.image || '/assets/images/image-loader.svg',
-    provider: projectInfo?.origin?.name || 'sqfthomes',
-    address: projectInfo?.location?.name || 'none',
+    provider: projectInfo?.provider || 'sqfthomes',
+    address: projectInfo?.address || 'none',
     rooms : projectInfo?.rooms || false,
     bathrooms : projectInfo?.bathrooms || false,
     parking : projectInfo?.parking || false,
@@ -51,7 +51,7 @@ function ProjectCard(props) {
               {filterData.rooms && <span className='project-feat-icon vertical-center'><Icon icon='projectBed'/> {filterData.rooms}</span>}
               {filterData.bathrooms && <span className='project-feat-icon vertical-center'><Icon icon='projectShower'/> {filterData.bathrooms}</span>}
               {filterData.parking && <span className='project-feat-icon vertical-center'><Icon icon='projectCar'/> {filterData.parking}</span>}
-              {filterData.area && <span className='project-feat-icon vertical-center'><Icon icon='projectArea'/> {filterData.area} Sqft</span>}
+              {filterData.area && <span className='project-feat-icon vertical-center'><Icon icon='projectArea'/> {filterData.area} sqft</span>}
             </div>
             {enableSaveFeature && <span className={`vertical-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`}/> {filterData.saved ? '' : 'Save'}</span>}
           </div>}

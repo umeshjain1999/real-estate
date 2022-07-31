@@ -1,22 +1,26 @@
+import React from "react";
+import Image from "next/image";
 import Button from "@components/Button";
 import HorizontalFeature from "@components/HorizontalFeature";
 import Icon from "@components/Icon";
 import { CustomSlider } from "@components/Slider";
 import { currency } from "@constants/constant";
-import React from "react";
-import Image from "next/image";
-function Project({
-  name = false,
-  provider = false,
-  address = false,
-  price = false,
-  imageArr = [],
-  amenities = [],
-  tags = [],
-}) {
-  const firstImage =
-    imageArr && imageArr[0] ? imageArr[0] : "/assets/images/image-loader.svg";
 
+
+function Project(props) {
+
+  const {
+    name = false,
+    provider = false,
+    address = false,
+    price = false,
+    area = false,
+    rooms = false,
+    imageArr = [],
+    tags = []
+  } = props
+
+  const firstImage = imageArr && imageArr[0] ? imageArr[0] : "/assets/images/image-loader.svg";
   const [currentImage, setImage] = React.useState(firstImage);
 
   React.useEffect(() => {
@@ -71,7 +75,7 @@ function Project({
                       onClick={() => updateImage(index)}
                     >
                       <Image
-                        src={data}
+                        src={data || '/assets/images/image-loader.svg'}
                         alt={"Property"}
                         layout="fill"
                         sizes="50vw"
@@ -112,17 +116,16 @@ function Project({
             })}
         </div>
         <div className="content-feature-wrap divider">
-          {amenities &&
-            amenities.map((data, index) => {
-              return (
-                <HorizontalFeature
-                  name={data?.name}
-                  feature={data?.desc}
-                  icon={data?.icon}
-                  key={index}
-                />
-              );
-            })}
+          {rooms && <HorizontalFeature
+            name={"Configurations"}
+            feature={`${rooms} Aparments`}
+            icon={"amenitiesRooms"}
+          />}
+          {area && <HorizontalFeature
+            name={"Sizes"}
+            feature={`${area}sqft (Carpet Area)`}
+            icon={"amenitiesSize"}
+          />}
         </div>
         <Button
           onClick={handleActionButton}

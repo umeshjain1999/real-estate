@@ -5,6 +5,7 @@ import { CustomMultiSelect,CustomSelect } from "@components/Select";
 import Pagination from "@mui/material/Pagination";
 import { GetAPI } from "@utility/apiCall";
 import { useRouter } from "next/router";
+import { getProjects } from "middleware";
 
 function Projects({ projects, info, currentPage }) {
 
@@ -23,7 +24,6 @@ function Projects({ projects, info, currentPage }) {
   }
 
   const handleSelectDropdown = (type,obj) => {
-    console.log(type,'--->',obj.join(','));
 
     let typeValue = obj.join(',');
     
@@ -91,11 +91,15 @@ export async function getServerSideProps({query}) {
   const {page} = query
   let data = {}
   
-  if  (page)  {
-    data = await GetAPI(`character?page=${page}`)
-  } else {
-    data = await GetAPI('character')
-  }
+
+  data = await getProjects()
+
+  // if  (page)  {
+  //   data = await GetAPI(`character?page=${page}`)
+  // } else {
+  //   data = await GetAPI('character')
+  // }
+
 
   return {
     props: {

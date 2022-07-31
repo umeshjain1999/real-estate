@@ -29,7 +29,6 @@ export default function CustomSelect({
 
     if(value && onChange && typeof onChange === 'function'){
 
-      console.log('handleChange',value);
       let arr = []
 
       selectOptions.map((data) => {

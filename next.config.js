@@ -9,7 +9,7 @@ const nextConfig = {
     REACT_APP_MOCK_API: process.env.REACT_APP_MOCK_API,
   },
   images: {
-    domains: ['rickandmortyapi.com'],
+    domains: ['rickandmortyapi.com','medusa-public-images.s3.eu-west-1.amazonaws.com'],
   },
 };
 
