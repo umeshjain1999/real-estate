@@ -15,7 +15,7 @@ function RegisterForm({
   }
   const formSubmission = (e) => {
     e.preventDefault()
-    let arr = ['type','fullName','email','city','tel']
+    let arr = ['type','fullName','email','tel']
     let registerObj = {}
     for (let index = 0; index < arr.length; index++) {
       let element = arr[index];
@@ -58,7 +58,7 @@ function RegisterForm({
         <Input required className='common-form-input' type="text" name="fullName" placeholder='Name' autoFocus/>
         <Input required className='common-form-input' type="email" name="email" placeholder='Email ID'/>
         <Input required className='common-form-input' onChange = {handleChange} value = {pNumber} type="tel" name="tel" placeholder='Phone Number'/>
-        <Input required className='common-form-input' type="text" name="city" placeholder='City' />
+        {/* <Input required className='common-form-input' type="text" name="city" placeholder='City' /> */}
         <Button text='submit' variant='secondary' type='submit' className='common-form-button'/>
       </form>
       <div className='register__form-highlight login__modal-highlight'>
