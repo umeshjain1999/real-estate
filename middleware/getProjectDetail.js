@@ -42,7 +42,9 @@ export const getProjectDetail = ({projectId}) => {
             "variants": [
                 {
                     "id": "variant_01G819415M74NQ69R3FH596C0J",
-                    "title": "S",
+                    "title": "1BHK",
+                    "price": "2.3Cr",
+                    "area" : "500",
                     "product_id": "prod_01G8194159XTFT9452WBTD6FNV",
                     "sku": null,
                     "barcode": null,
@@ -110,7 +112,9 @@ export const getProjectDetail = ({projectId}) => {
                 },
                 {
                     "id": "variant_01G819415YD77B2RQ6Y2DFAXFC",
-                    "title": "M",
+                    "title": "2BHK",
+                    "price": "3.3Cr",
+                    "area" : "1200",
                     "product_id": "prod_01G8194159XTFT9452WBTD6FNV",
                     "sku": null,
                     "barcode": null,
@@ -178,7 +182,9 @@ export const getProjectDetail = ({projectId}) => {
                 },
                 {
                     "id": "variant_01G8194167ATHE94CXSCSA88G5",
-                    "title": "L",
+                    "title": "3BHK",
+                    "price": "3.8Cr",
+                    "area" : "1700",
                     "product_id": "prod_01G8194159XTFT9452WBTD6FNV",
                     "sku": null,
                     "barcode": null,
@@ -246,7 +252,9 @@ export const getProjectDetail = ({projectId}) => {
                 },
                 {
                     "id": "variant_01G819416GHGH7DXPPM74P4E4B",
-                    "title": "XL",
+                    "title": "4bhk",
+                    "price": "4.5Cr",
+                    "area" : "2300",
                     "product_id": "prod_01G8194159XTFT9452WBTD6FNV",
                     "sku": null,
                     "barcode": null,
@@ -413,6 +421,14 @@ export const getProjectDetail = ({projectId}) => {
   }
   const product = projectDetail?.response?.products[0]
 
+  const floorPlanAndPrice = product?.variants && product?.variants.map(data => {
+    return {
+        structure : data?.title,
+        price : data?.price || '',
+        area : data?.area ? `${data?.area}sqft` : ''
+    }
+  })
+
   const finalData = {
     id : product?.id,
     name : product?.title,
@@ -430,7 +446,7 @@ export const getProjectDetail = ({projectId}) => {
     aboutDevelopers : product?.aboutDevelopers || '',
     highlights : product?.highlights && product?.highlights.split(',') || [],
     amenities : product?.amenities && product?.amenities.split(',') || [],
-    floorPlanAndPrice : product?.floorPlanAndPrice || [],
+    floorPlanAndPrice : floorPlanAndPrice || [],
     saved : false
   }
 

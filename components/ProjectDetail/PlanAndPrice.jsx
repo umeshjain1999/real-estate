@@ -3,9 +3,7 @@ import Button from '@components/Button';
 import Image from 'next/image';
 function PlanAndPrice({floorPlanAndPrice = []}) {
   const initialState = {
-    id : floorPlanAndPrice[0]?.id,
     price : floorPlanAndPrice[0]?.price,
-    imagePath : floorPlanAndPrice[0]?.imagePath,
     area : floorPlanAndPrice[0]?.area,
     structure : floorPlanAndPrice[0]?.structure
   }
@@ -18,8 +16,8 @@ function PlanAndPrice({floorPlanAndPrice = []}) {
           {
             floorPlanAndPrice && floorPlanAndPrice.map((data) => {
               return (
-                <div key={data?.id} className={`tabs-wrap-plan-price ${data?.id === currentPlan?.id ? 'active' : ''}`}>
-                    <Button onClick={() => setPlan(data)} text= {data?.structure} className = 'structure-plan-price'/>
+                <div key={data?.structure} className={`tabs-wrap-plan-price ${data?.structure === currentPlan?.structure ? 'active' : ''}`}>
+                    <Button onClick={() => setPlan(data)} text= {data?.structure.toUpperCase()} className = 'structure-plan-price'/>
                     <div className='area-plan-price'>{data?.area}</div>
                 </div>
               )
@@ -29,8 +27,8 @@ function PlanAndPrice({floorPlanAndPrice = []}) {
         {currentPlan?.price ? <div className="price-plan-price divider-sm">{currentPlan?.price}</div> : 'none'}
       </div>
       <div className='image-plan-price divider'>
-        {currentPlan?.imagePath ? <Image
-          src={currentPlan?.imagePath}
+        {currentPlan?.structure ? <Image
+          src={floorImage[currentPlan?.structure.toUpperCase()]}
           alt={currentPlan?.structure}
           width={330}
           height={255}
@@ -42,3 +40,12 @@ function PlanAndPrice({floorPlanAndPrice = []}) {
 }
 
 export default PlanAndPrice
+
+const floorImage = {
+  "1BHK" : '/assets/images/rooms/1BHK.png',
+  "2BHK" : '/assets/images/rooms/2BHK.png',
+  "3BHK" : '/assets/images/rooms/2BHK.png',
+  "4BHK" : '/assets/images/rooms/2BHK.png',
+  "5BHK" : '/assets/images/rooms/2BHK.png',
+  "6BHK" : '/assets/images/rooms/2BHK.png',
+}
