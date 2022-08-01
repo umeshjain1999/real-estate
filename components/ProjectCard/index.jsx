@@ -51,7 +51,7 @@ function ProjectCard(props) {
               {filterData.rooms && <span className='project-feat-icon vertical-center'><Icon icon='projectBed'/> {filterData.rooms}</span>}
               {filterData.bathrooms && <span className='project-feat-icon vertical-center'><Icon icon='projectShower'/> {filterData.bathrooms}</span>}
               {filterData.parking && <span className='project-feat-icon vertical-center'><Icon icon='projectCar'/> {filterData.parking}</span>}
-              {filterData.area && <span className='project-feat-icon vertical-center'><Icon icon='projectArea'/> {filterData.area} sqft</span>}
+              {filterData.area && <span className='project-feat-icon vertical-center'><Icon icon='projectArea'/> {filterData.area}</span>}
             </div>
             {enableSaveFeature && <span className={`vertical-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`}/> {filterData.saved ? '' : 'Save'}</span>}
           </div>}
