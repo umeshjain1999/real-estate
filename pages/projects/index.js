@@ -1,10 +1,17 @@
+/* library */
+import { useRouter } from "next/router";
+import Pagination from "@mui/material/Pagination";
+
+/* compnents */
 import Breadcrumb from "@components/Breadcrumb";
 import ProjectCard from "@components/ProjectCard";
 import { RecommendedProjects } from "@components/Projects";
 import { CustomMultiSelect,CustomSelect } from "@components/Select";
-import Pagination from "@mui/material/Pagination";
+
+/* utils */
 import { GetAPI } from "@utility/apiCall";
-import { useRouter } from "next/router";
+
+/* middleware */
 import { getProjects } from "middleware";
 
 function Projects({ projects, info, currentPage }) {

@@ -1,4 +1,5 @@
 //! Secure Page
+/* components */
 import Header from '@components/Header'
 import HorizontalFeature from '@components/HorizontalFeature'
 import Layout from '@components/Layout'

@@ -1,4 +1,5 @@
 //! Secure Page
+/* components */
 import Activity from '@components/Activity'
 import Header from '@components/Header'
 import Layout from '@components/Layout'

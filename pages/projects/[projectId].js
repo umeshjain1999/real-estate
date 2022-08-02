@@ -1,9 +1,16 @@
+/* library */
 import React from 'react';
+
+/* components */
 import Breadcrumb from "@components/Breadcrumb";
 import { LeftSection, Project, ProjectTab, RightSection } from "@components/ProjectDetail";
 import ScrollUp from "@components/ScrollUp";
+
+/* utils */
 import { GetAPI } from "@utility/apiCall";
 import { scrollToRef, stringToHtml } from "@utility/functions";
+
+/* middleware */
 import { getProjectDetail,getProjects } from 'middleware';
 
 function ProjectDetail({

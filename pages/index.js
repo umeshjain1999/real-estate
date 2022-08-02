@@ -1,3 +1,7 @@
+/* library */
+import Head from "next/head";
+
+/* components */
 import {
   Banner,
   Brand,
@@ -5,10 +9,11 @@ import {
   NewlyProjects,
   Review,
   Search,
+  NearYou
 } from "@components/Home";
-import NearYou from "@components/Home/NearYou";
 import Team from "@components/Team";
-import Head from "next/head";
+
+/* utils */
 import { GetAPI } from "@utility/apiCall";
 
 export default function Home({ projects, nearByProjects,newlyProjects}) {
