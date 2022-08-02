@@ -22,7 +22,14 @@ export const authReducer = (state, action) => {
 export const AuthContextProvider = ({children}) => {
 
   const [state, dispatch] = useReducer(authReducer, {
-		user: null,
+		user: {
+			name : "Umesh Jain",
+			mobile : "7045511182",
+			email : "umesh@gmail.com",
+			dob : "-723706200000", //!timestamp format
+			city : "Andheri",
+			pincode : "400051"
+		},
 	})
 
 

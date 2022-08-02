@@ -1,16 +1,25 @@
+/* library */
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router';
+
+/* components */
 import Logo from '@components/Logo';
 import Button from '@components/Button';
 import Navigation from '@components/Navigation';
 import Icon from '@components/Icon';
 import Login from '@components/Login';
-import { useRouter } from 'next/router';
+
+/* hooks */
+import { useLoginModalContext,useAuthContext } from 'hooks';
+
+/* constant */
 import { mobileNumber } from '@constants/constant';
-import { useLoginModalContext } from 'hooks';
+
 
 function Header() {
   const router = useRouter()
   const {loginModal,toggleLoginModal} = useLoginModalContext()
+  const {user} = useAuthContext()
   const [menuStatus,setMenuStatus] = useState(false)
 
 
@@ -47,11 +56,11 @@ function Header() {
             </div>
             <div className='header__wrapper__nav-inner'>
               <Navigation navigation = {headerNavigation} navChildClassName={'link-text'}/>
-              <Button onClick={toggleLoginModal} text="Login/Register" icon = 'loginUser' iconPosition = 'right' className = 'header__login'/>
-              <Login
+              {!user && <Button onClick={toggleLoginModal} text="Login/Register" icon = 'loginUser' iconPosition = 'right' className = 'header__login'/>}
+              {!user && <Login
                 open = {loginModal}
                 onClose = {toggleLoginModal}
-              />
+              />}
               <Button text="+91 9326518230" icon = 'call' className = 'header__btn animation-wobble' link = {true} href = {contactInfo} />
             </div>
           </div>

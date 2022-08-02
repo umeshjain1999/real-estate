@@ -1,15 +1,25 @@
-import CustomModal from '@components/Modal'
+/* library */
 import React from 'react'
+
+/* components */
+import CustomModal from '@components/Modal'
 import Card from '@components/Card'
 import Button from '@components/Button'
+
+/* hooks */
+import {useAuthContext } from 'hooks';
+
 function LogoutModal({
   open,
   onClose
 }) {
 
+  const {dispatch} = useAuthContext()
+
   const onLogout = () => {
     //! logout operation
     alert('logout operation.')
+    dispatch({type : "LOGOUT"})
     onClose()
   }
 
