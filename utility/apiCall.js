@@ -1,5 +1,7 @@
 const baseApiUrl = 'https://rickandmortyapi.com/api'
 
+// https://5895-43-243-83-16.ngrok.io/
+
 const GetAPI = async(route) => {
   try {
     const apiUrl = `${baseApiUrl}/${route}`
