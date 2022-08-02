@@ -1,12 +1,20 @@
+/* styles */
 import "../styles/globals.css";
 import "../styles/styleguide.css";
 import "../styles/main.scss";
 
+/* library */
 import NProgress from 'nprogress';
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+
+/* components */
 import Header from "@components/Header";
 import Footer from "@components/Footer";
+
+/* context */
+import { AuthContextProvider,LoginModalContextProvider } from "context";
+
 import "@fakeDb";
 
 function MyApp({ Component, pageProps }) {
@@ -33,17 +41,27 @@ function MyApp({ Component, pageProps }) {
     }
   }, [router])
 
-
-  if (Component.getLayout) {
-    return Component.getLayout(<Component {...pageProps} />);
+  const mainComponent = () => {
+    if (Component.getLayout) {
+      return Component.getLayout(<Component {...pageProps} />);
+    }
+    return (
+      <>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </>
+    )
   }
 
+
+
   return (
-    <>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </>
+    <AuthContextProvider>
+      <LoginModalContextProvider>
+        {mainComponent()}
+      </LoginModalContextProvider>
+    </AuthContextProvider>
   );
 }
 

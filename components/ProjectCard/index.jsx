@@ -3,9 +3,12 @@ import Icon from '@components/Icon';
 import Link from 'next/link';
 import Image from 'next/image';
 import { currency } from '@constants/constant';
+import { useLoginModalContext } from 'hooks';
+
 function ProjectCard(props) {
   const {projectInfo = {},horizontal = false,feature = true,provider = true,address = true,className='',...remainingProps} = props
-
+  const {toggleLoginModal} = useLoginModalContext()
+  
   const filterData = {
     id : projectInfo?.id || '1',
     name : projectInfo?.name || 'none',
@@ -53,7 +56,7 @@ function ProjectCard(props) {
               {filterData.parking && <span className='project-feat-icon vertical-center'><Icon icon='projectCar'/> {filterData.parking}</span>}
               {filterData.area && <span className='project-feat-icon vertical-center'><Icon icon='projectArea'/> {filterData.area}</span>}
             </div>
-            {enableSaveFeature && <span className={`vertical-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`}/> {filterData.saved ? '' : 'Save'}</span>}
+            {enableSaveFeature && <span onClick={toggleLoginModal} className={`vertical-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`}/> {filterData.saved ? '' : 'Save'}</span>}
           </div>}
         </div>
       </div>

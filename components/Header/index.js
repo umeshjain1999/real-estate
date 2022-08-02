@@ -6,14 +6,14 @@ import Icon from '@components/Icon';
 import Login from '@components/Login';
 import { useRouter } from 'next/router';
 import { mobileNumber } from '@constants/constant';
+import { useLoginModalContext } from 'hooks';
+
 function Header() {
   const router = useRouter()
+  const {loginModal,toggleLoginModal} = useLoginModalContext()
   const [menuStatus,setMenuStatus] = useState(false)
-  const [modal,setModal] = useState(false)
 
-  const toggleModal = () => {
-    setModal(!modal)
-  }
+
   useEffect(() => {
     if(menuStatus){
       document.body.style.overflow = 'hidden';
@@ -47,10 +47,10 @@ function Header() {
             </div>
             <div className='header__wrapper__nav-inner'>
               <Navigation navigation = {headerNavigation} navChildClassName={'link-text'}/>
-              <Button onClick={toggleModal} text="Login/Register" icon = 'loginUser' iconPosition = 'right' className = 'header__login'/>
+              <Button onClick={toggleLoginModal} text="Login/Register" icon = 'loginUser' iconPosition = 'right' className = 'header__login'/>
               <Login
-                open = {modal}
-                onClose = {toggleModal}
+                open = {loginModal}
+                onClose = {toggleLoginModal}
               />
               <Button text="+91 9326518230" icon = 'call' className = 'header__btn animation-wobble' link = {true} href = {contactInfo} />
             </div>
