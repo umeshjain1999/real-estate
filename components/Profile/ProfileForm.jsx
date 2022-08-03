@@ -4,7 +4,7 @@ import { convertTime, isNormalNumber } from '@utility/functions'
 import React from 'react'
 function ProfileForm({
   name = '',
-  phoneNumber = '',
+  mobile = '',
   email = '',
   dob = '',
   city = '',
@@ -13,7 +13,7 @@ function ProfileForm({
 
   const initialState = {
     name : name,
-    phoneNumber : phoneNumber,
+    mobile : mobile,
     email : email,
     dob : convertTime(dob,'inputDateDefault'),
     city : city,
@@ -32,7 +32,7 @@ function ProfileForm({
   const handleChange = (e) => {
     const ele = e.target
     const objProperty = ele.name
-    if((objProperty === 'phoneNumber' || objProperty === 'pincode') && !isNormalNumber(ele.value)){
+    if((objProperty === 'mobile' || objProperty === 'pincode') && !isNormalNumber(ele.value)){
       return false
     }
     setUser(prev => {
@@ -56,8 +56,8 @@ function ProfileForm({
             <Input value = {user?.name} onChange = {handleChange} disabled = {disable} required className='profile__form-input' type="text" name="name" placeholder='Alex Do' />
           </div>
           <div className="profile__form-input-wrap">
-            <label htmlFor="phoneNumber">Phone Number</label>
-            <Input value = {user?.phoneNumber} onChange = {handleChange} disabled = {disable} required className='profile__form-input' type="tel" name="phoneNumber"/>
+            <label htmlFor="mobile">Phone Number</label>
+            <Input value = {user?.mobile} onChange = {handleChange} disabled = {disable} required className='profile__form-input' type="tel" name="mobile"/>
           </div>
           <div className="profile__form-input-wrap">
             <label htmlFor="dob">Date of Birth</label>
