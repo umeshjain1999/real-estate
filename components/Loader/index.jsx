@@ -2,9 +2,9 @@ import React from 'react'
 
 function Loader() {
   return (
-    <div className="spinner">
-      <div className="dot1"></div>
-      <div className="dot2"></div>
+    <div className='spinner-wrapper'>
+      <div className="spinner">
+      </div>
     </div>
   )
 }
