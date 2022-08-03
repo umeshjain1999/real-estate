@@ -4,7 +4,7 @@ import Button from "@components/Button";
 import HorizontalFeature from "@components/HorizontalFeature";
 import Icon from "@components/Icon";
 import { CustomSlider } from "@components/Slider";
-import { currency } from "@constants/constant";
+import { CURRENCY } from "@constants/constant";
 
 
 function Project(props) {
@@ -102,7 +102,7 @@ function Project(props) {
         )}
         {price && (
           <div className="content-price-range divider-sm">
-            {currency} {price}
+            {CURRENCY} {price}
           </div>
         )}
         <div className="content-tags">

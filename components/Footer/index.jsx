@@ -1,6 +1,6 @@
 import Logo from "@components/Logo";
 import Navigation from '@components/Navigation';
-import { mobileNumber,email } from '@constants/constant';
+import { MOBILE_NUMBER,EMAIL } from '@constants/constant';
 function Footer() {
   return (
     <footer className="footer">
@@ -59,8 +59,8 @@ const footerNavigation2 = {
 
 const contactInfo = {
   title: 'Contact Us',
-  mail : email,
-  tel: mobileNumber,
+  mail : EMAIL,
+  tel: MOBILE_NUMBER,
   address: 'Fort, Mumbai'
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@components/Button';
 import Image from 'next/image';
-import { currency } from '@constants/constant';
+import { CURRENCY } from '@constants/constant';
 
 function PlanAndPrice({floorPlanAndPrice = []}) {
   const initialState = {
@@ -26,7 +26,7 @@ function PlanAndPrice({floorPlanAndPrice = []}) {
             })
           }
         </div>
-        {currentPlan?.price ? <div className="price-plan-price divider-sm">{currency} {currentPlan?.price}</div> : 'none'}
+        {currentPlan?.price ? <div className="price-plan-price divider-sm">{CURRENCY} {currentPlan?.price}</div> : 'none'}
       </div>
       <div className='image-plan-price divider'>
         {currentPlan?.structure ? <Image
