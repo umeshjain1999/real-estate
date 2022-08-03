@@ -1,5 +1,6 @@
 /* library */
 import React from 'react'
+import { useRouter } from 'next/router'
 
 /* components */
 import CustomModal from '@components/Modal'
@@ -13,13 +14,13 @@ function LogoutModal({
   open,
   onClose
 }) {
-
+  const router = useRouter()
   const {dispatch} = useAuthContext()
 
   const onLogout = () => {
     //! logout operation
-    alert('logout operation.')
     dispatch({type : "LOGOUT"})
+    router.push("/")
     onClose()
   }
 
