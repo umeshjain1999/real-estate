@@ -43,11 +43,13 @@
           svg {
             margin-right: 1rem;
           }
-          input {
+          input,select {
             padding: 0;
             border: 0;
             background: transparent;
             width: 100%;
+            font-size: 1.4rem;
+            font-weight: 400;
           }
           .search-area-input {
             width: 300px;
