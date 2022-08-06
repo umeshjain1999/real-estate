@@ -1,6 +1,5 @@
 /* styles */
 import "../styles/globals.css";
-import "../styles/styleguide.css";
 import "../styles/main.scss";
 
 /* library */
