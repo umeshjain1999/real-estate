@@ -16,7 +16,11 @@ import Team from "@components/Team";
 /* utils */
 import { GetAPI } from "@utility/apiCall";
 
-export default function Home({ projects, nearByProjects,newlyProjects}) {
+/* middleware */
+import { getProjects } from "middleware";
+
+
+export default function Home({ nearByProjects,newlyProjects}) {
   return (
     <>
       <Head>
@@ -43,25 +47,27 @@ export default function Home({ projects, nearByProjects,newlyProjects}) {
 
 // server side rendering
 export async function getServerSideProps() {
-  const data = await GetAPI('character')
   
-  let projectsArr = []
-  if(data && data?.results){
-    projectsArr = data.results
-  }
+  let data = {}
+  data = await getProjects()
+  // const data = await GetAPI('character')
+  
+  // let projectsArr = []
+  // if(data && data?.results){
+  //   projectsArr = data.results
+  // }
   
   return {
     props: {
-      projects: data,
       nearByProjects: {
         title: "Homes for Sale Near you",
         subTitle: "Check out some of our latest properties",
-        projectsArr: projectsArr?.slice(0,6),
+        projectsArr: data?.results,
       },
       newlyProjects: {
         title: "Newly added Resale property",
         subTitle: "Find the hot spot resale properties",
-        projectsArr: projectsArr?.slice(7,11),
+        projectsArr: data?.results,
       }
     },
   };

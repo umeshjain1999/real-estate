@@ -2,6 +2,7 @@ import { GetAPI } from "@utility/apiCall"
 export const getProjects = async () => {
 
   //! const allProjects = await GetAPI('store/products')
+  //! const allProjects = await GetAPI('store/showRecomendations')
 
 
   const allProjects = {
