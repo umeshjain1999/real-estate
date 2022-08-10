@@ -1,5 +1,6 @@
 .projects {
   background: $grey-shade-2;
+  @include add-transition(all,0.3s);
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -22,28 +23,37 @@
     }
   }
   &__filter {
-    display: flex;
+    &-btn-wrap {
+      font-size: 1.4rem;
+      gap: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .projects__filter-btn {
+        cursor: pointer;
+        @include add-transition(all,0.3s);
+        &:hover {
+          color: $accent-clr-1;
+        }
+      }
+      .projects__filter-btn-clear {
+        color: rgba($color: $black-clr, $alpha: 0.6);
+      }
+    }
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
+    display: none;
     margin: 0 -1.5rem 2.5rem;
+    @include add-transition(all,0.3s);
+    &-active {
+      display: flex;
+    }
     .dropdown-res{
       margin: 0 1.5rem 1.5rem;
-      width: 200px;
-    }
-    .select-res {
-      width: calc(20% - 1.5rem);
-      margin-right: 1.5rem;
-      margin-bottom: 1.5rem;
-      @include responsive($ipad) {
-        width: calc(33.33% - 1.5rem);
-      }
+      width: 250px;
       @include responsive($mob-max) {
-        width: calc(50% - 1.5rem);
-      }
-      @include responsive($mob-min) {
         width: 100%;
-        margin-right: 0;
       }
     }
   }
@@ -72,6 +82,54 @@
     &-search-count{
       font-size: 1.4rem;
       color: $text-clr-primary;
+    }
+  }
+  .price-range-wrapper {
+    //? slider color
+    .MuiSlider-root {
+      color: $accent-clr-1;
+    }
+    .price-range-title {
+      cursor: pointer;
+      background-color: $white-clr;
+      border-radius: 12px;
+      padding: 1rem;
+      font-weight: 600;
+      padding-top: 20px;
+      padding-right: 7px;
+      padding-bottom: 8px;
+      padding-left: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &:focus-within,&:focus{
+        outline: 2px solid $accent-clr-1;
+      }
+      .price-range-svg-active {
+        transform: rotate(180deg);
+      }
+    }
+    .price-range-modal {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background-color: $white-clr;
+      border-radius: 12px;
+      box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+      padding: 2rem;
+    }
+    .price-range-modal-backdrop {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 9;
+    }
+    .price-range-btn {
+      margin-top: 1rem;
+      padding: .6rem 2rem;
     }
   }
 }

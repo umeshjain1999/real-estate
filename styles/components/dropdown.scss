@@ -1,5 +1,5 @@
 //? select base/root container
-.MuiFilledInput-root {
+.MuiInputBase-root {
   background: $white-clr !important;
   border-radius: 12px !important;
   border: 0;
@@ -7,9 +7,12 @@
   &::after,&::before{
     display: none;
   }
+  // &:focus-within,&:focus{
+  //   outline: 2px solid $accent-clr-1;
+  // }
 }
 //? select container
-.MuiSelect-filled {
+.MuiSelect-select,.MuiSelect-multiple {
   background-color: $white-clr !important;
   border-radius: 12px!important;
   border: 0;
@@ -35,5 +38,10 @@
 //? checkbox inside dropdown
 .MuiList-root .MuiCheckbox-root{
   color: $accent-clr-1 !important;
+}
+//? arrow icon in dropdown
+.MuiSelect-icon	{
+  width: 2rem;
+  height: 2rem;
 }
 

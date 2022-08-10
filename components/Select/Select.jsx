@@ -16,28 +16,41 @@ const MenuProps = {
 export default function CustomSelect({
   selectOptions = [],
   title = 'none',
-  onChange
+  onChange,
+  defaultValue = ''
 }) {
   const [personName, setPersonName] = React.useState('');
+
+  React.useEffect(() => {
+    if (selectOptions) {
+      const checkArr = selectOptions.map(data => data.value)
+      if (checkArr.includes(defaultValue)) {
+        console.log('Testing');
+        setPersonName(defaultValue)
+      }
+    } else {
+      setPersonName('')
+    }
+  }, [defaultValue, selectOptions])
 
   const handleChange = (event) => {
     const {
       target: { value }
     } = event;
-    
+
     setPersonName(value);
 
-    if(value && onChange && typeof onChange === 'function'){
+    if (value && onChange && typeof onChange === 'function') {
 
       let arr = []
 
       selectOptions.map((data) => {
-        if(value === data?.label){
+        if (value === data?.value) {
           arr.push(data?.value)
         }
       })
 
-      onChange(title,arr)
+      onChange(title, arr)
     }
   };
 
@@ -57,9 +70,9 @@ export default function CustomSelect({
         {selectOptions.map((data) => (
           <MenuItem
             key={data?.value}
-            value={data?.label}
+            value={data?.value}
           >
-            {data?.label}
+            {data?.name}
           </MenuItem>
         ))}
       </Select>

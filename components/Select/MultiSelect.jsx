@@ -17,22 +17,43 @@ const MenuProps = {
 export default function CustomMultiSelect({
   selectOptions = [],
   title = 'none',
-  onChange
+  onChange,
+  defaultValue = ''
 }) {
   const [personName, setPersonName] = React.useState([]);
 
+  React.useEffect(() => {
+    if (selectOptions?.length && defaultValue?.length) {
+      const checkArr = selectOptions.map(data => data.value)
+      let defaultCheck = true
+      defaultValue.map(data => {
+        if (!checkArr.includes(data)) {
+          defaultCheck = false
+        }
+      })
+      if (defaultCheck) {
+        setPersonName(defaultValue)
+      } else {
+        setPersonName([])
+      }
+
+    } else {
+      setPersonName([])
+    }
+  }, [defaultValue, selectOptions])
+
   const handleOnClose = () => {
-    if(personName && onChange && typeof onChange === 'function'){
+    if (personName && onChange && typeof onChange === 'function') {
 
       let arr = []
 
       selectOptions.map((data) => {
-        if(personName.includes(data?.label)){
+        if (personName.includes(data?.value)) {
           arr.push(data?.value)
         }
       })
 
-      onChange(title,arr)
+      onChange(title, arr)
     }
   }
   const handleChange = (event) => {
@@ -52,8 +73,9 @@ export default function CustomMultiSelect({
         displayEmpty
         value={personName}
         onChange={handleChange}
-        onClose = {handleOnClose}
+        onClose={handleOnClose}
         renderValue={(selected) => {
+
           if (selected.length === 0) {
             return <em>{title}</em>;
           }
@@ -70,10 +92,10 @@ export default function CustomMultiSelect({
         {selectOptions.map((data) => (
           <MenuItem
             key={data?.value}
-            value={data?.label}
+            value={data?.value}
           >
-            <Checkbox checked={personName.indexOf(data?.label) > -1} />
-            {data?.label}
+            <Checkbox checked={personName.indexOf(data?.value) > -1} />
+            {data?.name}
           </MenuItem>
         ))}
       </Select>

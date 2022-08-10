@@ -26,6 +26,7 @@ import PartnersCurrency from './svg/partnersCurrency.svg'
 import Partners247services from './svg/partners247services.svg'
 import LoginUser from './svg/loginUser.svg'
 import Call from './svg/call.svg'
+import DropdownArrow from './svg/dropdownArrow.svg'
 
 const iconTypes = {
   close : Close,
@@ -55,6 +56,7 @@ const iconTypes = {
   partners247services : Partners247services,
   loginUser : LoginUser,
   call : Call,
+  dropdownArrow : DropdownArrow
 }
 
 function Icon({icon,...props}) {

@@ -1,18 +1,16 @@
 /* library */
-import { useRouter } from "next/router";
 import Pagination from "@mui/material/Pagination";
+import { useRouter } from "next/router";
 
 /* compnents */
 import Breadcrumb from "@components/Breadcrumb";
 import ProjectCard from "@components/ProjectCard";
-import { RecommendedProjects } from "@components/Projects";
-import { CustomMultiSelect,CustomSelect } from "@components/Select";
-
-/* utils */
-import { GetAPI } from "@utility/apiCall";
+import { Filter, RecommendedProjects } from "@components/Projects";
 
 /* middleware */
 import { getProjects } from "middleware";
+
+/* hooks */
 
 function Projects({ projects, info, currentPage }) {
 
@@ -30,21 +28,6 @@ function Projects({ projects, info, currentPage }) {
     });
   }
 
-  const handleSelectDropdown = (type,obj) => {
-
-    let typeValue = obj.join(',');
-    
-    const currentQuery = router.query
-    if(type && typeValue && typeValue?.length){
-      router.push({
-        query: {
-          ...currentQuery,
-          [type] : typeValue
-        }
-      })
-    }
-  }
-  
   let CONTENT
 
   CONTENT = (
@@ -64,19 +47,19 @@ function Projects({ projects, info, currentPage }) {
     <main className="main-wrapper projects">
       <div className="container">
         <Breadcrumb linkArr={breadcrumb} />
-        <div className="projects__title divider">
+        <div className="projects__title divider-sm">
           <div className="sub-title projects__title-left">Projects</div>
           <div className="projects__title-right">
             <div className="projects__title-search-count">
-              {info?.count ? `${info?.count} Matches` : '' }
+              {info?.count ? `${info?.count} Matches` : ''}
             </div>
           </div>
         </div>
-        <div className="projects__filter divider">
-          <CustomMultiSelect selectOptions={category?.arr} title={category?.title} onChange = {handleSelectDropdown}/>
-          <CustomMultiSelect selectOptions={beds?.arr} title={beds?.title} onChange = {handleSelectDropdown}/>
-          <CustomSelect selectOptions={pricing?.arr} title={pricing?.title} onChange = {handleSelectDropdown}/>
-        </div>
+        <Filter
+          beds={beds}
+          locality={locality}
+          status={status}
+        />
         <div className="projects__wrapper">
           {CONTENT}
         </div>
@@ -94,10 +77,10 @@ function Projects({ projects, info, currentPage }) {
   );
 }
 
-export async function getServerSideProps({query}) {
-  const {page} = query
+export async function getServerSideProps({ query }) {
+  const { page } = query
   let data = {}
-  
+
 
   data = await getProjects()
 
@@ -127,34 +110,42 @@ const breadcrumb = [
   },
 ];
 
-const category = {
-  title: "Category",
-  arr: [
-    { label: "Frodo", value: "Hobbit" },
-    { label: "Sam", value: "Jos" },
-    { label: "Merry", value: "Dan" },
-    { label: "Gandalf", value: "Maia" },
-    { label: "Gimli", value: "Dwarf" },
-  ],
-};
-
 const beds = {
   title: "Rooms",
   arr: [
-    { label: "1BHK", value: 1 },
-    { label: "2BHK", value: 2 },
-    { label: "3BHK", value: 3 },
-    { label: "4BHK", value: 4 },
+    { name: "1BHK", value: "1BHK" },
+    { name: "2BHK", value: "2BHK" },
+    { name: "3BHK", value: "3BHK" },
+    { name: "4BHK", value: "4BHK" },
+    { name: "5BHK", value: "5BHK" },
+    { name: "6BHK", value: "6BHK" },
+    { name: "Studio", value: "Studio" },
   ],
 };
 
-const pricing = {
-  title: "Price",
+const locality = {
+  title: "Locality",
   arr: [
-    { label: "10000 - 20000", value: "10to20" },
-    { label: "20000 - 30000", value: "20to30" },
-    { label: "30000 - 40000", value: "30to40" },
-    { label: "40000 and more", value: "40tomore" },
+    {
+      name: 'Ulwe',
+      value: 'Ulwe'
+    },
+    {
+      name: 'Vashi',
+      value: 'Vashi'
+    },
+    {
+      name: 'Gansoli',
+      value: 'Gansoli'
+    },
+  ],
+};
+
+const status = {
+  title: "Status",
+  arr: [
+    { name: "Ready to Move In", value: "ready" },
+    { name: "Ongoing Project", value: "ongoing" },
   ],
 };
 
