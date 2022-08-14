@@ -16,6 +16,7 @@ const MenuProps = {
 export default function CustomSelect({
   selectOptions = [],
   title = 'none',
+  queryName = title || '',
   onChange,
   defaultValue = ''
 }) {
@@ -25,7 +26,6 @@ export default function CustomSelect({
     if (selectOptions) {
       const checkArr = selectOptions.map(data => data.value)
       if (checkArr.includes(defaultValue)) {
-        console.log('Testing');
         setPersonName(defaultValue)
       }
     } else {
@@ -50,7 +50,7 @@ export default function CustomSelect({
         }
       })
 
-      onChange(title, arr)
+      onChange(queryName, arr)
     }
   };
 

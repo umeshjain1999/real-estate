@@ -65,9 +65,9 @@ function Filter({
         <div onClick={handleClearAll} className="projects__filter-btn projects__filter-btn-clear">Clear all</div>
       </div>
       <div className={`projects__filter ${toggle && 'projects__filter-active'}`}>
-        <CustomMultiSelect defaultValue={defaultValue['Locality']?.split(",")} selectOptions={locality?.arr} title={locality?.title} onChange={handleSelectDropdown} />
-        <CustomMultiSelect defaultValue={defaultValue['Rooms']?.split(",")} selectOptions={beds?.arr} title={beds?.title} onChange={handleSelectDropdown} />
-        <CustomSelect defaultValue={defaultValue['Status']} selectOptions={status?.arr} title={status?.title} onChange={handleSelectDropdown} />
+        <CustomMultiSelect defaultValue={defaultValue['locality']?.split(",")} selectOptions={locality?.arr} title={locality?.title} queryName={locality?.queryName} onChange={handleSelectDropdown} />
+        <CustomMultiSelect defaultValue={defaultValue['rooms']?.split(",")} selectOptions={beds?.arr} title={beds?.title} queryName={beds?.queryName} onChange={handleSelectDropdown} />
+        <CustomSelect defaultValue={defaultValue['status']} selectOptions={status?.arr} title={status?.title} queryName={status?.queryName} onChange={handleSelectDropdown} />
         <PriceRange defaultValue={handlePriceRangeDefaultValue(defaultValue['priceMin'], defaultValue['priceMax'])} handlePriceRange={handlePriceRange} />
       </div>
     </>

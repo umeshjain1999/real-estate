@@ -1,43 +1,31 @@
-const baseApiUrl = 'https://rickandmortyapi.com/api'
+import axios from "axios"
+const baseApiUrl = 'http://ecom.orbitstack.in/backend'
 
-// https://5895-43-243-83-16.ngrok.io/
-
-const GetAPI = async(route) => {
+const GetAPI = async (route, params = {}) => {
   try {
     const apiUrl = `${baseApiUrl}/${route}`
-    
-    const options = {
-      method: 'GET',
-    }
-    
-    const res = await fetch(apiUrl,options)
-    const finalData = await res.json()
-
+    const res = await axios.get(apiUrl, {
+      params: {
+        ...params
+      }
+    })
+    const finalData = res?.data
     return finalData
 
-  } catch(error)  {
-    console.error('route---->',error)
+  } catch (error) {
+    console.error('route---->', error)
     return false
   }
 }
-const PostAPI = async(route,bodyData = {}) => {
+const PostAPI = async (route, params = {}) => {
   try {
     const apiUrl = `${baseApiUrl}/${route}`
-    
-    const options = {
-      method: 'POST',
-      body : {
-        ...bodyData
-      }
-    }
-    
-    const res = await fetch(apiUrl,options)
-    const finalData = await res.json()
-    
+    const res = await axios.post(apiUrl, params)
+    const finalData = res?.data
     return finalData
 
-  } catch(error)  {
-    console.error('route---->',error)
+  } catch (error) {
+    console.error('route---->', error)
     return false
   }
 }

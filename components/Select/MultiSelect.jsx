@@ -17,6 +17,7 @@ const MenuProps = {
 export default function CustomMultiSelect({
   selectOptions = [],
   title = 'none',
+  queryName = title || '',
   onChange,
   defaultValue = ''
 }) {
@@ -53,7 +54,7 @@ export default function CustomMultiSelect({
         }
       })
 
-      onChange(title, arr)
+      onChange(queryName, arr)
     }
   }
   const handleChange = (event) => {

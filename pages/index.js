@@ -13,14 +13,11 @@ import {
 } from "@components/Home";
 import Team from "@components/Team";
 
-/* utils */
-import { GetAPI } from "@utility/apiCall";
-
 /* middleware */
 import { getProjects } from "middleware";
 
 
-export default function Home({ nearByProjects,newlyProjects}) {
+export default function Home({ nearByProjects, newlyProjects }) {
   return (
     <>
       <Head>
@@ -47,16 +44,10 @@ export default function Home({ nearByProjects,newlyProjects}) {
 
 // server side rendering
 export async function getServerSideProps() {
-  
+
   let data = {}
   data = await getProjects()
-  // const data = await GetAPI('character')
-  
-  // let projectsArr = []
-  // if(data && data?.results){
-  //   projectsArr = data.results
-  // }
-  
+
   return {
     props: {
       nearByProjects: {

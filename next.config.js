@@ -12,14 +12,14 @@ const nextConfig = {
       use: {
         loader: '@svgr/webpack',
         options: {
-           svgoConfig: {
-              plugins: [{
-                 name: 'removeViewBox',
-                 active: false
-              }]
-           }
+          svgoConfig: {
+            plugins: [{
+              name: 'removeViewBox',
+              active: false
+            }]
+          }
         }
-     }
+      }
     })
 
     return config
@@ -28,7 +28,7 @@ const nextConfig = {
     REACT_APP_MOCK_API: process.env.REACT_APP_MOCK_API,
   },
   images: {
-    domains: ['rickandmortyapi.com','medusa-public-images.s3.eu-west-1.amazonaws.com','myawsbucket1395.s3.ap-south-1.amazonaws.com'],
+    domains: ['rickandmortyapi.com', 'medusa-public-images.s3.eu-west-1.amazonaws.com', 'myawsbucket1395.s3.ap-south-1.amazonaws.com', 'ecom.orbitstack.in'],
   },
 };
 

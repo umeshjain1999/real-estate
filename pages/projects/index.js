@@ -8,7 +8,7 @@ import ProjectCard from "@components/ProjectCard";
 import { Filter, RecommendedProjects } from "@components/Projects";
 
 /* middleware */
-import { getProjects } from "middleware";
+import { getProjects, getFilteredProjects } from "middleware";
 
 /* hooks */
 
@@ -64,12 +64,12 @@ function Projects({ projects, info, currentPage }) {
           {CONTENT}
         </div>
         <div className="projects__pagination divider center-flex">
-          <Pagination
+          {projects && <Pagination
             count={info?.pages}
             className="pagination"
             page={currentPage}
             onChange={handlePaginationChange}
-          />
+          />}
         </div>
       </div>
       <RecommendedProjects {...recommendedProjects} />
@@ -78,22 +78,35 @@ function Projects({ projects, info, currentPage }) {
 }
 
 export async function getServerSideProps({ query }) {
-  const { page } = query
+  const { page, status = null, locality = null, rooms = null, priceMin = null, priceMax = null } = query
+
+  let localityArr = []
+  let roomsArr = []
+  if (locality) {
+    localityArr = locality.split(',')
+  }
+  if (rooms) {
+    roomsArr = rooms.split(',')
+  }
+
+  const tagsArr = [...localityArr, ...roomsArr]
+
+  tagsArr.map((data, index) => {
+    query[`tags[${index}]`] = data
+  })
+
+  console.log('query serversideprops', query);
   let data = {}
 
-
-  data = await getProjects()
-
-  // if  (page)  {
-  //   data = await GetAPI(`character?page=${page}`)
-  // } else {
-  //   data = await GetAPI('character')
-  // }
-
+  if (page || status || locality || rooms || (priceMin && priceMax)) {
+    data = await getFilteredProjects({ ...query })
+  } else {
+    data = await getProjects()
+  }
 
   return {
     props: {
-      projects: data?.results,
+      projects: data?.results || [],
       info: data?.info,
       currentPage: parseInt(page) || 1
     },
@@ -112,6 +125,7 @@ const breadcrumb = [
 
 const beds = {
   title: "Rooms",
+  queryName: "rooms",
   arr: [
     { name: "1BHK", value: "1BHK" },
     { name: "2BHK", value: "2BHK" },
@@ -125,6 +139,7 @@ const beds = {
 
 const locality = {
   title: "Locality",
+  queryName: "locality",
   arr: [
     {
       name: 'Ulwe',
@@ -143,6 +158,7 @@ const locality = {
 
 const status = {
   title: "Status",
+  queryName: "status",
   arr: [
     { name: "Ready to Move In", value: "ready" },
     { name: "Ongoing Project", value: "ongoing" },
