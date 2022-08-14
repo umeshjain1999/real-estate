@@ -253,8 +253,6 @@ export const getProjectDetail = async (projectId) => {
       }
    })
 
-   console.log("product detail", product);
-
    const finalData = {
       id: product?.id,
       name: product?.title,
