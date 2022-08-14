@@ -11,8 +11,8 @@ function Search() {
 
   const formSubmission = (e) => {
     e.preventDefault()
-    
-    const formNameArr = ['area','propertyType','type']
+
+    const formNameArr = ['locality', 'propertyType', 'type']
 
     let searchObj = {}
 
@@ -21,14 +21,14 @@ function Search() {
     })
 
     router.push({
-      pathname : '/projects',
-      query : {
+      pathname: '/projects',
+      query: {
         ...searchObj
       }
     })
   }
 
-  const renderOptionElement = ({value='',name='',...props}) => {
+  const renderOptionElement = ({ value = '', name = '', ...props }) => {
     return (
       <option {...props} value={value} key={value + name}>&#160;&#160;{name}&#160;&#160;</option>
     )
@@ -39,58 +39,58 @@ function Search() {
       <div className="container pos-rel">
         <div className="home__search-wrap">
           <form onSubmit={formSubmission} className='search-form' >
-              <div className="search-radio-wrap">
-                <RadioButton
-                  containerClassName = "search-radio common-input-radio"
-                  labelClassName = "common-input-radio-text"
-                  label="Buy"
-                  name="type"
-                  value="buy"
-                  id="buy"
-                  defaultChecked
-                />
-                <RadioButton
-                  containerClassName = "search-radio common-input-radio"
-                  labelClassName = "common-input-radio-text"
-                  label="Rent"
-                  name="type"
-                  value="rent"
-                  id="rent"
-                />
-              </div>
-              <div className='search-input-wrap'>
-                <Icon icon = 'location' />
-                <select className = 'search-area-input' required name="Location" id="area">
-                  {renderOptionElement({
-                    name : '-- Search by location--'
-                  })}
-                  {location && location.map((data) => {
-                    return(
-                      renderOptionElement({
-                        name : data?.name,
-                        value : data?.value || data?.name
-                      })
-                    )
-                  })}
-                </select>
-                {/* <Input className = 'search-area-input' required type="text" name="area" placeholder='Search by location, landmark, builder, or project' /> */}
-              </div>
-              <div className="search-input-wrap">
-                <Icon icon = 'downChevron' />
-                <select required name="propertyType">
-                  {renderOptionElement({
-                    name : 'Residential',
-                    value : 'residential'
-                  })}
-                  {renderOptionElement({
-                    name : 'Commercial',
-                    value : 'commercial',
-                    disabled : true
-                  })}
-                </select>
-                {/* <Input required type="text" name="residential" placeholder='Residential'/> */}
-              </div>
-                <Button text='Search' variant='secondary' type='submit' className='search-button' icon = 'search'/>
+            <div className="search-radio-wrap">
+              <RadioButton
+                containerClassName="search-radio common-input-radio"
+                labelClassName="common-input-radio-text"
+                label="Buy"
+                name="type"
+                value="buy"
+                id="buy"
+                defaultChecked
+              />
+              <RadioButton
+                containerClassName="search-radio common-input-radio"
+                labelClassName="common-input-radio-text"
+                label="Rent"
+                name="type"
+                value="rent"
+                id="rent"
+              />
+            </div>
+            <div className='search-input-wrap'>
+              <Icon icon='location' />
+              <select className='search-area-input' required name="Location" id="locality">
+                {renderOptionElement({
+                  name: '-- Search by location--'
+                })}
+                {location && location.map((data) => {
+                  return (
+                    renderOptionElement({
+                      name: data?.name,
+                      value: data?.value || data?.name
+                    })
+                  )
+                })}
+              </select>
+              {/* <Input className = 'search-area-input' required type="text" name="locality" placeholder='Search by location, landmark, builder, or project' /> */}
+            </div>
+            <div className="search-input-wrap">
+              <Icon icon='downChevron' />
+              <select required name="propertyType">
+                {renderOptionElement({
+                  name: 'Residential',
+                  value: 'residential'
+                })}
+                {renderOptionElement({
+                  name: 'Commercial',
+                  value: 'commercial',
+                  disabled: true
+                })}
+              </select>
+              {/* <Input required type="text" name="residential" placeholder='Residential'/> */}
+            </div>
+            <Button text='Search' variant='secondary' type='submit' className='search-button' icon='search' />
           </form>
         </div>
       </div>
@@ -102,15 +102,15 @@ export default Search
 
 const location = [
   {
-    name : 'Ulwe',
-    value : 'ulwe'
+    name: 'Ulwe',
+    value: 'Ulwe'
   },
   {
-    name : 'Vashi',
-    value : 'vashi'
+    name: 'Vashi',
+    value: 'Vashi'
   },
   {
-    name : 'Gansoli',
-    value : 'gansoli'
+    name: 'Gansoli',
+    value: 'Gansoli'
   },
 ]
