@@ -44,9 +44,9 @@ function ProjectDetail({
         <div className="container">
           <div className="project__detail-bottom-wrap divider-lg">
             <LeftSection
-              overview={stringToHtml(overview)}
-              aboutProject={stringToHtml(aboutProject)}
-              aboutDevelopers={stringToHtml(aboutDevelopers)}
+              overview={overview}
+              aboutProject={aboutProject}
+              aboutDevelopers={aboutDevelopers}
               highlights={highlights}
               amenities={amenities}
               floorPlanAndPrice={floorPlanAndPrice}

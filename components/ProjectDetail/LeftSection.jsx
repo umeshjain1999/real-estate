@@ -3,6 +3,7 @@ import Card from '@components/Card';
 import PlanAndPrice from './PlanAndPrice';
 import LocalMap from './LocalMap';
 import HorizontalFeature from '@components/HorizontalFeature';
+import { stringToHtml } from '@utility/functions';
 function LeftSection(props) {
   const {
     overview = false,
@@ -16,43 +17,43 @@ function LeftSection(props) {
 
   return (
     <div className="project__detail-left-section">
-      {overview && <Card id="project-overview" title={'Overview'} className = "divider" >{overview}</Card>}
-      {highlights && <Card id="project-highlights" title = {'Highlights'} className='divider project__detail-highlights'>
+      {overview && <Card id="project-overview" title={'Overview'} className="divider" >{stringToHtml(overview)}</Card>}
+      {highlights && <Card id="project-highlights" title={'Highlights'} className='divider project__detail-highlights'>
         {highlights && Array.isArray(highlights) && highlights.map((data) => {
-          if(data && data.length){
+          if (data && data.length) {
             return (
               <HorizontalFeature
                 key={data}
-                name = {data}
+                name={data}
                 // feature = {data}
-                icon = {'amenitiesShield'}
+                icon={'amenitiesShield'}
               />
             )
           }
         })}
       </Card>}
-      {aboutProject && <Card id="project-about" title={'About Project'} className = "divider">{aboutProject}</Card>}
-      {floorPlanAndPrice && <Card id="project-plan-price" title={'Floor Plan & Price'} className = "divider">
-        <PlanAndPrice floorPlanAndPrice = {floorPlanAndPrice}/>
+      {aboutProject && <Card id="project-about" title={'About Project'} className="divider">{stringToHtml(aboutProject)}</Card>}
+      {floorPlanAndPrice && <Card id="project-plan-price" title={'Floor Plan & Price'} className="divider">
+        <PlanAndPrice floorPlanAndPrice={floorPlanAndPrice} />
       </Card>}
-      {amenities && <Card id="project-amenities" title = {'Amenities'} className='divider project__detail-amenities'>
+      {amenities && <Card id="project-amenities" title={'Amenities'} className='divider project__detail-amenities'>
         {amenities && Array.isArray(amenities) && amenities.map((data) => {
-          if(data && data.length){
+          if (data && data.length) {
             return (
               <HorizontalFeature
                 key={data}
-                name = {data}
+                name={data}
                 // feature = {data}
-                icon = {'amenitiesRooms'}
+                icon={'amenitiesRooms'}
               />
             )
           }
         })}
       </Card>}
       {localityMap && <Card id="project-locality" title={'Locality'} className='divider project_detail-locality' >
-        <LocalMap/>
+        <LocalMap />
       </Card>}
-      {aboutDevelopers && <Card id="project-developers" title={'About Developers'} className = "divider">{aboutDevelopers}</Card>}
+      {aboutDevelopers && <Card id="project-developers" title={'About Developers'} className="divider">{stringToHtml(aboutDevelopers)}</Card>}
     </div>
   )
 }
