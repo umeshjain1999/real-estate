@@ -8,9 +8,7 @@ import ProjectCard from "@components/ProjectCard";
 import { Filter, RecommendedProjects } from "@components/Projects";
 
 /* middleware */
-import { getProjects, getFilteredProjects } from "middleware";
-
-/* hooks */
+import { getFilteredProjects } from "middleware";
 
 function Projects({ projects, info, currentPage }) {
 
@@ -78,10 +76,14 @@ function Projects({ projects, info, currentPage }) {
 }
 
 export async function getServerSideProps({ query }) {
-  const { page, status = null, locality = null, rooms = null, priceMin = null, priceMax = null } = query
+  const { page = null, status = null, locality = null, rooms = null, priceMin = null, priceMax = null } = query
 
   let localityArr = []
   let roomsArr = []
+  let offset = 0
+  let limit = 10
+
+  /* combine locality and rooms */
   if (locality) {
     localityArr = locality.split(',')
   }
@@ -95,14 +97,14 @@ export async function getServerSideProps({ query }) {
     query[`tags[${index}]`] = data
   })
 
-  console.log('query serversideprops', query);
+  /* pagination logic */
+  if (page) {
+    offset = (limit * offset) - limit
+  }
+
   let data = {}
 
-  if (page || status || locality || rooms || (priceMin && priceMax)) {
-    data = await getFilteredProjects({ ...query })
-  } else {
-    data = await getProjects()
-  }
+  data = await getFilteredProjects({ ...query, 'offset': offset, 'limit': limit })
 
   return {
     props: {
