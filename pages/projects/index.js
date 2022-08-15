@@ -8,9 +8,9 @@ import ProjectCard from "@components/ProjectCard";
 import { Filter, RecommendedProjects } from "@components/Projects";
 
 /* middleware */
-import { getFilteredProjects } from "middleware";
+import { getFilteredProjects, getRecomendationsProjects } from "middleware";
 
-function Projects({ projects, info, currentPage }) {
+function Projects({ projects, info, currentPage, recommendedProjects }) {
 
   const router = useRouter();
 
@@ -26,10 +26,10 @@ function Projects({ projects, info, currentPage }) {
     });
   }
 
-  const recommendedProjects = {
+  const recommendedSection = {
     title: "Recommended Properties",
     //! later this will be change
-    projectsArr: projects && projects.slice(0, 6),
+    projectsArr: recommendedProjects,
   };
 
 
@@ -67,7 +67,7 @@ function Projects({ projects, info, currentPage }) {
           />
         </div> : ''}
       </div>
-      <RecommendedProjects {...recommendedProjects} />
+      {recommendedProjects?.length ? <RecommendedProjects {...recommendedSection} /> : ''}
     </main>
   );
 }
@@ -103,11 +103,17 @@ export async function getServerSideProps({ query }) {
 
   data = await getFilteredProjects({ ...query, 'offset': offset, 'limit': limit })
 
+  let recomData = await getRecomendationsProjects({
+    skip: 0,
+    limit: 6,
+  })
+
   return {
     props: {
       projects: data?.results || [],
       info: data?.info,
-      currentPage: parseInt(page) || 1
+      currentPage: parseInt(page) || 1,
+      recommendedProjects: recomData?.results || []
     },
   }
 }

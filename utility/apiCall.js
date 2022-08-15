@@ -20,7 +20,9 @@ const GetAPI = async (route, params = {}) => {
 const PostAPI = async (route, params = {}) => {
   try {
     const apiUrl = `${baseApiUrl}/${route}`
-    const res = await axios.post(apiUrl, params)
+    const res = await axios.post(apiUrl, {
+      ...params
+    })
     const finalData = res?.data
     return finalData
 

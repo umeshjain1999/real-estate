@@ -1,5 +1,5 @@
 /* library */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 /* components */
 import Breadcrumb from "@components/Breadcrumb";
@@ -7,10 +7,10 @@ import { LeftSection, Project, ProjectTab, RightSection } from "@components/Proj
 import ScrollUp from "@components/ScrollUp";
 
 /* utils */
-import { scrollToRef, stringToHtml } from "@utility/functions";
+import { scrollToRef } from "@utility/functions";
 
 /* middleware */
-import { getProjectDetail, getProjects } from 'middleware';
+import { getProjectDetail, getRecomendationsProjects } from 'middleware';
 
 function ProjectDetail({
   projectDetail = {},
@@ -22,9 +22,21 @@ function ProjectDetail({
   aboutProject,
   aboutDevelopers,
   breadcrumb,
-  featuredProperties = [],
   projectTabs = []
 }) {
+  const [featuredProperties, setFeaturedProperties] = useState([])
+
+  useEffect(() => {
+    const fetchAPI = async () => {
+      const rData = await getRecomendationsProjects({
+        tags: projectDetail?.tags || [],
+        skip: 0,
+        limit: 4,
+      })
+      setFeaturedProperties(rData?.results || [])
+    }
+    fetchAPI()
+  }, [])
 
   const projectDetailRef = React.useRef(null);
 
@@ -67,7 +79,6 @@ export const getServerSideProps = async (ctx) => {
   const { projectId } = query
 
   const data = await getProjectDetail(projectId)
-  const featuredProperties = await getProjects()
 
   const breadcrumb = [
     {
@@ -141,7 +152,6 @@ export const getServerSideProps = async (ctx) => {
       aboutProject: data?.aboutProject,
       aboutDevelopers: data?.aboutDevelopers,
       breadcrumb,
-      featuredProperties: featuredProperties?.results?.slice(0, 3),
       projectTabs
     }
   }

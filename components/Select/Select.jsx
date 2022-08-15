@@ -21,7 +21,6 @@ export default function CustomSelect({
   defaultValue = ''
 }) {
   const [personName, setPersonName] = React.useState('');
-  console.log('defaultValue', defaultValue);
   React.useEffect(() => {
     if (selectOptions) {
       const checkArr = selectOptions.map(data => data.value)
