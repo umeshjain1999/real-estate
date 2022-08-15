@@ -26,14 +26,6 @@ function Projects({ projects, info, currentPage }) {
     });
   }
 
-  let CONTENT
-
-  CONTENT = (
-    projects && projects.map((data) => {
-      return <ProjectCard projectInfo={data} key={data.id} />;
-    })
-  )
-
   const recommendedProjects = {
     title: "Recommended Properties",
     //! later this will be change
@@ -58,17 +50,22 @@ function Projects({ projects, info, currentPage }) {
           locality={locality}
           status={status}
         />
-        <div className="projects__wrapper">
-          {CONTENT}
-        </div>
-        <div className="projects__pagination divider center-flex">
-          {projects && <Pagination
+        {projects?.length ?
+          <div className="projects__wrapper">
+            {projects.map((data) => {
+              return <ProjectCard projectInfo={data} key={data.id} />;
+            })}
+          </div>
+          : <div className="divider horizontal-center">Sorry, No results found!</div>
+        }
+        {projects?.length ? <div className="projects__pagination divider center-flex">
+          <Pagination
             count={info?.pages}
             className="pagination"
             page={currentPage}
             onChange={handlePaginationChange}
-          />}
-        </div>
+          />
+        </div> : ''}
       </div>
       <RecommendedProjects {...recommendedProjects} />
     </main>
@@ -76,7 +73,7 @@ function Projects({ projects, info, currentPage }) {
 }
 
 export async function getServerSideProps({ query }) {
-  const { page = null, status = null, locality = null, rooms = null, priceMin = null, priceMax = null } = query
+  const { page = null, locality = null, rooms = null } = query
 
   let localityArr = []
   let roomsArr = []
