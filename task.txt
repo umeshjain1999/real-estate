@@ -1,20 +1,34 @@
 Main Task :
+   - clear individual filter
+   - logout screen double loader issue
+   - footer updated design
+Done :
+   - add recommended api
+   - hide section data is not available
+   - design for "no data" in projects
+   - project detail error handling
+   - pagination logic
+   - clear all filter (also clear selected fields)
+   - get api for filter
+   - on refresh show selected fields (look into issue in multi-select default value)
+   - show/hide filter
+   - separate filter component
+   - Filter (Price Slider)
+   - Extra Filter (Status,)
+   - Search Form (dropdown for location)
    - Secure Page for login/logout
-
-
+   - Project Detail show tabs based on available data
+   - issue with MUI library need to change with react-select
 
 Need to Fix :
  - Project Card Save feature (z-index level managed functionality pending )
  - don't render element if prop is empty
- - common radio button
  - change no. of lines for limiting text
  
 Can Take time
  - project images view page
- - Proper fonts - 400, 500, 600, 700
+ - can improve project tab with useRef (project detail)
+ - input form validation
  - Unhandled Runtime Error
     TypeError: Cannot read properties of undefined (reading 'includes') (partners pages)
- - can improve project tab with useRef (project detail) ---- issue with MUI library need to change with react-select
- - Build Icon System
- - input form validation
  - maybe post-css for autoprefix
