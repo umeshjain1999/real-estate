@@ -6,73 +6,59 @@
     padding: 4rem 0 2rem;
   }
   &__wrapper {
+    &:first-child {
+      margin-bottom: 5rem;
+    }
     display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
     @include responsive($ipad) {
-      flex-direction: column;
-      align-items: center;
       .logo_v2 {
         margin-bottom: 3rem;
       }
     }
-    &__right {
-      margin-left: 12rem;
-      display: flex;
-      align-items: flex-start;
-      @include responsive($ipad) {
-        margin-left: 0;
-        justify-content: center;
-        width: 100%;
-      }
-      .footer__nav__wrap {
-        margin-right: 12rem;
-        @include responsive($tablet) {
-          margin-right: 5rem;
-        }
-        @include responsive($mob) {
-          margin-right: 3rem;
-        }
-        .nav__wrapper  {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          .nav__link {
-            color: $text-clr-sec;
-          }
-          .nav__link:not(:last-child) {
-            margin-bottom: 1rem;
-            @include responsive($mob) {
-              margin-bottom: 0.6rem;
-            }
-          }
-          @include responsive($mob) {
-            .nav__link {
-              font-size: 1rem;
-              line-height: 1.6rem;
-            }
-          }
+    p,.nav__link,.footer__addr-txt {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      color: $text-clr-sec;
+      font-weight: 400;
+    }
+    .footer__nav__wrap {
+      &:not(:last-child) {
+        @include responsive($ipad) {
+          margin-right: 2rem;
         }
       }
-      .footer__nav__address {
-        .footer__addr-txt {
-          color: $text-clr-sec;
+      .nav__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .nav__link:not(:last-child) {
+          margin-bottom: 1rem;
           @include responsive($mob) {
-            font-size: 1rem;
-            line-height: 1.6rem;
+            margin-bottom: 0.6rem;
           }
         }
       }
     }
+    .footer-meta-desc {
+      p {
+        max-width: 500px;
+        @include responsive($ipad) {
+          max-width: 300px;
+          max-height: 8rem;
+          overflow: hidden;
+        }
+      }
+    }
+
     &__title {
       display: inline-block;
       margin-bottom: 2rem;
-      font-weight: 600;
-      font-size: 2.4rem;
-      line-height: 3.2rem;
-      text-transform: capitalize;
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 2rem;
+      text-transform: uppercase;
       @include responsive($mob) {
-        font-size: 1.6rem;
-        line-height: 2.2rem;
         margin-bottom: 1rem;
       }
     }
