@@ -1,8 +1,11 @@
 Main Task :
    - clear individual filter
    - logout screen double loader issue
+   - hamburger flicker issue
    - footer updated design
+   - new section above footer
 Done :
+   - header profile navigation issue
    - add recommended api
    - hide section data is not available
    - design for "no data" in projects
