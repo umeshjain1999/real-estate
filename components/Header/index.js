@@ -1,7 +1,7 @@
 /* library */
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
-
+import Link from 'next/link';
 /* components */
 import Logo from '@components/Logo';
 import Button from '@components/Button';
@@ -56,6 +56,11 @@ function Header() {
             </div>
             <div className='header__wrapper__nav-inner'>
               <Navigation navigation={headerNavigation} navChildClassName={'link-text'} />
+              {user && <Link href='/profile'>
+                <a className={`nav__link link-text`}>
+                  Profile
+                </a>
+              </Link>}
               {!user && <Button onClick={toggleLoginModal} text="Login/Register" icon='loginUser' iconPosition='right' className='header__login' />}
               {!user && <Login
                 open={loginModal}
