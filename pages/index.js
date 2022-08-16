@@ -45,10 +45,15 @@ export default function Home({ nearByProjects, newlyProjects }) {
 // server side rendering
 export async function getServerSideProps() {
 
-  let data = {}
-  data = await getRecomendationsProjects({
+  let nearByData = {}
+  let newlyAddedData = {}
+  nearByData = await getRecomendationsProjects({
     skip: 0,
     limit: 6,
+  })
+  newlyAddedData = await getRecomendationsProjects({
+    skip: 0,
+    limit: 4,
   })
 
   return {
@@ -56,12 +61,12 @@ export async function getServerSideProps() {
       nearByProjects: {
         title: "Homes for Sale Near you",
         subTitle: "Check out some of our latest properties",
-        projectsArr: data?.results || [],
+        projectsArr: nearByData?.results || [],
       },
       newlyProjects: {
         title: "Newly added Resale property",
         subTitle: "Find the hot spot resale properties",
-        projectsArr: data?.results || [],
+        projectsArr: newlyAddedData?.results || [],
       }
     },
   };
