@@ -7,19 +7,21 @@
     padding: 4rem 0 2rem;
   }
   &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     &:first-child {
       margin-bottom: 5rem;
-      @include responsive($footer-sm-device){
+      @include responsive($footer-sm-device) {
         margin-bottom: 0;
       }
     }
     &:last-child {
-      align-items: center;
+      @include responsive($footer-sm-device) {
+        align-items: center;
+      }
     }
-    display: flex;
-    justify-content: space-between;
     @include responsive($footer-sm-device) {
-      align-items: flex-start;
       flex-wrap: wrap;
       .footer__nav__wrap {
         width: calc(50% - 2rem);
@@ -70,11 +72,14 @@
 
     &__title {
       display: inline-block;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       font-weight: 700;
       font-size: 1.4rem;
       line-height: 2rem;
       text-transform: uppercase;
+      @include responsive($footer-sm-device) {
+        margin-bottom: 1.5rem;
+      }
     }
   }
 }
