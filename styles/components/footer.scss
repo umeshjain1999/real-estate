@@ -1,3 +1,25 @@
+.footer-property {
+  background-color: $grey-shade-3;
+  border-top: 1px solid $placeholder;
+  padding: 4rem 0;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: $text-clr-primary;
+  .footer-property-heading {
+    display: block;
+  }
+  .footer-property-heading,b {
+    font-weight: 700;
+    margin-right: .3rem;
+  }
+  .footer-property-link {
+    @include add-transition(all,0.3s);
+    margin-right: 0.3rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
 .footer {
   $footer-sm-device: 620;
   background-color: $text-clr-primary;
