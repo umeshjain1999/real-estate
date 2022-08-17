@@ -1,4 +1,5 @@
 .footer {
+  $footer-sm-device: 620;
   background-color: $text-clr-primary;
   color: $text-clr-sec;
   padding: 8rem 0 4rem;
@@ -8,12 +9,24 @@
   &__wrapper {
     &:first-child {
       margin-bottom: 5rem;
+      @include responsive($footer-sm-device){
+        margin-bottom: 0;
+      }
+    }
+    &:last-child {
+      align-items: center;
     }
     display: flex;
     justify-content: space-between;
-    @include responsive($ipad) {
-      .logo_v2 {
-        margin-bottom: 3rem;
+    @include responsive($footer-sm-device) {
+      align-items: flex-start;
+      flex-wrap: wrap;
+      .footer__nav__wrap {
+        width: calc(50% - 2rem);
+        margin-bottom: 2rem;
+      }
+      .footer-meta-desc {
+        width: 100%;
       }
     }
     p,.nav__link,.footer__addr-txt {
@@ -24,8 +37,9 @@
     }
     .footer__nav__wrap {
       &:not(:last-child) {
-        @include responsive($ipad) {
-          margin-right: 2rem;
+        margin-right: 2rem;
+        @include responsive($footer-sm-device) {
+          margin-right: 0;
         }
       }
       .nav__wrapper {
@@ -48,19 +62,19 @@
           max-height: 8rem;
           overflow: hidden;
         }
+        @include responsive($footer-sm-device) {
+          max-width: 100%;
+        }
       }
     }
 
     &__title {
       display: inline-block;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       font-weight: 700;
       font-size: 1.4rem;
       line-height: 2rem;
       text-transform: uppercase;
-      @include responsive($mob) {
-        margin-bottom: 1rem;
-      }
     }
   }
 }
