@@ -33,11 +33,10 @@ export const AuthContextProvider = ({ children }) => {
 			name: "Umesh Jain",
 			mobile: "7045511182",
 			email: "umesh@gmail.com",
-			dob: "-723706200000", //!timestamp format
+			dob: -723706200000, //!timestamp format
 			city: "Andheri",
 			pincode: "400051"
 		},
-		// user: null
 	})
 
 	const isUserAuthenticated = () => !!state.user

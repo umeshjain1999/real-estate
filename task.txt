@@ -1,8 +1,8 @@
 Main Task :
    - clear individual filter
-   - logout screen double loader issue
    - hamburger flicker issue
 Done :
+   - logout screen double loader issue (temporarily fixed)
    - new section above footer
    - footer updated design
    - header profile navigation issue
@@ -23,15 +23,14 @@ Done :
    - Project Detail show tabs based on available data
    - issue with MUI library need to change with react-select
 
-Need to Fix :
- - Project Card Save feature (z-index level managed functionality pending )
- - don't render element if prop is empty
- - change no. of lines for limiting text
- 
 Can Take time
- - project images view page
- - can improve project tab with useRef (project detail)
- - input form validation
- - Unhandled Runtime Error
-    TypeError: Cannot read properties of undefined (reading 'includes') (partners pages)
- - maybe post-css for autoprefix
+   - improve client side authentication
+   - Project Card Save feature (z-index level managed functionality pending )
+   - don't render element if prop is empty
+   - change no. of lines for limiting text
+   - project images view page
+   - can improve project tab with useRef (project detail)
+   - input form validation
+   - Unhandled Runtime Error
+      TypeError: Cannot read properties of undefined (reading 'includes') (partners pages)
+   - maybe post-css for autoprefix

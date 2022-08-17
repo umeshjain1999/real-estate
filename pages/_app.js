@@ -12,21 +12,22 @@ import Header from "@components/Header";
 import Footer from "@components/Footer";
 
 /* context */
-import { AuthContextProvider,LoginModalContextProvider } from "context";
+import { AuthContextProvider, LoginModalContextProvider } from "context";
 
 import "@fakeDb";
 
 function MyApp({ Component, pageProps }) {
 
-
   const router = useRouter()
 
   useEffect(() => {
     const handleStart = (url) => {
+      document.body.style.overflow = 'hidden';
       NProgress.start()
     }
     const handleStop = () => {
       NProgress.done()
+      document.body.style.overflow = 'auto';
     }
 
     router.events.on('routeChangeStart', handleStart)
