@@ -28,7 +28,12 @@ const nextConfig = {
     REACT_APP_API_ROUTE: process.env.REACT_APP_API_ROUTE,
   },
   images: {
-    domains: ['rickandmortyapi.com', 'medusa-public-images.s3.eu-west-1.amazonaws.com', 'myawsbucket1395.s3.ap-south-1.amazonaws.com', 'ecom.orbitstack.in'],
+    domains: ['medusa-public-images.s3.eu-west-1.amazonaws.com', 'myawsbucket1395.s3.ap-south-1.amazonaws.com', 'ecom.orbitstack.in'],
+  },
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
   },
 };
 
