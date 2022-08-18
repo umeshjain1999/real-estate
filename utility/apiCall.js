@@ -1,9 +1,8 @@
 import axios from "axios"
-const baseApiUrl = 'http://ecom.orbitstack.in/backend'
-
+const { REACT_APP_API_ROUTE } = process.env
 const GetAPI = async (route, params = {}) => {
   try {
-    const apiUrl = `${baseApiUrl}/${route}`
+    const apiUrl = `${REACT_APP_API_ROUTE}/${route}`
     const res = await axios.get(apiUrl, {
       params: {
         ...params
@@ -19,7 +18,7 @@ const GetAPI = async (route, params = {}) => {
 }
 const PostAPI = async (route, params = {}) => {
   try {
-    const apiUrl = `${baseApiUrl}/${route}`
+    const apiUrl = `${REACT_APP_API_ROUTE}/${route}`
     const res = await axios.post(apiUrl, {
       ...params
     })

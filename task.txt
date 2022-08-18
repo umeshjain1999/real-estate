@@ -1,6 +1,6 @@
 Main Task :
-   - clear individual filter
    - hamburger flicker issue
+   - clear individual filter
 Done :
    - logout screen double loader issue (temporarily fixed)
    - new section above footer
