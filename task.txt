@@ -1,6 +1,8 @@
 Main Task :
    - hamburger flicker issue
    - clear individual filter
+   - price range dropdown overlapping with footer
+   - filter url issue, tags param is visible on url
 Done :
    - logout screen double loader issue (temporarily fixed)
    - new section above footer

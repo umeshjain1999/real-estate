@@ -4,9 +4,9 @@ import FooterProperty from "./FooterProperty";
 import { MOBILE_NUMBER, EMAIL } from '@constants/constant';
 function Footer() {
   return (
-    <>
+    <footer>
       <FooterProperty />
-      <footer className="footer">
+      <div className="footer">
         <div className="container">
           <div>
             <div className="footer__wrapper">
@@ -50,8 +50,8 @@ function Footer() {
             </div>
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }
 //* Company
