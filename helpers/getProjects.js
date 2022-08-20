@@ -1,4 +1,4 @@
-import { GetAPI, PostAPI } from "@utility/apiCall"
+import { GetAPI, PostAPI } from "helpers"
 const projectsDataManipulation = (allProjects) => {
 
    const projectArr = allProjects?.products && allProjects?.products.map(data => {

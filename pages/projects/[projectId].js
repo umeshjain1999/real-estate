@@ -9,8 +9,8 @@ import ScrollUp from "@components/ScrollUp";
 /* utils */
 import { scrollToRef } from "@utility/functions";
 
-/* middleware */
-import { getProjectDetail, getRecomendationsProjects } from 'middleware';
+/* helpers */
+import { getProjectDetail, getRecomendationsProjects } from 'helpers';
 
 function ProjectDetail({
   projectDetail = {},

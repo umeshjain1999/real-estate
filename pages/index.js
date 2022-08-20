@@ -13,8 +13,8 @@ import {
 } from "@components/Home";
 import Team from "@components/Team";
 
-/* middleware */
-import { getRecomendationsProjects } from "middleware";
+/* helpers */
+import { getRecomendationsProjects } from "helpers";
 
 
 export default function Home({ nearByProjects, newlyProjects }) {

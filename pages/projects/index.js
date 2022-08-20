@@ -7,8 +7,8 @@ import Breadcrumb from "@components/Breadcrumb";
 import ProjectCard from "@components/ProjectCard";
 import { Filter, RecommendedProjects } from "@components/Projects";
 
-/* middleware */
-import { getFilteredProjects, getRecomendationsProjects } from "middleware";
+/* helpers */
+import { getFilteredProjects, getRecomendationsProjects } from "helpers";
 
 function Projects({ projects, info, currentPage, recommendedProjects }) {
 

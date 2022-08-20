@@ -1,4 +1,4 @@
-import { GetAPI } from "@utility/apiCall"
+import { GetAPI } from "helpers"
 export const getProjectDetail = async (projectId) => {
 
    const projectDetail = await GetAPI(`store/products?id=${projectId}`)
