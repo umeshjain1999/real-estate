@@ -85,10 +85,6 @@
     }
   }
   .price-range-wrapper {
-    //? slider color
-    .MuiSlider-root {
-      color: $accent-clr-1;
-    }
     .price-range-title {
       cursor: pointer;
       background-color: $white-clr;
@@ -109,27 +105,27 @@
         transform: rotate(180deg);
       }
     }
-    .price-range-modal {
-      position: absolute;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      background-color: $white-clr;
-      border-radius: 12px;
-      box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
-      padding: 2rem;
-    }
-    .price-range-modal-backdrop {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      z-index: 9;
-    }
-    .price-range-btn {
-      margin-top: 1rem;
-      padding: .6rem 2rem;
-    }
+  }
+}
+//? slider color
+.MuiSlider-root {
+  color: $accent-clr-1;
+}
+//? Popover width
+.MuiPopover-paper{
+  @include responsive($mob-max) {
+    left: $container-padding;
+    right: $container-padding;
+  }
+}
+.price-range-modal {
+  padding: 2rem;
+  width: 250px;
+  @include responsive($mob-max) {
+    width: 100%;
+  }
+  .price-range-btn {
+    margin-top: 1rem;
+    padding: .6rem 2rem;
   }
 }
