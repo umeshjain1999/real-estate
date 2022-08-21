@@ -13,7 +13,7 @@ const GetAPI = async (route, params = {}) => {
     return finalData
 
   } catch (error) {
-    console.error('route---->', error)
+    console.error(`☠️ ${route} ☠️------>`, error)
     return false
   }
 }
@@ -28,7 +28,7 @@ const PostAPI = async (route, params = {}) => {
     return finalData
 
   } catch (error) {
-    console.error('route---->', error)
+    console.error(`☠️ ${route} ☠️------>`, error)
     return false
   }
 }

@@ -1,10 +1,11 @@
 Main Task :
    - 🪲: hamburger flicker issue
-   - 🪲: project default api shows only one project but with filter shows more
-   - 🪲: filter url issue, tags param is visible on url
    - 🪲: clear individual filter
+   - 🪲: project default api shows only one project but with filter shows more
+   - 🚀: recorrection in design
    - 🚀: request call back number and otp functionality with API
 Done :
+   - 🪲: filter url issue, tags param is visible on url (mismatch api call)
    - 🪲: price range dropdown overlapping with footer
    - logout screen double loader issue (temporarily fixed)
    - new section above footer

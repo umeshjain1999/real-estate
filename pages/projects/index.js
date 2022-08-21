@@ -14,7 +14,7 @@ function Projects({ projects, info, currentPage, recommendedProjects }) {
 
   const router = useRouter();
 
-  const handlePaginationChange = (e, value) => {
+  const handlePaginationChange = (value) => {
 
     const currentQuery = router.query
 
@@ -28,7 +28,6 @@ function Projects({ projects, info, currentPage, recommendedProjects }) {
 
   const recommendedSection = {
     title: "Recommended Properties",
-    //! later this will be change
     projectsArr: recommendedProjects,
   };
 
@@ -74,13 +73,14 @@ function Projects({ projects, info, currentPage, recommendedProjects }) {
 
 export async function getServerSideProps({ query }) {
   const { page = null, locality = null, rooms = null } = query
-
   let localityArr = []
   let roomsArr = []
   let offset = 0
   let limit = 10
 
-  /* combine locality and rooms */
+  /*
+  ?combine locality and rooms
+  */
   if (locality) {
     localityArr = locality.split(',')
   }
@@ -89,9 +89,11 @@ export async function getServerSideProps({ query }) {
   }
 
   const tagsArr = [...localityArr, ...roomsArr]
+  let updatedTagsArr = {}
 
   tagsArr.map((data, index) => {
-    query[`tags[${index}]`] = data
+    updatedTagsArr[`tags[${index}]`] = data
+
   })
 
   /* pagination logic */
@@ -101,7 +103,7 @@ export async function getServerSideProps({ query }) {
 
   let data = {}
 
-  data = await getFilteredProjects({ ...query, 'offset': offset, 'limit': limit })
+  data = await getFilteredProjects({ ...query, ...updatedTagsArr, 'offset': offset, 'limit': limit })
 
   let recomData = await getRecomendationsProjects({
     skip: 0,
