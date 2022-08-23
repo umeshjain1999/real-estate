@@ -5,6 +5,8 @@ import HorizontalFeature from "@components/HorizontalFeature";
 import Icon from "@components/Icon";
 import { CustomSlider } from "@components/Slider";
 import { CURRENCY } from "@constants/constant";
+import RequestCallBack from "@components/RequestCallBack";
+import { useToggle } from "@hooks/useToggle";
 
 
 function Project(props) {
@@ -19,7 +21,7 @@ function Project(props) {
     imageArr = [],
     tags = []
   } = props
-
+  const { toggle, updateToggle } = useToggle()
   const firstImage = imageArr && imageArr[0] ? imageArr[0] : "/assets/images/image-loader.svg";
   const [currentImage, setImage] = React.useState(firstImage);
 
@@ -28,7 +30,7 @@ function Project(props) {
   }, [firstImage]);
 
   const handleActionButton = () => {
-    alert("Request Callback Operation!");
+    updateToggle()
   };
 
   const settings = {
@@ -69,9 +71,8 @@ function Project(props) {
                 return (
                   <div key={index}>
                     <div
-                      className={`detail__wrap-image-sm ${
-                        data === currentImage ? "active" : ""
-                      }`}
+                      className={`detail__wrap-image-sm ${data === currentImage ? "active" : ""
+                        }`}
                       onClick={() => updateImage(index)}
                     >
                       <Image
@@ -127,13 +128,19 @@ function Project(props) {
             icon={"amenitiesSize"}
           />}
         </div>
-        <Button
-          onClick={handleActionButton}
-          className="content-button"
-          text={buttonTitle}
-          icon="call"
-          variant="secondary"
-        />
+        <>
+          <Button
+            onClick={handleActionButton}
+            className="content-button"
+            text={buttonTitle}
+            icon="call"
+            variant="secondary"
+          />
+          <RequestCallBack
+            open={toggle}
+            onClose={updateToggle}
+          />
+        </>
       </div>
     </div>
   );

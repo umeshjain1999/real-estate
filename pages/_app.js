@@ -6,7 +6,7 @@ import "../styles/main.scss";
 import NProgress from 'nprogress';
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-
+import { SnackbarProvider } from 'notistack'
 /* components */
 import Header from "@components/Header";
 import Footer from "@components/Footer";
@@ -57,11 +57,13 @@ function MyApp({ Component, pageProps }) {
 
 
   return (
-    <AuthContextProvider>
-      <LoginModalContextProvider>
-        {mainComponent()}
-      </LoginModalContextProvider>
-    </AuthContextProvider>
+    <SnackbarProvider>
+      <AuthContextProvider>
+        <LoginModalContextProvider>
+          {mainComponent()}
+        </LoginModalContextProvider>
+      </AuthContextProvider>
+    </SnackbarProvider>
   );
 }
 

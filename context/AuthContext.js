@@ -37,6 +37,7 @@ export const AuthContextProvider = ({ children }) => {
 			city: "Andheri",
 			pincode: "400051"
 		},
+		user: null
 	})
 
 	const isUserAuthenticated = () => !!state.user

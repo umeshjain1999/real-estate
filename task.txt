@@ -3,6 +3,24 @@ Main Task :
    - 🪲: clear individual filter
    - 🪲: project default api shows only one project but with filter shows more
    - 🚀: recorrection in design
+         Home
+         1. Review to be auto-updated
+         2. Remove the About section
+
+         Project
+         1. Button
+
+         Card
+         1. As per design
+
+         Product
+         1. Title card
+         2. Overview Bar
+
+         Common Design System
+         1. Grey Color code F7F7F7
+         2. Shadow
+         3. Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
    - 🚀: request call back number and otp functionality with API
 Done :
    - 🪲: filter url issue, tags param is visible on url (mismatch api call)
