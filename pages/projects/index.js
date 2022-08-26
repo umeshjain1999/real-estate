@@ -2,7 +2,7 @@
 import Pagination from "@mui/material/Pagination";
 import { useRouter } from "next/router";
 
-/* compnents */
+/* components */
 import Breadcrumb from "@components/Breadcrumb";
 import ProjectCard from "@components/ProjectCard";
 import { Filter, RecommendedProjects } from "@components/Projects";
@@ -30,7 +30,6 @@ function Projects({ projects, info, currentPage, recommendedProjects }) {
     title: "Recommended Properties",
     projectsArr: recommendedProjects,
   };
-
 
   return (
     <main className="main-wrapper projects">
@@ -91,10 +90,13 @@ export async function getServerSideProps({ query }) {
   const tagsArr = [...localityArr, ...roomsArr]
   let updatedTagsArr = {}
 
-  tagsArr.map((data, index) => {
-    updatedTagsArr[`tags[${index}]`] = data
-
-  })
+  if (tagsArr?.length) {
+    tagsArr.map((data, index) => {
+      updatedTagsArr[`tags[${index}]`] = data
+    })
+  } else {
+    updatedTagsArr['tags'] = '[]'
+  }
 
   /* pagination logic */
   if (page) {

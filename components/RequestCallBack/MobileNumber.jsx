@@ -1,8 +1,12 @@
+/* library */
 import React from 'react';
 import { useSnackbar } from 'notistack';
+/* components */
 import Button from '@components/Button';
 import Input from '@components/Input';
+/* utils */
 import { isNormalNumber } from '@utility/functions';
+
 function MobileNumber({
   updatePhoneNumber
 }) {

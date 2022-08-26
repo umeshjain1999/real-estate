@@ -1,10 +1,16 @@
+/* library */
 import { useEffect, useState } from 'react'
 import { useSnackbar } from 'notistack';
-
+/* components */
 import Input from '@components/Input'
 import Button from '@components/Button'
+/* utils */
 import { isNormalNumber } from '@utility/functions'
+/* helpers */
 import { verifyOTP, sendOTP } from '@helpers/requestCallback'
+/* constants */
+import { API_SUCCESS_CODE } from '@constants/constant';
+
 function EnterOTP({
   phoneNumber,
   handleOTP,
@@ -32,7 +38,7 @@ function EnterOTP({
     const res = await sendOTP({
       mobile: phoneNumber
     })
-    if (res) {
+    if (res?.statusCode === API_SUCCESS_CODE) {
       enqueueSnackbar('OTP successfully resent', { variant: 'success' })
     } else {
       enqueueSnackbar('Sorry,Something went wrong.Please try again', { variant: 'error' })
@@ -57,13 +63,13 @@ function EnterOTP({
       mobile: phoneNumber,
       otp: finalOTP,
     })
-    if (res) {
+    if (res?.statusCode === API_SUCCESS_CODE) {
       enqueueSnackbar('Successfully Verified', { variant: 'success' })
       enqueueSnackbar('You will receive a call very soon.', { variant: 'success' })
+      closeModal();
     } else {
       enqueueSnackbar('Sorry,Something went wrong. Please try again', { variant: 'error' })
     }
-    closeModal();
   }
 
   return (

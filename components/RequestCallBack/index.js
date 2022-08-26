@@ -1,10 +1,16 @@
+/* library */
 import React from 'react'
+import { useSnackbar } from 'notistack';
+/* components */
 import CustomModal from "@components/Modal";
 import Card from "@components/Card";
 import EnterOTP from './EnterOTP';
 import MobileNumber from './MobileNumber';
+/* helpers */
 import { sendOTP } from '@helpers/requestCallback';
-import { useSnackbar } from 'notistack';
+/* constants */
+import { API_SUCCESS_CODE } from '@constants/constant';
+
 function RequestCallBack({ open, onClose }) {
   const { enqueueSnackbar } = useSnackbar()
   const initialTitle = mobileNumberTitle;
@@ -27,7 +33,7 @@ function RequestCallBack({ open, onClose }) {
     const res = await sendOTP({
       mobile: pN,
     })
-    if (res) {
+    if (res?.statusCode === API_SUCCESS_CODE) {
       enqueueSnackbar('OTP Sent. Please check entered mobile number', { variant: 'success' })
       setPhoneNumber(pN);
       handleOTP()

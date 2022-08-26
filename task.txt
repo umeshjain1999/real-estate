@@ -1,7 +1,6 @@
 Main Task :
    - 🪲: hamburger flicker issue
    - 🪲: clear individual filter
-   - 🪲: project default api shows only one project but with filter shows more
    - 🚀: recorrection in design
          Home
          1. Review to be auto-updated
@@ -21,8 +20,10 @@ Main Task :
          1. Grey Color code F7F7F7
          2. Shadow
          3. Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
-   - 🚀: request call back number and otp functionality with API
+   - 🚀: Project Card Save feature (z-index level managed functionality pending )
 Done :
+   - 🚀: request call back number and otp functionality with API
+   - 🪲: project default api shows only one project but with filter shows more
    - 🪲: filter url issue, tags param is visible on url (mismatch api call)
    - 🪲: price range dropdown overlapping with footer
    - logout screen double loader issue (temporarily fixed)
@@ -48,7 +49,6 @@ Done :
 
 Can Take time
    - improve client side authentication
-   - Project Card Save feature (z-index level managed functionality pending )
    - don't render element if prop is empty
    - change no. of lines for limiting text
    - project images view page
