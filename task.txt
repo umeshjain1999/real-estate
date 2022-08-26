@@ -24,8 +24,8 @@ Main Task :
          - ✅listing
          - ✅delete
          - add
-   - 🪲: wrong :id on projects/:id route leads to error
 Done :
+   - 🪲: wrong :id on projects/:id route leads to error
    - 🚀: request call back number and otp functionality with API
    - 🪲: project default api shows only one project but with filter shows more
    - 🪲: filter url issue, tags param is visible on url (mismatch api call)
