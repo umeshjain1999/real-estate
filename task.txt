@@ -21,6 +21,10 @@ Main Task :
          2. Shadow
          3. Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
    - 🚀: Project Card Save feature (z-index level managed functionality pending )
+         - ✅listing
+         - ✅delete
+         - add
+   - 🪲: wrong :id on projects/:id route leads to error
 Done :
    - 🚀: request call back number and otp functionality with API
    - 🪲: project default api shows only one project but with filter shows more

@@ -37,7 +37,7 @@ export const AuthContextProvider = ({ children }) => {
 			city: "Andheri",
 			pincode: "400051"
 		},
-		cardId: "cart_01GBAXQS012CWG870BVC1DKJ2Y"
+		cartId: "cart_01GBAXQS012CWG870BVC1DKJ2Y",
 		// user: null
 	})
 

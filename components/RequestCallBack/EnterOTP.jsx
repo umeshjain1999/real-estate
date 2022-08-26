@@ -9,7 +9,7 @@ import { isNormalNumber } from '@utility/functions'
 /* helpers */
 import { verifyOTP, sendOTP } from '@helpers/requestCallback'
 /* constants */
-import { API_SUCCESS_CODE } from '@constants/constant';
+import { API_SUCCESS_CODE, ERROR_MESSAGE } from '@constants/constant';
 
 function EnterOTP({
   phoneNumber,
@@ -41,7 +41,7 @@ function EnterOTP({
     if (res?.statusCode === API_SUCCESS_CODE) {
       enqueueSnackbar('OTP successfully resent', { variant: 'success' })
     } else {
-      enqueueSnackbar('Sorry,Something went wrong.Please try again', { variant: 'error' })
+      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
     }
   }
 
@@ -68,7 +68,7 @@ function EnterOTP({
       enqueueSnackbar('You will receive a call very soon.', { variant: 'success' })
       closeModal();
     } else {
-      enqueueSnackbar('Sorry,Something went wrong. Please try again', { variant: 'error' })
+      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
     }
   }
 

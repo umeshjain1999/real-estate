@@ -31,7 +31,8 @@ export const getProjectDetail = async (projectId) => {
       highlights: product?.highlights && product?.highlights.split(',') || false,
       amenities: product?.amenities && product?.amenities.split(',') || false,
       floorPlanAndPrice: floorPlanAndPrice || false,
-      saved: false
+      saved: false,
+      variants: product?.variants || []
    }
 
    return finalData

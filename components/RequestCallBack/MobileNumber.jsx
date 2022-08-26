@@ -6,7 +6,7 @@ import Button from '@components/Button';
 import Input from '@components/Input';
 /* utils */
 import { isNormalNumber } from '@utility/functions';
-
+import { ERROR_MESSAGE } from '@constants/constant';
 function MobileNumber({
   updatePhoneNumber
 }) {
@@ -38,7 +38,7 @@ function MobileNumber({
       updatePhoneNumber(pNumber)
       resetState();
     } else {
-      enqueueSnackbar('Sorry,Something went wrong. Please try again', { variant: 'error' })
+      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
     }
   }
 

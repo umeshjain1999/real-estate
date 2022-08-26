@@ -1,6 +1,6 @@
 //! Secure Page
 /* library */
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 /* components */
 import Activity from '@components/Activity'
@@ -9,13 +9,32 @@ import Layout from '@components/Layout'
 import Loader from '@components/Loader'
 /* hooks */
 import { useAuthContext } from 'hooks'
+import { getCartProjects } from 'helpers'
 function MyActivity() {
   const router = useRouter()
-  const { user, isUserAuthenticated } = useAuthContext()
+  const { cartId, isUserAuthenticated } = useAuthContext()
+  const [cartItems, setCartItems] = useState([])
+
+  useEffect(() => {
+    let isSubscribed = true
+    const fetchCart = async () => {
+      const res = await getCartProjects({
+        cartId: cartId
+      })
+      if (isSubscribed) {
+        setCartItems(res)
+      }
+    }
+
+    fetchCart()
+
+    return () => isSubscribed = false
+  }, [cartId])
 
   useEffect(() => {
     isUserAuthenticated() ? router.push("/activity") : router.push("/")
   }, [])
+
   if (isUserAuthenticated()) {
     return (
       <main className='main-wrapper activity common-layout'>
@@ -27,7 +46,11 @@ function MyActivity() {
               </div>
               <div className='activity__listings'>
                 <Activity
-                  listings={userSpecificListings}
+                  listings={{
+                    saved: cartItems,
+                    enquired: userSpecificListings?.enquired,
+                    searches: userSpecificListings?.searches
+                  }}
                 />
               </div>
             </div>
@@ -92,7 +115,6 @@ const userSpecificListings = {
 }
 
 export const getServerSideProps = async (ctx) => {
-
   //? API fetch user specific listings
 
   return {

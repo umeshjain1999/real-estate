@@ -3,11 +3,12 @@ import Icon from '@components/Icon';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CURRENCY } from '@constants/constant';
-import { useLoginModalContext } from 'hooks';
+import { useLoginModalContext, useAuthContext } from 'hooks';
 
 function ProjectCard(props) {
   const { projectInfo = {}, horizontal = false, feature = true, provider = true, address = true, className = '', ...remainingProps } = props
   const { toggleLoginModal } = useLoginModalContext()
+  const { user, cartId } = useAuthContext()
 
   const filterData = {
     id: projectInfo?.id || '1',
@@ -21,6 +22,18 @@ function ProjectCard(props) {
     parking: projectInfo?.parking || false,
     area: projectInfo?.area || false,
     saved: projectInfo?.saved || false,
+  }
+
+  const getVariantId = () => {
+
+  }
+
+  const handleSaveLater = () => {
+    if (user && cartId) {
+      alert('call cart api')
+    } else {
+      toggleLoginModal()
+    }
   }
 
 
@@ -56,7 +69,7 @@ function ProjectCard(props) {
               {filterData.parking && <span className='project-feat-icon vertical-center'><Icon icon='projectCar' /> {filterData.parking}</span>}
               {filterData.area && <span className='project-feat-icon vertical-center'><Icon icon='projectArea' /> {filterData.area}</span>}
             </div>
-            {enableSaveFeature && <span onClick={toggleLoginModal} className={`vertical-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`} /> {filterData.saved ? '' : 'Save'}</span>}
+            {enableSaveFeature && <span onClick={() => handleSaveLater()} className={`vertical-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`} /> {filterData.saved ? '' : 'Save'}</span>}
           </div>}
         </div>
       </div>

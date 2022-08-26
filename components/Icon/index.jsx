@@ -27,43 +27,45 @@ import Partners247services from './svg/partners247services.svg'
 import LoginUser from './svg/loginUser.svg'
 import Call from './svg/call.svg'
 import DropdownArrow from './svg/dropdownArrow.svg'
+import Delete from './svg/delete.svg'
 
 const iconTypes = {
-  close : Close,
-  check : Check,
-  activity : Activity,
-  myListings : MyListings,
-  logout : Logout,
-  leftArrow : LeftArrow,
-  rightArrow : RightArrow,
-  downChevron : DownChevron,
-  location : Location,
-  search : Search,
-  amenitiesShield : AmenitiesShield,
-  amenitiesSize : AmenitiesSize,
-  amenitiesRooms : AmenitiesRooms,
-  hamburger : Hamburger,
-  projectSaved : ProjectSaved,
-  projectFav : ProjectFav,
-  projectArea : ProjectArea,
-  projectCar : ProjectCar,
-  projectShower : ProjectShower,
-  projectBed : ProjectBed,
-  projectDirection : ProjectDirection,
-  partnersIndustry : PartnersIndustry,
-  partnersThumbsUp : PartnersThumbsUp,
-  partnersCurrency : PartnersCurrency,
-  partners247services : Partners247services,
-  loginUser : LoginUser,
-  call : Call,
-  dropdownArrow : DropdownArrow
+  close: Close,
+  check: Check,
+  activity: Activity,
+  myListings: MyListings,
+  logout: Logout,
+  leftArrow: LeftArrow,
+  rightArrow: RightArrow,
+  downChevron: DownChevron,
+  location: Location,
+  search: Search,
+  amenitiesShield: AmenitiesShield,
+  amenitiesSize: AmenitiesSize,
+  amenitiesRooms: AmenitiesRooms,
+  hamburger: Hamburger,
+  projectSaved: ProjectSaved,
+  projectFav: ProjectFav,
+  projectArea: ProjectArea,
+  projectCar: ProjectCar,
+  projectShower: ProjectShower,
+  projectBed: ProjectBed,
+  projectDirection: ProjectDirection,
+  partnersIndustry: PartnersIndustry,
+  partnersThumbsUp: PartnersThumbsUp,
+  partnersCurrency: PartnersCurrency,
+  partners247services: Partners247services,
+  loginUser: LoginUser,
+  call: Call,
+  dropdownArrow: DropdownArrow,
+  delete: Delete,
 }
 
-function Icon({icon,...props}) {
+function Icon({ icon, ...props }) {
 
   let Icon = iconTypes[icon]
 
-  if(iconTypes[icon]) {
+  if (iconTypes[icon]) {
     return <Icon {...props} />
   } else {
     return <span></span>

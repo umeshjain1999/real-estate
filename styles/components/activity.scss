@@ -1,10 +1,9 @@
 .activity{
   &__listings{
     .project-res{
-      margin-bottom: 3rem;
-      max-width: 60%;
+      flex: 0 1 60%;
       @include responsive($tablet){
-        max-width: 100%;
+        flex: 0 1 100%;
       }
     }
     .project-card{
@@ -71,6 +70,21 @@
         color: $text-clr-primary;
       }
 
+    }
+    &-card{
+      &-wrap{
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        .item-delete{
+          color : $text-clr-primary;
+          cursor: pointer;
+          @include add-transition(all,$transition-timing);
+          &:hover{
+            color: $accent-clr-1;
+          }
+        }
+      }
     }
   }
 }

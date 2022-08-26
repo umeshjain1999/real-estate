@@ -9,7 +9,7 @@ import MobileNumber from './MobileNumber';
 /* helpers */
 import { sendOTP } from '@helpers/requestCallback';
 /* constants */
-import { API_SUCCESS_CODE } from '@constants/constant';
+import { API_SUCCESS_CODE, ERROR_MESSAGE } from '@constants/constant';
 
 function RequestCallBack({ open, onClose }) {
   const { enqueueSnackbar } = useSnackbar()
@@ -38,7 +38,7 @@ function RequestCallBack({ open, onClose }) {
       setPhoneNumber(pN);
       handleOTP()
     } else {
-      enqueueSnackbar('Sorry,Something went wrong. Please try again.', { variant: 'error' })
+      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
     }
   };
   const resetAllState = () => {
