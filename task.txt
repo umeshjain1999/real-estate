@@ -23,7 +23,7 @@ Main Task :
    - 🚀: Project Card Save feature (z-index level managed functionality pending )
          - ✅listing
          - ✅delete
-         - add
+         - ✅add
 Done :
    - 🪲: wrong :id on projects/:id route leads to error
    - 🚀: request call back number and otp functionality with API

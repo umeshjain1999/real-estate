@@ -1,14 +1,24 @@
-import React from 'react'
-import Icon from '@components/Icon';
-import Link from 'next/link';
+/* library */
+import React, { useState } from 'react'
 import Image from 'next/image';
-import { CURRENCY } from '@constants/constant';
+import Link from 'next/link';
+import { useSnackbar } from 'notistack';
+/* components */
+import Icon from '@components/Icon';
+/* constant */
+import { CURRENCY, ERROR_MESSAGE } from '@constants/constant';
+/* hooks */
 import { useLoginModalContext, useAuthContext } from 'hooks';
+/* helpers */
+import { getProjectDetail, addCartProject, deleteCartProject } from 'helpers';
 
 function ProjectCard(props) {
+  const { enqueueSnackbar } = useSnackbar()
   const { projectInfo = {}, horizontal = false, feature = true, provider = true, address = true, className = '', ...remainingProps } = props
   const { toggleLoginModal } = useLoginModalContext()
   const { user, cartId } = useAuthContext()
+  const [Saved, setSaved] = useState(false)
+  const [ItemId, setItemId] = useState(null)
 
   const filterData = {
     id: projectInfo?.id || '1',
@@ -24,13 +34,46 @@ function ProjectCard(props) {
     saved: projectInfo?.saved || false,
   }
 
-  const getVariantId = () => {
+  const handleAddCartApi = async () => {
+    const res = await getProjectDetail(filterData?.id)
+    if (res && res?.variants && res?.variants[0] && res?.variants[0]?.id) {
+      const variantId = res?.variants[0]?.id
+      const addCartRes = await addCartProject({
+        cartId: cartId,
+        variantId: variantId
+      })
+      if (addCartRes && addCartRes?.cart && addCartRes?.cart?.items?.length) {
+        setSaved(true)
+        setItemId(addCartRes?.cart?.items[0]?.id)
+        enqueueSnackbar("Project Saved!", { variant: 'success' })
+      } else {
+        enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
+      }
+    } else {
+      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
+    }
+  }
 
+  const handleDeleteCartApi = async () => {
+    const res = await deleteCartProject({
+      cartId: cartId,
+      itemId: ItemId
+    })
+    if (res) {
+      enqueueSnackbar("Project removed from whislist.", { variant: 'info' })
+      setSaved(false)
+    } else {
+      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
+    }
   }
 
   const handleSaveLater = () => {
     if (user && cartId) {
-      alert('call cart api')
+      if (!Saved) {
+        handleAddCartApi()
+      } else {
+        handleDeleteCartApi()
+      }
     } else {
       toggleLoginModal()
     }
@@ -69,7 +112,7 @@ function ProjectCard(props) {
               {filterData.parking && <span className='project-feat-icon vertical-center'><Icon icon='projectCar' /> {filterData.parking}</span>}
               {filterData.area && <span className='project-feat-icon vertical-center'><Icon icon='projectArea' /> {filterData.area}</span>}
             </div>
-            {enableSaveFeature && <span onClick={() => handleSaveLater()} className={`vertical-center project-save`}><Icon icon={`${filterData.saved ? 'projectSaved' : 'projectFav'}`} /> {filterData.saved ? '' : 'Save'}</span>}
+            {enableSaveFeature && <span onClick={() => handleSaveLater()} className={`vertical-center project-save`}><Icon icon={`${filterData.saved || Saved ? 'projectSaved' : 'projectFav'}`} /> {filterData.saved || Saved ? '' : 'Save'}</span>}
           </div>}
         </div>
       </div>

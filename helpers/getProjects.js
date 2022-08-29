@@ -1,6 +1,5 @@
 import { GetAPI, PostAPI } from "helpers"
 const projectsDataManipulation = (allProjects) => {
-
    const projectArr = allProjects?.products && allProjects?.products.map(data => {
       return {
          id: data?.id,
