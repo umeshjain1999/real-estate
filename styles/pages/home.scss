@@ -29,7 +29,7 @@
           display: flex;
           align-items: center;
           border-radius: 12px;
-          border: 1px solid $grey-shade-2;
+          border: 1px solid $grey;
           padding: 1rem;
           margin-right: 2rem;
           @include responsive($ipad){
@@ -138,7 +138,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    background: $grey-shade-2;
+    background: $grey;
     @include responsive($ipad){
       padding-top: 14rem;
     }
@@ -286,7 +286,7 @@
   }
 
   &__near {
-    background: $grey-shade-2;
+    background: $grey;
     padding: 5rem 0;
     &__sub-title {
       font-size: 2.4rem;

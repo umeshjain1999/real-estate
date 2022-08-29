@@ -14,14 +14,14 @@ function Projects({ projects, info, currentPage, recommendedProjects }) {
 
   const router = useRouter();
 
-  const handlePaginationChange = (value) => {
+  const handlePaginationChange = (event, page) => {
 
     const currentQuery = router.query
 
     router.push({
       query: {
         ...currentQuery,
-        page: value,
+        page: page,
       },
     });
   }
@@ -100,7 +100,7 @@ export async function getServerSideProps({ query }) {
 
   /* pagination logic */
   if (page) {
-    offset = (limit * offset) - limit
+    offset = (limit * page) - limit
   }
 
   let data = {}

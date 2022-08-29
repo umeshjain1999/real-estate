@@ -5,13 +5,10 @@ import Head from "next/head";
 import {
   Banner,
   Brand,
-  Intro,
-  NewlyProjects,
+  Intro, NearYou, NewlyProjects,
   Review,
-  Search,
-  NearYou
+  Search
 } from "@components/Home";
-import Team from "@components/Team";
 
 /* helpers */
 import { getRecomendationsProjects } from "helpers";
@@ -36,7 +33,6 @@ export default function Home({ nearByProjects, newlyProjects }) {
         {nearByProjects?.projectsArr?.length ? <NearYou {...nearByProjects} /> : ''}
         <Review {...reviewInfo} />
         {newlyProjects?.projectsArr?.length ? <NewlyProjects {...newlyProjects} /> : ''}
-        <Team />
       </main>
     </>
   );

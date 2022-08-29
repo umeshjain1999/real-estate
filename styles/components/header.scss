@@ -26,7 +26,6 @@
         padding: 3rem;
         border: 1px solid #e6e6e6;
         z-index: 99;
-        @include vendor(box-shadow,$box-shadow-2);
         &.active {
           visibility: visible;
           opacity: 1;

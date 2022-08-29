@@ -1,5 +1,5 @@
 .projects {
-  background: $grey-shade-2;
+  background: $grey;
   @include add-transition(all,0.3s);
   &__wrapper {
     display: flex;

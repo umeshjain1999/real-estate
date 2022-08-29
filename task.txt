@@ -4,7 +4,7 @@ Main Task :
    - 🚀: recorrection in design
          Home
          1. Review to be auto-updated
-         2. Remove the About section
+         ✅2. Remove the About section
 
          Project
          1. Button
@@ -17,13 +17,14 @@ Main Task :
          2. Overview Bar
 
          Common Design System
-         1. Grey Color code F7F7F7
-         2. Shadow
+         ✅1. Grey Color code F7F7F7
+         ✅2. Shadow
          3. Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
-   - 🚀: Project Card Save feature (z-index level managed functionality pending )
+   - 🚀: Project Card Save feature (testing with API pending)
          - ✅listing
          - ✅delete
          - ✅add
+   - 🪲: Pagination testing
 Done :
    - 🪲: wrong :id on projects/:id route leads to error
    - 🚀: request call back number and otp functionality with API

@@ -16,8 +16,8 @@ const projectsDataManipulation = (allProjects) => {
       }
    })
 
-   const count = allProjects?.count || 0
-   const countPerPage = allProjects?.limit || 1
+   const count = allProjects?.totalCount || 0
+   const countPerPage = allProjects?.count || 1
    const pages = Math.ceil(count / countPerPage)
 
    const finalData = {

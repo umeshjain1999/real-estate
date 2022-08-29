@@ -110,7 +110,7 @@
 	top: 30%;
 	cursor: pointer;
 	z-index: 10;
-	@include vendor(box-shadow,$box-shadow-2);
+	@include vendor(box-shadow,$box-shadow);
 	@include vendor(all,$transition-timing);
 	&.slider-next{
 		right: 0;
