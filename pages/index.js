@@ -94,18 +94,27 @@ const reviewInfo = {
   title: "What people say",
   subTitle:
     "We are committed to making our customers happy with our 12+ years of experience in the industry",
-  user_1: {
-    name: "Karan Jain",
-    feature: "Zoro Steels & Co",
-    review:
-      "SqftHome have helped me in a good knowledge for buying property, made me feel comfortable in their work environment, helped me deal with my property financial goals and a lotmore which otherwise I wouldn’t have gained.",
-    // profileImagePath : '/'
-  },
-  user_2: {
-    name: "Dr. A.K. Singh",
-    feature: "Doctor",
-    review:
-      "I visited the shortlisted project site 2 days before the lockdown and was really impressed with the customer service and transparent details. I booked my home even during the lockdown as I didn’t want to waste time to make the best decision of my life.",
-    // profileImagePath : '/'
-  },
+  review: [
+    {
+      name: "Karan Jain",
+      feature: "Zoro Steels & Co",
+      review:
+        "SqftHome have helped me in a good knowledge for buying property, made me feel comfortable in their work environment, helped me deal with my property financial goals and a lotmore which otherwise I wouldn’t have gained.",
+      // profileImagePath : '/'
+    },
+    {
+      name: "Dr. A.K. Singh",
+      feature: "Doctor",
+      review:
+        "I visited the shortlisted project site 2 days before the lockdown and was really impressed with the customer service and transparent details. I booked my home even during the lockdown as I didn’t want to waste time to make the best decision of my life.",
+      // profileImagePath : '/'
+    },
+    {
+      name: "Vivek Yadav",
+      feature: "Service",
+      review:
+        "Had good exp with SqftHome. The team were very informative . They suggest properties based on our requirement. They also provide end to end support in the process. They are professional and responsive.",
+      // profileImagePath : '/'
+    },
+  ],
 };
