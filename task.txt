@@ -7,13 +7,13 @@ Main Task :
          ✅2. Remove the About section
 
          Project
-         1. Button
+         ✅1. Button
 
          Card
-         1. As per design
+         ✅1. As per design
 
          Product
-         1. Title card
+         ✅1. Title card
          2. Overview Bar
 
          Common Design System

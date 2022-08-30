@@ -42,7 +42,7 @@
       }
     }
     .project-provider {
-      @include text-attributes(1,1.6rem,$placeholder,400,0.6rem);
+      @include text-attributes(1,1.8rem,$text-clr-primary,300,0.6rem);
       max-width: 100%;
       letter-spacing: 0.01em;
       margin-bottom: 1rem;
@@ -51,7 +51,7 @@
     }
     .project-address {
       .project-text {
-        @include text-attributes(1,1.3rem,$placeholder,400,0.4rem);
+        @include text-attributes(1,1.3rem,$text-clr-primary,300,0.4rem);
         max-width: calc(100% - 20px - 0.7rem);
         text-overflow: ellipsis;
         white-space: nowrap;

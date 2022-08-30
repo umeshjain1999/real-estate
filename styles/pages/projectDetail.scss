@@ -235,7 +235,7 @@
           }
         }
         .content-provider,.content-address {
-          color: $placeholder;
+          color: $text-clr-primary;
         }
         .content-provider {
           font-size: 2.4rem;
@@ -250,8 +250,8 @@
           align-items: center;
           span {
             flex: 1;
-            font-size: 1.3rem;
-            line-height: 1.9rem;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
           }
           svg {
             margin-right: 1rem;
