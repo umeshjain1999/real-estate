@@ -14,7 +14,7 @@ Main Task :
 
          Product
          ✅1. Title card
-         2. Overview Bar
+         ✅2. Overview Bar
 
          Common Design System
          ✅1. Grey Color code F7F7F7

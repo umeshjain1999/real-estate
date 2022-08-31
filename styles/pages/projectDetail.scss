@@ -319,6 +319,16 @@
           color: $white-clr;
         }
       }
+      &.sticky {
+        position: fixed;
+        top: 0;
+        background-color: $white-clr;
+        padding-top: 2rem;
+        padding-left: 3rem;
+        border-radius: 12px;
+        @include vendor(box-shadow,$box-shadow);
+        z-index: 50;
+      }
     }
   }
 }
