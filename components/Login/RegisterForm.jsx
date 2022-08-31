@@ -10,7 +10,7 @@ import { isNormalNumber } from '@utility/functions'
 /* helpers */
 import { register } from '@helpers/authentication'
 /* constant */
-import { API_SUCCESS_CODE, ERROR_MESSAGE } from 'constants'
+import { API_SUCCESS_CODE, ERROR_MESSAGE } from '@constants/constant'
 
 function RegisterForm({
   handleRegister,
