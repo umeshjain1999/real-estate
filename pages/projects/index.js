@@ -101,11 +101,12 @@ export async function getServerSideProps({ query }) {
   /* pagination logic */
   if (page) {
     offset = (limit * page) - limit
+    limit = limit * page
   }
 
   let data = {}
 
-  data = await getFilteredProjects({ ...query, ...updatedTagsArr, 'offset': offset, 'limit': limit })
+  data = await getFilteredProjects({ ...query, ...updatedTagsArr, 'skip': offset, 'limit': limit })
 
   let recomData = await getRecomendationsProjects({
     skip: 0,
