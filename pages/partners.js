@@ -1,7 +1,6 @@
 /* components */
 import Breadcrumb from "@components/Breadcrumb";
 import { Banner, Feature, Location, PartnerForm } from "@components/Partners";
-import Team from "@components/Team";
 
 function Partners() {
   return (
@@ -15,7 +14,6 @@ function Partners() {
       <Feature {...featureInfo} />
       <PartnerForm {...partnerForm} />
       <Location {...locationInfo} />
-      <Team />
     </main>
   );
 }

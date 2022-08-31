@@ -82,10 +82,7 @@ export const getServerSideProps = async (ctx) => {
 
   if (!data) {
     return {
-      redirect: {
-        permanent: false,
-        destination: '/projects'
-      }
+      notFound: true,
     }
   }
 

@@ -3,7 +3,7 @@ Main Task :
    - 🪲: clear individual filter
    - 🚀: recorrection in design
          Home
-         1. Review to be auto-updated
+         ✅1. Review to be auto-updated
          ✅2. Remove the About section
 
          Project
