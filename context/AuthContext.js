@@ -38,7 +38,6 @@ export const AuthContextProvider = ({ children }) => {
 			pincode: "400051"
 		},
 		cartId: "cart_01GBAXQS012CWG870BVC1DKJ2Y",
-		user: null
 	})
 
 	const isUserAuthenticated = () => !!state.user
