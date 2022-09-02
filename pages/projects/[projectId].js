@@ -1,16 +1,16 @@
 /* library */
 import React, { useEffect, useState } from 'react';
-
+import Head from 'next/head';
 /* components */
 import Breadcrumb from "@components/Breadcrumb";
 import { LeftSection, Project, ProjectTab, RightSection } from "@components/ProjectDetail";
 import ScrollUp from "@components/ScrollUp";
-
 /* utils */
 import { scrollToRef } from "@utility/functions";
-
 /* helpers */
 import { getProjectDetail, getRecomendationsProjects } from 'helpers';
+/* constants */
+import { SITE_META_DATA } from '@constants/constant';
 
 function ProjectDetail({
   projectDetail = {},
@@ -43,6 +43,14 @@ function ProjectDetail({
   const executeScroll = () => scrollToRef(projectDetailRef);
   return (
     <main className="main-wrapper project__detail" ref={projectDetailRef}>
+      <Head>
+        <title>{SITE_META_DATA.PROJECT_DETAIL['title']}{projectDetail?.name || 'none'}</title>
+        <meta
+          name={SITE_META_DATA.PROJECT_DETAIL['name']}
+          content={`${SITE_META_DATA.PROJECT_DETAIL['description']}${projectDetail?.name || 'none'}`}
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="project__detail-top divider-lg">
         <div className="container">
           <div className="project__detail-top-wrap">

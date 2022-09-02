@@ -1,4 +1,5 @@
 /* library */
+import Head from "next/head";
 import Pagination from "@mui/material/Pagination";
 import { useRouter } from "next/router";
 
@@ -9,7 +10,8 @@ import { Filter, RecommendedProjects } from "@components/Projects";
 
 /* helpers */
 import { getFilteredProjects, getRecomendationsProjects } from "helpers";
-
+/* constants */
+import { SITE_META_DATA } from "@constants/constant";
 function Projects({ projects, info, currentPage, recommendedProjects }) {
 
   const router = useRouter();
@@ -33,6 +35,14 @@ function Projects({ projects, info, currentPage, recommendedProjects }) {
 
   return (
     <main className="main-wrapper projects">
+      <Head>
+        <title>{SITE_META_DATA.PROJECTS['title']}</title>
+        <meta
+          name={SITE_META_DATA.PROJECTS['name']}
+          content={SITE_META_DATA.PROJECTS['description']}
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="container">
         <Breadcrumb linkArr={breadcrumb} />
         <div className="projects__title divider-sm">

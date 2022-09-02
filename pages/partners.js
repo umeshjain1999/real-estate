@@ -1,10 +1,21 @@
+/* library */
+import Head from "next/head";
 /* components */
 import Breadcrumb from "@components/Breadcrumb";
 import { Banner, Feature, Location, PartnerForm } from "@components/Partners";
-
+/* constants */
+import { SITE_META_DATA } from "@constants/constant";
 function Partners() {
   return (
     <main className="main-wrapper partners">
+      <Head>
+        <title>{SITE_META_DATA.PARTNERS['title']}</title>
+        <meta
+          name={SITE_META_DATA.PARTNERS['name']}
+          content={SITE_META_DATA.PARTNERS['description']}
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="breadcrumb-wrap">
         <div className="container">
           <Breadcrumb linkArr={breadcrumb} />

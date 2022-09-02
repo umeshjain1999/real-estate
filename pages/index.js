@@ -1,6 +1,5 @@
 /* library */
 import Head from "next/head";
-
 /* components */
 import {
   Banner,
@@ -9,32 +8,29 @@ import {
   Review,
   Search
 } from "@components/Home";
-
 /* helpers */
 import { getRecomendationsProjects } from "helpers";
-
+import { SITE_META_DATA } from "@constants/constant";
 
 export default function Home({ nearByProjects, newlyProjects }) {
   return (
-    <>
+    <main className="main-wrapper home">
       <Head>
-        <title>Sqfthome.in - Home</title>
+        <title>{SITE_META_DATA.HOME['title']}</title>
         <meta
-          name="Sqfthomes.in"
-          content="Find A Perfect Home To Live With Your Family"
+          name={SITE_META_DATA.HOME['name']}
+          content={SITE_META_DATA.HOME['description']}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="main-wrapper home">
-        <Banner {...bannerInfo} />
-        <Search />
-        <Intro {...introInfo} />
-        <Brand {...brandInfo} />
-        {nearByProjects?.projectsArr?.length ? <NearYou {...nearByProjects} /> : ''}
-        <Review {...reviewInfo} />
-        {newlyProjects?.projectsArr?.length ? <NewlyProjects {...newlyProjects} /> : ''}
-      </main>
-    </>
+      <Banner {...bannerInfo} />
+      <Search />
+      <Intro {...introInfo} />
+      <Brand {...brandInfo} />
+      {nearByProjects?.projectsArr?.length ? <NearYou {...nearByProjects} /> : ''}
+      <Review {...reviewInfo} />
+      {newlyProjects?.projectsArr?.length ? <NewlyProjects {...newlyProjects} /> : ''}
+    </main>
   );
 }
 

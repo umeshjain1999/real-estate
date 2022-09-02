@@ -1,7 +1,20 @@
+/* library */
+import Head from "next/head";
+/* constants */
+import { SITE_META_DATA } from "@constants/constant";
+
 function About() {
   return (
     <>
       <main className="main-wrapper static">
+        <Head>
+          <title>{SITE_META_DATA.ABOUT['title']}</title>
+          <meta
+            name={SITE_META_DATA.ABOUT['name']}
+            content={SITE_META_DATA.ABOUT['description']}
+          />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <div className="container">
           <div className="static__title">{title}</div>
           <div className="static__desc">
