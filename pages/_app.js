@@ -57,7 +57,9 @@ function MyApp({ Component, pageProps }) {
 
 
   return (
-    <SnackbarProvider>
+    <SnackbarProvider
+      autoHideDuration={2000}
+    >
       <AuthContextProvider>
         <LoginModalContextProvider>
           {mainComponent()}
