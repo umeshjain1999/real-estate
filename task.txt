@@ -7,10 +7,10 @@ Main Task :
          - ✅delete
          - ✅add
    - 🪲: Pagination testing (issue 8 count for everything)
-   - 🪲: Partner 2nd section icon correction
    - 🚀: Partner Contact API
    - 🚀: contact us (contact real estate expert) API
 Done :
+   - 🪲: Partner 2nd section icon design correction
    - 🪲: Projects filter select unselect issue
    - 🚀: Request Callback API
    - 🚀: Register API
