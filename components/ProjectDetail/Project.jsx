@@ -1,16 +1,22 @@
+/* library */
 import React from "react";
 import Image from "next/image";
+import { useSnackbar } from "notistack";
+/* components */
 import Button from "@components/Button";
 import HorizontalFeature from "@components/HorizontalFeature";
 import Icon from "@components/Icon";
 import { CustomSlider } from "@components/Slider";
 import { CURRENCY } from "@constants/constant";
 import RequestCallBack from "@components/RequestCallBack";
-import { useToggle } from "@hooks/useToggle";
-
+/* hooks */
+import { useToggle, useAuthContext } from "hooks";
+/* helpers */
+import { getCallback } from "@helpers/requestCallback";
+/* constants */
+import { API_SUCCESS_CODE, ERROR_MESSAGE } from "@constants/constant";
 
 function Project(props) {
-
   const {
     name = false,
     provider = false,
@@ -21,6 +27,8 @@ function Project(props) {
     imageArr = [],
     tags = []
   } = props
+  const { enqueueSnackbar } = useSnackbar()
+  const { user } = useAuthContext()
   const { toggle, updateToggle } = useToggle()
   const firstImage = imageArr && imageArr[0] ? imageArr[0] : "/assets/images/image-loader.svg";
   const [currentImage, setImage] = React.useState(firstImage);
@@ -29,8 +37,22 @@ function Project(props) {
     setImage(firstImage);
   }, [firstImage]);
 
-  const handleActionButton = () => {
-    updateToggle()
+  const handleActionButton = async () => {
+    if (user) {
+      const res = await getCallback({
+        name: user?.first_name,
+        email: user?.email,
+        phone: user?.phone,
+        project: { ...props }
+      })
+      if (res?.statusCode === API_SUCCESS_CODE) {
+        enqueueSnackbar("You will soon receive a call on registered mobile number.", { variant: "success" })
+      } else {
+        enqueueSnackbar(ERROR_MESSAGE, { variant: "error" })
+      }
+    } else {
+      updateToggle()
+    }
   };
 
   const settings = {
@@ -139,6 +161,7 @@ function Project(props) {
           <RequestCallBack
             open={toggle}
             onClose={updateToggle}
+            projectDetail={{ ...props }}
           />
         </>
       </div>

@@ -29,7 +29,7 @@ function Profile() {
               </div>
               <div>
                 <HorizontalFeature
-                  name={user?.name}
+                  name={user?.first_name}
                   feature={user?.city}
                 />
                 <ProfileForm {...user} />

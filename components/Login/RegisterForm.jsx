@@ -1,26 +1,33 @@
 /* library */
-import React from 'react'
+import React, { useState } from 'react'
 import { useSnackbar } from 'notistack'
 /* components */
 import Input from '@components/Input'
 import RadioButton from '@components/Input/RadioButton'
 import Button from '@components/Button'
+import EnterOTP from '@components/RequestCallBack/EnterOTP'
 /* utils */
 import { isNormalNumber } from '@utility/functions'
 /* helpers */
-import { register } from '@helpers/authentication'
+import { verifyOTP, sendOTP } from '@helpers/requestCallback'
 /* constant */
 import { API_SUCCESS_CODE, ERROR_MESSAGE } from '@constants/constant'
-
+/* hooks */
+import { useAuthContext } from '@hooks/useAuthContext'
 function RegisterForm({
-  handleRegister,
-  closeModal
+  handleType,
+  closeModal,
+  authAPI,
+  OTPState,
+  updateOTPState,
 }) {
+  const { dispatch } = useAuthContext()
   const { enqueueSnackbar } = useSnackbar()
-  const [pNumber, setPNumber] = React.useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [query, setQuery] = useState({})
 
   const goToLogin = () => {
-    handleRegister()
+    handleType("LOGIN")
   }
   const formSubmission = async (e) => {
     e.preventDefault()
@@ -31,34 +38,65 @@ function RegisterForm({
       registerObj[element] = e.target[element].value
     }
 
-    const res = await register({
-      query: {
-        type: registerObj?.type,
-        name: registerObj?.fullName,
-        email: registerObj?.email,
-        phoneNumber: registerObj?.tel
+    if (phoneNumber) {
+      const res = await sendOTP({
+        mobile: phoneNumber
+      })
+      if (res?.statusCode === API_SUCCESS_CODE) {
+        updateOTPState(true)
+        enqueueSnackbar('OTP Successfully Sent', { variant: 'success' })
+      } else {
+        updateOTPState(false)
+        enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
       }
+    }
+
+    setQuery({
+      type: registerObj?.type,
+      first_name: registerObj?.fullName,
+      email: registerObj?.email,
+      phone: registerObj?.tel
     })
 
-    if (res?.statusCode === API_SUCCESS_CODE) {
-      enqueueSnackbar("You're Successfully register!", { variant: 'success' })
-      closeModal()
-    } else {
-      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
-    }
   }
 
   const handleChange = (e) => {
     const ele = e.target
     if (!isNormalNumber(ele.value)) return false
-    setPNumber(ele.value)
+    setPhoneNumber(ele.value)
   }
 
+  const otpVerifcation = async ({ phoneNumber, otp }) => {
+    const res = await verifyOTP({
+      mobile: phoneNumber,
+      otp: otp,
+    })
+    if (res?.statusCode === API_SUCCESS_CODE) {
+      enqueueSnackbar("You're Successfully Verified", { variant: 'success' })
+      const authRes = await authAPI("REGISTER", query)
+      if (authRes) {
+        dispatch({ type: "LOGIN", payload: authRes })
+        closeModal()
+      }
+    } else {
+      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
+    }
+  }
+
+  if (OTPState) {
+    return (
+      <EnterOTP
+        phoneNumber={phoneNumber}
+        changePhoneNumberFunc={updateOTPState}
+        otpVerifcationFunc={otpVerifcation}
+      />
+    )
+  }
 
   return (
     <div className='register__form'>
       <form onSubmit={formSubmission} className='common-form' >
-        <div className='register__form-text'>I am am</div>
+        <div className='register__form-text'>I am</div>
         <div className="register__form-wrap">
           <RadioButton
             containerClassName="register__form-radio common-input-radio"
@@ -80,8 +118,7 @@ function RegisterForm({
         </div>
         <Input required className='common-form-input' type="text" name="fullName" placeholder='Name' autoFocus />
         <Input required className='common-form-input' type="email" name="email" placeholder='Email ID' />
-        <Input required className='common-form-input' onChange={handleChange} value={pNumber} type="tel" name="tel" placeholder='Phone Number' />
-        {/* <Input required className='common-form-input' type="text" name="city" placeholder='City' /> */}
+        <Input required className='common-form-input' onChange={handleChange} value={phoneNumber} type="tel" name="tel" placeholder='Phone Number' />
         <Button text='submit' variant='secondary' type='submit' className='common-form-button' />
       </form>
       <div className='register__form-highlight login__modal-highlight'>
@@ -91,6 +128,7 @@ function RegisterForm({
       </div>
     </div>
   )
+
 }
 
 export default RegisterForm

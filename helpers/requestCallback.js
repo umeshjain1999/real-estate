@@ -32,3 +32,22 @@ export const verifyOTP = async (query = {}) => {
     return false
   }
 }
+
+export const getCallback = async (query = {}) => {
+  /*
+  ?expected structure
+  query = {
+  "name":"string",
+  "email":"string",
+  "phone":"string",
+  "propertyDescription":"string"
+  }
+  */
+  try {
+    const res = await PostAPI('store/getCallBack', query)
+    return res
+  } catch (error) {
+    console.error('Encountered error', error);
+    return false
+  }
+}

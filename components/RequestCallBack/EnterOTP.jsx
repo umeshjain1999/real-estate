@@ -1,23 +1,22 @@
 /* library */
-import { useEffect, useState } from 'react'
 import { useSnackbar } from 'notistack';
+import { useEffect, useState } from 'react';
 /* components */
-import Input from '@components/Input'
-import Button from '@components/Button'
+import Button from '@components/Button';
+import Input from '@components/Input';
 /* utils */
-import { isNormalNumber } from '@utility/functions'
+import { isNormalNumber } from '@utility/functions';
 /* helpers */
-import { verifyOTP, sendOTP } from '@helpers/requestCallback'
+import { sendOTP } from '@helpers/requestCallback';
 /* constants */
 import { API_SUCCESS_CODE, ERROR_MESSAGE } from '@constants/constant';
 
 function EnterOTP({
   phoneNumber,
-  handleOTP,
-  closeModal
+  changePhoneNumberFunc,
+  otpVerifcationFunc
 }) {
   const { enqueueSnackbar } = useSnackbar()
-
   const [otp, setOtp] = useState(new Array(4).fill(""))
   const [buttonDisable, setButtonDisable] = useState(true)
 
@@ -30,7 +29,7 @@ function EnterOTP({
   }, [otp])
 
   const changePhoneNumber = () => {
-    handleOTP()
+    changePhoneNumberFunc()
   }
 
   const resendOTP = async () => {
@@ -59,17 +58,11 @@ function EnterOTP({
   const formSubmission = async (e) => {
     e.preventDefault()
     const finalOTP = otp.join("")
-    const res = await verifyOTP({
-      mobile: phoneNumber,
-      otp: finalOTP,
+
+    otpVerifcationFunc({
+      phoneNumber: phoneNumber,
+      otp: finalOTP
     })
-    if (res?.statusCode === API_SUCCESS_CODE) {
-      enqueueSnackbar('Successfully Verified', { variant: 'success' })
-      enqueueSnackbar('You will receive a call very soon.', { variant: 'success' })
-      closeModal();
-    } else {
-      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
-    }
   }
 
   return (

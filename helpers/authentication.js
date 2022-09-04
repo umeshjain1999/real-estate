@@ -1,13 +1,13 @@
 import { GetAPI, PostAPI } from "helpers";
 
-export const register = async (query = {}) => {
+export const register = async ({ query = {} }) => {
   /*
 ?expected structure
 query = {
   type:'',
   name:'',
   email: '',
-  phoneNumber:''
+  phone:''
 }
 */
   try {
@@ -18,7 +18,7 @@ query = {
   }
 }
 
-export const login = async (query = {}) => {
+export const login = async ({ query = {} }) => {
   try {
     const res = await PostAPI('store/login', query)
     return res

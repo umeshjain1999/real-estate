@@ -1,65 +1,93 @@
-import React from "react";
+/* library */
+import { useSnackbar } from 'notistack';
+import React, { useState } from "react";
+/* components */
+import Card from "@components/Card";
 import CustomModal from "@components/Modal";
 import LoginForm from "./LoginForm";
-import OTPForm from "./OTPForm";
-import Card from "@components/Card";
 import RegisterForm from "./RegisterForm";
+/* helpers */
+import { login, register } from "@helpers/authentication";
+/* constant */
+import { API_SUCCESS_CODE, ERROR_MESSAGE } from '@constants/constant';
+
 function Login({ open, onClose }) {
-  const initialTitle = loginTitle;
-  const [OTP, setOTP] = React.useState(false);
-  const [Register, setRegister] = React.useState(false);
-  const [title, setTitle] = React.useState(initialTitle);
-  const [phoneNumber, setPhoneNumber] = React.useState("");
+  const { enqueueSnackbar } = useSnackbar()
+  const [title, setTitle] = useState(loginTitle);
+  const [type, setType] = useState("LOGIN");
+  const [OTP, setOTP] = useState(false)
 
   React.useEffect(() => {
-    if (OTP) {
-      setTitle(otpTitle);
-    } else if (Register) {
+    if (type === "REGISTER") {
       setTitle(registerTitle);
+    } else if (OTP) {
+      setTitle(otpTitle);
     } else {
-      setTitle(initialTitle);
+      setTitle(loginTitle);
     }
-  }, [OTP, Register, initialTitle]);
+  }, [type, OTP]);
 
-  const handleOTP = () => {
-    setOTP(!OTP);
-  };
-
-  const handleRegister = () => {
-    setRegister(!Register);
-  };
-
-  const updatePhoneNumber = (pN) => {
-    setPhoneNumber(pN);
-  };
+  const handleType = (whichScreen) => {
+    setType(whichScreen)
+  }
 
   const resetAllState = () => {
-    setOTP(false);
-    setRegister(false);
+    setType("LOGIN")
     onClose();
   };
+
+  const authAPI = async (type, query) => {
+    switch (type) {
+      case "LOGIN":
+        const loginResponse = await login({ query: query })
+        if (loginResponse?.statusCode === API_SUCCESS_CODE) {
+          enqueueSnackbar("You're Successfully Logged In!", { variant: 'success' })
+          return true
+        } else {
+          enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
+          return false
+        }
+      case "REGISTER":
+        const registerResponse = await register({ query: query })
+        if (registerResponse?.statusCode === API_SUCCESS_CODE) {
+          enqueueSnackbar("You're Successfully Registered!", { variant: 'success' })
+          return true
+        } else {
+          enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
+          return false
+        }
+      default:
+        return false
+    }
+  }
+
+  const updateOTPState = (bool) => {
+    if (typeof bool !== undefined) {
+      setOTP(bool)
+    } else {
+      setOTP(prev => !prev)
+    }
+  }
 
   return (
     <CustomModal open={open} onClose={resetAllState} type={OTP ? "OTP" : ""}>
       <Card title={title} className="login__modal center">
-        {!OTP && !Register && (
+        {type === "LOGIN" && (
           <LoginForm
-            handleOTP={handleOTP}
-            handleRegister={handleRegister}
-            updatePhoneNumber={updatePhoneNumber}
-          />
-        )}
-        {OTP && (
-          <OTPForm
-            phoneNumber={phoneNumber}
-            handleOTP={handleOTP}
+            handleType={handleType}
             closeModal={resetAllState}
+            authAPI={authAPI}
+            OTPState={OTP}
+            updateOTPState={updateOTPState}
           />
         )}
-        {Register && (
+        {type === "REGISTER" && (
           <RegisterForm
-            handleRegister={handleRegister}
+            handleType={handleType}
             closeModal={resetAllState}
+            authAPI={authAPI}
+            OTPState={OTP}
+            updateOTPState={updateOTPState}
           />
         )}
       </Card>
