@@ -8,7 +8,7 @@ const Input = forwardRef((props, ref) => {
       maxLength: "10",
       minLength: "10",
       placeholder: "XXXXXXXX",
-      autocomplete: "on",
+      autoComplete: "on",
       ...updatedProps,
     };
   }

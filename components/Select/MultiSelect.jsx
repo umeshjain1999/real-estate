@@ -1,7 +1,7 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
+import Checkbox from "@mui/material/Checkbox";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import Checkbox from "@mui/material/Checkbox";
 
 const ITEM_HEIGHT = 56;
 const ITEM_PADDING_TOP = 8;
@@ -19,11 +19,11 @@ export default function CustomMultiSelect({
   title = 'none',
   queryName = title || '',
   onChange,
-  defaultValue = ''
+  defaultValue = '',
 }) {
-  const [personName, setPersonName] = React.useState([]);
+  const [personName, setPersonName] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (selectOptions?.length && defaultValue?.length) {
       const checkArr = selectOptions.map(data => data.value)
       let defaultCheck = true

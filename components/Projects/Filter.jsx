@@ -28,7 +28,7 @@ function Filter({
     let typeValue = obj.join(',');
 
     const currentQuery = router.query
-    if (type && typeValue && typeValue?.length) {
+    if (type) {
       router.push({
         query: {
           ...currentQuery,

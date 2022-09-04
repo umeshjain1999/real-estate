@@ -12,6 +12,7 @@ import { Filter, RecommendedProjects } from "@components/Projects";
 import { getFilteredProjects, getRecomendationsProjects } from "helpers";
 /* constants */
 import { SITE_META_DATA } from "@constants/constant";
+
 function Projects({ projects, info, currentPage, recommendedProjects }) {
 
   const router = useRouter();
@@ -180,8 +181,18 @@ const status = {
   title: "Status",
   queryName: "status",
   arr: [
-    { name: "Ready to Move In", value: "ready" },
-    { name: "Ongoing Project", value: "ongoing" },
+    {
+      name: "Ready to Move In",
+      value: "ready"
+    },
+    {
+      name: "Ongoing Project",
+      value: "ongoing"
+    },
+    {
+      name: "Upcoming Project",
+      value: "upcoming"
+    },
   ],
 };
 
