@@ -82,7 +82,7 @@ const featureInfo = {
   ],
 };
 const partnerForm = {
-  title: "Join the Sqfthome family",
+  title: "Join the Sqfthome Family",
   formTitle: "Fill the Form to Be a Partner",
 };
 

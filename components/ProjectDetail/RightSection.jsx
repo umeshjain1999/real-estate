@@ -12,7 +12,7 @@ import CustomModal from '@components/Modal';
 /* utils */
 import { isNormalNumber } from '@utility/functions';
 /* helpers */
-import { getCallback, verifyOTP, sendOTP } from "@helpers/requestCallback";
+import { contactRealEstate, verifyOTP, sendOTP } from "@helpers/requestCallback";
 /* constants */
 import { API_SUCCESS_CODE, ERROR_MESSAGE } from "@constants/constant";
 
@@ -72,9 +72,8 @@ function RightSection({ featuredProperties = [], projectDetail = {} }) {
       otp: otp,
     })
     if (res?.statusCode === API_SUCCESS_CODE) {
-      enqueueSnackbar("You're Successfully Verified", { variant: 'success' })
-      const callbackRes = await getCallback({ ...query })
-      if (callbackRes) {
+      const callbackRes = await contactRealEstate({ ...query })
+      if (callbackRes?.statusCode === API_SUCCESS_CODE) {
         enqueueSnackbar("You will soon receive a call on registered mobile number.", { variant: "success" })
         setOTP(false)
         resetInputValues(formEvent.current)
@@ -98,8 +97,8 @@ function RightSection({ featuredProperties = [], projectDetail = {} }) {
             <Button text='submit' variant='secondary' type='submit' className='common-form-button' />
           </form>
         </Card>
-        <CustomModal open={OTP} onClose={() => setOTP(prev => !prev)} type={OTP ? "OTP" : ""}>
-          <Card title={"Enter OTP to continue"} className="login__modal center">
+        <CustomModal open={OTP} onClose={() => setOTP(prev => !prev)} backdropClick={OTP}>
+          <Card title={OTPModalTitle} className="login__modal center">
             <EnterOTP
               phoneNumber={pNumber}
               changePhoneNumberFunc={() => setOTP(prev => !prev)}
@@ -136,5 +135,7 @@ function RightSection({ featuredProperties = [], projectDetail = {} }) {
 const featuredTitle = 'Featured Properties'
 
 const contactFormTitle = 'Contact Our Real Estate Experts'
+
+const OTPModalTitle = "Enter OTP to continue"
 
 export default RightSection

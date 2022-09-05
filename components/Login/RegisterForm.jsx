@@ -72,11 +72,13 @@ function RegisterForm({
       otp: otp,
     })
     if (res?.statusCode === API_SUCCESS_CODE) {
-      enqueueSnackbar("You're Successfully Verified", { variant: 'success' })
       const authRes = await authAPI("REGISTER", query)
-      if (authRes) {
+      if (authRes?.statusCode === API_SUCCESS_CODE) {
+        enqueueSnackbar("You're now registered", { variant: 'success' })
         dispatch({ type: "LOGIN", payload: authRes })
         closeModal()
+      } else {
+        enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
       }
     } else {
       enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })

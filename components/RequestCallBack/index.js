@@ -32,7 +32,7 @@ function RequestCallBack({ open, onClose, projectDetail }) {
 
 
   return (
-    <CustomModal open={open} onClose={resetAllState} type={OTP ? "OTP" : ""}>
+    <CustomModal open={open} onClose={resetAllState} backdropClick={OTP}>
       <Card title={title} className="login__modal center">
         <MobileNumber
           OTPState={OTP}

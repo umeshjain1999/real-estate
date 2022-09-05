@@ -70,7 +70,7 @@ function Login({ open, onClose }) {
   }
 
   return (
-    <CustomModal open={open} onClose={resetAllState} type={OTP ? "OTP" : ""}>
+    <CustomModal open={open} onClose={resetAllState} backdropClick={OTP}>
       <Card title={title} className="login__modal center">
         {type === "LOGIN" && (
           <LoginForm

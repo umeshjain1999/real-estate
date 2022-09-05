@@ -58,7 +58,6 @@ function MobileNumber({
       otp: otp,
     })
     if (res?.statusCode === API_SUCCESS_CODE) {
-      enqueueSnackbar("You're Successfully Verified", { variant: 'success' })
       const callbackRes = await getCallback({
         name: '',
         email: '',
@@ -67,10 +66,12 @@ function MobileNumber({
           ...projectDetail
         }
       })
-      if (callbackRes) {
+      if (callbackRes?.statusCode === API_SUCCESS_CODE) {
+        enqueueSnackbar("You will soon receive a call on registered mobile number.", { variant: "success" })
         closeModal()
+      } else {
+        enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
       }
-
     } else {
       enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
     }
