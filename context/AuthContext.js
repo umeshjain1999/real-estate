@@ -1,7 +1,7 @@
 /* library */
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 /* utils */
-import { removeItemFromLocalStorage, setItemToLocalStorage } from "@utility/functions";
+import { removeItemFromLocalStorage, setItemToLocalStorage, getItemFromLocalStorage } from "@utility/functions";
 /* constant */
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from "@constants/constant";
 
@@ -42,6 +42,14 @@ export const AuthContextProvider = ({ children }) => {
 		// cartId: "cart_01GBAXQS012CWG870BVC1DKJ2Y",
 		user: null,
 	})
+
+	useEffect(() => {
+		const user = getItemFromLocalStorage(USER_LOCAL_STORAGE_KEY)
+		const token = getItemFromLocalStorage(TOKEN_LOCAL_STORAGE_KEY)
+		if (user && token) {
+			dispatch({ type: "LOGIN", payload: { ...user, token: token } })
+		}
+	}, [])
 
 	const isUserAuthenticated = () => !!state.user
 
