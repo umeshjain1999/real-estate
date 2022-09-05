@@ -38,6 +38,7 @@ function RequestCallBack({ open, onClose, projectDetail }) {
           OTPState={OTP}
           updateOTPState={updateOTPState}
           projectDetail={projectDetail}
+          closeModal={resetAllState}
         />
       </Card>
     </CustomModal>

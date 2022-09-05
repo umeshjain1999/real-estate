@@ -72,7 +72,7 @@ function ProjectDetail({
               floorPlanAndPrice={floorPlanAndPrice}
               localityMap={localityMap}
             />
-            <RightSection featuredProperties={featuredProperties} />
+            <RightSection featuredProperties={featuredProperties} projectDetail={projectDetail} />
           </div>
           <ScrollUp onClick={executeScroll} />
         </div>

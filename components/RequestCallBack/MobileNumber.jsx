@@ -16,6 +16,7 @@ function MobileNumber({
   OTPState,
   updateOTPState,
   projectDetail,
+  closeModal
 }) {
   const { enqueueSnackbar } = useSnackbar()
   const [phoneNumber, setPhoneNumber] = useState('')
@@ -58,7 +59,6 @@ function MobileNumber({
     })
     if (res?.statusCode === API_SUCCESS_CODE) {
       enqueueSnackbar("You're Successfully Verified", { variant: 'success' })
-      //! call getcallback api before you close the modal
       const callbackRes = await getCallback({
         name: '',
         email: '',
