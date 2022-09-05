@@ -2,14 +2,15 @@ Main Task :
    - 🪲: hamburger flicker issue
    - 🪲: clear individual filter
    - 🚀: Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
+   - 🚀: Above footer filter based url
    - 🚀: Project Card Save feature (testing with API pending)
          - ✅listing
          - ✅delete
          - ✅add
-   - 🪲: Filter > Price > Not Closing after done
    - 🚀: Save Later in Project Detail
 
 Done :
+   - 🪲: Filter > Price > Not Closing after done
    - 🚀: Auto Login on refresh
    - 🚀: cartId from auth
    - 🚀: Contact Us (contact real estate expert) API
