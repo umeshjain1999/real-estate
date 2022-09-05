@@ -10,7 +10,8 @@ function Activity({
   listings = {},
 }) {
   const { enqueueSnackbar } = useSnackbar()
-  const { cartId } = useAuthContext()
+  const { user } = useAuthContext()
+  const cartId = user?.metadata || null
 
   let tabArr = []
   if (listings) {

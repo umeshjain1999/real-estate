@@ -16,7 +16,8 @@ function ProjectCard(props) {
   const { enqueueSnackbar } = useSnackbar()
   const { projectInfo = {}, horizontal = false, feature = true, provider = true, address = true, className = '', ...remainingProps } = props
   const { toggleLoginModal } = useLoginModalContext()
-  const { user, cartId } = useAuthContext()
+  const { user } = useAuthContext()
+  const cartId = user?.metadata || null
   const [Saved, setSaved] = useState(false)
   const [ItemId, setItemId] = useState(null)
 

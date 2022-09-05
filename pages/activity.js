@@ -12,7 +12,8 @@ import { useAuthContext } from 'hooks'
 import { getCartProjects } from 'helpers'
 function MyActivity() {
   const router = useRouter()
-  const { cartId, isUserAuthenticated } = useAuthContext()
+  const { user, isUserAuthenticated } = useAuthContext()
+  const cartId = user?.metadata || null
   const [cartItems, setCartItems] = useState([])
 
   useEffect(() => {

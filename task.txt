@@ -8,13 +8,12 @@ Main Task :
          - ✅add
    - 🪲: Filter > Price > Not Closing after done
    - 🚀: Save Later in Project Detail
-   - 🚀: cartId from auth
-   - 🚀: Partner Contact API
-   - 🚀: Contact Us (contact real estate expert) API
 
 
-   
 Done :
+   - 🚀: cartId from auth
+   - 🚀: Contact Us (contact real estate expert) API
+   - 🚀: Partner Contact API
    - 🪲: Pagination testing (issue 8 count for everything)
    - 🪲: Partner 2nd section icon design correction
    - 🪲: Projects filter select unselect issue
