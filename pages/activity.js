@@ -30,7 +30,7 @@ function MyActivity() {
     fetchCart()
 
     return () => isSubscribed = false
-  }, [cartId])
+  }, [cartId, router])
 
   useEffect(() => {
     isUserAuthenticated() ? router.push("/activity") : router.push("/")
