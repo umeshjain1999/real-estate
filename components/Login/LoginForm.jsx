@@ -68,12 +68,9 @@ function LoginForm({
     })
     if (res?.statusCode === API_SUCCESS_CODE) {
       const authRes = await authAPI("LOGIN", { phone: phoneNumber })
-      if (authRes?.statusCode === API_SUCCESS_CODE) {
-        enqueueSnackbar("You're Logged In!", { variant: 'success' })
+      if (authRes) {
         dispatch({ type: "LOGIN", payload: authRes })
         closeModal()
-      } else {
-        enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
       }
     } else {
       enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })

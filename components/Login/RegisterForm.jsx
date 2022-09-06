@@ -73,12 +73,9 @@ function RegisterForm({
     })
     if (res?.statusCode === API_SUCCESS_CODE) {
       const authRes = await authAPI("REGISTER", query)
-      if (authRes?.statusCode === API_SUCCESS_CODE) {
-        enqueueSnackbar("You're now registered", { variant: 'success' })
+      if (authRes) {
         dispatch({ type: "LOGIN", payload: authRes })
         closeModal()
-      } else {
-        enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
       }
     } else {
       enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
