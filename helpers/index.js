@@ -1,8 +1,9 @@
 import { GetAPI, PostAPI } from "./api";
 import { getProjects, getFilteredProjects, getRecomendationsProjects } from "./getProjects";
 import { getProjectDetail } from "./getProjectDetail";
-import { getCartProjects, deleteCartProject } from "./handleCart";
+import { getCartProjects, deleteCartProject, addCartProject } from "./handleCart";
 import { register, login } from "./authentication";
+import { sendOTP, verifyOTP, getCallback, contactRealEstate, becomePartner } from "./requestCallback";
 export {
   GetAPI,
   PostAPI,
@@ -12,6 +13,12 @@ export {
   getProjectDetail,
   getCartProjects,
   deleteCartProject,
+  addCartProject,
   register,
-  login
+  login,
+  sendOTP,
+  verifyOTP,
+  getCallback,
+  contactRealEstate,
+  becomePartner,
 }
