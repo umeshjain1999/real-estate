@@ -1,4 +1,4 @@
-import { GetAPI, PostAPI } from "helpers"
+import { GetAPI, PostAPI, DeleteAPI } from "helpers"
 
 export const getCartProjects = async ({ cartId = '' }) => {
   try {
@@ -128,7 +128,7 @@ export const getCartProjects = async ({ cartId = '' }) => {
 
 export const deleteCartProject = async ({ cartId, itemId }) => {
   try {
-    const res = await GetAPI(`store/carts/${cartId}/line-items/${itemId}`)
+    const res = await DeleteAPI(`store/carts/${cartId}/line-items/${itemId}`)
     return res
   } catch (error) {
     console.error('Encountered error', error)

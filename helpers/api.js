@@ -17,6 +17,23 @@ const GetAPI = async (route, params = {}) => {
     return false
   }
 }
+const DeleteAPI = async (route, params = {}) => {
+  try {
+    let apiUrl = `${REACT_APP_API_ROUTE}/${route}`
+    apiUrl = encodeURI(apiUrl)
+    const res = await axios.delete(apiUrl, {
+      params: {
+        ...params
+      }
+    })
+    const finalData = res?.data
+    return finalData
+
+  } catch (error) {
+    console.error(`☠️ ${route} ☠️------>`, error)
+    return false
+  }
+}
 const PostAPI = async (route, params = {}) => {
   try {
     let apiUrl = `${REACT_APP_API_ROUTE}/${route}`
@@ -35,5 +52,6 @@ const PostAPI = async (route, params = {}) => {
 
 export {
   GetAPI,
-  PostAPI
+  PostAPI,
+  DeleteAPI,
 }
