@@ -128,7 +128,7 @@ export const getCartProjects = async ({ cartId = '' }) => {
 
 export const deleteCartProject = async ({ cartId, itemId }) => {
   try {
-    const res = await GetAPI(`carts/${cartId}/line-items/${itemId}`)
+    const res = await GetAPI(`store/carts/${cartId}/line-items/${itemId}`)
     return res
   } catch (error) {
     console.error('Encountered error', error)
@@ -142,7 +142,7 @@ export const addCartProject = async ({ cartId, variantId }) => {
       variant_id: variantId,
       quantity: 1
     }
-    const res = await PostAPI(`carts/${cartId}/line-items`, query)
+    const res = await PostAPI(`store/carts/${cartId}/line-items`, query)
     return res
   } catch (error) {
     console.error('Encountered error', error)
