@@ -4,14 +4,15 @@ Main Task :
    - 🚀: Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
    - 🚀: Above footer filter based url
    - 🪲: on resize hamburger menu scroll issue
-   - 🪲: logged in user open profile page in new tab
+   - 🪲: logged in user open profile/activity page in new tab/on refresh same page
+   - 🚀: Save Later in Project Detail
+   - 🧪: after delete cart project is still available on UI
+
+Done :
    - 🚀: Project Card Save feature (testing with API pending)
          - ✅listing
          - ✅delete
          - ✅add
-   - 🚀: Save Later in Project Detail
-
-Done :
    - 🪲: Filter > Price > Not Closing after done
    - 🚀: Auto Login on refresh
    - 🚀: cartId from auth

@@ -1,14 +1,21 @@
+/* library */
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import { useSnackbar } from 'notistack'
+/* components */
 import Button from '@components/Button'
 import ProjectCard from '@components/ProjectCard'
 import Icon from '@components/Icon'
+/* hooks */
 import { useAuthContext } from 'hooks'
+/* helpers */
 import { deleteCartProject } from 'helpers'
+/* constants */
 import { ERROR_MESSAGE } from '@constants/constant'
 function Activity({
   listings = {},
 }) {
+  const router = useRouter()
   const { enqueueSnackbar } = useSnackbar()
   const { user } = useAuthContext()
   const cartId = user?.metadata || null
@@ -28,6 +35,8 @@ function Activity({
       })
       if (res) {
         enqueueSnackbar('Deleted Successfully', { variant: 'info' })
+        //? to get updated list of cart
+        router.replace(router.asPath)
       } else {
         enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
       }

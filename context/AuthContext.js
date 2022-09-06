@@ -37,9 +37,10 @@ export const AuthContextProvider = ({ children }) => {
 		// 	email: "umesh@gmail.com",
 		// 	dob: -723706200000, //!timestamp format
 		// 	city: "Andheri",
-		// 	pincode: "400051"
+		// 	pincode: "400051",
+		// 	cartId: "cart_01GBAXQS012CWG870BVC1DKJ2Y",
+		// 	token: "erefsdasdwfr",
 		// },
-		// cartId: "cart_01GBAXQS012CWG870BVC1DKJ2Y",
 		user: null,
 	})
 
