@@ -42,7 +42,7 @@ function Login({ open, onClose }) {
         const loginResponse = await login({ query: query })
         if (loginResponse?.statusCode === API_SUCCESS_CODE) {
           enqueueSnackbar("You're Successfully Logged In!", { variant: 'success' })
-          return true
+          return loginResponse
         } else {
           enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
           return false
@@ -51,7 +51,7 @@ function Login({ open, onClose }) {
         const registerResponse = await register({ query: query })
         if (registerResponse?.statusCode === API_SUCCESS_CODE) {
           enqueueSnackbar("You're Successfully Registered!", { variant: 'success' })
-          return true
+          return registerResponse
         } else {
           enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
           return false
