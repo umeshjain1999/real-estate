@@ -46,7 +46,7 @@ function ProjectCard(props) {
       if (addCartRes && addCartRes?.cart && addCartRes?.cart?.items?.length) {
         setSaved(true)
         setItemId(addCartRes?.cart?.items[0]?.id)
-        enqueueSnackbar("Project Saved!", { variant: 'success' })
+        enqueueSnackbar("Added to Wishlist!", { variant: 'success' })
       } else {
         enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
       }
@@ -61,7 +61,7 @@ function ProjectCard(props) {
       itemId: ItemId
     })
     if (res) {
-      enqueueSnackbar("Project removed from whislist.", { variant: 'info' })
+      enqueueSnackbar("Removed from Wishlist.", { variant: 'info' })
       setSaved(false)
     } else {
       enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
@@ -113,7 +113,7 @@ function ProjectCard(props) {
               {filterData.parking && <span className='project-feat-icon vertical-center'><Icon icon='projectCar' /> {filterData.parking}</span>}
               {filterData.area && <span className='project-feat-icon vertical-center'><Icon icon='projectArea' /> {filterData.area}</span>}
             </div>
-            {enableSaveFeature && <span onClick={() => handleSaveLater()} className={`vertical-center project-save`}><Icon icon={`${filterData.saved || Saved ? 'projectSaved' : 'projectFav'}`} /> {filterData.saved || Saved ? '' : 'Save'}</span>}
+            {enableSaveFeature && <span onClick={() => handleSaveLater()} className={`vertical-center project-save`} title="Add to Wishlist"><Icon icon={`${filterData.saved || Saved ? 'projectSaved' : 'projectFav'}`} /> {filterData.saved || Saved ? '' : 'Save'}</span>}
           </div>}
         </div>
       </div>

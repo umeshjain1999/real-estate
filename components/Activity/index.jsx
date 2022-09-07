@@ -34,7 +34,7 @@ function Activity({
         itemId: id
       })
       if (res) {
-        enqueueSnackbar('Deleted Successfully', { variant: 'info' })
+        enqueueSnackbar('Removed from Wishlist.', { variant: 'info' })
         //? to get updated list of cart
         router.replace(router.asPath)
       } else {

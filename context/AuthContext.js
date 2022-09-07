@@ -38,7 +38,7 @@ export const AuthContextProvider = ({ children }) => {
 		// 	dob: -723706200000, //!timestamp format
 		// 	city: "Andheri",
 		// 	pincode: "400051",
-		// 	cartId: "cart_01GBAXQS012CWG870BVC1DKJ2Y",
+		// 	metadata: "cart_01GBAXQS012CWG870BVC1DKJ2Y",
 		// 	token: "erefsdasdwfr",
 		// },
 		user: null,

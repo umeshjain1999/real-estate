@@ -1,5 +1,5 @@
 /* library */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
 /* components */
 import Breadcrumb from "@components/Breadcrumb";
@@ -38,7 +38,7 @@ function ProjectDetail({
     fetchAPI()
   }, [])
 
-  const projectDetailRef = React.useRef(null);
+  const projectDetailRef = useRef(null);
 
   const executeScroll = () => scrollToRef(projectDetailRef);
   return (

@@ -1,5 +1,5 @@
 /* library */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useSnackbar } from "notistack";
 /* components */
@@ -10,9 +10,9 @@ import { CustomSlider } from "@components/Slider";
 import { CURRENCY } from "@constants/constant";
 import RequestCallBack from "@components/RequestCallBack";
 /* hooks */
-import { useToggle, useAuthContext } from "hooks";
+import { useToggle, useAuthContext, useLoginModalContext } from "hooks";
 /* helpers */
-import { getCallback } from "@helpers/requestCallback";
+import { getCallback, addCartProject, deleteCartProject } from 'helpers';
 /* constants */
 import { API_SUCCESS_CODE, ERROR_MESSAGE } from "@constants/constant";
 
@@ -25,15 +25,21 @@ function Project(props) {
     area = false,
     rooms = false,
     imageArr = [],
-    tags = []
+    tags = [],
+    variants = [],
   } = props
   const { enqueueSnackbar } = useSnackbar()
-  const { user } = useAuthContext()
+  const { toggleLoginModal } = useLoginModalContext()
   const { toggle, updateToggle } = useToggle()
+  const { user } = useAuthContext()
+  const cartId = user?.metadata || null
   const firstImage = imageArr && imageArr[0] ? imageArr[0] : "/assets/images/image-loader.svg";
-  const [currentImage, setImage] = React.useState(firstImage);
+  const [currentImage, setImage] = useState(firstImage);
+  const [Saved, setSaved] = useState(false)
+  const [ItemId, setItemId] = useState(null)
 
-  React.useEffect(() => {
+
+  useEffect(() => {
     setImage(firstImage);
   }, [firstImage]);
 
@@ -55,6 +61,7 @@ function Project(props) {
     }
   };
 
+  /*slick slider setting */
   const settings = {
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -72,9 +79,54 @@ function Project(props) {
 
   const updateImage = (idx) => setImage(imageArr[idx]);
 
+  const handleAddCartApi = async () => {
+    if (variants && variants[0] && variants[0]?.id) {
+      const variantId = variants[0]?.id
+      const addCartRes = await addCartProject({
+        cartId: cartId,
+        variantId: variantId
+      })
+      if (addCartRes && addCartRes?.cart && addCartRes?.cart?.items?.length) {
+        setSaved(true)
+        setItemId(addCartRes?.cart?.items[0]?.id)
+        enqueueSnackbar("Added to Wishlist!", { variant: 'success' })
+      } else {
+        enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
+      }
+    } else {
+      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
+    }
+  }
+
+  const handleDeleteCartApi = async () => {
+    const res = await deleteCartProject({
+      cartId: cartId,
+      itemId: ItemId
+    })
+    if (res) {
+      enqueueSnackbar("Removed from Wishlist.", { variant: 'info' })
+      setSaved(false)
+    } else {
+      enqueueSnackbar(ERROR_MESSAGE, { variant: 'error' })
+    }
+  }
+
+  const handleSaveLater = () => {
+    if (user && cartId) {
+      if (!Saved) {
+        handleAddCartApi()
+      } else {
+        handleDeleteCartApi()
+      }
+    } else {
+      toggleLoginModal()
+    }
+  }
+
   return (
     <div className="detail__wrap divider">
       <div className="detail__wrap-image-wrap">
+        <div className="detail__wrap-save-later" title="Add to Wishlist" onClick={() => handleSaveLater()}><Icon icon={Saved ? "projectSaved" : "projectFav"} /></div>
         <div className="detail__wrap-image-big">
           <Image
             src={currentImage}
