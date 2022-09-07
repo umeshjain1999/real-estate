@@ -1,24 +1,30 @@
 /* library */
 import { createContext, useEffect, useReducer } from "react";
+import { setCookie, getCookie, deleteCookie } from 'cookies-next'
 /* utils */
-import { removeItemFromLocalStorage, setItemToLocalStorage, getItemFromLocalStorage } from "@utility/functions";
+import { getMeDomainName } from "@utility/functions";
 /* constant */
-import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from "@constants/constant";
+import { USER_LOCAL_STORAGE_KEY } from "@constants/constant";
 
 export const AuthContext = createContext()
 
 export const authReducer = (state, action) => {
 	switch (action.type) {
 		case 'LOGIN':
-			setItemToLocalStorage(USER_LOCAL_STORAGE_KEY, action.payload)
-			setItemToLocalStorage(TOKEN_LOCAL_STORAGE_KEY, action.payload?.token || '')
+			setCookie(USER_LOCAL_STORAGE_KEY, action.payload, {
+				path: "/",
+				maxAge: 3600, // Expires after 1hr
+				sameSite: true,
+			})
 			return {
 				...state,
 				user: action.payload,
 			}
 		case 'LOGOUT':
-			removeItemFromLocalStorage(USER_LOCAL_STORAGE_KEY)
-			removeItemFromLocalStorage(TOKEN_LOCAL_STORAGE_KEY)
+			deleteCookie(USER_LOCAL_STORAGE_KEY, {
+				path: '/',
+				domain: getMeDomainName(),
+			})
 			return {
 				...state,
 				user: null
@@ -45,10 +51,13 @@ export const AuthContextProvider = ({ children }) => {
 	})
 
 	useEffect(() => {
-		const user = getItemFromLocalStorage(USER_LOCAL_STORAGE_KEY)
-		const token = getItemFromLocalStorage(TOKEN_LOCAL_STORAGE_KEY)
-		if (user && token) {
-			dispatch({ type: "LOGIN", payload: { ...user, token: token } })
+		try {
+			const user = JSON.parse(getCookie(USER_LOCAL_STORAGE_KEY))
+			if (user) {
+				dispatch({ type: "LOGIN", payload: { ...user } })
+			}
+		} catch (error) {
+			console.error('Error encountered while fetching user :(')
 		}
 	}, [])
 

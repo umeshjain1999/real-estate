@@ -26,6 +26,7 @@ const nextConfig = {
   },
   env: {
     REACT_APP_API_ROUTE: process.env.REACT_APP_API_ROUTE,
+    REACT_APP_DOMAIN_NAME: process.env.REACT_APP_DOMAIN_NAME,
   },
   images: {
     domains: ['medusa-public-images.s3.eu-west-1.amazonaws.com', 'myawsbucket1395.s3.ap-south-1.amazonaws.com', 'ecom.orbitstack.in'],

@@ -56,6 +56,11 @@ const removeItemFromLocalStorage = key => {
   }
 }
 
+const getMeDomainName = () => {
+  const { REACT_APP_DOMAIN_NAME } = process.env
+  return REACT_APP_DOMAIN_NAME
+}
+
 export {
   stringToHtml,
   scrollToRef,
@@ -66,4 +71,5 @@ export {
   setItemToLocalStorage,
   getItemFromLocalStorage,
   removeItemFromLocalStorage,
+  getMeDomainName,
 }
