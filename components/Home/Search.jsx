@@ -23,7 +23,9 @@ function Search() {
     router.push({
       pathname: '/projects',
       query: {
-        ...searchObj
+        "locality": searchObj['locality'],
+        "projecttype": searchObj['propertyType'],
+        "projectstatus": searchObj['type'],
       }
     })
   }

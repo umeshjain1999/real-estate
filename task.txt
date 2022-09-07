@@ -5,6 +5,9 @@ Main Task :
    - 🚀: Above footer filter based url
    - 🪲: on resize hamburger menu scroll issue
    - 🪲: logged in user open profile/activity page in new tab/on refresh same page
+   
+Testing :
+   - 🧪: home page search isn't working properly compare to filter on projects
    - 🧪: Save Later in Project Detail
    - 🧪: after delete cart project is still available on UI
 
