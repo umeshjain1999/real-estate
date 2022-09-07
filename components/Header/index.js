@@ -22,15 +22,6 @@ function Header() {
   const { user } = useAuthContext()
   const [menuStatus, setMenuStatus] = useState(false)
 
-
-  useEffect(() => {
-    if (menuStatus) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [menuStatus])
-
   useEffect(() => {
     const toggleMenu = () => {
       setMenuStatus(false)
