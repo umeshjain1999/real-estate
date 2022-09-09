@@ -37,23 +37,18 @@ export default Profile
 const title = 'My Profile'
 
 export const getServerSideProps = async ({ req, res }) => {
-  try {
-    const cookie = getCookie(USER_LOCAL_STORAGE_KEY, { req, res })
-    const user = cookie ? JSON.parse(cookie) : false
-    if (user) {
-      return {
-        props: {
-          user: user
-        }
+  const cookie = getCookie(USER_LOCAL_STORAGE_KEY, { req, res })
+  const user = cookie ? JSON.parse(cookie) : false
+  console.log('profile router user', user);
+  if (user) {
+    return {
+      props: {
+        user: user
       }
     }
-    return {
-      notFound: true
-    }
-  } catch (error) {
-    return {
-      notFound: true
-    }
+  }
+  return {
+    notFound: true
   }
 }
 

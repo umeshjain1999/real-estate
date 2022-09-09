@@ -57,7 +57,7 @@ export const AuthContextProvider = ({ children }) => {
 				dispatch({ type: "LOGIN", payload: { ...user } })
 			}
 		} catch (error) {
-			console.error('Error encountered while fetching user :(')
+			// console.error('Error encountered while fetching user :(')
 		}
 	}, [])
 

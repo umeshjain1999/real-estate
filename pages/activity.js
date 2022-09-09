@@ -46,27 +46,22 @@ const userSpecificListings = {
 }
 */
 export const getServerSideProps = async ({ req, res }) => {
-  try {
-    const cookie = getCookie(USER_LOCAL_STORAGE_KEY, { req, res })
-    const user = cookie ? JSON.parse(cookie) : false
-    if (user && user?.metadata) {
-      const res = await getCartProjects({
-        cartId: user?.metadata
-      })
-      return {
-        props: {
-          cartItems: res
-        }
+  const cookie = getCookie(USER_LOCAL_STORAGE_KEY, { req, res })
+  const user = cookie ? JSON.parse(cookie) : false
+  if (user && user?.metadata) {
+    const res = await getCartProjects({
+      cartId: user?.metadata
+    })
+    return {
+      props: {
+        cartItems: res
       }
     }
-    return {
-      notFound: true
-    }
-  } catch (error) {
-    return {
-      notFound: true
-    }
   }
+  return {
+    notFound: true
+  }
+
 }
 MyActivity.getLayout = function PageLayout(page) {
   return (
