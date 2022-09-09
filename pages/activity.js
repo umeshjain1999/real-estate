@@ -7,6 +7,8 @@ import Header from '@components/Header'
 import Layout from '@components/Layout'
 /* hooks */
 import { getCartProjects } from 'helpers'
+/* constants */
+import { USER_LOCAL_STORAGE_KEY } from '@constants/constant'
 function MyActivity({ cartItems }) {
 
   return (
@@ -46,20 +48,26 @@ const userSpecificListings = {
 }
 */
 export const getServerSideProps = async ({ req, res }) => {
-  const cookie = getCookie(USER_LOCAL_STORAGE_KEY, { req, res })
-  const user = cookie ? JSON.parse(cookie) : false
-  if (user && user?.metadata) {
-    const res = await getCartProjects({
-      cartId: user?.metadata
-    })
-    return {
-      props: {
-        cartItems: res
+  try {
+    const cookie = getCookie(USER_LOCAL_STORAGE_KEY, { req, res })
+    const user = cookie ? JSON.parse(cookie) : false
+    if (user && user?.metadata) {
+      const res = await getCartProjects({
+        cartId: user?.metadata
+      })
+      return {
+        props: {
+          cartItems: res
+        }
       }
     }
-  }
-  return {
-    notFound: true
+    return {
+      notFound: true
+    }
+  } catch (error) {
+    return {
+      notFound: true
+    }
   }
 
 }

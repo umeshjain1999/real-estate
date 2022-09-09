@@ -8,7 +8,7 @@ import Layout from '@components/Layout'
 import { ProfileForm } from '@components/Profile'
 /* constants */
 import { USER_LOCAL_STORAGE_KEY } from '@constants/constant'
-function Profile() {
+function Profile({ user }) {
 
   return (
     <main className='main-wrapper profile common-layout'>
@@ -37,18 +37,23 @@ export default Profile
 const title = 'My Profile'
 
 export const getServerSideProps = async ({ req, res }) => {
-  const cookie = getCookie(USER_LOCAL_STORAGE_KEY, { req, res })
-  const user = cookie ? JSON.parse(cookie) : false
-  console.log('profile router user', user);
-  if (user) {
-    return {
-      props: {
-        user: user
+  try {
+    const cookie = getCookie(USER_LOCAL_STORAGE_KEY, { req, res })
+    const user = cookie ? JSON.parse(cookie) : false
+    if (user) {
+      return {
+        props: {
+          user: user
+        }
       }
     }
-  }
-  return {
-    notFound: true
+    return {
+      notFound: true
+    }
+  } catch (error) {
+    return {
+      notFound: true
+    }
   }
 }
 
