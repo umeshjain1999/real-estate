@@ -82,7 +82,7 @@ function ProjectCard(props) {
 
 
   return (
-    <div {...remainingProps} className={`project-res ${className}`}>
+    <div {...remainingProps} className={`project-res animation-fade-in-top ${className}`}>
       <Link href={`/projects/${filterData.id}`}>
         <a className="project-overlay"></a>
       </Link>

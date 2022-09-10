@@ -93,7 +93,7 @@ const reviewInfo = {
   review: [
     {
       name: "Karan Jain",
-      feature: "Zoro Steels & Co",
+      feature: "Service",
       review:
         "SqftHome have helped me in a good knowledge for buying property, made me feel comfortable in their work environment, helped me deal with my property financial goals and a lotmore which otherwise I wouldn’t have gained.",
       // profileImagePath : '/'
@@ -110,6 +110,20 @@ const reviewInfo = {
       feature: "Service",
       review:
         "Had good exp with SqftHome. The team were very informative . They suggest properties based on our requirement. They also provide end to end support in the process. They are professional and responsive.",
+      // profileImagePath : '/'
+    },
+    {
+      name: "Ms. Riddhi Jain",
+      feature: "Service",
+      review:
+        "Good services good support , i m happy to have services and complete process of property visit to loan assitance. Good job done SqFt Home team.",
+      // profileImagePath : '/'
+    },
+    {
+      name: "Mr. Manav Mehta",
+      feature: "Service",
+      review:
+        "Great support from Shrikant  and Complete team of  SqftHome in answering all our queries and concerns in choosing the flat in Navi Mumbai !",
       // profileImagePath : '/'
     },
   ],

@@ -1,17 +1,17 @@
 import Slider from "react-slick"
-import { SliderNext,SliderPrevious} from "@components/Slider"
+import { SliderNext, SliderPrevious } from "@components/Slider"
 
 function CustomSlider(props) {
-  const {settings = {},...remainingProps} = props
+  const { settings = {}, ...remainingProps } = props
   let defaultSettings = {
     speed: 500,
     dots: false,
-    infinite: false,
+    infinite: true,
     draggable: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SliderNext />,
-    prevArrow: <SliderPrevious/>,
+    prevArrow: <SliderPrevious />,
     responsive: [
       {
         breakpoint: 1024,

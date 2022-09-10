@@ -13,7 +13,7 @@ function Review({
     infinite: true,
     pauseOnFocus: true,
     pauseOnHover: true,
-    draggable: false,
+    draggable: true,
     arrows: false,
     dots: false,
     responsive: [

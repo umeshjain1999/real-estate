@@ -145,6 +145,12 @@
     &__middle {
       flex: 1;
       padding: 2rem;
+      @include responsive(1100) {
+        padding: 6rem 2rem 2rem;
+      }
+      @include responsive($ipad) {
+        padding: 2rem;
+      }
       @include responsive($tablet) {
         padding: 2rem $container-padding
       }
@@ -186,7 +192,7 @@
         text-align: center;
 
         &:last-child {
-          margin-top: 3rem;
+          margin-top: 6rem;
           @include responsive($mob-max) {
             margin-top: 2rem;
           }

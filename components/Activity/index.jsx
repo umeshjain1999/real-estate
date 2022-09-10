@@ -64,7 +64,6 @@ function Activity({
                 horizontal={true}
                 feature={false}
                 provider={false}
-                className='animation-fade-in-top'
               />
               <Icon onClick={() => handleDeleteItemFromCart(data?.itemId)} icon="delete" className="item-delete" title="delete item" />
             </div>
