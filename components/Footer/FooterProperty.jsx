@@ -46,19 +46,19 @@ const footerPropDesc = "in Navi Mumbai Flat for Sale in Navi Mumbai Shops for Sa
 const footerPropSaleLinks = [
   {
     title: '1 BHK for Sale in Navi Mumbai',
-    link: '/projects'
+    link: '/projects?rooms=1BHK'
   },
   {
     title: '2 BHK for Sale in Navi Mumbai',
-    link: '/projects'
+    link: '/projects?rooms=2BHK'
   },
   {
     title: 'Studio for Sale in Navi Mumbai',
-    link: '/projects'
+    link: '/projects?rooms=Studio'
   },
   {
     title: '3 BHK for Sale in Navi Mumbai',
-    link: '/projects'
+    link: '/projects?rooms=3BHK'
   },
 ]
 const footerPropSocitiesLinks = [
