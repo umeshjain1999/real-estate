@@ -66,6 +66,7 @@ function Project(props) {
     slidesToShow: 4,
     slidesToScroll: 1,
     draggable: true,
+    infinite: false,
     responsive: [
       {
         breakpoint: 480,

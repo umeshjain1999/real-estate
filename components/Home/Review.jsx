@@ -1,6 +1,7 @@
 import React from 'react'
 import HorizontalFeature from '@components/HorizontalFeature';
 import { CustomSlider } from "@components/Slider";
+import { InitialSlide } from '@components/Animation';
 function Review({
   title = '',
   subTitle = '',
@@ -32,20 +33,22 @@ function Review({
         <div className="home__review-wrap text-center">
           <div className="home__review-title sub-title divider-sm">{title}</div>
           <div className="home__review-sub-title divider-lg">{subTitle}</div>
-          <div className="home__review-users-wrap">
-            <CustomSlider settings={settings}>
-              {review && review.map((data, index) => {
-                return (
-                  <div className="review-user" key={index}>
-                    <div className="review-text normal-text">
-                      {data?.review}
+          <InitialSlide>
+            <div className="home__review-users-wrap">
+              <CustomSlider settings={settings}>
+                {review && review.map((data, index) => {
+                  return (
+                    <div className="review-user" key={index}>
+                      <div className="review-text normal-text">
+                        {data?.review}
+                      </div>
+                      <HorizontalFeature {...data} />
                     </div>
-                    <HorizontalFeature {...data} />
-                  </div>
-                )
-              })}
-            </CustomSlider>
-          </div>
+                  )
+                })}
+              </CustomSlider>
+            </div>
+          </InitialSlide>
         </div>
       </div>
     </div>

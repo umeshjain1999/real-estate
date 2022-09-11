@@ -27,9 +27,13 @@ export default function Home({ nearByProjects, newlyProjects }) {
       <Search />
       <Intro {...introInfo} />
       <Brand {...brandInfo} />
-      {nearByProjects?.projectsArr?.length ? <NearYou {...nearByProjects} /> : ''}
+      {nearByProjects?.projectsArr?.length ?
+        <NearYou {...nearByProjects} />
+        : ''}
       <Review {...reviewInfo} />
-      {newlyProjects?.projectsArr?.length ? <NewlyProjects {...newlyProjects} /> : ''}
+      {newlyProjects?.projectsArr?.length ?
+        <NewlyProjects {...newlyProjects} />
+        : ''}
     </main>
   );
 }

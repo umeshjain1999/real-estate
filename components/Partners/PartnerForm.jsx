@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react'
 import Image from 'next/image';
 import { useSnackbar } from 'notistack';
+import { InitialSlide } from '@components/Animation';
 /* components */
 import Card from '@components/Card';
 import Button from '@components/Button';
@@ -100,24 +101,26 @@ function PartnerForm({
         />
       </div>
       <div className="partners__join__middle">
-        {title && <div className='partners__join__title sub-title'>{title}</div>}
-        <Card title={formTitle} >
-          <form onSubmit={formSubmission} className='common-form' ref={formEvent}>
-            <Input required className='common-form-input' type="text" id="name" name="fullName" placeholder='Name' />
-            <Input required className='common-form-input' type="email" id="email" name="email" placeholder='Email ID' />
-            <Input required className='common-form-input' onChange={handleChange} value={pNumber} type="tel" id="tel" name="tel" placeholder='Phone Number' />
-            <Button text='submit' variant='secondary' type='submit' className='common-form-button' />
-          </form>
-        </Card>
-        <CustomModal open={OTP} onClose={() => setOTP(prev => !prev)} backdropClick={OTP}>
-          <Card title={"Enter OTP to continue"} className="login__modal center">
-            <EnterOTP
-              phoneNumber={pNumber}
-              changePhoneNumberFunc={() => setOTP(prev => !prev)}
-              otpVerifcationFunc={otpVerifcation}
-            />
+        <InitialSlide>
+          {title && <div className='partners__join__title sub-title'>{title}</div>}
+          <Card title={formTitle} >
+            <form onSubmit={formSubmission} className='common-form' ref={formEvent}>
+              <Input required className='common-form-input' type="text" id="name" name="fullName" placeholder='Name' />
+              <Input required className='common-form-input' type="email" id="email" name="email" placeholder='Email ID' />
+              <Input required className='common-form-input' onChange={handleChange} value={pNumber} type="tel" id="tel" name="tel" placeholder='Phone Number' />
+              <Button text='submit' variant='secondary' type='submit' className='common-form-button' />
+            </form>
           </Card>
-        </CustomModal>
+          <CustomModal open={OTP} onClose={() => setOTP(prev => !prev)} backdropClick={OTP}>
+            <Card title={"Enter OTP to continue"} className="login__modal center">
+              <EnterOTP
+                phoneNumber={pNumber}
+                changePhoneNumberFunc={() => setOTP(prev => !prev)}
+                otpVerifcationFunc={otpVerifcation}
+              />
+            </Card>
+          </CustomModal>
+        </InitialSlide>
       </div>
       <div className="partners__join__right">
         <Image
