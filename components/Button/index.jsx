@@ -1,7 +1,8 @@
 import Icon from "../Icon";
+import { motion } from "framer-motion";
 
 function Button(props) {
-  const { 
+  const {
     icon,
     iconPosition = 'left',
     text = 'button',
@@ -12,27 +13,36 @@ function Button(props) {
     ...remainingProps
   } = props;
   let updatedClassName = 'common-btn';
-  updatedClassName = className ? updatedClassName + ` ${className}` : updatedClassName ;
+  updatedClassName = className ? updatedClassName + ` ${className}` : updatedClassName;
   if (variant === 'secondary') {
-    updatedClassName =  updatedClassName + ' secondary-btn'
+    updatedClassName = updatedClassName + ' secondary-btn'
   }
 
 
-  if(link) {
+  if (link) {
     return (
-      <a {...remainingProps} className={updatedClassName} href = {href}>
-        {icon && iconPosition === 'left' && <Icon icon = {icon} className = "btn-icon-left"/>}
+      <motion.a
+        {...remainingProps}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className={updatedClassName}
+        href={href}>
+        {icon && iconPosition === 'left' && <Icon icon={icon} className="btn-icon-left" />}
         <span>{text}</span>
-        {icon && iconPosition === 'right' && <Icon icon = {icon} className = "btn-icon-right"/>}
-      </a>
+        {icon && iconPosition === 'right' && <Icon icon={icon} className="btn-icon-right" />}
+      </motion.a>
     )
   } else {
     return (
-      <button {...remainingProps} className={updatedClassName}>
-        {icon && iconPosition === 'left' && <Icon icon = {icon} className = "btn-icon-left"/>}
+      <motion.button
+        {...remainingProps}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className={updatedClassName}>
+        {icon && iconPosition === 'left' && <Icon icon={icon} className="btn-icon-left" />}
         <span>{text}</span>
-        {icon && iconPosition === 'right' && <Icon icon = {icon} className = "btn-icon-right"/>}
-      </button>
+        {icon && iconPosition === 'right' && <Icon icon={icon} className="btn-icon-right" />}
+      </motion.button>
     )
   }
 

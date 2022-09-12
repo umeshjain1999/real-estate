@@ -28,7 +28,7 @@ function NewlyProjects({
               })
             }
           </div>
-          <Button text="see more" className='home__newly_btn animation-wobble' link={true} href={bottomButtonLink} />
+          <Button text="see more" className='home__newly_btn' link={true} href={bottomButtonLink} />
         </InitialSlide>
       </div>
     </div>

@@ -8,7 +8,7 @@
 	color: $text-clr-sec;
 	text-transform: capitalize;
 	cursor: pointer;
-	@include add-transition(all,$transition-timing);
+	// @include add-transition(all,$transition-timing);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -18,10 +18,10 @@
 	.btn-icon-right {
 		margin-left: 5px;
 	}
-	&:hover {
-		background-color:rgba($accent-clr-1, 1) ;
-		&.secondary-btn {
-			background-color: rgba($black-clr, 1);
-		}
-	}
+	// &:hover {
+	// 	background-color:rgba($accent-clr-1, 1) ;
+	// 	&.secondary-btn {
+	// 		background-color: rgba($black-clr, 1);
+	// 	}
+	// }
 }

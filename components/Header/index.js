@@ -57,7 +57,7 @@ function Header() {
                 open={loginModal}
                 onClose={toggleLoginModal}
               />}
-              <Button text="+91 9326518230" icon='call' className='header__btn animation-wobble' link={true} href={contactInfo} />
+              <Button text="+91 9326518230" icon='call' className='header__btn' link={true} href={contactInfo} />
             </div>
           </div>
           {menuStatus && <div className='header__overlay' onClick={() => setMenuStatus(false)}></div>}

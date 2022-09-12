@@ -41,7 +41,7 @@ function PlanAndPrice({ floorPlanAndPrice = [] }) {
           height={255}
         /> : 'none'}
       </div>
-      <Button text="Contact Us" icon='call' className='animation-wobble' link={true} href={'tel:+91 9326518230'} />
+      <Button text="Contact Us" icon='call' link={true} href={'tel:+91 9326518230'} />
     </div>
   )
 }
