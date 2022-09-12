@@ -3,6 +3,7 @@ import { PriceRange } from '@components/Projects'
 import { useToggle } from 'hooks'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 function Filter({
   beds = false,
@@ -58,18 +59,34 @@ function Filter({
       return [10, 50]
     }
   }
+  const containerVariants = {
+    open: {
+      visibility: `visible`,
+      height: `auto`,
+      margin: `0 -1.5rem 2.5rem`,
+    },
+    closed: {
+      visibility: `hidden`,
+      height: `0px`,
+      margin: `0 -1.5rem`,
+    },
+  }
   return (
     <>
       <div className="projects__filter-btn-wrap divider-sm">
         <div onClick={updateToggle} className="projects__filter-btn">{toggle ? "Hide Filter" : "Show Filter"}</div>
         <div onClick={handleClearAll} className="projects__filter-btn projects__filter-btn-clear">Clear all</div>
       </div>
-      <div className={`projects__filter ${toggle && 'projects__filter-active'}`}>
+      <motion.div
+        initial={`open`}
+        animate={toggle ? `open` : `closed`}
+        variants={containerVariants}
+        className={`projects__filter ${toggle && 'projects__filter-active'}`}>
         <CustomMultiSelect defaultValue={defaultValue['locality']?.split(",")} selectOptions={locality?.arr} title={locality?.title} queryName={locality?.queryName} onChange={handleSelectDropdown} />
         <CustomMultiSelect defaultValue={defaultValue['rooms']?.split(",")} selectOptions={beds?.arr} title={beds?.title} queryName={beds?.queryName} onChange={handleSelectDropdown} />
         <CustomSelect defaultValue={defaultValue['status']} selectOptions={status?.arr} title={status?.title} queryName={status?.queryName} onChange={handleSelectDropdown} />
         <PriceRange defaultValue={handlePriceRangeDefaultValue(defaultValue['priceMin'], defaultValue['priceMax'])} handlePriceRange={handlePriceRange} />
-      </div>
+      </motion.div>
     </>
   )
 }

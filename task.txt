@@ -2,9 +2,9 @@ Main Task :
    - 🪲: hamburger flicker issue
    - 🪲: clear individual filter
    - 🚀: Above footer filter based url
-   - 🚀: Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
    
 Testing :
+   - 🧪: Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
 
 Done :
    - 🧪: on resize hamburger menu scroll issue
