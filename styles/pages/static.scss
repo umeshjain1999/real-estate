@@ -33,4 +33,28 @@
       }
     }
   }
+
+  &.calculator {
+    form {
+      margin: 1rem 0;
+      align-items: flex-start;
+      input {
+        font-size: 2.4rem;
+        &::placeholder{
+          font-size: 2.4rem;
+        }
+      }
+    }
+    .cal__result {
+      &-child {
+        font-size: 2.4rem;
+        span {
+          &:last-child{
+            font-weight: 700;
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
 }

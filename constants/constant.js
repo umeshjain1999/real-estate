@@ -40,4 +40,9 @@ export const SITE_META_DATA = {
     name: "Sqfthome.in",
     description: "Learn more about "
   },
+  "LOAN_CALCULATOR": {
+    title: "Sqfthome.in - Loan Calculator",
+    name: "Sqfthome.in",
+    description: "Calculate your home loan"
+  },
 }

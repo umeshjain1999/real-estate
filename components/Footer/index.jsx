@@ -95,7 +95,7 @@ const footerNavigation4 = {
   title: 'resources',
   links: [
     { name: 'Check your Credit Score', link: '/credit-score' },
-    { name: 'Calculator', link: '/cal' },
+    { name: 'Calculator', link: '/loan-calculator' },
     { name: 'Cities Real Estate', link: '/city' },
     { name: 'Media & News', link: '/news' },
   ]

@@ -4,6 +4,7 @@ Main Task :
    - 🚀: Above footer filter based url
    
 Testing :
+   - 🧪: emi calculator
    - 🧪: Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
 
 Done :
