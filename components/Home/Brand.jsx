@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { InitialSlide } from '@components/Animation'
+import { motion } from 'framer-motion'
 function Brand({
   title = '',
   desc = ''
@@ -28,14 +29,24 @@ function Brand({
             </InitialSlide>
           </div>
           <div className="home__brand__right">
-            <div className="brand_front">
+            <motion.div
+              animate={{
+                y: [0, -10, 0, 10, 0],
+              }}
+              transition={{
+                type: "spring",
+                duration: 2,
+                ease: "linear",
+                repeat: "Infinity",
+              }}
+              className="brand_front">
               <Image
                 src={'/assets/images/home/home_brand_front.png'}
                 alt="Buildings"
                 width={410}
                 height={470}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
