@@ -46,8 +46,15 @@ function ProjectDetail({
       <Head>
         <title>{SITE_META_DATA.PROJECT_DETAIL['title']}{projectDetail?.name || 'none'}</title>
         <meta
-          name={SITE_META_DATA.PROJECT_DETAIL['name']}
+          name="description"
           content={`${SITE_META_DATA.PROJECT_DETAIL['description']}${projectDetail?.name || 'none'}`}
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+        <meta
+          name="theme-color"
+          content="#D5AF34"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

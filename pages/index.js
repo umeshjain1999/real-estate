@@ -18,8 +18,15 @@ export default function Home({ nearByProjects, newlyProjects }) {
       <Head>
         <title>{SITE_META_DATA.HOME['title']}</title>
         <meta
-          name={SITE_META_DATA.HOME['name']}
+          name="description"
           content={SITE_META_DATA.HOME['description']}
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+        <meta
+          name="theme-color"
+          content="#D5AF34"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

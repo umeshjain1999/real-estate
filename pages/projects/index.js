@@ -39,8 +39,15 @@ function Projects({ projects, info, currentPage, recommendedProjects }) {
       <Head>
         <title>{SITE_META_DATA.PROJECTS['title']}</title>
         <meta
-          name={SITE_META_DATA.PROJECTS['name']}
+          name="description"
           content={SITE_META_DATA.PROJECTS['description']}
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+        <meta
+          name="theme-color"
+          content="#D5AF34"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
