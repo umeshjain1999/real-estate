@@ -69,9 +69,9 @@ function Calculator() {
           <InitialSlide>
             <div>
               <form className='common-form'>
-                <Input onChange={handleInputChange} autoFocus={true} value={cal?.amount} min="1" required className='common-form-input' type="number" id="name" name="amount" placeholder='Total Amount e.g. 3000000' />
-                <Input onChange={handleInputChange} value={cal?.interest} min="1" required className='common-form-input' type="number" id="email" name="interest" placeholder='Interest Rate e.g. 7.8' />
-                <Input onChange={handleInputChange} value={cal?.tenure} min="1" required className='common-form-input' type="number" id="email" name="tenure" placeholder='Tenure e.g 8 Months' />
+                <Input onChange={handleInputChange} autoFocus={true} value={cal?.amount} min="1" required className='common-form-input' type="number" id="amount" name="amount" placeholder='Total Amount e.g. 3000000' />
+                <Input onChange={handleInputChange} value={cal?.interest} min="1" required className='common-form-input' type="number" id="interest" name="interest" placeholder='Interest Rate e.g. 7.8' />
+                <Input onChange={handleInputChange} value={cal?.tenure} min="1" required className='common-form-input' type="number" id="tenure" name="tenure" placeholder='Tenure e.g 8 Months' />
               </form>
               <div className="cal__result">
                 <div className="cal__result-child">

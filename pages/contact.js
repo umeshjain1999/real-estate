@@ -1,15 +1,18 @@
+import { InitialSlide } from '@components/Animation';
 import { MOBILE_NUMBER, EMAIL } from '@constants/constant';
 function Contact() {
   return (
     <main className="main-wrapper static">
       <div className="container">
         <div className="static__title">{title}</div>
-        <div className='static__desc contact-wrap'>
-          <div className='contact-card'>
-            <a href={`tel:${MOBILE_NUMBER}`}>{MOBILE_NUMBER}</a>
-            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        <InitialSlide>
+          <div className='static__desc contact-wrap'>
+            <div className='contact-card'>
+              <a href={`tel:${MOBILE_NUMBER}`}>{MOBILE_NUMBER}</a>
+              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            </div>
           </div>
-        </div>
+        </InitialSlide>
       </div>
     </main>
   );
