@@ -2,12 +2,14 @@ Main Task :
    - 🪲: hamburger flicker issue
    - 🪲: clear individual filter
    - 🚀: Above footer filter based url
+   - 🪲: remove unnecessary libraries
+   - 🚀: resend otp timer
    
 Testing :
-   - 🧪: emi calculator
-   - 🧪: Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
 
 Done :
+   - 🧪: emi calculator
+   - 🧪: Consider adding some transition effects on the page, the website is looking very static (P.S Not discussed on call)
    - 🧪: on resize hamburger menu scroll issue
    - 🧪: home page search isn't working properly compare to filter on projects
    - 🧪: logged in user open profile/activity page in new tab/on refresh same page
