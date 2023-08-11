@@ -2,7 +2,7 @@ export const CURRENCY = <span>&#8377;</span>
 
 export const MOBILE_NUMBER = "+91 9326518230"
 
-export const EMAIL = "contact@sqfthome.in"
+export const EMAIL = "contact@company_name.in"
 
 export const USER_LOCAL_STORAGE_KEY = "USER"
 
@@ -16,33 +16,33 @@ export const ERROR_MESSAGE = 'Sorry,Something went wrong.Please try again'
 
 export const SITE_META_DATA = {
   "HOME": {
-    title: "Sqfthome.in - Home",
-    name: "Sqfthome.in",
+    title: "company_name.in - Home",
+    name: "company_name.in",
     description: "Find A Perfect Home To Live With Your Family"
   },
   "PROJECTS": {
-    title: "Sqfthome.in - Projects",
-    name: "Sqfthome.in",
+    title: "company_name.in - Projects",
+    name: "company_name.in",
     description: "List of all the projects available"
   },
   "PARTNERS": {
-    title: "Sqfthome.in - Partners",
-    name: "Sqfthome.in",
-    description: "Join the family of Sqfthome"
+    title: "company_name.in - Partners",
+    name: "company_name.in",
+    description: "Join the family of company_name"
   },
   "ABOUT": {
-    title: "Sqfthome.in - About Us",
-    name: "Sqfthome.in",
+    title: "company_name.in - About Us",
+    name: "company_name.in",
     description: "Find A Perfect Home To Live With Your Family"
   },
   "PROJECT_DETAIL": {
-    title: "Sqfthome.in - ",
-    name: "Sqfthome.in",
+    title: "company_name.in - ",
+    name: "company_name.in",
     description: "Learn more about "
   },
   "LOAN_CALCULATOR": {
-    title: "Sqfthome.in - Loan Calculator",
-    name: "Sqfthome.in",
+    title: "company_name.in - Loan Calculator",
+    name: "company_name.in",
     description: "Calculate your home loan"
   },
 }

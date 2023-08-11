@@ -72,9 +72,9 @@ const footerNavigation = {
 const footerNavigation2 = {
   title: 'Sites',
   links: [
-    { name: 'Sqfthome Navi Mumbai', link: '/projects' },
-    { name: 'Sqfthome UAE', link: '/projects' },
-    { name: 'Sqfthome Dubai', link: '/projects' },
+    { name: 'company_name Navi Mumbai', link: '/projects' },
+    { name: 'company_name UAE', link: '/projects' },
+    { name: 'company_name Dubai', link: '/projects' },
   ]
 }
 
@@ -110,7 +110,7 @@ const contactInfo = {
 
 const about = {
   title: 'about us',
-  desc: "Sqfthome is one of the fastest-growing Proptech platforms in Navi Mumbai and is India's biggest integrated platform for real estate and mortgages.The Sqfthome platform connects buyers to a vast network of 80+ partner real estate developers, 10,000+ Agents, 50+ banks & NBFCs, and covers the entire real estate journey from search & discovery, transactions, home loans, rentals, property management, and post-sales support."
+  desc: "company_name is one of the fastest-growing Proptech platforms in Navi Mumbai and is India's biggest integrated platform for real estate and mortgages.The company_name platform connects buyers to a vast network of 80+ partner real estate developers, 10,000+ Agents, 50+ banks & NBFCs, and covers the entire real estate journey from search & discovery, transactions, home loans, rentals, property management, and post-sales support."
 }
 
 export default Footer;

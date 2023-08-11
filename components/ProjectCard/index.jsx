@@ -26,7 +26,7 @@ function ProjectCard(props) {
     name: projectInfo?.name || 'none',
     price: projectInfo?.price || 'none',
     picturePath: projectInfo?.image || '/assets/images/image-loader.svg',
-    provider: projectInfo?.provider || 'sqfthomes',
+    provider: projectInfo?.provider || 'company_name',
     address: projectInfo?.address || 'none',
     rooms: projectInfo?.rooms || false,
     bathrooms: projectInfo?.bathrooms || false,

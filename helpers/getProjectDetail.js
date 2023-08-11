@@ -22,7 +22,7 @@ export const getProjectDetail = async (projectId) => {
             price: product?.price || 'none',
             imageArr: product?.images ? product?.images.map(data => data.url) : [],
             tags: product?.tags ? product?.tags.map(data => data.value) : [],
-            provider: product?.provider || 'by sqfthomes',
+            provider: product?.provider || 'by company_name',
             address: product?.addressDetails,
             rooms: product?.bedrooms || false,
             bathrooms: product?.bathroom || false,

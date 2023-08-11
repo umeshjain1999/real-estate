@@ -6,26 +6,26 @@ function Terms() {
         <div className="static__title">{title}</div>
         <InitialSlide>
           <div className="static__desc">
-            sqfthomes.in the website is owned and operated by Sqfthomes Property
-            Solutions Pvt Ltd Sqfthomes Property Solutions Pvt Ltd has created
+            company_name.in the website is owned and operated by company_name Property
+            Solutions Pvt Ltd company_name Property Solutions Pvt Ltd has created
             this privacy statement in order to demonstrate our commitment to our
             users privacy We may use an IP address to help diagnose problems with
             our server and to administer our Web site. Your IP address may be also
             used to gather broad demographic information Neat layout without
-            clutter and unnecessary advertisements Sqfthomesl.com contains links
-            to other Websites. Sqfthomes Property Solutions Pvt Ltd. is not
+            clutter and unnecessary advertisements company_namel.com contains links
+            to other Websites. company_name Property Solutions Pvt Ltd. is not
             responsible for the privacy practices or the content of such Web
             sites. We may use a third-party ad company to display ads on
-            sqfthomes.in (e.g. Google AdSense). These ads may contain cookies.
+            company_name.in (e.g. Google AdSense). These ads may contain cookies.
             While we may use cookies in other parts of our Web sites, cookies
             received with banner ads are collected by our ad company, and we do
             not have access to this information. Certifiable information is
-            collected from users and/or registered members of sqfthomes.in which
+            collected from users and/or registered members of company_name.in which
             includes, but may not be limited to Email address Contact person name
             User-created password Mailing address Pin code Telephone number or
             another contact number Except where you are explicitly informed,
-            Sqfthomes Property Solutions Pvt Ltd does not sell or trade any of
-            your personal information sqfthomes.in may tie-up with pre-verified
+            company_name Property Solutions Pvt Ltd does not sell or trade any of
+            your personal information company_name.in may tie-up with pre-verified
             and qualified partners to bring you related services. We will
             selectively share your personal information to ensure high-quality
             services. We encourage you to review the privacy policy of the partner

@@ -109,7 +109,7 @@ export const getCartProjects = async ({ cartId = '' }) => {
         name: product?.title,
         price: product?.price || 'none',
         image: product?.thumbnail,
-        provider: product?.provider || 'by sqfthomes',
+        provider: product?.provider || 'by company_name',
         address: product?.addressDetails,
         rooms: product?.bedrooms || false,
         bathrooms: product?.bathroom || false,

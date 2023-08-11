@@ -82,14 +82,14 @@ const bannerInfo = {
 };
 
 const introInfo = {
-  mainTitle: "How Sqfthome can help",
-  mainDesc: "Sqfthome provides an awesome solution!",
+  mainTitle: "How company_name can help",
+  mainDesc: "company_name provides an awesome solution!",
   buyTitle: "Buy a home",
   rentTitle: "Rent a home",
   buyDesc:
-    "With over 1 million+ homes for sale available on the website, Sqfthome can match you with a house you will want to call home.",
+    "With over 1 million+ homes for sale available on the website, company_name can match you with a house you will want to call home.",
   rentDesc:
-    "With over 1 million+ homes for sale available on the website, Sqfthome can match you with a house you will want to call home.",
+    "With over 1 million+ homes for sale available on the website, company_name can match you with a house you will want to call home.",
 };
 
 const brandInfo = {
@@ -106,7 +106,7 @@ const reviewInfo = {
       name: "Karan Jain",
       feature: "Service",
       review:
-        "SqftHome have helped me in a good knowledge for buying property, made me feel comfortable in their work environment, helped me deal with my property financial goals and a lotmore which otherwise I wouldn’t have gained.",
+        "company_name have helped me in a good knowledge for buying property, made me feel comfortable in their work environment, helped me deal with my property financial goals and a lotmore which otherwise I wouldn’t have gained.",
       // profileImagePath : '/'
     },
     {
@@ -120,7 +120,7 @@ const reviewInfo = {
       name: "Vivek Yadav",
       feature: "Service",
       review:
-        "Had good exp with SqftHome. The team were very informative . They suggest properties based on our requirement. They also provide end to end support in the process. They are professional and responsive.",
+        "Had good exp with company_name. The team were very informative . They suggest properties based on our requirement. They also provide end to end support in the process. They are professional and responsive.",
       // profileImagePath : '/'
     },
     {
@@ -134,7 +134,7 @@ const reviewInfo = {
       name: "Mr. Manav Mehta",
       feature: "Service",
       review:
-        "Great support from Shrikant  and Complete team of  SqftHome in answering all our queries and concerns in choosing the flat in Navi Mumbai !",
+        "Great support from Shrikant  and Complete team of  company_name in answering all our queries and concerns in choosing the flat in Navi Mumbai !",
       // profileImagePath : '/'
     },
   ],

@@ -6,7 +6,7 @@ const projectsDataManipulation = (allProjects) => {
          name: data?.title,
          price: data?.price || 'none',
          image: data?.thumbnail,
-         provider: data?.provider || 'by sqfthomes',
+         provider: data?.provider || 'by company_name',
          address: data?.addressDetails,
          rooms: data?.bedrooms || false,
          bathrooms: data?.bathroom || false,
